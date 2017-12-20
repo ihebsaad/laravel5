@@ -1,14 +1,15 @@
 @extends('template')
 
 @section('header')
-    @if(Auth::check())
-        <div class="btn-group pull-right">
-            {!! link_to_route('post.create', 'Créer un article', [], ['class' => 'btn btn-info']) !!}
-            {!! link_to('logout', 'Deconnexion', ['class' => 'btn btn-warning']) !!}
-        </div>
-    @else
-        {!! link_to('login', 'Se connecter', ['class' => 'btn btn-info pull-right']) !!}
-    @endif
+    <div class="btn-group pull-right">
+        {!! link_to('language', session('locale') == 'fr' ? 'English' : 'Français', ['class' => 'btn btn-primary']) !!}
+        @if(Auth::check())
+            {!! link_to_route('post.create', trans('blog.creation'), [], ['class' => 'btn btn-info']) !!}
+            {!! link_to('logout', trans('blog.logout'), ['class' => 'btn btn-warning']) !!}
+        @else
+            {!! link_to('login', trans('blog.login'), ['class' => 'btn btn-info pull-right']) !!}
+        @endif
+    </div>
 @endsection
 
 @section('contenu')
@@ -33,11 +34,11 @@
                     <p>{{ $post->contenu }}</p>
                     @if(Auth::check() and Auth::user()->admin)
                         {!! Form::open(['method' => 'DELETE', 'route' => ['post.destroy', $post->id]]) !!}
-                        {!! Form::submit('Supprimer cet article', ['class' => 'btn btn-danger btn-xs ', 'onclick' => 'return confirm(\'Vraiment supprimer cet article ?\')']) !!}
+                        {!! Form::submit(trans('blog.delete'), ['class' => 'btn btn-danger btn-xs ', 'onclick' => 'return confirm(\'' . trans('blog.confirm') . '\')']) !!}
                         {!! Form::close() !!}
                     @endif
                     <em class="pull-right">
-                        <span class="glyphicon glyphicon-pencil"></span> {{ $post->user->name }} le {!! $post->created_at->format('d-m-Y') !!}
+                        <span class="glyphicon glyphicon-pencil"></span> {{ $post->user->name . ' ' . trans('blog.on') . ' ' . $post->created_at }}
                     </em>
                 </section>
             </div>
