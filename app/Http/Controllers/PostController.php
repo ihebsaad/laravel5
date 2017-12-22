@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Repositories\PostRepository;
 use App\Repositories\TagRepository;
 use App\Http\Requests\PostRequest;
+use Carbon\Carbon;
+
 
 class PostController extends Controller
 {
@@ -12,10 +14,11 @@ class PostController extends Controller
     protected $postRepository;
 
     protected $nbrPerPage = 4;
+    protected $date ;
 
     public function __construct(PostRepository $postRepository)
     {
-        $this->middleware('auth', ['except' => ['index', 'indexTag']]);
+        $this->middleware('auth', ['except' => ['index', 'indexTag', 'language']]);
         $this->middleware('admin', ['only' => 'destroy']);
 
         $this->postRepository = $postRepository;
@@ -61,7 +64,14 @@ class PostController extends Controller
         $links = $posts->render();
 
         return view('posts.liste', compact('posts', 'links'))
-            ->with('info', 'Résultats pour la recherche du mot-clé : ' . $tag);
+            ->with('info', trans('blog.search') . $tag);
+    }
+
+    public function language()
+    {
+        session()->put('locale', session('locale') == 'fr' ? 'en' : 'fr');
+
+        return redirect()->back();
     }
 
 }

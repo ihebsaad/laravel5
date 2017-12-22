@@ -3,13 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Presenters\DatePresenter;
 use Carbon\Carbon;
 
 class Post extends Model
 {
+    use DatePresenter;
 
     protected $fillable = ['titre','contenu','user_id'];
- //// $created_at = echo date('01/01/2017');
 
     public function user()
     {
@@ -20,4 +21,5 @@ class Post extends Model
     {
         return $this->belongsToMany('App\Tag');
     }
+
 }

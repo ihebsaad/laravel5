@@ -47,3 +47,5 @@ Route::get('post/tag/{tag}', 'PostController@indexTag');
 
 Route::auth();
 Route::get('/home', 'HomeController@index');
+
+Route::get('language', 'PostController@language');
