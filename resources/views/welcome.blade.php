@@ -81,6 +81,11 @@
                 <div class="title m-b-md">
                    SAAD
                 </div>
+<?php \Log::info('Here'); ?>
+<?php \Log::debug('Here'); ?>
+<?php \Log::notice('Here'); ?>
+
+<?php \Log::error('Here'); ?>
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
