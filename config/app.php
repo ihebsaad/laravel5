@@ -38,7 +38,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', false),
+    'debug' => env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -105,7 +105,8 @@ return [
 
     'key' => env('APP_KEY'),
 
-    'cipher' => 'AES-256-CBC',
+   'cipher' => 'AES-256-CBC',
+   // 'cipher' => 'AES-128-CBC',
 
     /*
     |--------------------------------------------------------------------------
@@ -163,6 +164,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+		Barryvdh\Debugbar\ServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -204,6 +206,7 @@ return [
         'Cookie' => Illuminate\Support\Facades\Cookie::class,
         'Crypt' => Illuminate\Support\Facades\Crypt::class,
         'DB' => Illuminate\Support\Facades\DB::class,
+		'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Eloquent' => Illuminate\Database\Eloquent\Model::class,
         'Event' => Illuminate\Support\Facades\Event::class,
         'File' => Illuminate\Support\Facades\File::class,
