@@ -164,7 +164,11 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+<<<<<<< HEAD
 		Barryvdh\Debugbar\ServiceProvider::class,
+=======
+		Distilleries\Logentries\LogentriesServiceProvider::class,
+>>>>>>> logenteries
 
         /*
          * Package Service Providers...

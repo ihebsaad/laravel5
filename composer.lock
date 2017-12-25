@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "891643da8b3dacbdb64aabe2733df5a5",
+    "content-hash": "d268a96a68436a6fb01ef7efb347100e",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -138,6 +138,49 @@
                 "lpm"
             ],
             "time": "2017-11-06T19:03:05+00:00"
+        },
+        {
+            "name": "distilleries/logentries",
+            "version": "1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Distilleries/Logentries.git",
+                "reference": "51490158f56a546c79add763e0754f9edcd65cb3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Distilleries/Logentries/zipball/51490158f56a546c79add763e0754f9edcd65cb3",
+                "reference": "51490158f56a546c79add763e0754f9edcd65cb3",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/log": "^5.3",
+                "logentries/logentries": "^1.6",
+                "php": ">=5.6.4"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "orchestra/testbench": "3.3.*",
+                "phpunit/phpunit": "~4.5"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [],
+                "psr-4": {
+                    "Distilleries\\Logentries\\": "src/Distilleries/Logentries"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maxime Francois",
+                    "email": "kezho@me.com"
+                }
+            ],
+            "time": "2016-10-11T16:11:42+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1005,6 +1048,42 @@
                 "twitter"
             ],
             "time": "2016-08-17T00:36:58+00:00"
+        },
+        {
+            "name": "logentries/logentries",
+            "version": "1.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/logentries/le_php.git",
+                "reference": "43beb04c45957c2820399f7a4d116b0324ad1c87"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/logentries/le_php/zipball/43beb04c45957c2820399f7a4d116b0324ad1c87",
+                "reference": "43beb04c45957c2820399f7a4d116b0324ad1c87",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "./"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mark Lacomber",
+                    "email": "marklacomber@gmail.com"
+                }
+            ],
+            "description": "Logging library for use with Logentries",
+            "time": "2014-06-17T08:42:10+00:00"
         },
         {
             "name": "maximebf/debugbar",
