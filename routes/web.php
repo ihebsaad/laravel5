@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
 
 Route::get('{n}', function($n) {
@@ -47,5 +47,12 @@ Route::get('post/tag/{tag}', 'PostController@indexTag');
 
 Route::auth();
 Route::get('/home', 'HomeController@index');
-
+Route::get('/', ['as' => 'home', 'uses' => 'IndexController@index']);
 Route::get('language', 'PostController@language');
+
+
+Route::get('/login', ['as' => 'login', 'uses' => 'IndexController@login']);
+Route::get('/logout', ['as' => 'logout', 'uses' => 'IndexController@logout'])->middleware('auth');
+Route::get('/dump', ['as' => 'dump', 'uses' => 'IndexController@dump', 'middleware' => 'auth'])->middleware('auth');
+
+Route::get('/auth0/callback', ['as' => 'logincallback', 'uses' => '\Auth0\Login\Auth0Controller@callback']);
