@@ -2,6 +2,8 @@
 <head>
     <title>SIM Activation</title>
     <link href="https://cdn.auth0.com/styleguide/4.8.10/index.min.css" rel="stylesheet" />
+  <link rel="shortcut icon" href="{{ asset('img/favicon.jpg') }}">
+
 </head>
 <body>
 

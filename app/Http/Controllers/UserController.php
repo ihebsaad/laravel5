@@ -25,10 +25,14 @@ class UserController extends Controller
 
     public function index()
     {
+        $isLoggedIn = \Auth::check();
+
         $users = $this->userRepository->getPaginate($this->nbrPerPage);
         $links = $users->render();
 
-        return view('index', compact('users', 'links'));
+        return view('index', compact('users', 'links')  )
+            ->with('isLoggedIn', $isLoggedIn);
+
     }
 
    public function create()
