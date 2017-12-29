@@ -1,0 +1,67 @@
+<!-- password strength notice style -->
+<style>
+
+.wrapper {
+  margin: 32px;
+  position: relative;
+}
+
+.show {
+  display: block !important;
+}
+
+.password-indicator__header-suffix {
+  text-transform: uppercase;
+}
+
+.password-indicator__boxes {
+  line-height: 24px;
+  vertical-align: middle;
+}
+
+.password-indicator__box {
+  display: inline-block;
+  box-sizing: border-box;
+  width: calc(25% - 3px);
+  background-color: #BCBCBC;
+  height: 8px;
+}
+
+.password-indicator__box + .password-indicator__box {
+  margin-left: 4px;
+}
+
+.password-indicator--strength-1 .password-indicator__box:nth-child(1) {
+    background-color: #ed5756;
+}
+
+.password-indicator--strength-2 .password-indicator__box:nth-child(-n + 2) {
+  background-color: #f5d249;
+}
+
+.password-indicator--strength-3 .password-indicator__box:nth-child(-n + 3) {
+   background-color: #75cb81;
+}
+
+.password-indicator--strength-4 .password-indicator__box {
+  background-color: #75cb81;
+}
+
+.password-indicator__requirements {
+  text-align: left;
+}
+
+.password-indicator__requirement {
+  line-height: 24px;
+  color: #BCBCBC;
+}
+
+.password-indicator__requirement.password-indicator__requirement--valid {
+  color: #ffffff;
+}
+
+.password-indicator__requirement svg {
+  fill: currentColor;
+  margin-right: 8px;
+}
+</style>
