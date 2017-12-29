@@ -27,7 +27,7 @@ border-radius: 1rem;
 	background-color: #ffffff!important;
 }
 .navbar-toggler-icon {
-    background-color: #72a1d5!important;
+    background-color: #2ab9dd!important;
 }
 #navbarHeader {
     background-color:#366db3!important;
