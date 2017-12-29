@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-@include('layout.partials.head')
-@include('layout.partials.headnewaccount')
+@include('layouts.partials.head')
+@include('layouts.partials.headnewaccount')
 </head>
 <body>
-@include('layout.partials.nav')
-@include('layout.partials.header')
+@include('layouts.partials.nav')
+@include('layouts.partials.header')
 @yield('content')
-@include('layout.partials.footernewaccount')
+@include('layouts.partials.footernewaccount')
 </body>
 </html>

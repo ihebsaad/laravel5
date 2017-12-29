@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-@include('layout.partials.head')
+@include('layouts.partials.head')
 </head>
 <body>
-@include('layout.partials.nav')
-@include('layout.partials.header')
+@include('layouts.partials.nav')
+@include('layouts.partials.header')
 @yield('content')
-@include('layout.partials.footer-scripts')
+@include('layouts.partials.footer-scripts')
 </body>
 </html>
