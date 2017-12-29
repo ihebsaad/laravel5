@@ -113,7 +113,7 @@
             </div>
         </div>
  </form>
- <img src="findyourpin.jpg" id="myImg"  alt="Find Your PIN" style="width:400px;margin-left:-16px;"/>
+ <img src="public/findyourpin.jpg" id="myImg"  alt="Find Your PIN" style="width:400px;margin-left:-16px;"/>
 <!-- The Modal -->
 <div id="myModal" class="modal">
   <span class="close">&times;</span>
