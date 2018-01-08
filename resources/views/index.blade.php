@@ -61,7 +61,7 @@ $.ajax(settings).done(function (response) {
   console.log(response);
 });
 }*/
-
+/*
 function clickfn(){
 
 
@@ -90,7 +90,7 @@ $.ajax(settings).done(function (response) {
 .fail( function(xhr, textStatus, errorThrown) {
         alert('failure'+textStatus);
     });
-}
+}*/
 /*function register(){
 	var email=document.getElementById('email').value;
 	var pw=document.getElementById('password').value;
@@ -149,4 +149,27 @@ request(options, function (error, response, body) {
     });
     auth0.crossOriginVerification();
   </script>-->
+  <script>
+  var request = require("request");
+
+var options = { method: 'POST',
+  url: 'https://raniasaad.eu.auth0.com/oauth/ro',
+  headers: { 'content-type': 'application/json', 'accept': 'application/json' },
+  body:
+   { connection: 'databaseserver',
+     grant_type: 'PASSWORD',
+     username: 'myaccount2',
+     client_id: 'JBL90aJJc4ZG7DxcIfITrYB-UrjbvY_u',
+     password: 'mypassword2',
+     scope: '',
+    // id_token: 'ID_TOKEN',
+     device: ''},
+  json: true };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+  </script>
 @stop
