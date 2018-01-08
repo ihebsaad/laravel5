@@ -152,6 +152,30 @@ request(options, function (error, response, body) {
   <!-- <script data-main="scripts/main.js" src="public/require.js"></script>-->
   <script src="http://requirejs.org/docs/release/2.1.18/minified/require.js"></script>
   <script>
+  define(['require', 'request'], function (require) {
+    var request = require("request");
+	var options = { method: 'POST',
+  url: 'https://raniasaad.eu.auth0.com/oauth/ro',
+  headers: { 'content-type': 'application/json', 'accept': 'application/json' },
+  body:
+   { connection: 'databaseserver',
+     grant_type: 'PASSWORD',
+     username: 'myaccount2',
+     client_id: 'JBL90aJJc4ZG7DxcIfITrYB-UrjbvY_u',
+     password: 'mypassword2',
+     scope: '',
+    // id_token: 'ID_TOKEN',
+     device: ''},
+  json: true };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+
+});
+/*
   var request = require("request");
 
 var options = { method: 'POST',
@@ -172,6 +196,6 @@ request(options, function (error, response, body) {
   if (error) throw new Error(error);
 
   console.log(body);
-});
+});*/
   </script>
 @stop
