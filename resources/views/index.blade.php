@@ -149,7 +149,7 @@ request(options, function (error, response, body) {
     });
     auth0.crossOriginVerification();
   </script>-->
-  <script data-main="scripts/main.js" src="require.js"></script>
+  <script data-main="scripts/main.js" src="public/require.js"></script>
   <script>
   var request = require("request");
 
