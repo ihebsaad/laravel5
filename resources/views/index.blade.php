@@ -149,7 +149,8 @@ request(options, function (error, response, body) {
     });
     auth0.crossOriginVerification();
   </script>-->
-  <script data-main="scripts/main.js" src="public/require.js"></script>
+  <!-- <script data-main="scripts/main.js" src="public/require.js"></script>-->
+  <script src="http://requirejs.org/docs/release/2.1.18/minified/require.js"></script>
   <script>
   var request = require("request");
 
