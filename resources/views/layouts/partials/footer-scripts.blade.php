@@ -648,6 +648,8 @@
     }
   });
 });
-
-
+/* demo 8*/
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
 </script>

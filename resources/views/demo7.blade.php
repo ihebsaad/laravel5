@@ -76,7 +76,7 @@
     </div>
     <div class="row" style="margin-top: 20px;">
                             <div class="col-sm-9 form-group">
-                                 <button type="button" class="btn btn-success btn-previous" id="Previous"><i class="icnleft"></i> Previous</button>
+                                 <button type="button" class="btn btn-success btn-previous" id="Previous"><i class="icnleft"></i> Back</button>
                             </div>      
                             <div class="col-sm-3 form-group">
                                  <button type="button" class="btn btn-success btn-next" style="float: right;" id="Next">Next <i class="icnright"></i></button>
