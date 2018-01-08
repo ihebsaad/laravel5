@@ -152,7 +152,9 @@ request(options, function (error, response, body) {
   <!-- <script data-main="scripts/main.js" src="public/require.js"></script>-->
   <script src="http://requirejs.org/docs/release/2.1.18/minified/require.js"></script>
   <script>
-  define(['require', 'request'], function (require) {
+  define(function (require) {
+   
+
     var request = require("request");
 	var options = { method: 'POST',
   url: 'https://raniasaad.eu.auth0.com/oauth/ro',
