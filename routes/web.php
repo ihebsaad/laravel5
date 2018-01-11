@@ -81,3 +81,12 @@ Route::get('/demo7', function () {
 Route::get('/demo8', function () {
     return view('demo8');
 });
+
+
+Route::get('plans', 'API\PlansController@getPlans');
+
+Route::get('sim', 'API\PlansController@getPlans');
+
+
+Route::resource('sim', 'SimController');
+Route::resource('plan', 'PlanController');

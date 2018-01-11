@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <link rel="shortcut icon" href="{{{ asset('img/favicon.png') }}}">
+    <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ trans('blog.site') }}</title>
+    <title>IRISTEL Activation Portal</title>
     {!! Html::style('https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css') !!}
 		{!! Html::style('https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css') !!}
 		<!--[if lt IE 9]>
@@ -15,12 +15,6 @@
     <style> textarea { resize: none; } </style>
 </head>
 <body>
-<header class="jumbotron">
-    <div class="container">
-        <h1 class="page-header">{!! link_to_route('post.index', trans('blog.title')) !!}</h1>
-        @yield('header')
-    </div>
-</header>
 <div class="container">
     @yield('contenu')
 </div>
