@@ -1327,20 +1327,6 @@ $('#password, #confirm_password').on('keyup', function () {
   
       </div>
     </form>
-	 
-	 
- 	   	   <p ng-bind="formParams.pin"> </p>
-	   	   <p>PIN: {{formParams.pin}}</p>
-
-          <p>Customer Type: {{formParams.customer}}</p>
-
-          <p>First name: {{formParams.first}}</p>
-          <p>Last name: {{formParams.last}}</p>
-          <p>Email: {{formParams.email}}</p>
-          <p>Plan Type : {{formParams.plantypes}}</p>
-          <p>Plan Code : {{formParams.plancode}}</p>
-          <p>Amount: {{formParams.plancharge}}</p> 
-          <p>Phone Number: {{formParams.phonenumber}}</p> 
 
 		  
   </div>
