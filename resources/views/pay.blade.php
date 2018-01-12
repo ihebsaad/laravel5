@@ -1,6 +1,6 @@
 @extends('layouts.mainlayout')
 <?php
-require 'test.enterpriseesolutions.com/public/moneris/lib/Moneris.php';
+require 'http://test.enterpriseesolutions.com/public/moneris/lib/Moneris.php';
 ?>
 <style>
 
