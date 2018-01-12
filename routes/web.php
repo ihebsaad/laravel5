@@ -81,3 +81,6 @@ Route::get('/demo7', function () {
 Route::get('/demo8', function () {
     return view('demo8');
 });
+Route::get('/pay', function () {
+    return view('pay');
+});
