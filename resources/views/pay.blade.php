@@ -1,7 +1,7 @@
 @extends('layouts.mainlayout')
 <?php
-define('ROOTUP', realpath(__DIR__ . '/public/moneris/lib/') . DS);
-require ROOTUP . 'Moneris.php';
+//define('ROOTUP', realpath(__DIR__ . '/public/moneris/lib/') . DS);
+require '/var/www/vhosts/localhost.localdomain/httpdocs/Apps/Sales00/Moneris.php';
 
 ?>
 <style>
