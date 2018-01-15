@@ -45,8 +45,8 @@ if (! empty($_POST)) {
         */  
             $params = array(
                 'cc_number' => '4242424242424242',
-                //'order_id' => 'test' . date("dmy-G:i:s"),
-                'order_id' => 'testorderhs',
+                'order_id' => 'icewireless-or' . date("dmy-G:i:s"),
+                //'order_id' => 'testorderhs',
                 'amount' => '20.00',
                 'expiry_month' => '08',
                 'expiry_year' => '18'
