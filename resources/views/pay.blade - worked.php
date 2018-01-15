@@ -2,12 +2,18 @@
 <?php
 //define('ROOTUP', realpath(__DIR__ . '/public/moneris/lib/') . DS);
 require '/var/www/vhosts/localhost.localdomain/httpdocs/Apps/Sales00/public/moneris/lib/Moneris.php';
-/*
+
 $errors = array();
 
 if (! empty($_POST)) {
-
-    print_r($_POST);
+    // use the testing server for the demo:
+    /*$moneris = Moneris::create(
+        array(
+            'api_key' => 'yesguy', // Under Admin / Store Settings
+            'store_id' => 'store1',
+            'environment' => Moneris::ENV_STAGING
+        )
+    );*/
     $moneris = Moneris::create(
     array(
         'api_key' => 'yesguy',
@@ -18,7 +24,25 @@ if (! empty($_POST)) {
         'require_cvd' => false
     ));
 
-    try { 
+    try {
+        /*
+        // try to make the purchase:
+        $result = $moneris->purchase($_POST);
+
+        if ($result->was_successful()) {
+            // display transaction ID
+            //$transaction = $moneris->void($result->transaction());
+            // echo "Transaction ID: ".$transaction;
+            print_r($_POST);
+            // hooray!
+            exit("transaction was successful");
+
+        } else {
+
+            exit();
+
+        }
+        */  
             $params = array(
                 'cc_number' => '4242424242424242',
                 'order_id' => 'icewireless-or' . date("dmy-G:i:s"),
@@ -41,7 +65,7 @@ if (! empty($_POST)) {
         } catch (Moneris_Exception $e) {
                 $errors[] = $e->getMessage();
         }
-        }*/
+        }
 ?>
 <style>
 
@@ -125,6 +149,39 @@ fieldset.scheduler-border {
 </style>
 <script>
 
+        function doMonerisSubmit()
+        {
+            var monFrameRef = document.getElementById('monerisFrame').contentWindow;
+            monFrameRef.postMessage('','https://esqa.moneris.com/HPPtoken/index.php');
+            return false;
+        }
+
+        var respMsg = function(e)
+        {
+            var respData = eval("(" + e.data + ")");
+            document.getElementById("monerisResponse").innerHTML = e.origin + " SENT " + " - " + respData.responseCode + "-" + respData.dataKey + "-" + respData.errorMessage;
+
+            if (respData.dataKey) {
+                document.getElementById('data_key').value = respData.dataKey;
+                document.getElementById('form').submit();
+            }
+
+        }
+
+        window.onload = function()
+        {
+            if (window.addEventListener)
+            {
+                window.addEventListener ("message", respMsg, false);
+            }
+            else
+            {
+                if (window.attachEvent)
+                {
+                    window.attachEvent("onmessage", respMsg);
+                }
+            }
+        }
     </script>
 @section('content')
 <section class="jumbotron text-center">
@@ -133,23 +190,20 @@ fieldset.scheduler-border {
 </div>
 </section>
 <div class="container center_div">
-<FORM METHOD="POST" ACTION= https://esqa.moneris.com/HPPDP/index.php >
+<div id=monerisResponse></div>
 
-     <INPUT TYPE="HIDDEN" NAME="ps_store_id" VALUE="69FLHtore1">
+<!-- Get token under Admin / Hosted Tokenization (domain must match URL where iFrame will be located) -->
+<iframe id=monerisFrame src="https://esqa.moneris.com/HPPtoken/index.php?id=htFQK4LT37LV76Q&css_body=background:white;&css_textbox=border-width:2px;&css_textbox_pan=width:140px;&display_labels=1&enable_exp=1&css_textbox_exp=width:40px;&enable_cvd=1&css_textbox_cvd=width:40px" frameborder='0' width="200" height="120"></iframe>
 
-     <INPUT TYPE="HIDDEN" NAME="hpp_key" VALUE="hpJM8HDJDSXP">
+<form method="post" id="form">
+    <p><input name="amount" type="text" placeholder="Amount" required></p>
+    <p><input name="order_id" type="text" placeholder="Order ID" required></p>
+    <p><input name="data_key" id="data_key" type="text" placeholder="Data key" readonly></p>
+</form>
 
-     <INPUT TYPE="HIDDEN" NAME="charge_total" VALUE="105.00">
-     <INPUT TYPE="HIDDEN" NAME="expdate" VALUE="0818">
-     <!--MORE OPTIONAL VARIABLES CAN BE DEFINED HERE -->
-     <INPUT TYPE="HIDDEN" NAME="bill_first_name" VALUE="John">
-     <INPUT TYPE="HIDDEN" NAME="bill_last_name" VALUE="Smith">
+<input type=button onClick=doMonerisSubmit() value="submit iframe">
 
-<input type="hidden" name="order_id" VALUE=<?php echo 'icewireless-or' . date("dmy-G:i:s"); ?> >
 
-    <INPUT TYPE="SUBMIT" NAME="SUBMIT" VALUE="Click to proceed to Secure Page">
-
-</FORM>
 <form>
     <fieldset class="scheduler-border" style="padding-top: 20px!important;">
         <legend class="scheduler-border" style="color: grey;">Total Due Today</legend>
