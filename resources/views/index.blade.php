@@ -21,22 +21,27 @@
  	 <script  src="public/js/jquery-3.2.1.min.js" type="text/javascript"> </script>
   <title>SIM Activation</title>
  <!--   <link href="https://cdn.auth0.com/styleguide/4.8.10/index.min.css" rel="stylesheet" />-->
+  <style> input.ng-valid.ng-dirty  {border:1px solid #5cb85c;}  input.ng-invalid.ng-dirty {border:1px solid #FA5858;}   </style>
 
 <script src="https://cdn.auth0.com/js/auth0/9.0.1/auth0.min.js"></script>
-</head>
 
+
+</head>
 <body>
-<div class="body1">
-  <style> input.ng-valid.ng-dirty  {border:1px solid #5cb85c;}  input.ng-invalid.ng-dirty {border:1px solid #FA5858;}   </style>
-<main ng-app="formApp" ng-controller="formCtrl" ng-cloak>
-  <div class="container">
-  <header class="site-header">
-    <nav role="navigation" class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-           <h1 class="navbar-brand"><a href="/"><span>Iristel</span></a></h1>
-        </div>
-        <div id="navbar-collapse" class="collapse navbar-collapse">
+
+<div class="navbar navbar-inverse bg-inverse">
+<div class="row">
+<div class="col-md-3">
+
+<div class="container d-flex justify-content-between">
+<a href="#" class="navbar-brand"><img src="public/logo.svg" class="img-responsive" /></a>
+</div>
+</div>
+<div class="col-md-6">
+</div>
+<div class="col-md-3">
+
+       <div id="navbar-collapse" class="collapse navbar-collapse">
        <?php
  
 
@@ -51,29 +56,21 @@ echo'
 
 </ul>';
 
-
-
-
 ?>
         </div>
-      </div>
-    </nav>
-  </header>
-<div id='div_session_write' style="display:none;"> </div>
-
-  
-    <div class="row">
-      <div class="col-md-12">&nbsp;</div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-       </div>
-    </div>
+        </div><!-- Col -->
+</div><!-- Row -->
+</div><!-- Navbar -->
+<main ng-app="formApp" ng-controller="formCtrl" ng-cloak>
+  <div class="container">
+   
     <form name="FormActivate" class="form-validation" role="form" novalidate>
       <div ng-switch on="stage" ng-class="{forward: direction, backward:!direction}">
-	  	
+
+	  
+
 		
-		<!--   Stage 4  : STAGE LOGIN   ------------------------------------------------------------>
+<!--   Stage 4  : STAGE LOGIN   ------------------------------------------------------------>
 		<div class="animate-switch" ng-switch-when="stageLogin">
  <section class="jumbotron text-center">
 <div class="container center_div">
@@ -88,10 +85,10 @@ echo'
     <div class="col-sm-4 col-sm-offset-4">
       <form name="login_form" id='login_form'>
   <div class="form-group">
-    <input type="email" class="form-control" id="useremail" placeholder="Email Address">
+    <input value="example@gmail.com" type="email" class="form-control" id="useremail" placeholder="Email Address">
   </div>
   <div class="form-group">
-    <input type="password" class="form-control" id="userpassword" placeholder="Password">
+    <input value="examplepw" type="password" class="form-control" id="userpassword" placeholder="Password">
   </div>
   <div class="row" style="margin-top: 20px;">
   <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
@@ -104,11 +101,7 @@ echo'
     </div>
 </form>
     </div>
-  </div>
-			 
-			 
-			 
-			 
+  </div> 
             <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 ">
 			<div class="row" style="margin-top: 20px;">
 
@@ -122,7 +115,7 @@ echo'
           </div>
         </div> <!-- End Stage  --> 
 
-
+		
 
  		
 		<!--   Stage 0   Pin Step  ------------------------------------------------------------>
@@ -138,8 +131,8 @@ echo'
             </div>
             <div class="form-group col-sm-4 col-md-4 col-lg-4 col-xs-4">
                  <button type="button" ng-click="next('stageTypeCustomer')" ng-disabled="FormActivate.$pristine || FormActivate.$invalid" class="btn btn-success btn-round">Continue</button> 
-                            <button type="button" ng-click="next('stagePlans')" ng-disabled="FormActivate.$pristine || FormActivate.$invalid" class="btn btn-success btn-round">plans</button> 
-</div>
+                <button type="button" ng-click="next('stageBilling')" ng-disabled="FormActivate.$pristine || FormActivate.$invalid" class="btn btn-success btn-round">Billing</button> 
+            </div>
         </div>
 		<div class="row">
 		  <div class="form-group col-sm-6">
@@ -161,6 +154,9 @@ echo'
 </div>
 </div>
 
+<!--
+<script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-animate.min.js'></script>-->
 <script>
  
  
@@ -199,8 +195,7 @@ img.onclick = function(){
 		<div class="animate-switch" ng-switch-when="stageTypeCustomer">
 		 <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
              <div class="row">
-			 			<!-- <p>PIN : <span ng-bind="0.pin"></span></p>-->
-<div class="container center_div" >
+ <div class="container center_div" >
          <div class="row" >
             <ol id="selectable">
                 <li style="width:250px;float:left;"   ng-click="newcustomer();" id="newcustomer" class="ui-state-default"><h5>A New Customer</h5><p>I've never done business with Ice Wirless before</p></li>
@@ -467,8 +462,8 @@ $('#password, #confirm_password').on('keyup', function () {
 		
 <!--   Stage 3  : STAGE PLANS    ------------------------------------------------------------>
 	
-<div class="animate-switch" ng-switch-when="stagePlans">
- <div ng-controller="PlansController" id="plans"  >
+<div class="animate-switch" ng-switch-when="stagePlans" id="plans" >
+<!-- <div ng-controller="PlansController"  >-->
 
    <div class="row"  >
    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 " style="width:100%"> 
@@ -500,7 +495,7 @@ $('#password, #confirm_password').on('keyup', function () {
 			</div>
             </div>
       <!-- </div>-->
- </div> <!-- Controller Plans>-->
+<!-- </div> <!-- Controller Plans>-->
 	   
 </div> <!-- End Stage  -->
  
@@ -508,7 +503,7 @@ $('#password, #confirm_password').on('keyup', function () {
 	<!--   Stage 5  STAGE PHONE NUMBERS  ---------------------------------------------------------->
 	<div class="animate-switch" ng-switch-when="stagePhone">
      
-	<div ng-controller="NumbersController" class="container center_div"  style="max-width: 850px!important;" >
+	<div   class="container center_div"  style="max-width: 850px!important;" >
 
     <div class="form-group">
         <div class="col-sm-12">
@@ -1201,18 +1196,18 @@ $('#password, #confirm_password').on('keyup', function () {
 			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('')"><i class="icnleft"></i>  Back</button>  
 			</div>
             <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
-				<button style="float:right" type="button" class="btn btn-primary btn btn-success btn-previous btn-md" id="next7" disabled ng-click="next('stageBilling')">Next  <i class="icnright"></i></button>
+				<button style="float:right" type="button" class="btn btn-primary btn btn-success btn-previous btn-md" id="next4" disabled ng-click="next('stageBilling')">Next  <i class="icnright"></i></button>
             </div>
 			</div>
-            </div><!-- end controller  
+     <!--</div><!-- end controller --> 
 
-	</div>  -- End Stage Phone numbers  -->		
+	</div>  <!-- End Stage Phone numbers  -->		
  
   
 
   
   
-<!--   Stage Billing     ----------------------------------------------------------->
+<!--   Stage Billing     ---------------------------------------------------------> 
 <div class="animate-switch" ng-switch-when="stageBilling">
  
 
@@ -1247,7 +1242,6 @@ $('#password, #confirm_password').on('keyup', function () {
                 </div>
             </div>
         </div>
-
         <div class="col-sm-12">
             <div class="row">
                 <div class="col-sm-4">
@@ -1264,7 +1258,7 @@ $('#password, #confirm_password').on('keyup', function () {
         <hr />
         <div id="creditcard" style="margin-top: 20px;" >
         <div class="form-group">
-            <input type="text"   class="form-control" id="cardholder" placeholder="Cardholder Name" ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="35"  ng-init="formParams.first" /></input>        </div>
+            <input type="text"   class="form-control" id="cardholder" placeholder="Cardholder Name" ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="35"  ng-model="formParams.cardholder"  /></input>        </div>
         <div class="form-group">
             <input type="number"  id="credit" name="creditCard"  ng-model="formParams.creditCard"  required  data-credit-card-type   data-ng-pattern="/^[0-9]+$/"  data-ng-minlength="15"     maxlength="19" class="form-control" id="cardnumber" placeholder="Card Number" />
 			    <ul ng-show="!FormActivate.$valid">
@@ -1323,7 +1317,7 @@ $('#password, #confirm_password').on('keyup', function () {
     </div>
     <div class="row" style="margin-left: -10px;margin-top: 20px;">
             <div class="checkbox" style="color: #464a4c;">
-                <label><input required id="atotopup2" name="atotopup" ng-model="atotopup" type="checkbox" value=""><span class="cr"><i class="cr-icon" style="font-size: 18px;left: 0px"><b>✓</b></i></span>  <b>I accept the terms of services</b></label>
+                <label><input required id="atotopup2" name="atotopup2" ng-model="atotopup2" type="checkbox" value=""><span class="cr"><i class="cr-icon" style="font-size: 18px;left: 0px"><b>✓</b></i></span>  <b>I accept the terms of services</b></label>
             </div>
         </div>
     </div>
@@ -1339,23 +1333,24 @@ $('#password, #confirm_password').on('keyup', function () {
 			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('')"><i class="icnleft"></i>  Back</button>  
 			</div>
             <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
-				<button style="float:right" type="button" style="float:right" class="btn btn-primary btn btn-success btn-previous btn-md" id="next4" ng-disabled="FormActivate.$pristine || FormActivate.$invalid"  ng-click="next()">Finish  </i></button>
+				<button style="float:right" type="button" style="float:right" class="btn btn-primary btn btn-success btn-previous btn-md" id="next5" ng-disabled="FormActivate.$pristine || FormActivate.$invalid"  ng-click="">Finish  </i></button>
             </div>
 			</div>
             </div>
 </div><!--   End Stage  -->		
-		
-
-  
+</div><!--   End controller  -->		
+		 
   
       </div>
     </form>
-
-		  
+	 
+	 
+ 
   </div>
 </main>
        
-
+ 
+ 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-animate.min.js'></script> 
 
@@ -1365,8 +1360,7 @@ $('#password, #confirm_password').on('keyup', function () {
   var URL = window.location.protocol + "//" + window.location.host ;
    // alert('URL'+URL);
   var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
- // alert('newURL'+newURL);
-  
+ 
   /*
 function login(){
 	
@@ -1390,7 +1384,7 @@ var settings = {
 $.ajax(settings).done(function (response) {
      token=response.access_token;
     access_token="Bearer "+token;
-  	 jQuery('#div_session_write').load(''+newURL+'public/session_write.php?access_token='+token);
+  	 jQuery('#div_session_write').load('http://127.0.0.1/laravel5/public/session_write.php?access_token='+token);
 	 document.getElementById('tokeninput').value = token;
 	//show user info
 	
@@ -1409,8 +1403,7 @@ $.ajax(settings).done(function (response) {
 }
 */
   function logout(){
-	  
-	  //var xmlhttp = getXmlHttp();
+		  //var xmlhttp = getXmlHttp();
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open('GET',''+newURL+'public/session_destroy.php', true);
     xmlhttp.onreadystatechange=function(){

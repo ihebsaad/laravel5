@@ -7,21 +7,20 @@ controller('formCtrl', ['$scope', '$http', function($scope, $http) {
   $scope.formParams = {};
   $scope.stage = "";
   $scope.formValidation = false;
- // $scope.toggleJSONView = false;
- // $scope.toggleFormErrorsView = false;
+ 
    // Navigation functions
   $scope.next = function (stage) {
-    //$scope.direction = 1;
-    //$scope.stage = stage;
+  
+  
+    //////$scope.formValidation = true;
     
-    $scope.formValidation = true;
-    
-    if ($scope.FormActivate.$valid) {
+   ////// if ($scope.FormActivate.$valid) {
       $scope.direction = 1;
       $scope.stage = stage;
-      $scope.formValidation = false;
-    }
+    /////  $scope.formValidation = false;
+    /////}
   };
+  
    $scope.showuserinfo = function(access_token) {
 
   var settings2 = {
@@ -44,7 +43,15 @@ $.ajax(settings2).done(function (response) {
   
 });
 }
-  
+      $http.get('https://gqnchpomjprsrfglg-mock.stoplight-proxy.io/plans').success(function (response2) {
+            $scope.myData = response2;
+        });
+		
+		  $http.get('https://jsonplaceholder.typicode.com/users').success(function (response3) {
+  //$http.get('https://jsonplaceholder.typicode.com/todos').success(function (response) {
+            $scope.NData = response3;
+		 		
+        });
  
   /*********          Login            ********/
    
@@ -69,10 +76,8 @@ var settings = {
 
 
 $.ajax(settings).done(function (response) {
-	 var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
- 
-//console.log('data'+response.access_token);
-    var  token=response.access_token;
+    var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
+  var  token=response.access_token;
    var  access_token="Bearer "+token;
   	 jQuery('#div_session_write').load(''+newURL+'public/session_write.php?access_token='+token);
 	 document.getElementById('tokeninput').value = token;
@@ -86,7 +91,8 @@ $.ajax(settings).done(function (response) {
 	 access_token="Bearer "+token;
 	$scope.showuserinfo(access_token);
 	$scope.next('stagePlans'); 
-	
+	$scope.$apply();
+	//////////
 });
 $.ajax(settings).fail(function (response) {
 console.log('fail');
@@ -97,26 +103,16 @@ console.log('fail');
 });
 
 
-
 }
 
- 
+  
  var $body = $("body");
 
 $(document).on({
     ajaxStart: function() { console.log('start');$body.addClass("loading");    },
      ajaxStop: function() { $body.removeClass("loading"); }    
-});
- 
- 
-
- /* $scope.formParams = {
-    ccEmail: '',
-    ccEmailList: []
-  };
-  */
- 
- 
+}); 
+  
 
   $scope.back = function (stage) {
     $scope.direction = 0;
@@ -226,23 +222,14 @@ $scope.Next="stageAccount";
   
   
  
+ 
   
   
   
-  
-  
-  
-  
-  
-}])
-.controller('PlansController',function($scope,$http) {
-	//  $scope.formParams = {};
-        //$http.get('https://jsonplaceholder.typicode.com/users').success(function(response){
-        // $http.get(thedata).success(function (response) {
-        //   $http.get(thedata).success(function(response){
-        $http.get('https://gqnchpomjprsrfglg-mock.stoplight-proxy.io/plans').success(function (response) {
-            $scope.myData = response;
-        });
+
+//.controller('PlansController',function($scope,$http) {
+ 
+    
         /*$scope.removeName = function (row) {
             $scope.myData.splice($scope.myData.indexOf(row), 1);
         }*/
@@ -253,8 +240,10 @@ $scope.Next="stageAccount";
 		  $('#plans ol li').css('color', '#454545');
 		  $('#plans ol li').css('backgroundColor', 'rgb(246, 246, 246)');
 		  
-			   document.getElementById('@'+plan).style.color='white';
-			   document.getElementById('@'+plan).style.backgroundColor='rgb(92, 184, 92)';
+			   document.getElementById(plan).style.color='white';
+			  // document.getElementById('@'+plan).style.color='white';
+			   document.getElementById(plan).style.backgroundColor='rgb(92, 184, 92)';
+			 //  document.getElementById('@'+plan).style.backgroundColor='rgb(92, 184, 92)';
 			   document.getElementById('next2').disabled=false;
 			    
  		 document.getElementById('plantypes').value=plantype;
@@ -277,15 +266,10 @@ $scope.Next="stageAccount";
 			
 		  }*/
 
-    })
-.controller('NumbersController',function($scope,$http) {
- // $scope.formParams = {};
+   // })
+//.controller('NumbersController',function($scope,$http) {
+ 
 
-  $http.get('https://jsonplaceholder.typicode.com/users').success(function (response) {
-  //$http.get('https://jsonplaceholder.typicode.com/todos').success(function (response) {
-            $scope.NData = response;
-		 		
-        });
 		//  here trigger
  $scope.setNum = function (num) {
   document.getElementById('phonenumber').value=num;
@@ -313,4 +297,6 @@ $scope.Next="stageAccount";
 	//input2.trigger('input'); 
   }
   
-});
+//});
+
+}]);
