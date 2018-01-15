@@ -7,12 +7,20 @@ $errors = array();
 
 if (! empty($_POST)) {
     // use the testing server for the demo:
-    $moneris = Moneris::create(
+    /*$moneris = Moneris::create(
         array(
             'api_key' => 'yesguy', // Under Admin / Store Settings
             'store_id' => 'store1',
             'environment' => Moneris::ENV_STAGING
         )
+    );*/
+    $config = array(
+        'api_key' => 'yesguy',
+        'store_id' => 'store1',
+        'environment' => Moneris::ENV_TESTING,
+        // optional:
+        'require_avs' => false, // default: false
+        'require_cvd' => false
     );
 
     try {
