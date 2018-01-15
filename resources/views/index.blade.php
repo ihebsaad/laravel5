@@ -1417,10 +1417,10 @@ $.ajax(settings).done(function (response) {
        if (xmlhttp.readyState == 4){
           if(xmlhttp.status == 200){
 			  if (newURL=='http://127.0.0.1/laravel5/'){
-				   window.location.replace('"'+newURL+'"');
+				   window.location.replace(newURL);
 			  }
 			  else{
-				   window.location.replace('"'+URL+'"');
+				   window.location.replace(URL);
 			  }
          //   window.location.replace("http://127.0.0.1/laravel5");
           
