@@ -1421,9 +1421,7 @@ $.ajax(settings).done(function (response) {
 			  }
 			  else{
 				   window.location.replace(URL);
-			  }
-         //   window.location.replace("http://127.0.0.1/laravel5");
-          
+			  }     
          }
        }
     };
