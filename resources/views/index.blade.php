@@ -1361,7 +1361,13 @@ $('#password, #confirm_password').on('keyup', function () {
 
 
  <script  src="public/js/index.js"></script>
-  <script type="text/javascript">/*
+  <script type="text/javascript">
+  var URL = window.location.protocol + "//" + window.location.host ;
+    alert('URL'+URL);
+  var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
+  alert('newURL'+newURL);
+  
+  /*
 function login(){
 	
 email= document.getElementById('useremail').value;
@@ -1384,7 +1390,7 @@ var settings = {
 $.ajax(settings).done(function (response) {
      token=response.access_token;
     access_token="Bearer "+token;
-  	 jQuery('#div_session_write').load('http://127.0.0.1/laravel5/public/session_write.php?access_token='+token);
+  	 jQuery('#div_session_write').load(''+newURL+'public/session_write.php?access_token='+token);
 	 document.getElementById('tokeninput').value = token;
 	//show user info
 	
@@ -1406,12 +1412,18 @@ $.ajax(settings).done(function (response) {
 	  
 	  //var xmlhttp = getXmlHttp();
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('GET','http://test.enterpriseesolutions.com/public/session_destroy.php', true);
+    xmlhttp.open('GET',''+newURL+'public/session_destroy.php', true);
     xmlhttp.onreadystatechange=function(){
        if (xmlhttp.readyState == 4){
           if(xmlhttp.status == 200){
+			  if (newURL=='http://127.0.0.1/laravel5/'){
+				   window.location.replace('"'+newURL+'"');
+			  }
+			  else{
+				   window.location.replace('"'+URL+'"');
+			  }
          //   window.location.replace("http://127.0.0.1/laravel5");
-           window.location.replace("http://test.enterpriseesolutions.com");
+          
          }
        }
     };

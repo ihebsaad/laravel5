@@ -69,11 +69,12 @@ var settings = {
 
 
 $.ajax(settings).done(function (response) {
-
+	 var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
+ 
 //console.log('data'+response.access_token);
     var  token=response.access_token;
    var  access_token="Bearer "+token;
-  	 jQuery('#div_session_write').load('http://test.enterpriseesolutions.com/public/session_write.php?access_token='+token);
+  	 jQuery('#div_session_write').load(''+newURL+'public/session_write.php?access_token='+token);
 	 document.getElementById('tokeninput').value = token;
 	//show user info
 	
