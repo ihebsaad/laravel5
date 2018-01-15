@@ -1363,9 +1363,9 @@ $('#password, #confirm_password').on('keyup', function () {
  <script  src="public/js/index.js"></script>
   <script type="text/javascript">
   var URL = window.location.protocol + "//" + window.location.host ;
-    alert('URL'+URL);
+   // alert('URL'+URL);
   var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
-  alert('newURL'+newURL);
+ // alert('newURL'+newURL);
   
   /*
 function login(){
