@@ -24,7 +24,7 @@ if (! empty($_POST)) {
             // display transaction ID
             /*$transaction = $moneris->void($result->transaction());
             echo "Transaction ID: ".$transaction;*/
-
+            print_r($_POST);
             // hooray!
             exit("transaction was successful");
 
