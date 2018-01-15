@@ -51,7 +51,7 @@
 
 echo'
 <ul class="nav navbar-nav navbar-right" id="logoutbtn" style="'.$style.'">
-<li><div class="row"><div class="col-sm-6"><h3 id="userinfo"></h3> </div><div class="col-sm-6"><button style="margin-top: 25px;"  onclick="logout();" class="signin-button login"> Logout</button></div></div></li>
+<li><div class="row"><div class="col-sm-9"><h4 id="userinfo"></h4> </div><div class="col-sm-3"><button style="margin-top: 25px;"  onclick="logout();" class="signin-button login"> Logout</button></div></div></li>
 
 </ul>';
 
@@ -98,12 +98,17 @@ echo'
 
   <div class="row">
     <div class="col-sm-4 col-sm-offset-4">
+	
       <form name="login_form" id='login_form'>
+	  <div style="display:none;" class="alert alert-danger">
+	  <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+	WRONG USERNAME OR PASSWORD.
+	</div>
   <div class="form-group">
-    <input value="example@gmail.com" type="email" class="form-control" id="useremail" placeholder="Email Address">
+    <input  type="email" ng-model="formParams.email" required ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" class="form-control" id="useremail" placeholder="Email Address">
   </div>
   <div class="form-group">
-    <input value="examplepw" type="password" class="form-control" id="userpassword" placeholder="Password">
+    <input  type="password" class="form-control" id="userpassword" placeholder="Password">
   </div>
   <div class="row" style="margin-top: 20px;">
   <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
@@ -149,9 +154,18 @@ echo'
 
 
   <form name="pwd_form" id='pwd_form'>
+    <div style="display:none;" id="Ssent" class="alert alert-success">
+	  <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+	We've just sent you an email to reset your password.
+	</div>
+	<div style="display:none;" id="Wmailrequired" class="alert alert-warning">
+	  <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+	The email is required.
+	</div>
   <div class="form-group">
-    <input type="email" class="form-control" id="useremail2" placeholder="Email Address">
-  </div>
+    <input type="email" ng-model="formParams.email" required ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" class="form-control" id="useremail2" placeholder="Email Address">
+                  
+ </div>
   <div class="row" style="margin-top: 20px;">
    <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 form-group">
             <a href="#" style="font-size:  18px;"  ng-click="back('stageLogin')">Cancel</a>
@@ -1478,8 +1492,10 @@ $.ajax(settings).done(function (response) {
   }
   
   function resetpassword(){
+	  document.getElementById("Ssent").style.display="none";
+	  document.getElementById("Wmailrequired").style.display="none";
 	  email= document.getElementById('useremail2').value;
-if(email==""){alert('Please enter you email');}
+if(email==""){$(".alert-warning").slideDown();}
 else{
 	var datatosend='{\"client_id\": \"JBL90aJJc4ZG7DxcIfITrYB-UrjbvY_u\",\"email\": \"'+email+'\",\"connection\": \"databaseserver\"}';
 
@@ -1500,6 +1516,7 @@ var settings = {
 
 $.ajax(settings).done(function (response) {
   console.log(response);
+  $(".alert-success").slideDown();
 });
 	  
 }	  
@@ -1513,12 +1530,7 @@ $.ajax(settings).done(function (response) {
 
 
 
-<div class="body2" style="display:none;"> 
 
-<center><h1 style="color:white;margin-top:18%;" >Oops</h1> </center>
-<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('')"><i class="icnleft"></i>  Back</button>  
-			
-</div>
 </body>
 <style>
 /* Start by settingkkdisplay:none to make this hidden.

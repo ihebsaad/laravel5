@@ -38,7 +38,7 @@ $.ajax(settings2).done(function (response) {
   console.log(response);
   //document.getElementById('ullogout').style="display:block;";
   document.getElementById('logoutbtn').style.display="block";
-  document.getElementById('userinfo').innerHTML=response.nickname;
+  document.getElementById('userinfo').innerHTML='Logged in as '+response.nickname;
 
   
 });
@@ -91,17 +91,19 @@ $.ajax(settings).done(function (response) {
 	}
 	else {token= document.getElementById('tokeninput').value;}
 	 access_token="Bearer "+token;
+	
 	$scope.showuserinfo(access_token);
 	$scope.next('stagePlans'); 
 	$scope.$apply();
 	//////////
 });
 $.ajax(settings).fail(function (response) {
-console.log('fail');
- $(".body1").css('display', 'none');
+	$(".alert-danger").slideDown();
+console.log('fail2');
+ /*$(".body1").css('display', 'none');
  $(".body2").css('display', 'block');
 
- $("body").css('background-color', '#337AB7');
+ $("body").css('background-color', '#337AB7');*/
 });
 
 
@@ -220,14 +222,7 @@ $scope.Next="stageAccount";
     $scope.formParams = {};
     $scope.stage = "";
   }
-  
-  
-  
- 
- 
-  
-  
-  
+
 
 //.controller('PlansController',function($scope,$http) {
  
