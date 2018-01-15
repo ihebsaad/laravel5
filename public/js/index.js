@@ -79,10 +79,12 @@ $.ajax(settings).done(function (response) {
     var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
   var  token=response.access_token;
    var  access_token="Bearer "+token;
+   console.log('before load');
   	 jQuery('#div_session_write').load(''+newURL+'public/session_write.php?access_token='+token);
-	 document.getElementById('tokeninput').value = token;
+ console.log('after load');	
+	document.getElementById('tokeninput').value = token;
 	//show user info
-	
+	 console.log('after save');
 	if (document.getElementById('tokeninput').value == null){
 	token= document.getElementById('div_session_write').innerHTML.substr(26);
 	

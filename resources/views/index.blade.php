@@ -44,8 +44,7 @@
        <div id="navbar-collapse" class="collapse navbar-collapse">
        <?php
  
-
-if (isset ($_SESSION['access_token']))
+ if (isset ($_SESSION['access_token']))
  {$style='display:block;';
  }else{
  $style='display:none';}
@@ -56,6 +55,21 @@ echo'
 
 </ul>';
 
+
+
+ 
+/*
+if (isset ($_SESSION['access_token']))
+ {$style='display:block;';
+ }else{
+ $style='display:none';}
+
+echo'
+<ul class="nav navbar-nav navbar-right" id="logoutbtn" style="'.$style.'">
+<li><div class="row"><div class="col-sm-6"><h3 id="userinfo"></h3> </div><div class="col-sm-6"><button style="margin-top: 25px;"  onclick="logout();" class="signin-button login"> Logout</button></div></div></li>
+
+</ul>';
+*/
 ?>
         </div>
         </div><!-- Col -->
@@ -63,7 +77,8 @@ echo'
 </div><!-- Navbar -->
 <main ng-app="formApp" ng-controller="formCtrl" ng-cloak>
   <div class="container">
-   
+   <div id='div_session_write' style="display:none;"> </div>
+
     <form name="FormActivate" class="form-validation" role="form" novalidate>
       <div ng-switch on="stage" ng-class="{forward: direction, backward:!direction}">
 
@@ -93,7 +108,7 @@ echo'
   <div class="row" style="margin-top: 20px;">
   <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
      
-            <a style="font-size: 16px;" onclick="resetpassword();" href="#">Forgot Password?</a>
+            <a style="font-size: 16px;" ng-click="next('stageForgotPassword')" href="#">Forgot Password?</a>
         </div>      
  <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
             <button ng-model="test" type="button" ng-click="login();" class="btn btn-success btn-round" style="float: right;margin-right: 0px;" >Login</button>
@@ -117,6 +132,46 @@ echo'
 
 		
 
+		<!--   Stage Forgot password    ------------------------------------------------------------>
+		<div class="animate-switch" ng-switch-when="stageForgotPassword">
+<section class="jumbotron text-center">
+<div class="container">
+<h1 class="jumbotron-heading">Forgot your password</h1>
+<h5>Not a problem. Enter your email adress below and well send you password reset instructions.</h5>
+</div>
+</section>
+
+ <div class="container center_div" >
+  <div class="row">
+ <div class="col-md-2 col-sm-2 col-xs-2 col-lg-2 ">
+ </div>
+ <div class="col-md-8 col-sm-8 col-xs-8 col-lg-8 ">
+
+
+  <form name="pwd_form" id='pwd_form'>
+  <div class="form-group">
+    <input type="email" class="form-control" id="useremail2" placeholder="Email Address">
+  </div>
+  <div class="row" style="margin-top: 20px;">
+   <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 form-group">
+            <a href="#" style="font-size:  18px;"  ng-click="back('stageLogin')">Cancel</a>
+        </div>      
+   <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 form-group">
+            <button type="button" onclick="resetpassword();" class="btn btn-success btn-round" id="sendpwd" style="float: right;margin-right: 0px;" >Send</button>
+        </div>  
+   </div>
+</form>
+</div>
+ <div class="col-md-2 col-sm-2 col-xs-2 col-lg-2 ">
+ </div>
+  </div>
+</div>	
+
+
+		 </div> <!-- End Stage  -->
+		
+		
+		
  		
 		<!--   Stage 0   Pin Step  ------------------------------------------------------------>
         <div class="animate-switch" ng-switch-default >
@@ -131,7 +186,7 @@ echo'
             </div>
             <div class="form-group col-sm-4 col-md-4 col-lg-4 col-xs-4">
                  <button type="button" ng-click="next('stageTypeCustomer')" ng-disabled="FormActivate.$pristine || FormActivate.$invalid" class="btn btn-success btn-round">Continue</button> 
-                <button type="button" ng-click="next('stageBilling')" ng-disabled="FormActivate.$pristine || FormActivate.$invalid" class="btn btn-success btn-round">Billing</button> 
+                <!--<button type="button" ng-click="next('stageBilling')" ng-disabled="FormActivate.$pristine || FormActivate.$invalid" class="btn btn-success btn-round">Billing</button> -->
             </div>
         </div>
 		<div class="row">
@@ -1423,8 +1478,9 @@ $.ajax(settings).done(function (response) {
   }
   
   function resetpassword(){
-	  email= document.getElementById('useremail').value;
-
+	  email= document.getElementById('useremail2').value;
+if(email==""){alert('Please enter you email');}
+else{
 	var datatosend='{\"client_id\": \"JBL90aJJc4ZG7DxcIfITrYB-UrjbvY_u\",\"email\": \"'+email+'\",\"connection\": \"databaseserver\"}';
 
 
@@ -1446,7 +1502,7 @@ $.ajax(settings).done(function (response) {
   console.log(response);
 });
 	  
-	  
+}	  
   }
 
 </script>
