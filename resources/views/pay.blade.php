@@ -16,14 +16,14 @@ if (! empty($_POST)) {
     );
 
     try {
-
+        /*
         // try to make the purchase:
         $result = $moneris->purchase($_POST);
 
         if ($result->was_successful()) {
             // display transaction ID
-            /*$transaction = $moneris->void($result->transaction());
-            echo "Transaction ID: ".$transaction;*/
+            //$transaction = $moneris->void($result->transaction());
+            // echo "Transaction ID: ".$transaction;
             print_r($_POST);
             // hooray!
             exit("transaction was successful");
@@ -33,11 +33,29 @@ if (! empty($_POST)) {
             exit();
 
         }
+        */
+            $params = array(
+                'cc_number' => '4242424242424242',
+                //'order_id' => 'test' . date("dmy-G:i:s"),
+                'order_id' => 'testorderhs',
+                'amount' => '20.00',
+                'expiry_month' => date('m', $time),
+                'expiry_year' => date('y', $time)
+            );
+            $result = $moneris->purchase($params);
+            if ($result->was_successful()) {
+            exit("transaction was successful");
 
-    } catch (Moneris_Exception $e) {
-        $errors[] = $e->getMessage();
-    }
-}
+            } else {
+
+                exit();
+
+            }
+
+        } catch (Moneris_Exception $e) {
+                $errors[] = $e->getMessage();
+        }
+        }
 ?>
 <style>
 
