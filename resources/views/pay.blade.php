@@ -39,8 +39,8 @@ if (! empty($_POST)) {
                 //'order_id' => 'test' . date("dmy-G:i:s"),
                 'order_id' => 'testorderhs',
                 'amount' => '20.00',
-                'expiry_month' => date('m', $time),
-                'expiry_year' => date('y', $time)
+                'expiry_month' => date('m'),
+                'expiry_year' => date('y')
             );
             $result = $moneris->purchase($params);
             if ($result->was_successful()) {
