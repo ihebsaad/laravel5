@@ -73,7 +73,7 @@ $.ajax(settings).done(function (response) {
 //console.log('data'+response.access_token);
     var  token=response.access_token;
    var  access_token="Bearer "+token;
-  	 jQuery('#div_session_write').load('http://127.0.0.1/laravel5/public/session_write.php?access_token='+token);
+  	 jQuery('#div_session_write').load('http://test.enterpriseesolutions.com/public/session_write.php?access_token='+token);
 	 document.getElementById('tokeninput').value = token;
 	//show user info
 	

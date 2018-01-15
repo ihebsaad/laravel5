@@ -1406,11 +1406,12 @@ $.ajax(settings).done(function (response) {
 	  
 	  //var xmlhttp = getXmlHttp();
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('GET','http://127.0.0.1/laravel5/public/session_destroy.php', true);
+    xmlhttp.open('GET','http://test.enterpriseesolutions.com/public/session_destroy.php', true);
     xmlhttp.onreadystatechange=function(){
        if (xmlhttp.readyState == 4){
           if(xmlhttp.status == 200){
-            window.location.replace("http://127.0.0.1/laravel5");
+         //   window.location.replace("http://127.0.0.1/laravel5");
+           window.location.replace("http://test.enterpriseesolutions.com");
          }
        }
     };
@@ -1475,7 +1476,7 @@ $.ajax(settings).done(function (response) {
     height:     100%;
     width:      100%;
     background: rgba( 255, 255, 255, .8 ) 
-                url('http://127.0.0.1/laravel5/public/ajax-loader.gif') 
+                url('http://test.enterpriseesolutions.com/public/ajax-loader.gif') 
                 50% 50% 
                 no-repeat;
 }
