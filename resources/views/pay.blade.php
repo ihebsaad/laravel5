@@ -7,24 +7,33 @@ $errors = array();
 
 if (! empty($_POST)) {
     // use the testing server for the demo:
-    $moneris = Moneris::create(
+    /*$moneris = Moneris::create(
         array(
             'api_key' => 'yesguy', // Under Admin / Store Settings
             'store_id' => 'store1',
             'environment' => Moneris::ENV_STAGING
         )
-    );
+    );*/
+    $moneris = Moneris::create(
+    array(
+        'api_key' => 'yesguy',
+        'store_id' => 'store1',
+        'environment' => Moneris::ENV_TESTING,
+        // optional:
+        'require_avs' => false, // default: false
+        'require_cvd' => false
+    ));
 
     try {
-
+        /*
         // try to make the purchase:
         $result = $moneris->purchase($_POST);
 
         if ($result->was_successful()) {
             // display transaction ID
-            /*$transaction = $moneris->void($result->transaction());
-            echo "Transaction ID: ".$transaction;*/
-
+            //$transaction = $moneris->void($result->transaction());
+            // echo "Transaction ID: ".$transaction;
+            print_r($_POST);
             // hooray!
             exit("transaction was successful");
 
@@ -33,11 +42,30 @@ if (! empty($_POST)) {
             exit();
 
         }
+        */  
+            $params = array(
+                'cc_number' => '4242424242424242',
+                'order_id' => 'icewireless-or' . date("dmy-G:i:s"),
+                //'order_id' => 'testorderhs',
+                'amount' => '20.00',
+                'expiry_month' => '08',
+                'expiry_year' => '18'
+            );
+            $result = $moneris->purchase($params);
+            if ($result->was_successful()) {
+            exit("transaction was successful");
 
-    } catch (Moneris_Exception $e) {
-        $errors[] = $e->getMessage();
-    }
-}
+            } else {
+                $errors[] = $result->error_message();
+                print_r($errors);
+                exit();
+
+            }
+
+        } catch (Moneris_Exception $e) {
+                $errors[] = $e->getMessage();
+        }
+        }
 ?>
 <style>
 
