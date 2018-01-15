@@ -14,7 +14,6 @@ if (! empty($_POST)) {
             'environment' => Moneris::ENV_STAGING
         )
     );*/
-    print_r($_POST);
     $moneris = Moneris::create(
     array(
         'api_key' => 'yesguy',
@@ -194,16 +193,12 @@ fieldset.scheduler-border {
 <div id=monerisResponse></div>
 
 <!-- Get token under Admin / Hosted Tokenization (domain must match URL where iFrame will be located) -->
-<iframe id=monerisFrame src="https://esqa.moneris.com/HPPtoken/index.php?id=htFQK4LT37LV76Q&css_body=background:white;&css_textbox=border-width:2px;&css_textbox_pan=width:140px;&display_labels=1&enable_exp=1&css_textbox_exp=width:40px;&enable_cvd=1&css_textbox_cvd=width:40px" frameborder='0' width="200" height="120" style="display: none!important;"></iframe>
+<iframe id=monerisFrame src="https://esqa.moneris.com/HPPtoken/index.php?id=htFQK4LT37LV76Q&css_body=background:white;&css_textbox=border-width:2px;&css_textbox_pan=width:140px;&display_labels=1&enable_exp=1&css_textbox_exp=width:40px;&enable_cvd=1&css_textbox_cvd=width:40px" frameborder='0' width="200" height="120"></iframe>
 
 <form method="post" id="form">
-   <!--<p><input name="amount" type="text" placeholder="Amount" required></p>-->
+    <p><input name="amount" type="text" placeholder="Amount" required></p>
     <p><input name="order_id" type="text" placeholder="Order ID" required></p>
-    <p><input name="data_key" id="data_key" type="text" placeholder="Data key" readonly style="display: none!important;"></p>
-                                <input type="text" name="expmth" placeholder="Exp Mth" class="form-control">
-                                <input type="text" name="expyr" placeholder="Exp Year" class="form-control">
-                            
-        <input type="hidden" name="amount" id="tamount" value="79" />
+    <p><input name="data_key" id="data_key" type="text" placeholder="Data key" readonly></p>
 </form>
 
 <input type=button onClick=doMonerisSubmit() value="submit iframe">
