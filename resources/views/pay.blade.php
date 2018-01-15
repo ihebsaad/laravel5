@@ -14,14 +14,15 @@ if (! empty($_POST)) {
             'environment' => Moneris::ENV_STAGING
         )
     );*/
-    $config = array(
+    $moneris = Moneris::create(
+    array(
         'api_key' => 'yesguy',
         'store_id' => 'store1',
         'environment' => Moneris::ENV_TESTING,
         // optional:
         'require_avs' => false, // default: false
         'require_cvd' => false
-    );
+    ));
 
     try {
         /*
