@@ -144,7 +144,7 @@ fieldset.scheduler-border {
      <!--MORE OPTIONAL VARIABLES CAN BE DEFINED HERE -->
      <INPUT TYPE="HIDDEN" NAME="bill_first_name" VALUE="John">
      <INPUT TYPE="HIDDEN" NAME="bill_last_name" VALUE="Smith">
-     <input type="hidden" name="cust_id" VALUE="invoice: 123456-12-1">
+     <input type="hidden" name="cust_id" VALUE="invoice:123456-12-1">
 
 <input type="hidden" name="order_id" VALUE="icewor43333">
 
