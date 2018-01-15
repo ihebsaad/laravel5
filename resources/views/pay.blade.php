@@ -47,7 +47,8 @@ if (! empty($_POST)) {
             exit("transaction was successful");
 
             } else {
-                $result->error_message();
+                $errors[] = $result->error_message();
+                print_r($errors);
                 exit();
 
             }
