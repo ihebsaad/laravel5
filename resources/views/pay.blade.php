@@ -140,13 +140,12 @@ fieldset.scheduler-border {
      <INPUT TYPE="HIDDEN" NAME="hpp_key" VALUE="hpJM8HDJDSXP">
 
      <INPUT TYPE="HIDDEN" NAME="charge_total" VALUE="105.00">
-
+     <INPUT TYPE="HIDDEN" NAME="expdate" VALUE="0818">
      <!--MORE OPTIONAL VARIABLES CAN BE DEFINED HERE -->
      <INPUT TYPE="HIDDEN" NAME="bill_first_name" VALUE="John">
      <INPUT TYPE="HIDDEN" NAME="bill_last_name" VALUE="Smith">
-     <input type="hidden" name="cust_id" VALUE="invoice:123456-12-1">
 
-<input type="hidden" name="order_id" VALUE="icewor43333">
+<input type="hidden" name="order_id" VALUE=<?php echo 'icewireless-or' . date("dmy-G:i:s"); ?> >
 
     <INPUT TYPE="SUBMIT" NAME="SUBMIT" VALUE="Click to proceed to Secure Page">
 
