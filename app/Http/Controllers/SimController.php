@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\SimRepository;
+use App\Repositories\simRepository;
 use App\Http\Requests\SimCreateRequest;
 
 
