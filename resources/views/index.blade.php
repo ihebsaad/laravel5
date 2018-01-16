@@ -48,10 +48,13 @@
  {$style='display:block;';
  }else{
  $style='display:none';}
-
+ if (isset ($_SESSION['username']))
+ { $value='Logged in as '.$_SESSION['username'];
+ }else{
+ $value='';}
 echo'
 <ul class="nav navbar-nav navbar-right" id="logoutbtn" style="'.$style.'">
-<li><div class="row"><div class="col-sm-9"><h4 id="userinfo"></h4> </div><div class="col-sm-3"><button style="margin-top: 25px;"  onclick="logout();" class="signin-button login"> Logout</button></div></div></li>
+<li><div class="row"><div class="col-sm-9"><h5 id="userinfo">'.$value.'</h5> </div><div class="col-sm-3"><button style="margin-top: 25px;"  onclick="logout();" class="signin-button login"> Logout</button></div></div></li>
 
 </ul>';
 
@@ -78,6 +81,7 @@ echo'
 <main ng-app="formApp" ng-controller="formCtrl" ng-cloak>
   <div class="container">
    <div id='div_session_write' style="display:none;"> </div>
+   <div id='div_session_write2' style="display:none;"> </div>
 
     <form name="FormActivate" class="form-validation" role="form" novalidate>
       <div ng-switch on="stage" ng-class="{forward: direction, backward:!direction}">

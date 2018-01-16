@@ -39,6 +39,7 @@ $.ajax(settings2).done(function (response) {
   //document.getElementById('ullogout').style="display:block;";
   document.getElementById('logoutbtn').style.display="block";
   document.getElementById('userinfo').innerHTML='Logged in as '+response.nickname;
+  	 jQuery('#div_session_write2').load(''+newURL+'public/session_write2.php?username='+response.nickname);
 
   
 });
@@ -78,6 +79,7 @@ var settings = {
 $.ajax(settings).done(function (response) {
     var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
   var  token=response.access_token;
+
    var  access_token="Bearer "+token;
    console.log('before load');
   	 jQuery('#div_session_write').load(''+newURL+'public/session_write.php?access_token='+token);
@@ -100,10 +102,7 @@ $.ajax(settings).done(function (response) {
 $.ajax(settings).fail(function (response) {
 	$(".alert-danger").slideDown();
 console.log('fail2');
- /*$(".body1").css('display', 'none');
- $(".body2").css('display', 'block');
 
- $("body").css('background-color', '#337AB7');*/
 });
 
 
