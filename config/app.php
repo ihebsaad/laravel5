@@ -166,6 +166,7 @@ return [
         Distilleries\Logentries\LogentriesServiceProvider::class,
         Laravel\Tinker\TinkerServiceProvider::class,
 		Auth0\Login\LoginServiceProvider::class,
+		Caffeinated\Flash\FlashServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -175,7 +176,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-		Caffeinated\Flash\FlashServiceProvider::class,
+
 
     ],
 
