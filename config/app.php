@@ -166,7 +166,6 @@ return [
         Distilleries\Logentries\LogentriesServiceProvider::class,
         Laravel\Tinker\TinkerServiceProvider::class,
 		Auth0\Login\LoginServiceProvider::class,
-		Caffeinated\Flash\FlashServiceProvider::class,
 		
         /*
          * Application Service Providers...
@@ -207,7 +206,6 @@ return [
         'Eloquent' => Illuminate\Database\Eloquent\Model::class,
         'Event' => Illuminate\Support\Facades\Event::class,
         'File' => Illuminate\Support\Facades\File::class,
-		'Flash' => Caffeinated\Flash\Facades\Flash::class,
 	    'Gate' => Illuminate\Support\Facades\Gate::class,
         'Hash' => Illuminate\Support\Facades\Hash::class,
         'Lang' => Illuminate\Support\Facades\Lang::class,

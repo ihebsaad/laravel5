@@ -9,7 +9,6 @@
         "auth0/login": "^5.0.2",
         "barryvdh/laravel-debugbar": "~2.4",
         "bestmomo/scafold": "^1.0",
-        "caffeinated/flash": "^3.0",
         "caouecs/laravel-lang": "~3.0",
         "distilleries/logentries": "1.2.*",
         "laracasts/flash": "^3.0",
