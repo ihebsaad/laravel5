@@ -80,14 +80,12 @@ Route::get('/demo7', function () {
 Route::get('/demo8', function () {
     return view('demo8');
 });
-<<<<<<< HEAD
 
 
-=======
+
 Route::get('/pay', function () {
     return view('pay');
 });
 Route::post('/pay', function () {
     return view('pay');
 });
->>>>>>> 65ec3d89adeebe27b41d38c9fbfb2144244618df
