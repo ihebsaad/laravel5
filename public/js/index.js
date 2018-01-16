@@ -38,25 +38,12 @@ $.ajax(settings2).done(function (response) {
   console.log(response);
   //document.getElementById('ullogout').style="display:block;";
   document.getElementById('logoutbtn').style.display="block";
-<<<<<<< HEAD
-  document.getElementById('userinfo').innerHTML=response.nickname;
-=======
   document.getElementById('userinfo').innerHTML='Logged in as '+response.nickname;
   	 jQuery('#div_session_write2').load(''+newURL+'public/session_write2.php?username='+response.nickname);
->>>>>>> 65ec3d89adeebe27b41d38c9fbfb2144244618df
 
   
 });
 }
-<<<<<<< HEAD
-$scope.DataPins ={} ;
-    $http.get('https://enterpriseesolutions.com/pins.php').success(function (responsepins) {
-            //$scope.DataPins = responsepins;
-			$scope.DataPins = responsepins ;
-          });
-		 
-=======
->>>>>>> 65ec3d89adeebe27b41d38c9fbfb2144244618df
       $http.get('https://gqnchpomjprsrfglg-mock.stoplight-proxy.io/plans').success(function (response2) {
             $scope.myData = response2;
         });
@@ -66,35 +53,6 @@ $scope.DataPins ={} ;
             $scope.NData = response3;
 		 		
         });
-<<<<<<< HEAD
-		
-		
-		
-		
-	  $scope.existe=false;
-
-	$scope.checkPin = function () {
-		var pin = document.getElementById('pin').value;
-	 	 $('#pin').css('border', '1px solid #FA5858');
-
-		for(var i = 0; i < $scope.DataPins.length; i++) {
-			if ($scope.DataPins[i].pin == pin) {
-			$scope.existe = true;
-			 $('#pin').css('border', '1px solid #5cb85c');
-
-			break;
-			} else {$scope.existe = false;
-			 $('#pin').css('border', '1px solid #FA5858');
-}
-		}
-		 return $scope.existe;
- 	 //	if(pin in $scope.DataPins.pin)
-	 	//{existe=true;}else{existe=false;}
-	//// alert( $scope.existe);
- 	}	
-		
-=======
->>>>>>> 65ec3d89adeebe27b41d38c9fbfb2144244618df
  
   /*********          Login            ********/
    
@@ -119,14 +77,6 @@ var settings = {
 
 
 $.ajax(settings).done(function (response) {
-<<<<<<< HEAD
-    var  token=response.access_token;
-   var  access_token="Bearer "+token;
-  	 jQuery('#div_session_write').load('http://127.0.0.1/laravel5/public/session_write.php?access_token='+token);
-	 document.getElementById('tokeninput').value = token;
-	//show user info
-	
-=======
     var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
   var  token=response.access_token;
 
@@ -137,45 +87,34 @@ $.ajax(settings).done(function (response) {
 	document.getElementById('tokeninput').value = token;
 	//show user info
 	 console.log('after save');
->>>>>>> 65ec3d89adeebe27b41d38c9fbfb2144244618df
 	if (document.getElementById('tokeninput').value == null){
 	token= document.getElementById('div_session_write').innerHTML.substr(26);
 	
 	}
 	else {token= document.getElementById('tokeninput').value;}
 	 access_token="Bearer "+token;
-<<<<<<< HEAD
-=======
 	
->>>>>>> 65ec3d89adeebe27b41d38c9fbfb2144244618df
 	$scope.showuserinfo(access_token);
 	$scope.next('stagePlans'); 
 	$scope.$apply();
 	//////////
 });
-<<<<<<< HEAD
-
-=======
 $.ajax(settings).fail(function (response) {
 	$(".alert-danger").slideDown();
 console.log('fail2');
 
 });
->>>>>>> 65ec3d89adeebe27b41d38c9fbfb2144244618df
 
 
 }
 
   
-<<<<<<< HEAD
-=======
  var $body = $("body");
 
 $(document).on({
     ajaxStart: function() { console.log('start');$body.addClass("loading");    },
      ajaxStop: function() { $body.removeClass("loading"); }    
 }); 
->>>>>>> 65ec3d89adeebe27b41d38c9fbfb2144244618df
   
 
   $scope.back = function (stage) {
@@ -282,15 +221,7 @@ $scope.Next="stageAccount";
     $scope.formParams = {};
     $scope.stage = "";
   }
-<<<<<<< HEAD
-  
-  
-  
-  
-  
-=======
 
->>>>>>> 65ec3d89adeebe27b41d38c9fbfb2144244618df
 
 //.controller('PlansController',function($scope,$http) {
  
@@ -341,16 +272,12 @@ $scope.Next="stageAccount";
   
   document.getElementById('next4').disabled=false;
   		 $scope.formParams.phonenumber=num;
-<<<<<<< HEAD
- 
-=======
 
    // var input2 = $('input');
 	//		input2.trigger('input'); 
 	  /*var e = document.getElementById("phonenumber");
   var $e = angular.element(e);
   $e.triggerHandler('input');*/
->>>>>>> 65ec3d89adeebe27b41d38c9fbfb2144244618df
   }
   
    $scope.setFirst = function (num) {
@@ -358,16 +285,12 @@ $scope.Next="stageAccount";
   
   document.getElementById('next4').disabled=false;
     		 $scope.formParams.phonenumber=num;
-<<<<<<< HEAD
- 
-=======
 
    /* var e = document.getElementById("phonenumber");
   var $e = angular.element(e);
   $e.triggerHandler('input');*/
    // var input2 = $('input');
 	//input2.trigger('input'); 
->>>>>>> 65ec3d89adeebe27b41d38c9fbfb2144244618df
   }
   
 //});

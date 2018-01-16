@@ -16,9 +16,8 @@
 });*/
 
 
-Route::get('{n}', function($n) {
-    return 'Je suis la page ' . $n . ' !';
-})->where('n', '[1-3]');
+Route::resource('sim', 'SimController');
+Route::resource('plan', 'PlanController');
 
 //Route::get('users', 'UsersController@getInfos');
 //Route::post('users', 'UsersController@postInfos');
@@ -84,13 +83,6 @@ Route::get('/demo8', function () {
 <<<<<<< HEAD
 
 
-Route::get('plans', 'API\PlansController@getPlans');
-
-Route::get('sim', 'API\PlansController@getPlans');
-
-
-Route::resource('sim', 'SimController');
-Route::resource('plan', 'PlanController');
 =======
 Route::get('/pay', function () {
     return view('pay');
