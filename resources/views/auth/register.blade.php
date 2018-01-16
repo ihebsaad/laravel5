@@ -1,6 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
+@include('flash::message')
+<?php
+//Success
+//echo Flash::success('This is a success message.');
+//Info
+//echo Flash::info('This is an info message.');
+//Warning
+//echo Flash::warning('This is a warning message.');
+//Error danger
+//echo Flash::error('This is an error message.');
+?>
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -66,6 +80,9 @@
                                 <button type="submit" class="btn btn-primary">
                                     Register
                                 </button>
+								<button type="button" onclick="test();" class="btn btn-primary">
+                                    Test
+                                </button>
                             </div>
                         </div>
                     </form>
@@ -74,4 +91,48 @@
         </div>
     </div>
 </div>
+<?php
+
+//@Ran testing
+
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => "https://gqnchpomjprsrfglg-mock.stoplight-proxy.io/telephone-numbers/reserved",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_POSTFIELDS => "{}",
+  CURLOPT_HTTPHEADER => array(
+    "authorization: Bearer {token}.{secret}"
+  ),
+));
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "cURL Error #:" . $err;
+} else {
+  echo $response;
+}
+
+
+?>
+	 <script  src="public/js/jquery-3.2.1.min.js" type="text/javascript"> </script>
+<script>
+//$(".alert-success").slideDown(function() {
+	function test(){
+    setTimeout(function() {
+        $(".alert-success").slideDown();
+    }, 10);
+	}
+//});
+</script>
+
 @endsection
