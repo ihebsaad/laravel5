@@ -30,7 +30,7 @@ class UserController extends Controller
         $users = $this->userRepository->getPaginate($this->nbrPerPage);
         $links = $users->render();
 
-        return view('index', compact('users', 'links')  )
+        return view('user.index', compact('users', 'links')  )
             ->with('isLoggedIn', $isLoggedIn);
 
     }

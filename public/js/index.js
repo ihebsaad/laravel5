@@ -38,14 +38,14 @@ $.ajax(settings2).done(function (response) {
   console.log(response);
   //document.getElementById('ullogout').style="display:block;";
   document.getElementById('logoutbtn').style.display="block";
-  document.getElementById('userinfo').innerHTML='Logged in as '+response.nickname;
-  	 jQuery('#div_session_write2').load(''+newURL+'public/session_write2.php?username='+response.nickname);
+  document.getElementById('userinfo').innerHTML=response.nickname;
 
   
 });
 }
 $scope.DataPins ={} ;
     $http.get('https://enterpriseesolutions.com/pins.php').success(function (responsepins) {
+<<<<<<< HEAD
              $scope.DataPins = responsepins ;
           });
 
@@ -68,6 +68,12 @@ $scope.DataPins ={} ;
          return $scope.existe;
  
      }   
+=======
+            //$scope.DataPins = responsepins;
+			$scope.DataPins = responsepins ;
+          });
+		 
+>>>>>>> 7344882fabc78475197822249c807361c1d2760d
       $http.get('https://gqnchpomjprsrfglg-mock.stoplight-proxy.io/plans').success(function (response2) {
             $scope.myData = response2;
         });
@@ -77,6 +83,30 @@ $scope.DataPins ={} ;
             $scope.NData = response3;
 		 		
         });
+		
+		
+		
+		
+	  $scope.existe=false;
+
+	$scope.checkPin = function () {
+		var pin = document.getElementById('pin').value;
+	 	 $('#pin').css('border', '1px solid #FA5858');
+
+		for(var i = 0; i < $scope.DataPins.length; i++) {
+			if ($scope.DataPins[i].pin == pin) {
+			$scope.existe = true;
+			 $('#pin').css('border', '1px solid #5cb85c');
+
+			break;
+			} else {$scope.existe = false;
+					$('#pin').css('border', '1px solid #FA5858');
+					}
+		}
+		 return $scope.existe;
+ 
+ 	}	
+		
  
   /*********          Login            ********/
    
@@ -101,44 +131,29 @@ var settings = {
 
 
 $.ajax(settings).done(function (response) {
-    var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
-  var  token=response.access_token;
-
+    var  token=response.access_token;
    var  access_token="Bearer "+token;
-   console.log('before load');
-  	 jQuery('#div_session_write').load(''+newURL+'public/session_write.php?access_token='+token);
- console.log('after load');	
-	document.getElementById('tokeninput').value = token;
+  	 jQuery('#div_session_write').load('http://127.0.0.1/laravel5/public/session_write.php?access_token='+token);
+	 document.getElementById('tokeninput').value = token;
 	//show user info
-	 console.log('after save');
+	
 	if (document.getElementById('tokeninput').value == null){
 	token= document.getElementById('div_session_write').innerHTML.substr(26);
 	
 	}
 	else {token= document.getElementById('tokeninput').value;}
 	 access_token="Bearer "+token;
-	
 	$scope.showuserinfo(access_token);
 	$scope.next('stagePlans'); 
 	$scope.$apply();
 	//////////
 });
-$.ajax(settings).fail(function (response) {
-	$(".alert-danger").slideDown();
-console.log('fail2');
 
-});
 
 
 }
 
   
- var $body = $("body");
-
-$(document).on({
-    ajaxStart: function() { console.log('start');$body.addClass("loading");    },
-     ajaxStop: function() { $body.removeClass("loading"); }    
-}); 
   
 
   $scope.back = function (stage) {
@@ -245,7 +260,11 @@ $scope.Next="stageAccount";
     $scope.formParams = {};
     $scope.stage = "";
   }
-
+  
+  
+  
+  
+  
 
 //.controller('PlansController',function($scope,$http) {
  
@@ -296,12 +315,7 @@ $scope.Next="stageAccount";
   
   document.getElementById('next4').disabled=false;
   		 $scope.formParams.phonenumber=num;
-
-   // var input2 = $('input');
-	//		input2.trigger('input'); 
-	  /*var e = document.getElementById("phonenumber");
-  var $e = angular.element(e);
-  $e.triggerHandler('input');*/
+ 
   }
   
    $scope.setFirst = function (num) {
@@ -309,12 +323,7 @@ $scope.Next="stageAccount";
   
   document.getElementById('next4').disabled=false;
     		 $scope.formParams.phonenumber=num;
-
-   /* var e = document.getElementById("phonenumber");
-  var $e = angular.element(e);
-  $e.triggerHandler('input');*/
-   // var input2 = $('input');
-	//input2.trigger('input'); 
+ 
   }
   
 //});
