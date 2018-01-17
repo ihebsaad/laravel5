@@ -48,10 +48,13 @@
  {$style='display:block;';
  }else{
  $style='display:none';}
-
+ if (isset ($_SESSION['username']))
+ { $value='Logged in as '.$_SESSION['username'];
+ }else{
+ $value='';}
 echo'
 <ul class="nav navbar-nav navbar-right" id="logoutbtn" style="'.$style.'">
-<li><div class="row"><div class="col-sm-6"><h3 id="userinfo"></h3> </div><div class="col-sm-6"><button style="margin-top: 25px;"  onclick="logout();" class="signin-button login"> Logout</button></div></div></li>
+<li><div class="row"><div class="col-sm-9"><h5 id="userinfo">'.$value.'</h5> </div><div class="col-sm-3"><button style="margin-top: 25px;"  onclick="logout();" class="signin-button login"> Logout</button></div></div></li>
 
 </ul>';
 
@@ -78,6 +81,7 @@ echo'
 <main ng-app="formApp" ng-controller="formCtrl" ng-cloak>
   <div class="container">
    <div id='div_session_write' style="display:none;"> </div>
+   <div id='div_session_write2' style="display:none;"> </div>
 
     <form name="FormActivate" class="form-validation" role="form" novalidate>
       <div ng-switch on="stage" ng-class="{forward: direction, backward:!direction}">
@@ -98,12 +102,17 @@ echo'
 
   <div class="row">
     <div class="col-sm-4 col-sm-offset-4">
+	
       <form name="login_form" id='login_form'>
+	  <div style="display:none;" class="alert alert-danger">
+	  <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+	WRONG USERNAME OR PASSWORD.
+	</div>
   <div class="form-group">
-    <input value="example@gmail.com" type="email" class="form-control" id="useremail" placeholder="Email Address">
+    <input  type="email" ng-model="formParams.email" required ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" class="form-control" id="useremail" placeholder="Email Address">
   </div>
   <div class="form-group">
-    <input value="examplepw" type="password" class="form-control" id="userpassword" placeholder="Password">
+    <input  type="password" class="form-control" id="userpassword" placeholder="Password">
   </div>
   <div class="row" style="margin-top: 20px;">
   <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
@@ -149,9 +158,18 @@ echo'
 
 
   <form name="pwd_form" id='pwd_form'>
+    <div style="display:none;" id="Ssent" class="alert alert-success">
+	  <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+	We've just sent you an email to reset your password.
+	</div>
+	<div style="display:none;" id="Wmailrequired" class="alert alert-warning">
+	  <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+	The email is required.
+	</div>
   <div class="form-group">
-    <input type="email" class="form-control" id="useremail2" placeholder="Email Address">
-  </div>
+    <input type="email" ng-model="formParams.email" required ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" class="form-control" id="useremail2" placeholder="Email Address">
+                  
+ </div>
   <div class="row" style="margin-top: 20px;">
    <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 form-group">
             <a href="#" style="font-size:  18px;"  ng-click="back('stageLogin')">Cancel</a>
@@ -171,34 +189,40 @@ echo'
 		 </div> <!-- End Stage  -->
 		
 		
-		
- 		
-		<!--   Stage 0   Pin Step  ------------------------------------------------------------>
-        <div class="animate-switch" ng-switch-default >
+<!--   Stage 0   Pin Step  ------------------------------------------------------------>
+ <div class="animate-switch" ng-switch-default >
              <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 ">
-			
+            
 <div class="container center_div">
-
+<!--<ul>
+<div ng-repeat="data in DataPins"   >
+         <li ng-bind="data.pin">  </li>
+         <li ng-bind="data.sim">  </li>
+     </div></ul>-->
          <div class="row">
             <div class="form-group col-sm-8 col-md-8 col-lg-8 col-xs-8">
-                <input  id="pin" name="pin" type="number" min="999"  ng-pattern="/^[0-9]*$/"  class="form-control form-rounded" placeholder="Your PIN" ng-maxlength="25" ng-model="formParams.pin" required ng-class="{'input-error': formValidation && FormActivate.pin.$error.required}" >
-            </div>
+                <input ng-valid="checkPin()" id="pin" name="pin" type="number" min="999"  ng-pattern="/^[0-9]*$/"  class="form-control form-rounded" placeholder="Your PIN" ng-maxlength="25" ng-model="formParams.pin" required ng-class="{'input-error': formValidation && FormActivate.pin.$error.required}" >
+                </div>
             <div class="form-group col-sm-4 col-md-4 col-lg-4 col-xs-4">
-                 <button type="button" ng-click="next('stageTypeCustomer')" ng-disabled="FormActivate.$pristine || FormActivate.$invalid" class="btn btn-success btn-round">Continue</button> 
-                <!--<button type="button" ng-click="next('stageBilling')" ng-disabled="FormActivate.$pristine || FormActivate.$invalid" class="btn btn-success btn-round">Billing</button> -->
-            </div>
+                 <button type="button" ng-click="next('stageTypeCustomer')" ng-disabled="FormActivate.$pristine || FormActivate.$invalid || ! checkPin()" class="btn btn-success btn-round">Continue</button> 
+             </div>
         </div>
-		<div class="row">
-		  <div class="form-group col-sm-6">
-		       <span style="padding-left:10%" ng-show="FormActivate.pin.$error.number">
+        <div class="row">
+          <div class="form-group col-sm-6" >
+          <table style="height:32px"><tr>
+            <td><small class="help-block" style="padding-left:5%;padding-right:5%" ng-show="FormActivate.pin.$error.number">
                   Incorrect PIN format.
-                </span>
-                <span  style="padding-left:10%" ng-show="FormActivate.pin.$error.maxlength">
+                </small></td>
+            <td><small  style="padding-rigt:5%" ng-show="FormActivate.pin.$error.maxlength">
                   Max character length reached.
-                </span>
-		  </div>		
-		</div>		
+                </small></td>
+            <td><small class="help-block" style="padding-rigt:5%"  ng-show="FormActivate.pin.$dirty &&  ! checkPin() && ! FormActivate.pin.$error.number ">
+                  Pin Inexistant.
+                </small></td>
+                </tr></table>
+          </div>        
+        </div>        
 <img src="public/findyourpin.jpg" id="myImg"  alt="Find Your PIN" style="width:500px;margin-left:-16px;"/>
 
 <!-- The Modal -->
@@ -209,9 +233,6 @@ echo'
 </div>
 </div>
 
-<!--
-<script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-animate.min.js'></script>-->
 <script>
  
  
@@ -231,20 +252,20 @@ img.onclick = function(){
  modal.onclick = function() { 
     modal.style.display = "none";
 }
-</script>	
+</script>    
 
-			
-			<div class="row" style="margin-top: 20px;">
-			<!-- Buttons Next & Previous -->
-			<div class="col-sm-9 col-md-9 col-xs-9 col-lg-9 form-group">
-			</div>
-            <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3 form-group">
-				<!--<button type="button" class="btn btn-primary btn btn-success btn-previous btn-md" ng-click="next('stageTypeCustomer')">Next  <i class="icnright"></i></button>-->
+            
+            <div class="row" style="margin-top: 20px;">
+            <!-- Buttons Next & Previous -->
+            <div class="col-sm-9 col-md-9 col-xs-9 col-lg-9 form-group">
             </div>
-			</div>
+            <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3 form-group">
+                <!--<button type="button" class="btn btn-primary btn btn-success btn-previous btn-md" ng-click="next('stageTypeCustomer')">Next  <i class="icnright"></i></button>-->
+            </div>
+            </div>
             </div>
           </div>
-        </div> <!-- End Stage  -->
+</div> <!-- End Stage  -->
 		
 		<!--   Stage Type Customer     ------------------------------------------------------------>
 		<div class="animate-switch" ng-switch-when="stageTypeCustomer">
@@ -1478,8 +1499,10 @@ $.ajax(settings).done(function (response) {
   }
   
   function resetpassword(){
+	  document.getElementById("Ssent").style.display="none";
+	  document.getElementById("Wmailrequired").style.display="none";
 	  email= document.getElementById('useremail2').value;
-if(email==""){alert('Please enter you email');}
+if(email==""){$(".alert-warning").slideDown();}
 else{
 	var datatosend='{\"client_id\": \"JBL90aJJc4ZG7DxcIfITrYB-UrjbvY_u\",\"email\": \"'+email+'\",\"connection\": \"databaseserver\"}';
 
@@ -1500,6 +1523,7 @@ var settings = {
 
 $.ajax(settings).done(function (response) {
   console.log(response);
+  $(".alert-success").slideDown();
 });
 	  
 }	  
@@ -1513,12 +1537,7 @@ $.ajax(settings).done(function (response) {
 
 
 
-<div class="body2" style="display:none;"> 
 
-<center><h1 style="color:white;margin-top:18%;" >Oops</h1> </center>
-<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('')"><i class="icnleft"></i>  Back</button>  
-			
-</div>
 </body>
 <style>
 /* Start by settingkkdisplay:none to make this hidden.

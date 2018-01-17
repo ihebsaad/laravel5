@@ -6,15 +6,16 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
+        "auth0/login": "^5.0.2",
         "barryvdh/laravel-debugbar": "~2.4",
         "bestmomo/scafold": "^1.0",
         "caouecs/laravel-lang": "~3.0",
-        "laravel/framework": "5.4.*",
-        "laravel/tinker": "~1.0",
-        "laravelcollective/html": "^5.4",
-        "laravel/socialite": "^3.0",
         "distilleries/logentries": "1.2.*",
-        "auth0/login": "^5.0.2"
+        "laracasts/flash": "^3.0",
+        "laravel/framework": "5.4.*",
+        "laravel/socialite": "^3.0",
+        "laravel/tinker": "~1.0",
+        "laravelcollective/html": "^5.4"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
