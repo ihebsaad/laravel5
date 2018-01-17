@@ -26,7 +26,7 @@ controller('formCtrl', ['$scope', '$http', function($scope, $http) {
   var settings2 = {
   "async": true,
   "crossDomain": true,
-  "url": "https://raniasaad.eu.auth0.com/userinfo",
+  "url": "https://iristelx.auth0.com/userinfo",
   "method": "GET",
   "headers": {
     "authorization": access_token
@@ -44,6 +44,30 @@ $.ajax(settings2).done(function (response) {
   
 });
 }
+$scope.DataPins ={} ;
+    $http.get('https://enterpriseesolutions.com/pins.php').success(function (responsepins) {
+             $scope.DataPins = responsepins ;
+          });
+
+
+      $scope.existe=false;
+    $scope.checkPin = function () {
+        var pin = document.getElementById('pin').value;
+          $('#pin').css('border', '1px solid #FA5858');
+
+        for(var i = 0; i < $scope.DataPins.length; i++) {
+            if ($scope.DataPins[i].pin == pin) {
+            $scope.existe = true;
+             $('#pin').css('border', '1px solid #5cb85c');
+
+            break;
+            } else {$scope.existe = false;
+                    $('#pin').css('border', '1px solid #FA5858');
+                    }
+        }
+         return $scope.existe;
+ 
+     }   
       $http.get('https://gqnchpomjprsrfglg-mock.stoplight-proxy.io/plans').success(function (response2) {
             $scope.myData = response2;
         });
@@ -61,12 +85,12 @@ $.ajax(settings2).done(function (response) {
   
  var email= document.getElementById('useremail').value;
 var upassword= document.getElementById('userpassword').value;
-	var datatosend='{\"grant_type\":\"password\",\"username\": \"'+email+'\",\"password\": \"'+upassword+'\",\"audience\": \"https://raniasaad.eu.auth0.com/api/v2/\", \"scope\": \"openid\", \"client_id\": \"JBL90aJJc4ZG7DxcIfITrYB-UrjbvY_u\", \"client_secret\": \"XugxD0AsEQpw5pwatO6kPjXouUPdBfuumztpf3p6LllTAR27JTzLvhhEcaEkQrla\"}';
+	var datatosend='{\"grant_type\":\"password\",\"username\": \"'+email+'\",\"password\": \"'+upassword+'\",\"audience\": \"https://iristelx.auth0.com/api/v2/\", \"scope\": \"openid\", \"client_id\": \"PBbe88ULTLh0kycpE0Db7g4AWjO21hYG\", \"client_secret\": \"b0As5Ty-RwfckGI6-08qNcmbJu3wP1qTE-QA9Kp7ER4PyZHPiSLVvf4auhHiXp1w\"}';
 console.log('data to send '+datatosend);
 var settings = {
   "async": true,
   "crossDomain": true,
-  "url": "https://raniasaad.eu.auth0.com/oauth/token",
+  "url": "https://iristelx.auth0.com/oauth/token",
   "method": "POST",
   "headers": {
     "content-type": "application/json"
