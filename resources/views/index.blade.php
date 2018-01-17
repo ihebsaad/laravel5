@@ -44,7 +44,24 @@
        <div id="navbar-collapse" class="collapse navbar-collapse">
        <?php
  
+ if (isset ($_SESSION['access_token']))
+ {$style='display:block;';
+ }else{
+ $style='display:none';}
+ if (isset ($_SESSION['username']))
+ { $value='Logged in as '.$_SESSION['username'];
+ }else{
+ $value='';}
+echo'
+<ul class="nav navbar-nav navbar-right" id="logoutbtn" style="'.$style.'">
+<li><div class="row"><div class="col-sm-9"><h5 id="userinfo">'.$value.'</h5> </div><div class="col-sm-3"><button style="margin-top: 25px;"  onclick="logout();" class="signin-button login"> Logout</button></div></div></li>
 
+</ul>';
+
+
+
+ 
+/*
 if (isset ($_SESSION['access_token']))
  {$style='display:block;';
  }else{
@@ -52,15 +69,10 @@ if (isset ($_SESSION['access_token']))
 
 echo'
 <ul class="nav navbar-nav navbar-right" id="logoutbtn" style="'.$style.'">
-<li><div class="row"><div class="col-sm-6"><h3 id="userinfo"></h3> </div><div class="col-sm-6">
-
- <a style="margin-top:15px;margin-right:20px;" onclick="logout();" href="#" class="btn btn-info btn-md">
-          <span class="glyphicon glyphicon-log-out"></span> Log out
-        </a>
-</div></div></li>
+<li><div class="row"><div class="col-sm-6"><h3 id="userinfo"></h3> </div><div class="col-sm-6"><button style="margin-top: 25px;"  onclick="logout();" class="signin-button login"> Logout</button></div></div></li>
 
 </ul>';
-
+*/
 ?>
         </div>
         </div><!-- Col -->
@@ -68,7 +80,9 @@ echo'
 </div><!-- Navbar -->
 <main ng-app="formApp" ng-controller="formCtrl" ng-cloak>
   <div class="container">
-   
+   <div id='div_session_write' style="display:none;"> </div>
+   <div id='div_session_write2' style="display:none;"> </div>
+
     <form name="FormActivate" class="form-validation" role="form" novalidate>
       <div ng-switch on="stage" ng-class="{forward: direction, backward:!direction}">
 
@@ -88,17 +102,22 @@ echo'
 
   <div class="row">
     <div class="col-sm-4 col-sm-offset-4">
+	
       <form name="login_form" id='login_form'>
+	  <div style="display:none;" class="alert alert-danger">
+	  <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+	WRONG USERNAME OR PASSWORD.
+	</div>
   <div class="form-group">
-    <input value="example@gmail.com" type="email" class="form-control" id="useremail" placeholder="Email Address">
+    <input  type="email" ng-model="formParams.email" required ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" class="form-control" id="useremail" placeholder="Email Address">
   </div>
   <div class="form-group">
-    <input value="examplepw" type="password" class="form-control" id="userpassword" placeholder="Password">
+    <input  type="password" class="form-control" id="userpassword" placeholder="Password">
   </div>
   <div class="row" style="margin-top: 20px;">
   <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
      
-            <a style="font-size: 16px;" onclick="resetpassword();" href="#">Forgot Password?</a>
+            <a style="font-size: 16px;" ng-click="next('stageForgotPassword')" href="#">Forgot Password?</a>
         </div>      
  <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
             <button ng-model="test" type="button" ng-click="login();" class="btn btn-success btn-round" style="float: right;margin-right: 0px;" >Login</button>
@@ -119,7 +138,6 @@ echo'
             </div>
           </div>
         </div> <!-- End Stage  --> 
-<<<<<<< HEAD
 
 		
 
@@ -173,18 +191,12 @@ echo'
 		
 <!--   Stage 0   Pin Step  ------------------------------------------------------------>
  <div class="animate-switch" ng-switch-default >
-=======
- 
-<!--   Stage 0   Pin Step  ------------------------------------------------------------>
-        <div class="animate-switch" ng-switch-default >
->>>>>>> 7344882fabc78475197822249c807361c1d2760d
              <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 ">
             
 <div class="container center_div">
 <!--<ul>
 <div ng-repeat="data in DataPins"   >
-<<<<<<< HEAD
          <li ng-bind="data.pin">  </li>
          <li ng-bind="data.sim">  </li>
      </div></ul>-->
@@ -192,50 +204,25 @@ echo'
             <div class="form-group col-sm-8 col-md-8 col-lg-8 col-xs-8">
                 <input ng-valid="checkPin()" id="pin" name="pin" type="number" min="999"  ng-pattern="/^[0-9]*$/"  class="form-control form-rounded" placeholder="Your PIN" ng-maxlength="25" ng-model="formParams.pin" required ng-class="{'input-error': formValidation && FormActivate.pin.$error.required}" >
                 </div>
-=======
-		 <li ng-bind="data.pin">  </li>
-		 <li ng-bind="data.sim">  </li>
- 	</div></ul>-->
-         <div class="row">
-            <div class="form-group col-sm-8 col-md-8 col-lg-8 col-xs-8">
-                <input ng-valid="checkPin()" id="pin" name="pin" type="number" min="999"  ng-pattern="/^[0-9]*$/"  class="form-control form-rounded" placeholder="Your PIN" ng-maxlength="25" ng-model="formParams.pin" required ng-class="{'input-error': formValidation && FormActivate.pin.$error.required}" >
-				</div>
->>>>>>> 7344882fabc78475197822249c807361c1d2760d
             <div class="form-group col-sm-4 col-md-4 col-lg-4 col-xs-4">
                  <button type="button" ng-click="next('stageTypeCustomer')" ng-disabled="FormActivate.$pristine || FormActivate.$invalid || ! checkPin()" class="btn btn-success btn-round">Continue</button> 
              </div>
         </div>
-<<<<<<< HEAD
         <div class="row">
           <div class="form-group col-sm-6" >
           <table style="height:32px"><tr>
             <td><small class="help-block" style="padding-left:5%;padding-right:5%" ng-show="FormActivate.pin.$error.number">
-=======
-		<div class="row">
-		  <div class="form-group col-sm-6" >
-		  <table style="height:32px"><tr>
-		    <td><small class="help-block" style="padding-left:5%;padding-right:5%" ng-show="FormActivate.pin.$error.number">
->>>>>>> 7344882fabc78475197822249c807361c1d2760d
                   Incorrect PIN format.
                 </small></td>
             <td><small  style="padding-rigt:5%" ng-show="FormActivate.pin.$error.maxlength">
                   Max character length reached.
                 </small></td>
-<<<<<<< HEAD
             <td><small class="help-block" style="padding-rigt:5%"  ng-show="FormActivate.pin.$dirty &&  ! checkPin() && ! FormActivate.pin.$error.number ">
                   Pin Inexistant.
                 </small></td>
                 </tr></table>
           </div>        
         </div>        
-=======
-			<td><small class="help-block" style="padding-rigt:5%"  ng-show="FormActivate.pin.$dirty &&  ! checkPin() && ! FormActivate.pin.$error.number ">
-                  Pin Inexistant.
-                </small></td>
-				</tr></table>
-		  </div>		
-		</div>		
->>>>>>> 7344882fabc78475197822249c807361c1d2760d
 <img src="public/findyourpin.jpg" id="myImg"  alt="Find Your PIN" style="width:500px;margin-left:-16px;"/>
 
 <!-- The Modal -->
@@ -1310,10 +1297,10 @@ $('#password, #confirm_password').on('keyup', function () {
                     &nbsp;
                 </div>
                 <div class="col-sm-6">
-                    <span id="planname" style="font-size:18px;color:#31B404;  font-weight: bold;float: right;" ng-bind="formParams.plantypes" >  </span>
+                    <span id="planname"   style="font-weight: bold;float: right;" ng-bind="formParams.plantypes" >  </span>
                 </div>
                 <div class="col-sm-2">
-                    <span style="font-size:18px;color:#31B404;"  id="planprice"  ng-bind="formParams.plancharge" >   </span>$
+                    <span id="planprice"  ng-bind="formParams.plancharge" >   </span>$
                 </div>
             </div>
         </div>
@@ -1324,10 +1311,10 @@ $('#password, #confirm_password').on('keyup', function () {
                     &nbsp;
                 </div>
                 <div class="col-sm-6">
-                    <span style="font-size:18px;color:grey;float:right"id="taxes"   >Taxes</span>
+                    <span id="taxes" style="font-weight: bold;float: right;" >Taxes</span>
                 </div>
                 <div class="col-sm-2">
-                    <span style="font-size:18px;color:grey;" id="taxesprice" >10$</span>
+                    <span id="taxesprice" >10$</span>
                 </div>
             </div>
         </div>
@@ -1337,10 +1324,10 @@ $('#password, #confirm_password').on('keyup', function () {
                     &nbsp;
                 </div>
                 <div class="col-sm-6">
-                    <span id="total" style="font-weight: bold;float: right;font-size:18px;color:#31B404;" >Total</span>
+                    <span id="total" style="font-weight: bold;float: right;" >Total</span>
                 </div>
                 <div class="col-sm-2">
-                    <span style="font-size:18px;color:#31B404;" id="totalprice" >79$</span>
+                    <span id="totalprice" >79$</span>
                 </div>
             </div>
         </div>
@@ -1445,7 +1432,12 @@ $('#password, #confirm_password').on('keyup', function () {
 
 
  <script  src="public/js/index.js"></script>
-  <script type="text/javascript">/*
+  <script type="text/javascript">
+  var URL = window.location.protocol + "//" + window.location.host ;
+   // alert('URL'+URL);
+  var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
+ 
+  /*
 function login(){
 	
 email= document.getElementById('useremail').value;
@@ -1487,14 +1479,18 @@ $.ajax(settings).done(function (response) {
 }
 */
   function logout(){
-	  
-	  //var xmlhttp = getXmlHttp();
+		  //var xmlhttp = getXmlHttp();
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('GET','http://127.0.0.1/laravel5/public/session_destroy.php', true);
+    xmlhttp.open('GET',''+newURL+'public/session_destroy.php', true);
     xmlhttp.onreadystatechange=function(){
        if (xmlhttp.readyState == 4){
           if(xmlhttp.status == 200){
-            window.location.replace("http://127.0.0.1/laravel5");
+			  if (newURL=='http://127.0.0.1/laravel5/'){
+				   window.location.replace(newURL);
+			  }
+			  else{
+				   window.location.replace(URL);
+			  }     
          }
        }
     };
@@ -1503,8 +1499,11 @@ $.ajax(settings).done(function (response) {
   }
   
   function resetpassword(){
-	  email= document.getElementById('useremail').value;
-
+	  document.getElementById("Ssent").style.display="none";
+	  document.getElementById("Wmailrequired").style.display="none";
+	  email= document.getElementById('useremail2').value;
+if(email==""){$(".alert-warning").slideDown();}
+else{
 	var datatosend='{\"client_id\": \"JBL90aJJc4ZG7DxcIfITrYB-UrjbvY_u\",\"email\": \"'+email+'\",\"connection\": \"databaseserver\"}';
 
 
@@ -1524,14 +1523,56 @@ var settings = {
 
 $.ajax(settings).done(function (response) {
   console.log(response);
+  $(".alert-success").slideDown();
 });
 	  
-	  
+}	  
   }
 
 </script>
-</body>
+<div class="modal"><!-- Place at bottom of page --></div>
 
+
+</div>
+
+
+
+
+</body>
+<style>
+/* Start by settingkkdisplay:none to make this hidden.
+   Then we position it in relation to the viewport window
+   with position:fixed. Width, height, top and left speak
+   for themselves. Background we set to 80% white with
+   our animation centered, and no-repeating */
+.modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 ) 
+                url('http://test.enterpriseesolutions.com/public/ajax-loader.gif') 
+                50% 50% 
+                no-repeat;
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+body.loading {
+    overflow: hidden;   
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading .modal {
+    display: block;
+}
+
+
+</style>
 </html>
 
 
