@@ -86,11 +86,9 @@ echo'
     <form name="FormActivate" class="form-validation" role="form" novalidate>
       <div ng-switch on="stage" ng-class="{forward: direction, backward:!direction}">
 
-	  
-
 		
 <!--   Stage 4  : STAGE LOGIN   ------------------------------------------------------------>
-		<div class="animate-switch" ng-switch-when="stageLogin">
+<div class="animate-switch" ng-switch-when="stageLogin">
  <section class="jumbotron text-center">
 <div class="container center_div">
 <h1 class="jumbotron-heading">Existing Customer Login</h1>
@@ -139,10 +137,9 @@ echo'
           </div>
         </div> <!-- End Stage  --> 
 
-		
-
-		<!--   Stage Forgot password    ------------------------------------------------------------>
-		<div class="animate-switch" ng-switch-when="stageForgotPassword">
+	
+<!--   Stage Forgot password    ------------------------------------------------------------>
+<div class="animate-switch" ng-switch-when="stageForgotPassword">
 <section class="jumbotron text-center">
 <div class="container">
 <h1 class="jumbotron-heading">Forgot your password</h1>
@@ -186,13 +183,13 @@ echo'
 </div>	
 
 
-		 </div> <!-- End Stage  -->
+</div> <!-- End Stage  -->
 		
 		
 <!--   Stage 0   Pin Step  ------------------------------------------------------------>
  <div class="animate-switch" ng-switch-default >
-             <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 ">
+  <div class="row">
+  <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 ">
             
 <div class="container center_div">
 <!--<ul>
@@ -202,27 +199,35 @@ echo'
      </div></ul>-->
          <div class="row">
             <div class="form-group col-sm-8 col-md-8 col-lg-8 col-xs-8">
-                <input ng-valid="checkPin()" id="pin" name="pin" type="number" min="999"  ng-pattern="/^[0-9]*$/"  class="form-control form-rounded" placeholder="Your PIN" ng-maxlength="25" ng-model="formParams.pin" required ng-class="{'input-error': formValidation && FormActivate.pin.$error.required}" >
+                <input ng-change="init()" id="pin" name="pin" type="number" min="999"  ng-pattern="/^[0-9]*$/"  class="form-control form-rounded" placeholder="Your PIN" ng-maxlength="25" ng-model="formParams.pin" required ng-class="{'input-error': formValidation && FormActivate.pin.$error.required}" >
                 </div>
             <div class="form-group col-sm-4 col-md-4 col-lg-4 col-xs-4">
-                 <button type="button" ng-click="next('stageTypeCustomer')" ng-disabled="FormActivate.$pristine || FormActivate.$invalid || ! checkPin()" class="btn btn-success btn-round">Continue</button> 
+                 <button type="button" ng-click=" checkPin()" ng-disabled=" FormActivate.$invalid" class="btn btn-success btn-round">Continue</button> 
              </div>
         </div>
-        <div class="row">
-          <div class="form-group col-sm-6" >
-          <table style="height:32px"><tr>
-            <td><small class="help-block" style="padding-left:5%;padding-right:5%" ng-show="FormActivate.pin.$error.number">
+		<div class="row">
+		  <div class="form-group col-sm-6" >
+		  <table style="height:32px"><tr>
+		    <td><small class="help-block" style="padding-left:5%;padding-right:5%" ng-show="FormActivate.pin.$error.number">
                   Incorrect PIN format.
                 </small></td>
             <td><small  style="padding-rigt:5%" ng-show="FormActivate.pin.$error.maxlength">
                   Max character length reached.
                 </small></td>
-            <td><small class="help-block" style="padding-rigt:5%"  ng-show="FormActivate.pin.$dirty &&  ! checkPin() && ! FormActivate.pin.$error.number ">
-                  Pin Inexistant.
-                </small></td>
-                </tr></table>
-          </div>        
-        </div>        
+				<td>
+				<!--<span id="pinmessage" class="help-block" style=" ;color:red"  >
+                  </span>-->
+				<div id="pinmessage" style="display:none;min-width:250px;margin-left:50px;" class="alert alert-danger">
+				<button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+				Incorrect Pin !
+				</div>
+				<div id="pinmessage2" style="display:none;min-width:250px;;margin-left:50px;" class="alert alert-danger">
+				<button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+				Pin Already Activated !
+				</div>				
+				  </td>
+				</tr></table>
+		  </div>      
 <img src="public/findyourpin.jpg" id="myImg"  alt="Find Your PIN" style="width:500px;margin-left:-16px;"/>
 
 <!-- The Modal -->
@@ -263,12 +268,15 @@ img.onclick = function(){
                 <!--<button type="button" class="btn btn-primary btn btn-success btn-previous btn-md" ng-click="next('stageTypeCustomer')">Next  <i class="icnright"></i></button>-->
             </div>
             </div>
-            </div>
-          </div>
+			
+    </div>
+   </div>
+   </div>
 </div> <!-- End Stage  -->
-		
-		<!--   Stage Type Customer     ------------------------------------------------------------>
-		<div class="animate-switch" ng-switch-when="stageTypeCustomer">
+
+
+<!--   Stage Type Customer     ------------------------------------------------------------>
+<div class="animate-switch" ng-switch-when="stageTypeCustomer">
 		 <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
              <div class="row">
  <div class="container center_div" >
@@ -297,6 +305,7 @@ img.onclick = function(){
           </div>
         </div> <!-- End Stage  -->
 
+
 <!--   Stage ACCOUNT CUSTOMER   stageAccount  ------------------------------------------------------------>
 
 <div class="animate-switch" ng-switch-when="stageAccount">
@@ -305,7 +314,7 @@ img.onclick = function(){
 <div class="container center_div well" style="padding-bottom:80px;padding-top:60px">
 
 
-                <div class="col-sm-12" >
+<div class="col-sm-12" >
                         <div class="row">
                             <div class="col-sm-6 form-group"> <!---->
                                 <input  ng-model="formParams.first" required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="25" type="text" placeholder="First Name" id="firstname" class="form-control">
@@ -539,8 +548,7 @@ $('#password, #confirm_password').on('keyup', function () {
 <!--   Stage 3  : STAGE PLANS    ------------------------------------------------------------>
 	
 <div class="animate-switch" ng-switch-when="stagePlans" id="plans" >
-<!-- <div ng-controller="PlansController"  >-->
-
+ 
    <div class="row"  >
    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 " style="width:100%"> 
 
@@ -563,24 +571,22 @@ $('#password, #confirm_password').on('keyup', function () {
 			<div class="row" style="margin-top: 20px;">
 			<!-- Buttons Next & Previous -->
             <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
-			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('stageAccount')"><i class="icnleft"></i>  Back</button>  
+			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('stageTypeCustomer')"><i class="icnleft"></i>  Back</button>  
 			</div>
             <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
 				<button  style="float:right"  type="button" class="btn btn-primary btn btn-success btn-previous btn-md" disabled id="next2" ng-click="next('stagePhone')">Next  <i class="icnright"></i></button>
             </div>
 			</div>
             </div>
-      <!-- </div>-->
-<!-- </div> <!-- Controller Plans>-->
-	   
-</div> <!-- End Stage  -->
+ 	   
+</div> <!-- End Stage plans -->
  
    
-	<!--   Stage 5  STAGE PHONE NUMBERS  ---------------------------------------------------------->
-	<div class="animate-switch" ng-switch-when="stagePhone">
-     
-	<div   class="container center_div"  style="max-width: 850px!important;" >
+   	<!--   Stage 5  STAGE PHONE NUMBERS  ---------------------------------------------------------->
 
+<div class="animate-switch" ng-switch-when="stagePhone">
+	<div   class="container center_div"  style="max-width: 850px!important;" >
+     
     <div class="form-group">
         <div class="col-sm-12">
         <div class="row">
@@ -602,24 +608,33 @@ $('#password, #confirm_password').on('keyup', function () {
         </div>
         </div>
     </div> 
- 
-    <div class="col-sm-12">
-    <div class="row" style="margin-top: 20px;">
-        <div class="scroller  " style="height: 300px; overflow-y: scroll; padding-top: 20px; border: 2px solid LightGray;border-radius: 1rem; width: 100%!important;">
+   <div class="row" style="margin-top: 20px;">
+        <div class=" scroller  " style="height: 300px; overflow-y: scroll; padding-top: 20px; border: 2px solid LightGray;border-radius: 1rem; width: 100%!important;">
             <div class="form-group ">
-            <ul style="list-style-type: none;margin-left: -20;" class="form">
-					<div ng-repeat="data in NData"   >
+          
+		       <ul style="list-style-type: none;margin-left: -20;" class="form">
+				<div ng-repeat="data in NData"   >
  					<div ng-if="$first && ($index<10)" ng-init="setFirst(data.phone)" ><li><label  ng-click="setNum(data.phone)" class="radio inline"><input class="radio-inline"  ng-attr-id="@{{data.phone}}"  checked="checked"  type="radio" name="phonenum"   /><span for="@{{data.phone}}" ng-bind="data.phone"   class="labelradio control-label " ></label> </span></li></div>
 					<div ng-if="!$first && ($index<10)" ><li><label ng-click="setNum(data.phone)" class="radio inline"><input class="radio-inline"  ng-attr-id="@{{data.phone}}"    type="radio"   name="phonenum"  /><span for="@{{data.phone}}" ng-bind="data.phone"   class="labelradio control-label"> </span></label></li></div>
-
-					
-            </ul>
-			<input  type="hidden" name="phonenumber" id="phonenumber" ng-model="formParams.phonenumber"/>
-            </div>
+				</div>	
+			   </ul>
+		  
+			<input  type="hidden" name="phonenumber" id="phonenumber"  />
+            </div><!--  end form group -->
         </div>
-    </div>
-    </div>
-    <script  type="text/javascript" >
+    </div> <!--  end Row -->
+	
+ 			<div class="row" style="margin-top: 20px;">
+
+            <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
+			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('stagePlans')"><i class="icnleft"></i>  Back</button>  
+			</div>
+            <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
+				<button style="float:right" type="button" class="btn btn-primary btn btn-success btn-previous btn-md" id="next4" disabled ng-click="next('stageBilling')">Next  <i class="icnright"></i></button>
+            </div>
+			</div>
+
+<script  type="text/javascript" >
   $(document).ready(function(){ 
   var a = [
       {
@@ -1263,30 +1278,15 @@ $('#password, #confirm_password').on('keyup', function () {
 });
 
 </script>
-</div> 
-	 
-	 
-			<div class="row" style="margin-top: 20px;">
 
-            <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
-			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('')"><i class="icnleft"></i>  Back</button>  
-			</div>
-            <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
-				<button style="float:right" type="button" class="btn btn-primary btn btn-success btn-previous btn-md" id="next4" disabled ng-click="next('stageBilling')">Next  <i class="icnright"></i></button>
-            </div>
-			</div>
-     <!--</div><!-- end controller --> 
-
-	</div>  <!-- End Stage Phone numbers  -->		
- 
-  
-
-  
-  
+ </div> 
+</div>  <!-- End Stage Phone numbers  -->		
+   
+   
+   
 <!--   Stage Billing     ---------------------------------------------------------> 
 <div class="animate-switch" ng-switch-when="stageBilling">
  
-
 <div class="container center_div">
 
     <fieldset class="scheduler-border" style="padding-top: 20px!important;">
@@ -1297,10 +1297,10 @@ $('#password, #confirm_password').on('keyup', function () {
                     &nbsp;
                 </div>
                 <div class="col-sm-6">
-                    <span id="planname"   style="font-weight: bold;float: right;" ng-bind="formParams.plantypes" >  </span>
+                    <span id="planname" style="font-size:18px;color:#31B404;  font-weight: bold;float: right;" ng-bind="formParams.plantypes" >  </span>
                 </div>
                 <div class="col-sm-2">
-                    <span id="planprice"  ng-bind="formParams.plancharge" >   </span>$
+                    <span style="font-size:18px;color:#31B404;"  id="planprice"  ng-bind="formParams.plancharge" >   </span>$
                 </div>
             </div>
         </div>
@@ -1311,10 +1311,10 @@ $('#password, #confirm_password').on('keyup', function () {
                     &nbsp;
                 </div>
                 <div class="col-sm-6">
-                    <span id="taxes" style="font-weight: bold;float: right;" >Taxes</span>
+                    <span style="font-size:18px;color:grey;float:right"id="taxes"   >Taxes</span>
                 </div>
                 <div class="col-sm-2">
-                    <span id="taxesprice" >10$</span>
+                    <span style="font-size:18px;color:grey;" id="taxesprice" >10$</span>
                 </div>
             </div>
         </div>
@@ -1324,10 +1324,10 @@ $('#password, #confirm_password').on('keyup', function () {
                     &nbsp;
                 </div>
                 <div class="col-sm-6">
-                    <span id="total" style="font-weight: bold;float: right;" >Total</span>
+                    <span id="total" style="font-weight: bold;float: right;font-size:18px;color:#31B404;" >Total</span>
                 </div>
                 <div class="col-sm-2">
-                    <span id="totalprice" >79$</span>
+                    <span style="font-size:18px;color:#31B404;" id="totalprice" >79$</span>
                 </div>
             </div>
         </div>
@@ -1341,8 +1341,7 @@ $('#password, #confirm_password').on('keyup', function () {
       <li ng-show="FormActivate.creditCard.$error.pattern">Credit card must contain digits only</li>
       <li ng-show="FormActivate.creditCard.$error.minlength">Credit card must be 15-19 digits</li>
       <li ng-show="FormActivate.creditCard.$error.maxlength">Credit card must contain a maximum of 19 digits </li>
-
-	  
+ 
 	  </ul>
         </div>
          <div class="row">
@@ -1400,21 +1399,21 @@ $('#password, #confirm_password').on('keyup', function () {
     </fieldset>
  
 
-	</div>
-
- 
+	</div> 
             <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 ">
 			<div class="row" style="margin-top: 20px;">
  			<div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
-			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('')"><i class="icnleft"></i>  Back</button>  
+			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('stagePhone')"><i class="icnleft"></i>  Back</button>  
 			</div>
             <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
 				<button style="float:right" type="button" style="float:right" class="btn btn-primary btn btn-success btn-previous btn-md" id="next5" ng-disabled="FormActivate.$pristine || FormActivate.$invalid"  ng-click="">Finish  </i></button>
             </div>
 			</div>
             </div>
-</div><!--   End Stage  -->		
-</div><!--   End controller  -->		
+</div><!--   End Stage  -->	
+ 
+ 
+</div><!--   End container  -->		
 		 
   
       </div>

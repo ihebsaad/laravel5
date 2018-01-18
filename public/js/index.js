@@ -50,7 +50,7 @@ $scope.DataPins ={} ;
           });
 
 
-      $scope.existe=false;
+   /*   $scope.existe=false;
     $scope.checkPin = function () {
         var pin = document.getElementById('pin').value;
           $('#pin').css('border', '1px solid #FA5858');
@@ -67,7 +67,59 @@ $scope.DataPins ={} ;
         }
          return $scope.existe;
  
-     }   
+     } 
+	 */
+	  
+	 	$scope.init = function () {
+			if(document.getElementById('pin').value >999){ $('#pin').css('border', '1px solid #5cb85c');}
+			//document.getElementById('pinmessage').innerHTML='';
+		 $('#pinmessage').css('display', 'none');
+		 $('#pinmessage2').css('display', 'none');
+		}
+			
+	 	$scope.checkPin = function () {
+		 $('#pinmessage').css('display', 'none');
+		 $('#pinmessage2').css('display', 'none');
+		var pin = document.getElementById('pin').value;
+	 	 $('#pin').css('border', '1px solid #FA5858');
+
+		for(var i = 0; i < $scope.DataPins.length; i++) {
+			// pin existe
+			if ($scope.DataPins[i].pin == pin) {
+				 if ($scope.DataPins[i].enabled==0)
+				 { // pin not active
+					 $scope.existe = true;
+					 $('#pin').css('border', '1px solid #5cb85c');
+					//$('#pinmessage').css('display', 'none');
+					//
+					//document.getElementById('pinmessage').innerHTML='';
+						$scope.next('stageTypeCustomer');
+						$('#pinmessage').css('display', 'none');
+						$('#pinmessage2').css('display', 'none');
+						//$scope.$apply();
+				  break;
+				 }
+				 
+				 else{
+					 // Pin already Activated
+					// $('#pinmessage').css('display', 'block');
+					  $('#pin').css('border', '1px solid #FA5858');		
+					//document.getElementById('pinmessage').innerHTML='Pin Already Activated' 
+					$("#pinmessage2").slideDown();
+					;break
+				 }
+			
+				} else {
+				$scope.existe = false;
+					$('#pin').css('border', '1px solid #FA5858');
+					//document.getElementById('pinmessage').innerHTML='Incorrect Pin' ;
+					$("#pinmessage").slideDown();
+					}
+		}
+		 return $scope.existe;
+ 
+ 	}
+	 
       $http.get('https://gqnchpomjprsrfglg-mock.stoplight-proxy.io/plans').success(function (response2) {
             $scope.myData = response2;
         });
@@ -123,12 +175,14 @@ $.ajax(settings).done(function (response) {
 	$scope.$apply();
 	//////////
 });
+
 $.ajax(settings).fail(function (response) {
 	$(".alert-danger").slideDown();
 console.log('fail2');
 
 });
 
+ 
 
 }
 
@@ -202,10 +256,7 @@ document.getElementById('next1').disabled=false;
  $scope.formParams.customer="new";
 
 $scope.Next="stageAccount";
- /* var e = document.getElementById("customer");
-  var $e = angular.element(e);
-  $e.triggerHandler('input');*/
-//$scope.stage="stageAccount";
+
 }
 
   // Post to desired exposed web service.
@@ -272,19 +323,8 @@ $scope.Next="stageAccount";
 		 document.getElementById('plancharge').value=charge;
 		 $scope.formParams.plancharge=charge;
 			
-		  }/*
-		  			    $scope.setData = function (plantype,charge) {
-
-		 $scope.setData = function (plantype,charge) {
- 		 document.getElementById('plantypes').value=plantype;
-		 $scope.formParams.plantypes=plantype;
-
-		 document.getElementById('plancharge').value=charge;
-		 $scope.formParams.plancharge=charge;
- 
-		 
-			
-		  }*/
+		  }
+		  
 
    // })
 //.controller('NumbersController',function($scope,$http) {
@@ -297,11 +337,8 @@ $scope.Next="stageAccount";
   document.getElementById('next4').disabled=false;
   		 $scope.formParams.phonenumber=num;
 
-   // var input2 = $('input');
-	//		input2.trigger('input'); 
-	  /*var e = document.getElementById("phonenumber");
-  var $e = angular.element(e);
-  $e.triggerHandler('input');*/
+  
+  
   }
   
    $scope.setFirst = function (num) {
@@ -310,11 +347,8 @@ $scope.Next="stageAccount";
   document.getElementById('next4').disabled=false;
     		 $scope.formParams.phonenumber=num;
 
-   /* var e = document.getElementById("phonenumber");
-  var $e = angular.element(e);
-  $e.triggerHandler('input');*/
-   // var input2 = $('input');
-	//input2.trigger('input'); 
+
+			 
   }
   
 //});
