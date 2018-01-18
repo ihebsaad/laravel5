@@ -1,6 +1,6 @@
-<style>
+<!--<style>
 .footer {
-   position: fixed;
+   /*position: fixed;*/
    left: 0;
    bottom: 0;
    width: 100%;
@@ -16,3 +16,4 @@
 <div class="footer">
   <p>Iristel © 2018</p>
 </div>
+-->
