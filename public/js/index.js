@@ -1,0 +1,356 @@
+'use strict';
+
+angular.module('formApp', [
+  'ngAnimate'
+]).
+controller('formCtrl', ['$scope', '$http', function($scope, $http) {
+  $scope.formParams = {};
+  $scope.stage = "";
+  $scope.formValidation = false;
+ 
+   // Navigation functions
+  $scope.next = function (stage) {
+  
+  
+    //////$scope.formValidation = true;
+    
+   ////// if ($scope.FormActivate.$valid) {
+      $scope.direction = 1;
+      $scope.stage = stage;
+    /////  $scope.formValidation = false;
+    /////}
+  };
+  
+   $scope.showuserinfo = function(access_token) {
+
+  var settings2 = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://iristelx.auth0.com/userinfo",
+  "method": "GET",
+  "headers": {
+    "authorization": access_token
+  },
+  "data": "{}"
+}
+
+$.ajax(settings2).done(function (response) {
+  console.log(response);
+  //document.getElementById('ullogout').style="display:block;";
+  document.getElementById('logoutbtn').style.display="block";
+  document.getElementById('userinfo').innerHTML='Logged in as '+response.nickname;
+  	 jQuery('#div_session_write2').load(''+newURL+'public/session_write2.php?username='+response.nickname);
+
+  
+});
+}
+$scope.DataPins ={} ;
+    $http.get('https://enterpriseesolutions.com/pins.php').success(function (responsepins) {
+             $scope.DataPins = responsepins ;
+          });
+
+
+   /*   $scope.existe=false;
+    $scope.checkPin = function () {
+        var pin = document.getElementById('pin').value;
+          $('#pin').css('border', '1px solid #FA5858');
+
+        for(var i = 0; i < $scope.DataPins.length; i++) {
+            if ($scope.DataPins[i].pin == pin) {
+            $scope.existe = true;
+             $('#pin').css('border', '1px solid #5cb85c');
+
+            break;
+            } else {$scope.existe = false;
+                    $('#pin').css('border', '1px solid #FA5858');
+                    }
+        }
+         return $scope.existe;
+ 
+     } 
+	 */
+	  
+	 	$scope.init = function () {
+			if(document.getElementById('pin').value >999){ $('#pin').css('border', '1px solid #5cb85c');}
+			//document.getElementById('pinmessage').innerHTML='';
+		 $('#pinmessage').css('display', 'none');
+		 $('#pinmessage2').css('display', 'none');
+		}
+			
+	 	$scope.checkPin = function () {
+		 $('#pinmessage').css('display', 'none');
+		 $('#pinmessage2').css('display', 'none');
+		var pin = document.getElementById('pin').value;
+	 	 $('#pin').css('border', '1px solid #FA5858');
+
+		for(var i = 0; i < $scope.DataPins.length; i++) {
+			// pin existe
+			if ($scope.DataPins[i].pin == pin) {
+				 if ($scope.DataPins[i].enabled==0)
+				 { // pin not active
+					 $scope.existe = true;
+					 $('#pin').css('border', '1px solid #5cb85c');
+					//$('#pinmessage').css('display', 'none');
+					//
+					//document.getElementById('pinmessage').innerHTML='';
+						$scope.next('stageTypeCustomer');
+						$('#pinmessage').css('display', 'none');
+						$('#pinmessage2').css('display', 'none');
+						//$scope.$apply();
+				  break;
+				 }
+				 
+				 else{
+					 // Pin already Activated
+					// $('#pinmessage').css('display', 'block');
+					  $('#pin').css('border', '1px solid #FA5858');		
+					//document.getElementById('pinmessage').innerHTML='Pin Already Activated' 
+					$("#pinmessage2").slideDown();
+					;break
+				 }
+			
+				} else {
+				$scope.existe = false;
+					$('#pin').css('border', '1px solid #FA5858');
+					//document.getElementById('pinmessage').innerHTML='Incorrect Pin' ;
+					$("#pinmessage").slideDown();
+					}
+		}
+		 return $scope.existe;
+ 
+ 	}
+	 
+      $http.get('https://gqnchpomjprsrfglg-mock.stoplight-proxy.io/plans').success(function (response2) {
+            $scope.myData = response2;
+        });
+		
+		  $http.get('https://jsonplaceholder.typicode.com/users').success(function (response3) {
+  //$http.get('https://jsonplaceholder.typicode.com/todos').success(function (response) {
+            $scope.NData = response3;
+		 		
+        });
+ 
+  /*********          Login            ********/
+   
+  $scope.login = function() {
+
+  
+ var email= document.getElementById('useremail').value;
+var upassword= document.getElementById('userpassword').value;
+	var datatosend='{\"grant_type\":\"password\",\"username\": \"'+email+'\",\"password\": \"'+upassword+'\",\"audience\": \"https://iristelx.auth0.com/api/v2/\", \"scope\": \"openid\", \"client_id\": \"PBbe88ULTLh0kycpE0Db7g4AWjO21hYG\", \"client_secret\": \"b0As5Ty-RwfckGI6-08qNcmbJu3wP1qTE-QA9Kp7ER4PyZHPiSLVvf4auhHiXp1w\"}';
+console.log('data to send '+datatosend);
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://iristelx.auth0.com/oauth/token",
+  "method": "POST",
+  "headers": {
+    "content-type": "application/json"
+  },
+  "processData": false,
+  "data": datatosend
+  }
+
+
+$.ajax(settings).done(function (response) {
+    var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
+  var  token=response.access_token;
+
+   var  access_token="Bearer "+token;
+   console.log('before load');
+  	 jQuery('#div_session_write').load(''+newURL+'public/session_write.php?access_token='+token);
+ console.log('after load');	
+	document.getElementById('tokeninput').value = token;
+	//show user info
+	 console.log('after save');
+	if (document.getElementById('tokeninput').value == null){
+	token= document.getElementById('div_session_write').innerHTML.substr(26);
+	
+	}
+	else {token= document.getElementById('tokeninput').value;}
+	 access_token="Bearer "+token;
+	
+	$scope.showuserinfo(access_token);
+	$scope.next('stagePlans'); 
+	$scope.$apply();
+	//////////
+});
+
+$.ajax(settings).fail(function (response) {
+	$(".alert-danger").slideDown();
+console.log('fail2');
+
+});
+
+ 
+
+}
+
+  
+ var $body = $("body");
+
+$(document).on({
+    ajaxStart: function() { console.log('start');$body.addClass("loading");    },
+     ajaxStop: function() { $body.removeClass("loading"); }    
+}); 
+  
+
+  $scope.back = function (stage) {
+    $scope.direction = 0;
+    $scope.stage = stage;
+  };
+  
+    $scope.Next = "";
+	 $scope.chekPass = function () {
+		 return (document.getElementById('confirm_password').value == document.getElementById('password').value) ;
+	 }
+	 
+	  $scope.SetElmVal = function (id,val) {
+	   document.getElementById(id).value=val;
+}
+
+$scope.testing = function () {
+	
+	document.getElementById('useremail').value="existing";
+
+}
+
+
+
+  $scope.existingcust = function () {
+ //function existingcust(){
+document.getElementById('existcustomer').style.color='white';
+document.getElementById('existcustomer').style.backgroundColor='rgb(92, 184, 92)';
+
+document.getElementById('customer').value="existing"
+ $scope.formParams.customer="existing";
+  //var input = $('input');
+    //input.trigger('input'); 
+ ; 
+    /* var e = document.getElementById("customer");
+  var $e = angular.element(e);
+  $e.triggerHandler('input');*/
+document.getElementById('newcustomer').style.color='#454545';
+document.getElementById('newcustomer').style.backgroundColor='rgb(246, 246, 246)';
+document.getElementById('next1').disabled=false;
+
+$scope.Next="stageLogin";
+//$scope.stage="stageLogin";
+// $scope.$apply();	
+}
+
+//function newcustomer(){
+  $scope.newcustomer = function () {
+
+document.getElementById('newcustomer').style.color='white';
+document.getElementById('newcustomer').style.backgroundColor='rgb(92, 184, 92)';
+
+document.getElementById('customer').value="new";
+  //var input = $('input');
+  //  input.trigger('input'); 
+	
+document.getElementById('existcustomer').style.color='#454545';
+document.getElementById('existcustomer').style.backgroundColor='rgb(246, 246, 246)';
+document.getElementById('next1').disabled=false;
+
+ $scope.formParams.customer="new";
+
+$scope.Next="stageAccount";
+
+}
+
+  // Post to desired exposed web service.
+  $scope.submitForm = function () {
+    var wsUrl = "someURL";
+
+    // Check form validity and submit data using $http
+    if ($scope.FormActivate.$valid) {
+      $scope.formValidation = false;
+
+      $http({
+        method: 'POST',
+        url: wsUrl,
+        data: JSON.stringify($scope.formParams)
+      }).then(function successCallback(response) {
+        if (response
+          && response.data
+          && response.data.status
+          && response.data.status === 'success') {
+          $scope.stage = "success";
+        } else {
+          if (response
+            && response.data
+            && response.data.status
+            && response.data.status === 'error') {
+            $scope.stage = "error";
+          }
+        }
+      }, function errorCallback(response) {
+        $scope.stage = "error";
+        console.log(response);
+      });
+    }
+  }
+  $scope.reset = function() {
+    // Clean up scope before destorying
+    $scope.formParams = {};
+    $scope.stage = "";
+  }
+
+
+//.controller('PlansController',function($scope,$http) {
+ 
+    
+        /*$scope.removeName = function (row) {
+            $scope.myData.splice($scope.myData.indexOf(row), 1);
+        }*/
+		  $scope.setPlan = function (plan,plantype,charge) {
+ 			  document.getElementById('plancode').value=plan;
+		 $scope.formParams.plancode=plan;
+
+		  $('#plans ol li').css('color', '#454545');
+		  $('#plans ol li').css('backgroundColor', 'rgb(246, 246, 246)');
+		  
+			   document.getElementById(plan).style.color='white';
+			  // document.getElementById('@'+plan).style.color='white';
+			   document.getElementById(plan).style.backgroundColor='rgb(92, 184, 92)';
+			 //  document.getElementById('@'+plan).style.backgroundColor='rgb(92, 184, 92)';
+			   document.getElementById('next2').disabled=false;
+			    
+ 		 document.getElementById('plantypes').value=plantype;
+		 $scope.formParams.plantypes=plantype;
+
+		 document.getElementById('plancharge').value=charge;
+		 $scope.formParams.plancharge=charge;
+			
+		  }
+		  
+
+   // })
+//.controller('NumbersController',function($scope,$http) {
+ 
+
+		//  here trigger
+ $scope.setNum = function (num) {
+  document.getElementById('phonenumber').value=num;
+  
+  document.getElementById('next4').disabled=false;
+  		 $scope.formParams.phonenumber=num;
+
+  
+  
+  }
+  
+   $scope.setFirst = function (num) {
+  document.getElementById('phonenumber').value=num;
+  
+  document.getElementById('next4').disabled=false;
+    		 $scope.formParams.phonenumber=num;
+
+
+			 
+  }
+  
+//});
+
+}]);
