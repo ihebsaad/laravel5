@@ -5,10 +5,11 @@
    bottom: 0;
    width: 100%;
    padding-top: 10px;
-   background-color: #001a32;
-   border-top: 10px solid #001325;
-   color: white;
+   background-color: #ebebeb;
+   border-top: 5px solid #a5a8ab;
+   color: #464646;
    text-align: center;
+   box-shadow: 2px 0px 8px #ebebeb;
 }
 </style>
 

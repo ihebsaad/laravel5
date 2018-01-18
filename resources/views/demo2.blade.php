@@ -10,7 +10,7 @@
 </section>
 <div class="container-triangle"></div>
 <div class="contentcontain">
-<div class="container center_div">
+<div class="container center_div"  style="max-width: 495px!important;">
 <!--<div class="row">
 <div class="form-group col-xs-5 col-lg-offset-5" style="text-align: center;">
 		<input type="text" class="form-control form-rounded" placeholder="Your PIN" />

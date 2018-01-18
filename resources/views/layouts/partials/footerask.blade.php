@@ -1,3 +1,21 @@
+<style>
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   padding-top: 10px;
+   background-color: #ebebeb;
+   border-top: 5px solid #a5a8ab;
+   color: #464646;
+   text-align: center;
+   box-shadow: 2px 0px 8px #ebebeb;
+}
+</style>
+
+<div class="footer">
+  <p>Iristel © 2018</p>
+</div>
 <!-- Bootstrap core JavaScript
 ================================================= -->
 <!-- Placed at the end of the document so the pages load faster -->
@@ -9,8 +27,6 @@
  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <style>
   #feedback { font-size: 1.4em; }
-  #selectable .ui-selecting { background: #7eb97e; }
-  #selectable .ui-selected { background: #5cb85c; color: white; }
   #selectable { list-style-type: none; margin: 0; padding: 0; width: 500px; }
   #selectable li { margin: 10px; padding: 10px; padding-top: 10%; float: left; width: 225px; height: 200px; font-size: 4em; text-align: center; border-radius: 1rem!important; cursor: pointer;}
   #selectable li p {font-size: 16px;}
