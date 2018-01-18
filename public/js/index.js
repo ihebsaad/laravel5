@@ -20,8 +20,30 @@ controller('formCtrl', ['$scope', '$http', function($scope, $http) {
     /////  $scope.formValidation = false;
     /////}
   };
-  
-   $scope.showuserinfo = function(access_token) {
+    
+    $scope.showusermetadata = function(access_token,user_id) {
+	     var settings2 = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://iristelx.auth0.com/api/v2/users/"+user_id,
+  "method": "GET",
+  "headers": {
+    "authorization": access_token
+  },
+  "data": "{}"
+}
+
+$.ajax(settings2).done(function (response) {
+	console.log('response show metaddata'+response.nickname);   
+	console.log('response show metaddata'+response.user_metadata['firstName']);   
+   document.getElementById('logoutbtn').style.display="block";
+  document.getElementById('userinfo').innerHTML='Logged in as '+response.user_metadata['firstName']+' '+response.user_metadata['lastName'];
+  	 jQuery('#div_session_write2').load(''+newURL+'public/session_write2.php?username='+response.user_metadata['firstName']+'/'+response.user_metadata['lastName']);
+
+
+});
+}
+      $scope.showuserinfo = function(access_token) {
 
   var settings2 = {
   "async": true,
@@ -36,12 +58,9 @@ controller('formCtrl', ['$scope', '$http', function($scope, $http) {
 
 $.ajax(settings2).done(function (response) {
   console.log(response);
-  //document.getElementById('ullogout').style="display:block;";
-  document.getElementById('logoutbtn').style.display="block";
-  document.getElementById('userinfo').innerHTML='Logged in as '+response.nickname;
-  	 jQuery('#div_session_write2').load(''+newURL+'public/session_write2.php?username='+response.nickname);
+  console.log('id= '+response.sub);
+  $scope.showusermetadata(access_token,response.sub);
 
-  
 });
 }
 $scope.DataPins ={} ;
@@ -130,6 +149,7 @@ $scope.DataPins ={} ;
 		 		
         });
  
+
   /*********          Login            ********/
    
   $scope.login = function() {
@@ -175,18 +195,16 @@ $.ajax(settings).done(function (response) {
 	$scope.$apply();
 	//////////
 });
-
 $.ajax(settings).fail(function (response) {
 	$(".alert-danger").slideDown();
 console.log('fail2');
 
 });
 
- 
 
 }
 
-  
+ /******** end login ********/
  var $body = $("body");
 
 $(document).on({
@@ -194,6 +212,100 @@ $(document).on({
      ajaxStop: function() { $body.removeClass("loading"); }    
 }); 
   
+/***************** SignUp ******************/
+  
+  $scope.signup = function() {
+	  var upassword= document.getElementById('password').value;
+ var email= document.getElementById('email').value;
+ var fname= document.getElementById('firstname').value;
+ var lname= document.getElementById('lastname').value;
+ 	var datatosend='{\"connection\":\"Username-Password-Authentication\",\"email\": \"'+email+'\",\"password\": \"'+upassword+'\",\"user_metadata\": { \"firstName\": \"'+fname+'\", \"lastName\": \"'+lname+'\" }}';
+ console.log('data to send '+datatosend);
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://iristelx.auth0.com/dbconnections/signup",
+  "method": "POST",
+  "headers": {
+    "content-type": "application/json"
+  },
+  "processData": false,
+  "data": datatosend
+  }
+
+
+$.ajax(settings).done(function (response) {
+	console.log('done');
+	console.log(response);
+	$scope.loginsignup();
+});
+$.ajax(settings).fail(function (response) {console.log('fail');});
+
+  }
+/************* end sign up ***************/
+  /*********          Login  after SignUp          ********/
+   
+  $scope.loginsignup = function() {
+
+  var fname= document.getElementById('firstname').value;
+ var lname= document.getElementById('lastname').value;
+
+ var email= document.getElementById('email').value;
+var upassword= document.getElementById('password').value;
+	var datatosend='{\"grant_type\":\"password\",\"username\": \"'+email+'\",\"password\": \"'+upassword+'\",\"audience\": \"https://iristelx.auth0.com/api/v2/\", \"scope\": \"openid\", \"client_id\": \"PBbe88ULTLh0kycpE0Db7g4AWjO21hYG\", \"client_secret\": \"b0As5Ty-RwfckGI6-08qNcmbJu3wP1qTE-QA9Kp7ER4PyZHPiSLVvf4auhHiXp1w\"}';
+console.log('data to send '+datatosend);
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://iristelx.auth0.com/oauth/token",
+  "method": "POST",
+  "headers": {
+    "content-type": "application/json"
+  },
+  "processData": false,
+  "data": datatosend
+  }
+
+
+$.ajax(settings).done(function (response) {
+  console.log('response login after signup'+response.user_id);
+  var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
+  var  token=response.access_token;
+
+   var  access_token="Bearer "+token;
+   console.log('before load');
+  	 jQuery('#div_session_write').load(''+newURL+'public/session_write.php?access_token='+token);
+ console.log('after load');	
+	document.getElementById('tokeninput').value = token;
+	//show user info
+	 console.log('after save');
+	if (document.getElementById('tokeninput').value == null){
+	token= document.getElementById('div_session_write').innerHTML.substr(26);
+	
+	}
+	else {token= document.getElementById('tokeninput').value;}
+	 access_token="Bearer "+token;
+	
+	//$scope.showuserinfo2(access_token);
+	 document.getElementById('logoutbtn').style.display="block";
+  document.getElementById('userinfo').innerHTML='Logged in as '+fname+' '+lname;
+  	 jQuery('#div_session_write2').load(''+newURL+'public/session_write2.php?username='+fname+'/'+lname);
+
+	$scope.next('stagePlans'); 
+	$scope.$apply();
+	//////////
+});
+$.ajax(settings).fail(function (response) {
+	$(".alert-danger").slideDown();
+console.log('fail2');
+
+
+});
+
+
+}
+/********** end login after signup **********/
+ 
 
   $scope.back = function (stage) {
     $scope.direction = 0;

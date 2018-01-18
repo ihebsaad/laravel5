@@ -49,7 +49,12 @@
  }else{
  $style='display:none';}
  if (isset ($_SESSION['username']))
- { $value='Logged in as '.$_SESSION['username'];
+ {
+	 $pos = strpos($_SESSION['username'], '/');
+$fname=substr($_SESSION['username'],0,$pos);
+$lname=substr($_SESSION['username'],$pos+1);
+	 $value='Logged in as '.$fname.' '.$lname;
+
  }else{
  $value='';}
 echo'
@@ -320,7 +325,7 @@ img.onclick = function(){
                                 <input  ng-model="formParams.first" required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="25" type="text" placeholder="First Name" id="firstname" class="form-control">
                             </div>
                             <div class="col-sm-6 form-group">
-                                <input ng-model="formParams.last" type="text" required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="25" placeholder="Last Name" class="form-control">
+                                <input ng-model="formParams.last" type="text" required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="25" placeholder="Last Name" id="lastname" class="form-control">
                             </div>
                         </div> 
                         <div class="row">
@@ -352,7 +357,7 @@ img.onclick = function(){
                         </div>
                             
                     <div class="form-group">
-                        <input type="email" required ng-model="formParams.email" placeholder="Email Address" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" class="form-control">
+                        <input type="email"  id="email"  required ng-model="formParams.email" placeholder="Email Address" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" class="form-control">
                     </div>  
                      <div class="row" style="margin-bottom: 20px;">
                          <div class="col-sm-6 form-group" style="margin-top: 20px!important;">
@@ -370,7 +375,9 @@ img.onclick = function(){
 
 						</div>	
 					</div>						
-            
+            <div class="row" style="margin-top: 20px;">
+			<button ng-click="signup()">SignUp</button>
+			</div>
 				</div>
 			</div>
 	
@@ -1503,14 +1510,14 @@ $.ajax(settings).done(function (response) {
 	  email= document.getElementById('useremail2').value;
 if(email==""){$(".alert-warning").slideDown();}
 else{
-	var datatosend='{\"client_id\": \"JBL90aJJc4ZG7DxcIfITrYB-UrjbvY_u\",\"email\": \"'+email+'\",\"connection\": \"databaseserver\"}';
+	var datatosend='{\"client_id\": \"PBbe88ULTLh0kycpE0Db7g4AWjO21hYG\",\"email\": \"'+email+'\",\"connection\": \"Username-Password-Authentication\"}';
 
 
 	console.log('data to send '+datatosend);
 var settings = {
   "async": true,
   "crossDomain": true,
-  "url": "https://raniasaad.eu.auth0.com/dbconnections/change_password",
+  "url": "https://iristelx.auth0.com/dbconnections/change_password",
   "method": "POST",
   "headers": {
     "content-type": "application/json"
