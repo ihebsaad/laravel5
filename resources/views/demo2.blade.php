@@ -8,6 +8,8 @@
 <h1 class="jumbotron-heading">I AM ...</h1>
 </div>
 </section>
+<div class="container-triangle"></div>
+<div class="contentcontain">
 <div class="container center_div">
 <!--<div class="row">
 <div class="form-group col-xs-5 col-lg-offset-5" style="text-align: center;">
@@ -26,5 +28,6 @@
         </div>
  </form>
  
+</div>
 </div>
 @endsection
