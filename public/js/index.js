@@ -211,6 +211,53 @@ $(document).on({
     ajaxStart: function() { console.log('start');$body.addClass("loading");    },
      ajaxStop: function() { $body.removeClass("loading"); }    
 }); 
+/***************** Add Automatic Payment  ******************/
+ $scope.AutomaticPayment = function(serviceId) {
+	 
+	 var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://gqnchpomjprsrfglg-mock.stoplight-proxy.io/"+serviceId+"/automatic-payment",
+  "method": "PATCH",
+  "headers": {
+    "authorization": "Bearer {token}.{secret}"
+  },
+  "data": "{\"enabled\":true,\"paymentSource\":\"CREDITCARD\",\"onDeclineSuspend\":false,\"onDaysAvailable\":{\"enabled\":true,\"trigger\":1,\"amount\":25.75},\"onDayOfMonth\":{\"enabled\":false,\"trigger\":15,\"amount\":25.55},\"onBalanceBelow\":{\"enabled\":false,\"trigger\":1,\"amount\":25.25},\"creditCard\":{\"cardType\":\"VISA\",\"number\":\"5555666677779999\",\"holder\":\"Mr John Doe\",\"expMonth\":\"09\",\"expYear\":\"2021\",\"CVV\":\"599\"}}"
+}
+
+$.ajax(settings).done(function (response) {
+  console.log('done AutomaticPayment '+response);
+});
+$.ajax(settings).fail(function (response) {
+  console.log('fail AutomaticPayment '+response);
+});
+ }
+ /***************** End Automatic Payment  ******************/
+/***************** Add Payment  ******************/
+ $scope.AddPayment = function(serviceId) {
+	 
+	 var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://gqnchpomjprsrfglg-mock.stoplight-proxy.io/"+serviceId+"/payments",
+  "method": "POST",
+  "headers": {
+    "authorization": "Bearer {token}.{secret}",
+    "content-type": "application/json"
+  },
+  "processData": false,
+  "data": "{\"amount\":55.25,\"currency\":\"CAD\",\"paymentMethod\":\"CASH\",\"reference\":\"A3454384949\"}"
+}
+
+$.ajax(settings).done(function (response) {
+  console.log('done AddPayment '+response);
+});
+$.ajax(settings).fail(function (response) {
+  console.log('fail AddPayment'+response);
+});
+ }
+ /***************** End Add Payment  ******************/
+ 
 /***************** AddSIM ******************/
  
  $scope.AddSIM = function(accountId,serviceId) {
