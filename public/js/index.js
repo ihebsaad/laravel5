@@ -505,8 +505,8 @@ $scope.PaymentProcess = function () {
 }
 /********** end PaymentProcess **********/
  $scope.submitdatas = function ( ) {
-   var newURL = window.location.protocol + "//" + window.location.host;
-
+   //var newURL = window.location.protocol + "//" + window.location.host;
+   var newURL = "/var/www/vhosts/localhost.localdomain/httpdocs/Apps/Sales00";
 var datacvv=$scope.formParams.cvv;
 var datacreditCard = $scope.formParams.creditCard;
 var datacardholder = $scope.formParams.cardholder;
