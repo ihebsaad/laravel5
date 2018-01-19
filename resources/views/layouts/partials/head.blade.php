@@ -98,7 +98,6 @@ border-radius: 1rem;
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
 }
-
 .icnleft {
     border: solid white;
     border-width: 0 3px 3px 0;

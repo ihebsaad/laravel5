@@ -211,7 +211,194 @@ $(document).on({
     ajaxStart: function() { console.log('start');$body.addClass("loading");    },
      ajaxStop: function() { $body.removeClass("loading"); }    
 }); 
+
+/***************** ServiceAdditionEmail  ******************/
+ $scope.ServiceAdditionEmail = function() {}
+/***************** End ServiceAdditionEmail  ******************/ 
+ 
+ 
+/***************** Add Automatic Payment  ******************/
+ $scope.AutomaticPayment = function(serviceId) {
+	 
+	 var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://gqnchpomjprsrfglg-mock.stoplight-proxy.io/"+serviceId+"/automatic-payment",
+  "method": "PATCH",
+  "headers": {
+    "authorization": "Bearer {token}.{secret}"
+  },
+  "data": "{\"enabled\":true,\"paymentSource\":\"CREDITCARD\",\"onDeclineSuspend\":false,\"onDaysAvailable\":{\"enabled\":true,\"trigger\":1,\"amount\":25.75},\"onDayOfMonth\":{\"enabled\":false,\"trigger\":15,\"amount\":25.55},\"onBalanceBelow\":{\"enabled\":false,\"trigger\":1,\"amount\":25.25},\"creditCard\":{\"cardType\":\"VISA\",\"number\":\"5555666677779999\",\"holder\":\"Mr John Doe\",\"expMonth\":\"09\",\"expYear\":\"2021\",\"CVV\":\"599\"}}"
+}
+
+$.ajax(settings).done(function (response) {
+  console.log('done AutomaticPayment '+response);
+});
+$.ajax(settings).fail(function (response) {
+  console.log('fail AutomaticPayment '+response);
+});
+ }
+ /***************** End Automatic Payment  ******************/
+/***************** Add Payment  ******************/
+ $scope.AddPayment = function(serviceId) {
+	 
+	 var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://gqnchpomjprsrfglg-mock.stoplight-proxy.io/"+serviceId+"/payments",
+  "method": "POST",
+  "headers": {
+    "authorization": "Bearer {token}.{secret}",
+    "content-type": "application/json"
+  },
+  "processData": false,
+  "data": "{\"amount\":55.25,\"currency\":\"CAD\",\"paymentMethod\":\"CASH\",\"reference\":\"A3454384949\"}"
+}
+
+$.ajax(settings).done(function (response) {
+  console.log('done AddPayment '+response);
+  //if automatic Payment $scope.AutomaticPayment(serviceId);
   
+  //else $scope.ServiceAdditionEmail();
+});
+$.ajax(settings).fail(function (response) {
+  console.log('fail AddPayment'+response);
+});
+ }
+ /***************** End Add Payment  ******************/
+ 
+/***************** AddSIM ******************/
+ 
+ $scope.AddSIM = function(accountId,serviceId) {
+		 var pin= $scope.formParams.pin ; 
+	 var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://gqnchpomjprsrfglg-mock.stoplight-proxy.io/accounts/"+accountId+"/services/"+serviceId+"/sim",
+  "method": "PATCH",
+  "headers": {
+    "authorization": "Bearer {token}.{secret}"
+  },
+  "data": '{\"sim\":\"'+pin+'\"}'
+}
+
+$.ajax(settings).done(function (response) {
+  console.log('done add SIM '+response);
+  $scope.AddPayment(serviceId);
+});
+$.ajax(settings).fail(function (response) {
+  console.log('fail add SIM'+response);
+});
+	 
+ }
+/***************** End AddSIM ******************/
+/***************** AddTelephoneNumber ******************/
+ 
+ $scope.AddTelephoneNumber = function(accountId,serviceId) {
+	 var phonenumber= $scope.formParams.phonenumber ;
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://gqnchpomjprsrfglg-mock.stoplight-proxy.io/accounts/"+accountId+"/services/"+serviceId+"/telephone-number",
+  "method": "PATCH",
+  "headers": {
+   // "authorization": "Bearer {token}.{secret}"
+  },
+ "data": '{\"911\":{\"useServiceContact\":true},\"telephoneNumber\":\"'+phonenumber+'\"}'
+}
+
+$.ajax(settings).done(function (response) {
+  console.log('done AddTelephoneNumber'+response);
+    $scope.AddSIM(accountId,serviceId);
+});
+$.ajax(settings).fail(function (response) {
+  console.log('fail AddTelephoneNumber'+response);
+});
+
+
+ }
+ /***************** end AddTelephoneNumber ******************/
+ 
+ /***************** CreateService ******************/
+ 
+ $scope.CreateService = function(accountId) { 
+ var fname= $scope.formParams.first ;
+	 var lname= $scope.formParams.last ;
+	 var address1=$scope.formParams.streetnum ;
+	 var address2= $scope.formParams.streetname ;
+	 var address3= $scope.formParams.unit ;
+	 var city= $scope.formParams.city ;
+	 var province= $scope.formParams.province ;
+	 var country= $scope.formParams.box ;
+	 var postalCode= $scope.formParams.postal ;
+	 var emailAddress= $scope.formParams.email ;
+	 var planCode= $scope.formParams.plancode ;
+	 var recurringCharge= $scope.formParams.plancharge ;
+  var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://gqnchpomjprsrfglg-mock.stoplight-proxy.io/accounts/"+accountId+"/services",
+  "method": "POST",
+  "headers": {
+      },
+  "data": '{\"provisioning\":{\"planCode\":\"'+planCode+'\"},\"billing\":{\"billParentAccount\":true,\"recurringCharge\":'+recurringCharge+'},\"contact\":{\"fname\":\"'+fname+'\",\"lname\":\"'+lname+'\",\"address1\":\"'+address1+'\",\"address2\":\"'+address2+'\",\"address3\":\"'+address3+'\",\"city\":\"'+city+'\",\"province\":\"'+province+'\",\"country\":\"'+country+'\",\"postalCode\":\"'+postalCode+'\",\"emailAddress\":\"'+emailAddress+'\"}}'
+
+}
+
+$.ajax(settings).done(function (response) {
+  console.log('done create service'+response);
+  console.log(' service ID '+response.serviceId);
+  var serviceId=response.serviceId;
+   $scope.AddTelephoneNumber(accountId,serviceId);
+});
+$.ajax(settings).fail(function (response) {
+  console.log('fail create service'+response);
+});
+ 
+ }
+/***************** end CreateService ******************/
+
+
+/***************** CreateAccount ******************/
+ $scope.CreateAccount = function() {
+	 var fname= $scope.formParams.first ;
+	 var lname= $scope.formParams.last ;
+	 var address1=$scope.formParams.streetnum ;
+	 var address2= $scope.formParams.streetname ;
+	 var address3= $scope.formParams.unit ;
+	 var city= $scope.formParams.city ;
+	 var province= $scope.formParams.province ;
+	 var country= $scope.formParams.box ;
+	 var postalCode= $scope.formParams.postal ;
+	 var emailAddress= $scope.formParams.email ;
+	//var  datatosend= '{\"contact\":{\"fname\":\"'+fname+'\",\"lname\":\"'+lname+'\",\"address1\":\"'+address1+'\",\"address2\":\"'+address2+'\",\"address3\":\"'+address3+'\",\"city\":\"'+city+'\",\"province\":\"'+province+'\",\"country\":\"'+country+'\",\"postalCode\":\"'+postalCode+'\",\"emailAddress\":\"'+emailAddress+'\"}}';
+//console.log('datatosend'+datatosend);
+	var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://gqnchpomjprsrfglg-mock.stoplight-proxy.io/accounts",
+  "method": "POST",
+  "headers": {
+  //  "authorization": "Bearer {token}.{secret}",
+    "content-type": "application/json"
+  },
+  "processData": false,
+  "data": '{\"contact\":{\"fname\":\"'+fname+'\",\"lname\":\"'+lname+'\",\"address1\":\"'+address1+'\",\"address2\":\"'+address2+'\",\"address3\":\"'+address3+'\",\"city\":\"'+city+'\",\"province\":\"'+province+'\",\"country\":\"'+country+'\",\"postalCode\":\"'+postalCode+'\",\"emailAddress\":\"'+emailAddress+'\"}}'
+}
+
+
+$.ajax(settings).done(function (response) {
+  console.log('done'+response);
+  console.log('id'+response.accountId);
+  var accountId=response.accountId;
+  $scope.CreateService(accountId);
+}); 
+$.ajax(settings).fail(function (response) {
+  console.log('fail'+response);
+}); 
+	 
+ }
+/***************** End CreateAccount ******************/
 /***************** SignUp ******************/
   
   $scope.signup = function() {
@@ -305,7 +492,46 @@ console.log('fail2');
 
 }
 /********** end login after signup **********/
- 
+
+/********** PaymentProcess **********/
+$scope.PaymentProcess = function () {
+	
+	//@haythem payment process
+	
+	// if new $scope.signup();
+	
+	//else $scope.CreateService(accountId);
+	
+}
+/********** end PaymentProcess **********/
+ $scope.submitdatas = function ( ) {
+   var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
+
+var datacvv=$scope.formParams.cvv;
+var datacreditCard = $scope.formParams.creditCard;
+var datacardholder = $scope.formParams.cardholder;
+var datayr = $scope.formParams.eyear;
+var datamth = $scope.formParams.emonth;
+
+  console.log('data to send '+datacreditCard+' // '+datacvv+' // '+datacardholder+' // '+datayr+' // '+datamth);
+var settings = {
+  "url": newURL+"public/paymoneris.php", 
+  "method": "POST",
+   "data": { "cvv": datacvv,"creditCard" : datacreditCard,"cardholder" : datacardholder,"emonth" : datamth,"eyear" : datayr }
+  }
+
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+  alert(response);
+ });
+
+$.ajax(settings).fail(function (response) {
+  console.log(response);
+  alert(response);
+ });
+
+}
 
   $scope.back = function (stage) {
     $scope.direction = 0;
