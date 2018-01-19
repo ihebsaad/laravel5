@@ -514,6 +514,7 @@ var datayr = $scope.formParams.eyear;
 var datamth = $scope.formParams.emonth;
 
   console.log('data to send '+datacreditCard+' // '+datacvv+' // '+datacardholder+' // '+datayr+' // '+datamth);
+  console.log('call url: '+newURL);
 var settings = {
   "url": newURL+"public/paymoneris.php", 
   "method": "POST",
