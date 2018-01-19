@@ -211,6 +211,12 @@ $(document).on({
     ajaxStart: function() { console.log('start');$body.addClass("loading");    },
      ajaxStop: function() { $body.removeClass("loading"); }    
 }); 
+
+/***************** ServiceAdditionEmail  ******************/
+ $scope.ServiceAdditionEmail = function() {}
+/***************** End ServiceAdditionEmail  ******************/ 
+ 
+ 
 /***************** Add Automatic Payment  ******************/
  $scope.AutomaticPayment = function(serviceId) {
 	 
@@ -251,6 +257,9 @@ $.ajax(settings).fail(function (response) {
 
 $.ajax(settings).done(function (response) {
   console.log('done AddPayment '+response);
+  //if automatic Payment $scope.AutomaticPayment(serviceId);
+  
+  //else $scope.ServiceAdditionEmail();
 });
 $.ajax(settings).fail(function (response) {
   console.log('fail AddPayment'+response);
@@ -275,6 +284,7 @@ $.ajax(settings).fail(function (response) {
 
 $.ajax(settings).done(function (response) {
   console.log('done add SIM '+response);
+  $scope.AddPayment(serviceId);
 });
 $.ajax(settings).fail(function (response) {
   console.log('fail add SIM'+response);
@@ -482,7 +492,46 @@ console.log('fail2');
 
 }
 /********** end login after signup **********/
- 
+
+/********** PaymentProcess **********/
+$scope.PaymentProcess = function () {
+	
+	//@haythem payment process
+	
+	// if new $scope.signup();
+	
+	//else $scope.CreateService(accountId);
+	
+}
+/********** end PaymentProcess **********/
+ $scope.submitdatas = function ( ) {
+   var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
+
+var datacvv=$scope.formParams.cvv;
+var datacreditCard = $scope.formParams.creditCard;
+var datacardholder = $scope.formParams.cardholder;
+var datayr = $scope.formParams.eyear;
+var datamth = $scope.formParams.emonth;
+
+  console.log('data to send '+datacreditCard+' // '+datacvv+' // '+datacardholder+' // '+datayr+' // '+datamth);
+var settings = {
+  "url": newURL+"public/paymoneris.php", 
+  "method": "POST",
+   "data": { "cvv": datacvv,"creditCard" : datacreditCard,"cardholder" : datacardholder,"emonth" : datamth,"eyear" : datayr }
+  }
+
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+  alert(response);
+ });
+
+$.ajax(settings).fail(function (response) {
+  console.log(response);
+  alert(response);
+ });
+
+}
 
   $scope.back = function (stage) {
     $scope.direction = 0;

@@ -1413,7 +1413,7 @@ $('#password, #confirm_password').on('keyup', function () {
 			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('stagePhone')"><i class="icnleft"></i>  Back</button>  
 			</div>
             <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
-				<button style="float:right" type="button" style="float:right" class="btn btn-primary btn btn-success btn-previous btn-md" id="next5" ng-disabled="FormActivate.$pristine || FormActivate.$invalid"  ng-click="CreateAccount();">Finish  </i></button>
+				<button style="float:right" type="button" style="float:right" class="btn btn-primary btn btn-success btn-previous btn-md" id="next5" ng-disabled="FormActivate.$pristine || FormActivate.$invalid"  ng-click="PaymentProcess();">Finish  </i></button>
             </div>
 			</div>
             </div>
