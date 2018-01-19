@@ -18,7 +18,7 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
                 'cc_number' => $_POST["creditCard"],
                 'order_id' => 'iristel-or' . date("dmy-G:i:s"),
                 //'order_id' => 'testorderhs',
-                'amount' => '20.00',
+                'amount' => '2196.00',
                 'expiry_month' => $_POST["emonth"],
                 'expiry_year' => $_POST["eyear"]
             );
