@@ -505,7 +505,7 @@ $scope.PaymentProcess = function () {
 }
 /********** end PaymentProcess **********/
  $scope.submitdatas = function ( ) {
-   var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
+   var newURL = window.location.protocol + "//" + window.location.host;
 
 var datacvv=$scope.formParams.cvv;
 var datacreditCard = $scope.formParams.creditCard;
@@ -516,7 +516,7 @@ var datamth = $scope.formParams.emonth;
   console.log('data to send '+datacreditCard+' // '+datacvv+' // '+datacardholder+' // '+datayr+' // '+datamth);
   console.log('call url: '+newURL);
 var settings = {
-  "url": newURL+"public/paymoneris.php", 
+  "url": newURL+"/public/paymoneris.php", 
   "method": "POST",
    "data": { "cvv": datacvv,"creditCard" : datacreditCard,"cardholder" : datacardholder,"emonth" : datamth,"eyear" : datayr }
   }
