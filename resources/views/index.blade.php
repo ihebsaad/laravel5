@@ -330,15 +330,15 @@ img.onclick = function(){
                         </div> 
                         <div class="row">
                             <div class="col-sm-4 form-group">
-                                <input ng-model="formParams.streetnum"  required type="number" ng-pattern="/^[0-9]*$/" placeholder="Street #" min="1" max="99999" class="form-control">                         
+                                <input ng-model="formParams.streetnum"  required type="number" ng-pattern="/^[0-9]*$/" placeholder="Street #" min="1" max="99999" id="address1" class="form-control">                         
 						  </div>      
                             <div class="col-sm-8 form-group">
-                                <input ng-model="formParams.streetname" required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="35" type="text" placeholder="Street Name" class="form-control">
+                                <input ng-model="formParams.streetname" required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="35" id="address2" type="text" placeholder="Street Name" class="form-control">
                             </div>  
                         </div>
                         <div class="row">
                             <div class="col-sm-4 form-group">
-                                <input ng-model="formParams.unit" type="number" required ng-pattern="/^[0-9]*$/" placeholder="Unit #" min="1" max="99999" class="form-control">
+                                <input ng-model="formParams.unit" type="number" required ng-pattern="/^[0-9]*$/" placeholder="Unit #" min="1" max="99999" id="address3" class="form-control">
                             </div>  
                             <div class="col-sm-4 form-group">
                                 <input ng-model="formParams.box" type="text" required ng-pattern="/^[a-zA-Z0-9 ]*$/" ng-minlength="1" ng-maxlength="10" placeholder="PO BOX" class="form-control">
@@ -1413,7 +1413,7 @@ $('#password, #confirm_password').on('keyup', function () {
 			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('stagePhone')"><i class="icnleft"></i>  Back</button>  
 			</div>
             <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
-				<button style="float:right" type="button" style="float:right" class="btn btn-primary btn btn-success btn-previous btn-md" id="next5" ng-disabled="FormActivate.$pristine || FormActivate.$invalid"  ng-click="">Finish  </i></button>
+				<button style="float:right" type="button" style="float:right" class="btn btn-primary btn btn-success btn-previous btn-md" id="next5" ng-disabled="FormActivate.$pristine || FormActivate.$invalid"  ng-click="CreateAccount();">Finish  </i></button>
             </div>
 			</div>
             </div>
@@ -1425,9 +1425,8 @@ $('#password, #confirm_password').on('keyup', function () {
   
       </div>
     </form>
-	 
-	 
- 
+
+
   </div>
 </main>
        
@@ -1540,8 +1539,6 @@ $.ajax(settings).done(function (response) {
 
 
 </div>
-
-
 
 
 </body>

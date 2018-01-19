@@ -211,7 +211,137 @@ $(document).on({
     ajaxStart: function() { console.log('start');$body.addClass("loading");    },
      ajaxStop: function() { $body.removeClass("loading"); }    
 }); 
-  
+/***************** AddSIM ******************/
+ 
+ $scope.AddSIM = function(accountId,serviceId) {
+		 var pin= $scope.formParams.pin ; 
+	 var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://gqnchpomjprsrfglg-mock.stoplight-proxy.io/accounts/"+accountId+"/services/"+serviceId+"/sim",
+  "method": "PATCH",
+  "headers": {
+    "authorization": "Bearer {token}.{secret}"
+  },
+  "data": '{\"sim\":\"'+pin+'\"}'
+}
+
+$.ajax(settings).done(function (response) {
+  console.log('done add SIM '+response);
+});
+$.ajax(settings).fail(function (response) {
+  console.log('fail add SIM'+response);
+});
+	 
+ }
+/***************** End AddSIM ******************/
+/***************** AddTelephoneNumber ******************/
+ 
+ $scope.AddTelephoneNumber = function(accountId,serviceId) {
+	 var phonenumber= $scope.formParams.phonenumber ;
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://gqnchpomjprsrfglg-mock.stoplight-proxy.io/accounts/"+accountId+"/services/"+serviceId+"/telephone-number",
+  "method": "PATCH",
+  "headers": {
+   // "authorization": "Bearer {token}.{secret}"
+  },
+ "data": '{\"911\":{\"useServiceContact\":true},\"telephoneNumber\":\"'+phonenumber+'\"}'
+}
+
+$.ajax(settings).done(function (response) {
+  console.log('done AddTelephoneNumber'+response);
+    $scope.AddSIM(accountId,serviceId);
+});
+$.ajax(settings).fail(function (response) {
+  console.log('fail AddTelephoneNumber'+response);
+});
+
+
+ }
+ /***************** end AddTelephoneNumber ******************/
+ 
+ /***************** CreateService ******************/
+ 
+ $scope.CreateService = function(accountId) { 
+ var fname= $scope.formParams.first ;
+	 var lname= $scope.formParams.last ;
+	 var address1=$scope.formParams.streetnum ;
+	 var address2= $scope.formParams.streetname ;
+	 var address3= $scope.formParams.unit ;
+	 var city= $scope.formParams.city ;
+	 var province= $scope.formParams.province ;
+	 var country= $scope.formParams.box ;
+	 var postalCode= $scope.formParams.postal ;
+	 var emailAddress= $scope.formParams.email ;
+	 var planCode= $scope.formParams.plancode ;
+	 var recurringCharge= $scope.formParams.plancharge ;
+  var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://gqnchpomjprsrfglg-mock.stoplight-proxy.io/accounts/"+accountId+"/services",
+  "method": "POST",
+  "headers": {
+      },
+  "data": '{\"provisioning\":{\"planCode\":\"'+planCode+'\"},\"billing\":{\"billParentAccount\":true,\"recurringCharge\":'+recurringCharge+'},\"contact\":{\"fname\":\"'+fname+'\",\"lname\":\"'+lname+'\",\"address1\":\"'+address1+'\",\"address2\":\"'+address2+'\",\"address3\":\"'+address3+'\",\"city\":\"'+city+'\",\"province\":\"'+province+'\",\"country\":\"'+country+'\",\"postalCode\":\"'+postalCode+'\",\"emailAddress\":\"'+emailAddress+'\"}}'
+
+}
+
+$.ajax(settings).done(function (response) {
+  console.log('done create service'+response);
+  console.log(' service ID '+response.serviceId);
+  var serviceId=response.serviceId;
+   $scope.AddTelephoneNumber(accountId,serviceId);
+});
+$.ajax(settings).fail(function (response) {
+  console.log('fail create service'+response);
+});
+ 
+ }
+/***************** end CreateService ******************/
+
+
+/***************** CreateAccount ******************/
+ $scope.CreateAccount = function() {
+	 var fname= $scope.formParams.first ;
+	 var lname= $scope.formParams.last ;
+	 var address1=$scope.formParams.streetnum ;
+	 var address2= $scope.formParams.streetname ;
+	 var address3= $scope.formParams.unit ;
+	 var city= $scope.formParams.city ;
+	 var province= $scope.formParams.province ;
+	 var country= $scope.formParams.box ;
+	 var postalCode= $scope.formParams.postal ;
+	 var emailAddress= $scope.formParams.email ;
+	//var  datatosend= '{\"contact\":{\"fname\":\"'+fname+'\",\"lname\":\"'+lname+'\",\"address1\":\"'+address1+'\",\"address2\":\"'+address2+'\",\"address3\":\"'+address3+'\",\"city\":\"'+city+'\",\"province\":\"'+province+'\",\"country\":\"'+country+'\",\"postalCode\":\"'+postalCode+'\",\"emailAddress\":\"'+emailAddress+'\"}}';
+//console.log('datatosend'+datatosend);
+	var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://gqnchpomjprsrfglg-mock.stoplight-proxy.io/accounts",
+  "method": "POST",
+  "headers": {
+  //  "authorization": "Bearer {token}.{secret}",
+    "content-type": "application/json"
+  },
+  "processData": false,
+  "data": '{\"contact\":{\"fname\":\"'+fname+'\",\"lname\":\"'+lname+'\",\"address1\":\"'+address1+'\",\"address2\":\"'+address2+'\",\"address3\":\"'+address3+'\",\"city\":\"'+city+'\",\"province\":\"'+province+'\",\"country\":\"'+country+'\",\"postalCode\":\"'+postalCode+'\",\"emailAddress\":\"'+emailAddress+'\"}}'
+}
+
+
+$.ajax(settings).done(function (response) {
+  console.log('done'+response);
+  console.log('id'+response.accountId);
+  var accountId=response.accountId;
+  $scope.CreateService(accountId);
+}); 
+$.ajax(settings).fail(function (response) {
+  console.log('fail'+response);
+}); 
+	 
+ }
+/***************** End CreateAccount ******************/
 /***************** SignUp ******************/
   
   $scope.signup = function() {
