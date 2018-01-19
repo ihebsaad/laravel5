@@ -50,6 +50,8 @@ Route::get('/', ['as' => 'home', 'uses' => 'IndexController@index']);
 Route::get('language', 'PostController@language');
 
 
+Route::get('/activate/admin', [ 'uses' => 'AdminController@admin']);
+
 Route::get('/login', ['as' => 'login', 'uses' => 'IndexController@login']);
 Route::get('/logout', ['as' => 'logout', 'uses' => 'IndexController@logout'])->middleware('auth');
 Route::get('/dump', ['as' => 'dump', 'uses' => 'IndexController@dump', 'middleware' => 'auth'])->middleware('auth');
