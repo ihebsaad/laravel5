@@ -1,6 +1,6 @@
 <?php
 
-require '/moneris/lib/Moneris.php';
+require './moneris/lib/Moneris.php';
 
 if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["cardholder"]) && isset ( $_POST["emonth"]) && isset ( $_POST["eyear"])) 
 	{
