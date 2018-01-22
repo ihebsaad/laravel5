@@ -42,7 +42,7 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
                 $errors[] = $e->getMessage();
         }
         */
-        $store_id='store5';
+$store_id='store1';
 $api_token='yesguy';
 
 /************************* Transactional Variables ****************************/
@@ -90,7 +90,7 @@ $mpgHttpPost  =new mpgHttpsPost($store_id,$api_token,$mpgRequest);
 /******************************* Response ************************************/
 
 $mpgResponse=$mpgHttpPost->getMpgResponse();
-
+/*
 print("\nCardType = " . $mpgResponse->getCardType());
 print("\nTransAmount = " . $mpgResponse->getTransAmount());
 print("\nTxnNumber = " . $mpgResponse->getTxnNumber());
@@ -108,7 +108,9 @@ print("\nTransTime = " . $mpgResponse->getTransTime());
 print("\nTicket = " . $mpgResponse->getTicket());
 print("\nTimedOut = " . $mpgResponse->getTimedOut());
 print("\nStatusCode = " . $mpgResponse->getStatusCode());
-print("\nStatusMessage = " . $mpgResponse->getStatusMessage());
+print("\nStatusMessage = " . $mpgResponse->getStatusMessage());*/
+$msgresp = $mpgResponse->getReferenceNum();
+echo "refnum : ".$msgresp;
 
 
 	} else
