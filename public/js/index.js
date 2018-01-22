@@ -353,6 +353,7 @@ $.ajax(settings).fail(function (response) {
   "async": true,
   "crossDomain": true,
   "url": "https://gqnchpomjprsrfglg-mock.stoplight-proxy.io/billing/"+serviceId+"/payments",
+  
   "method": "POST",
   "headers": {
     "authorization": "Bearer {token}.{secret}",
