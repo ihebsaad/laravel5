@@ -1349,7 +1349,7 @@ $(function () {
                                 <input type="number" placeholder="Exp Year" ng-model="formParams.year" class="form-control" min="2018" max="2050"  ng-model="year" name="eyear">
                             </div>  
                             <div class="col-sm-3 form-group">
-                                 <input type="number" placeholder="CVV" class="form-control"    ng-model="formParams.cvv" name="securityCode"    ng-model="securityCode"  required  data-ng-pattern="/^[0-9]+$/"  data-ng-minlength="3"  maxlength="4">
+                                 <input type="number" placeholder="CVV" class="form-control"    ng-model="formParams.cvv" name="cvv"    ng-model="securityCode"  required  data-ng-pattern="/^[0-9]+$/"  data-ng-minlength="3"  maxlength="4" >
                               <ul ng-show=" !FormActivate.$valid">
       <li ng-show="FormActivate.securityCode.$error.pattern">Security code must contain only numbers</li>
       <li ng-show="FormActivate.securityCode.$error.minlength">Security code must be 3-4 digits</li>
