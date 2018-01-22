@@ -1281,7 +1281,7 @@ $(function () {
  
    
    
-<!--   Stage Billing     ---------------------------------------------------------> 
+<!--   Stage Billing     ------------------------------------------------------- --> 
 <div class="animate-switch" ng-switch-when="stageBilling">
  
 <div class="container center_div">
@@ -1332,7 +1332,7 @@ $(function () {
         <hr />
         <div id="creditcard" style="margin-top: 20px;" >
         <div class="form-group">
-            <input type="text"   class="form-control" id="cardholder" placeholder="Cardholder Name" ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="35"  ng-model="formParams.cardholder"  /></input>        </div>
+            <input type="text"   class="form-control" id="cardholder" placeholder="Cardholder Name" ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="35"  ng-model="formParams.cardholder" name="cardholder"  /></input>        </div>
         <div class="form-group">
             <input type="number"  id="credit" name="creditCard"  ng-model="formParams.creditCard"  required  data-credit-card-type   data-ng-pattern="/^[0-9]+$/"  data-ng-minlength="15"     maxlength="19" class="form-control" id="cardnumber" placeholder="Card Number" />
 			<ul ng-show="!FormActivate.$valid">
@@ -1343,10 +1343,10 @@ $(function () {
         </div>
          <div class="row">
                             <div class="col-sm-3 form-group">
-                                <input type="number" placeholder="Exp Mth" ng-model="formParams.month" class="form-control"  min="1" max="12"  ng-model="month" >
+                                <input type="number" placeholder="Exp Mth" ng-model="formParams.month" class="form-control"  min="1" max="12"  ng-model="month" name="emonth">
                             </div>  
                             <div class="col-sm-3 form-group">
-                                <input type="number" placeholder="Exp Year" ng-model="formParams.year" class="form-control" min="2018" max="2050"  ng-model="year" >
+                                <input type="number" placeholder="Exp Year" ng-model="formParams.year" class="form-control" min="2018" max="2050"  ng-model="year" name="eyear">
                             </div>  
                             <div class="col-sm-3 form-group">
                                  <input type="number" placeholder="CVV" class="form-control"    ng-model="formParams.cvv" name="securityCode"    ng-model="securityCode"  required  data-ng-pattern="/^[0-9]+$/"  data-ng-minlength="3"  maxlength="4">
@@ -1403,7 +1403,7 @@ $(function () {
 			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('stagePhone')"><i class="icnleft"></i>  Back</button>  
 			</div>
             <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
-				<button style="float:right" type="button" style="float:right" class="btn btn-primary btn btn-success btn-previous btn-md" id="next5" ng-disabled="FormActivate.$pristine || FormActivate.$invalid"  ng-click="">Finish  </i></button>
+				<button style="float:right" type="button" style="float:right" class="btn btn-primary btn btn-success btn-previous btn-md" id="next5" ng-disabled="FormActivate.$pristine || FormActivate.$invalid"  ng-click="submitdatas(formParams.cvv)">Finish  </i></button>
             </div>
 			</div>
             </div>
