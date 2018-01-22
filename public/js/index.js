@@ -345,9 +345,10 @@ $.ajax(settings).fail(function (response) {
 /***************** Add Payment  ******************/
  $scope.AddPayment = function(serviceId) {
 	 var ref=document.getElementById('transactionid').value;
+	 console.log('ref'+ref);
 	var amount=$scope.formParams.totalcharge;
 	 var datatosend='{\"amount\":\"'+amount+'\",\"currency\":\"CAD\",\"paymentMethod\":\"CASH\",\"reference\":\"'+ref+'\"}';
-
+ console.log('datatosend for payment'+datatosend);
 	 var settings = {
   "async": true,
   "crossDomain": true,
