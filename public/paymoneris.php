@@ -1,7 +1,7 @@
 <?php
 
-//require './moneris/lib/Moneris.php';
-require './moneris/examples/mpgClasses.php';
+require './moneris/lib/Moneris.php';
+//require './moneris/examples/mpgClasses.php';
 
 if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["cardholder"]) && isset ( $_POST["emonth"]) && isset ( $_POST["eyear"])) 
 	{
