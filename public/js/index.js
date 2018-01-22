@@ -344,7 +344,10 @@ $.ajax(settings).fail(function (response) {
  /***************** End Automatic Payment  ******************/
 /***************** Add Payment  ******************/
  $scope.AddPayment = function(serviceId) {
-	 
+	 var ref=document.getElementById('transactionid').value;
+	var amount=$scope.formParams.totalcharge;
+	 var datatosend='{\"amount\":\"'+amount+'\",\"currency\":\"CAD\",\"paymentMethod\":\"CASH\",\"reference\":\"'+ref+'\"}';
+
 	 var settings = {
   "async": true,
   "crossDomain": true,
@@ -355,7 +358,7 @@ $.ajax(settings).fail(function (response) {
     "content-type": "application/json"
   },
   "processData": false,
-  "data": "{\"amount\":55.25,\"currency\":\"CAD\",\"paymentMethod\":\"CASH\",\"reference\":\"A3454384949\"}"
+  "data": datatosend
 }
 
 $.ajax(settings).done(function (response) {
@@ -633,21 +636,8 @@ $.ajax(settings).fail(function (response) {
 
 
 /********** PaymentProcess **********/
-$scope.PaymentProcess = function () {
-	
-	//@haythem payment process
-	
-	// if new $scope.signup();
-	if($scope.formParams.customer=="new"){ $scope.CreateAccount(); console.log('new');}
-	//else $scope.CreateService(accountId);
-	if($scope.formParams.customer=="existing"){
-		
-		$scope.GetUser();
-		 console.log('existing');
-		}
-}
-/********** end PaymentProcess **********/
- $scope.submitdatas = function ( ) {
+
+ $scope.PaymentProcess = function ( ) {
    var newURL = window.location.protocol + "//" + window.location.host;
 var datacvv=$scope.formParams.cvv;
 var datacreditCard = $scope.formParams.creditCard;
@@ -674,6 +664,16 @@ var res = $.ajax(settings).done(function (response) {
    if ((document.getElementById('transactionid').value == "empty") || (document.getElementById('transactionid').value.startsWith("Array")))
   {
     alert ( "Transaction Fail !");
+  }
+  else{
+	  if($scope.formParams.customer=="new"){ $scope.CreateAccount(); console.log('new');}
+	//else $scope.CreateService(accountId);
+	if($scope.formParams.customer=="existing"){
+		
+		$scope.GetUser();
+		 console.log('existing');
+		}
+	  
   }
  });
 

@@ -1270,10 +1270,10 @@ $('#password, #confirm_password').on('keyup', function () {
     }
   });
 });
-/* stage billing Help title tooltip */
+/* stage billing Help title tooltip 
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
-})
+})*/
 </script>
 
  </div> 
