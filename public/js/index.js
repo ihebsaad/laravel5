@@ -671,7 +671,7 @@ var res = $.ajax(settings).done(function (response) {
 
     document.getElementById('transactionid').value=response;
  
-   if (document.getElementById('transactionid').value == "empty")
+   if ((document.getElementById('transactionid').value == "empty") || (document.getElementById('transactionid').value.startsWith("error:")))
   {
     alert ( "Transaction Fail !");
   }
