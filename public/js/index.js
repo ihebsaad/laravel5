@@ -668,15 +668,12 @@ var settings = {
 var res = $.ajax(settings).done(function (response) {
 
  console.log('response done payement : ' + response);
-  
-  //  $scope.formParams.transactionid = res.responseText;
-    $scope.formParams.transactionid = 'tesssst';
+
     document.getElementById('transactionid').value=response;
  
-   if (response.match(/empty/))
+   if (document.getElementById('transactionid').value == "empty")
   {
-  //  $scope.formParams.transactionid = res.responseText;
-    document.getElementById('transactionid').value = 'tessst2';
+    alert ( "Transaction Fail !");
   }
  });
 
