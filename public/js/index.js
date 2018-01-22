@@ -670,7 +670,7 @@ var res = $.ajax(settings).done(function (response) {
  console.log('response done payement : ' + response);
   
   //  $scope.formParams.transactionid = res.responseText;
-    $scope.formParams.transactionid = response;
+    $scope.formParams.transactionid = 'tesssst';
  
    if (response.match(/empty/))
   {
