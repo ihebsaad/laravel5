@@ -665,12 +665,12 @@ var settings = {
   }
  $scope.formParams.transactionid ="";
 
-$.ajax(settings).done(function (response) {
- 
+var res = $.ajax(settings).done(function (response) {
+
  console.log('response done payement : ' + response);
   if (response != 'empty')
   {
-    $scope.formParams.transactionid = response;
+    $scope.formParams.transactionid = res.responseText;
   }
  });
 
