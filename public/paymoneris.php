@@ -5,7 +5,8 @@ require './moneris/lib/Moneris.php';
 
 if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["cardholder"]) && isset ( $_POST["emonth"]) && isset ( $_POST["eyear"]) && isset ( $_POST["totalc"])) 
 	{
-		//$expyear = 
+		$expyear = strtotime($_POST["eyear"]);
+		$nexpyear = date("y", $expyear);
 		try {
 			$moneris = Moneris::create(
 			    array(
@@ -22,10 +23,10 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
                 'order_id' => 'iristel-or-'.date("dmy-G:i:s"),
                 //'order_id' => 'testorderhs',
                 'amount' => $_POST["totalc"],
-                //'expiry_month' => $_POST["emonth"],
-                'expiry_month' => '05',
-                //'expiry_year' => $_POST["eyear"]
-                'expiry_year' => '18'
+                'expiry_month' => $_POST["emonth"],
+                //'expiry_month' => '05',
+                'expiry_year' => $nexpyear
+                //'expiry_year' => '18'
             );
 
 
