@@ -127,8 +127,8 @@ $cust_id='cust id';
 $order_id='iristel-or' . date("dmy-G:i:s");
 $amount='177.00';
 $pan='4242424242424242';
-$expiry_date='0818';
-$crypt='7';
+$expiry_date='1808';
+$crypt='8';
 $dynamic_descriptor='123';
 $status_check = 'false';
 
