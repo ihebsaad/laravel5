@@ -38,14 +38,15 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 				// trying to make some sense of this... grouping them as best as I can:
 				switch ($result->ResponseCode) {
 					// ...
-					case '481':
+					case '481':$this->error_code(Moneris_Result::ERROR_DECLINED);
+						break;
 					case '483':
 						$this->error_code(Moneris_Result::ERROR_DECLINED);
 						break;
 					// ...
 				}
 				return $this->was_successful(false);
-			}*/
+			}
 
             if ($result->was_successful()) {
             	$trnum = $transaction->number();
