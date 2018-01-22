@@ -671,11 +671,12 @@ var res = $.ajax(settings).done(function (response) {
   
   //  $scope.formParams.transactionid = res.responseText;
     $scope.formParams.transactionid = 'tesssst';
+    document.getElementById('transactionid').value=response;
  
    if (response.match(/empty/))
   {
   //  $scope.formParams.transactionid = res.responseText;
-    $scope.formParams.transactionid = 'tessst2';
+    document.getElementById('transactionid').value = 'tessst2';
   }
  });
 
