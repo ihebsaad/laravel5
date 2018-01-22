@@ -1365,7 +1365,6 @@ $(function () {
         </div>
         <div class="row" style="margin-left: 0px">
             <div class="checkbox" style="color: #464a4c;">
-              <input type="hidden" name="totalc" ng-bind="formParams.totalcharge" />
                 <label><input id="atotopup" name="atotopup" ng-model="formParams.autopay" type="checkbox" value=""><span class="cr"><i class="cr-icon" style="font-size: 18px;left: 0px"><b>✓</b></i></span>  <b>Automatically Topup my account every 30 days</b></label>
             </div>
         </div>

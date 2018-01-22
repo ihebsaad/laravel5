@@ -654,13 +654,14 @@ var datacreditCard = $scope.formParams.creditCard;
 var datacardholder = $scope.formParams.cardholder;
 var datayr = $scope.formParams.eyear;
 var datamth = $scope.formParams.emonth;
+var dataamount = $scope.formParams.totalcharge;
 
   console.log('data to send '+datacreditCard+' // '+datacvv+' // '+datacardholder+' // '+datayr+' // '+datamth);
   console.log('call url: '+newURL);
 var settings = {
   "url": newURL+"/public/paymoneris.php", 
   "method": "POST",
-   "data": { "cvv": datacvv,"creditCard" : datacreditCard,"cardholder" : datacardholder,"emonth" : datamth,"eyear" : datayr }
+   "data": { "cvv": datacvv,"creditCard" : datacreditCard,"cardholder" : datacardholder,"emonth" : datamth,"eyear" : datayr, "totalc" : dataamount }
   }
 
 
