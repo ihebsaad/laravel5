@@ -30,9 +30,9 @@
                   function doMonerisSubmit()
                   {
                       var monFrameRef = document.getElementById('monerisFrame').contentWindow;
-                      var cardn = document.getElementById('credit').value;
+                      /*var cardn = document.getElementById('credit').value;
                       
-                      document.getElementById('monerisDataInput').value = cardn ;
+                      document.getElementById('monerisDataInput').value = cardn ;*/
 
                       monFrameRef.postMessage('','https://esqa.moneris.com/HPPtoken/index.php');
                       return false;
@@ -1453,7 +1453,7 @@ $('#password, #confirm_password').on('keyup', function () {
 			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('stagePhone')"><i class="icnleft"></i>  Back</button>  
 			</div>
             <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
-              
+
               <div style="">
                 <div id=monerisResponse></div>
 
