@@ -670,9 +670,8 @@ var res = $.ajax(settings).done(function (response) {
  console.log('response done payement : ' + response);
 
     document.getElementById('transactionid').value=response;
-    alert(Object.keys(response).length); 
  
-   if (document.getElementById('transactionid').value == "empty")
+   if ((document.getElementById('transactionid').value == "empty") || (document.getElementById('transactionid').value.startsWith("Array(")))
   {
     alert ( "Transaction Fail !");
   }
