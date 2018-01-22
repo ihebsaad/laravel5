@@ -34,6 +34,8 @@ controller('formCtrl', ['$scope', '$http', function($scope, $http) {
 }
 
 $.ajax(settings2).done(function (response) {
+	   var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
+
 	console.log('response show metaddata1'+response.nickname);   
 	console.log('response show metaddata2'+response.user_metadata['firstName']);   
    document.getElementById('logoutbtn').style.display="block";
