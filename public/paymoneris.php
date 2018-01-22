@@ -7,6 +7,7 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 	{
 		$expyear = strtotime($_POST["eyear"]);
 		$nexpyear = date("y", $expyear);
+		$digits = 3;
 		try {
 			$moneris = Moneris::create(
 			    array(
