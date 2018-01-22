@@ -20,7 +20,7 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
             $params = array(
                 'cc_number' => $_POST["creditCard"],
                 //'cc_number' => '4242424242424242',
-                'order_id' => 'iristel-or-'.date("dmy-G:i:s"),
+                'order_id' => 'iristel-or-'.date("dmy-G:i:s").rand(pow(10, $digits-1), pow(10, $digits)-1),
                 //'order_id' => 'testorderhs',
                 'amount' => $_POST["totalc"],
                 'expiry_month' => $_POST["emonth"],
