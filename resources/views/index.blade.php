@@ -59,25 +59,9 @@ $lname=substr($_SESSION['username'],$pos+1);
  $value='';}
 echo'
 <ul class="nav navbar-nav navbar-right" id="logoutbtn" style="'.$style.'">
-<li><div class="row"><div class="col-sm-9"><h5 id="userinfo">'.$value.'</h5> </div><div class="col-sm-3"><button style="margin-top: 25px;"  onclick="logout();" class="signin-button login"> Logout</button></div></div></li>
+<li><div class="row"><div class="col-sm-9"><h5 id="userinfo">'.$value.'</h5> </div><div class="col-sm-3"><button style="margin-top: 25px;"  ng-click="logout();"  class="signin-button login"> Logout</button></div></div></li>
 
 </ul>';
-
-
-
- 
-/*
-if (isset ($_SESSION['access_token']))
- {$style='display:block;';
- }else{
- $style='display:none';}
-
-echo'
-<ul class="nav navbar-nav navbar-right" id="logoutbtn" style="'.$style.'">
-<li><div class="row"><div class="col-sm-6"><h3 id="userinfo"></h3> </div><div class="col-sm-6"><button style="margin-top: 25px;"  onclick="logout();" class="signin-button login"> Logout</button></div></div></li>
-
-</ul>';
-*/
 ?>
         </div>
         </div><!-- Col -->
@@ -177,7 +161,7 @@ echo'
             <a href="#" style="font-size:  18px;"  ng-click="back('stageLogin')">Cancel</a>
         </div>      
    <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 form-group">
-            <button type="button" onclick="resetpassword();" class="btn btn-success btn-round" id="sendpwd" style="float: right;margin-right: 0px;" >Send</button>
+            <button type="button" ng-click="resetpassword();" class="btn btn-success btn-round" id="sendpwd" style="float: right;margin-right: 0px;" >Send</button>
         </div>  
    </div>
 </form>
@@ -1437,63 +1421,7 @@ Form : <p>@{{formParams}}</p>
 
 
  <script  src="public/js/index.js"></script>
-  <script type="text/javascript">
-  var URL = window.location.protocol + "//" + window.location.host ;
  
-  var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
- 
-  function logout(){
-
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('GET',''+newURL+'public/session_destroy.php', true);
-    xmlhttp.onreadystatechange=function(){
-       if (xmlhttp.readyState == 4){
-          if(xmlhttp.status == 200){
-			  if (newURL=='http://127.0.0.1/laravel5/'){
-				   window.location.replace(newURL);
-			  }
-			  else{
-				   window.location.replace(URL);
-			  }     
-         }
-       }
-    };
-    xmlhttp.send(null);
-		  
-  }
-  
-  function resetpassword(){
-	  document.getElementById("Ssent").style.display="none";
-	  document.getElementById("Wmailrequired").style.display="none";
-	  email= document.getElementById('useremail2').value;
-if(email==""){$(".alert-warning").slideDown();}
-else{
-	var datatosend='{\"client_id\": \"PBbe88ULTLh0kycpE0Db7g4AWjO21hYG\",\"email\": \"'+email+'\",\"connection\": \"Username-Password-Authentication\"}';
-
-
-	console.log('data to send '+datatosend);
-var settings = {
-  "async": true,
-  "crossDomain": true,
-  "url": "https://iristelx.auth0.com/dbconnections/change_password",
-  "method": "POST",
-  "headers": {
-    "content-type": "application/json"
-  },
-  "processData": false,
-  "data": datatosend
-  }
-
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
-  $(".alert-success").slideDown();
-});
-	  
-}	  
-  }
-
-</script>
 <div class="modal"><!-- Place at bottom of page --></div>
 
 
@@ -1501,40 +1429,7 @@ $.ajax(settings).done(function (response) {
 
 
 </body>
-<style>
-/* Start by settingkkdisplay:none to make this hidden.
-   Then we position it in relation to the viewport window
-   with position:fixed. Width, height, top and left speak
-   for themselves. Background we set to 80% white with
-   our animation centered, and no-repeating */
-.modal {
-    display:    none;
-    position:   fixed;
-    z-index:    1000;
-    top:        0;
-    left:       0;
-    height:     100%;
-    width:      100%;
-    background: rgba( 255, 255, 255, .8 ) 
-                url('http://test.enterpriseesolutions.com/public/ajax-loader.gif') 
-                50% 50% 
-                no-repeat;
-}
 
-/* When the body has the loading class, we turn
-   the scrollbar off with overflow:hidden */
-body.loading {
-    overflow: hidden;   
-}
-
-/* Anytime the body has the loading class, our
-   modal element will be visible */
-body.loading .modal {
-    display: block;
-}
-
-
-</style>
 </html>
 
 
