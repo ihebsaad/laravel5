@@ -650,6 +650,7 @@ var dataamount = $scope.formParams.totalcharge;
 
   console.log('data to send '+datacreditCard+' // '+datacvv+' // '+datacardholder+' // '+datayr+' // '+datamth);
   console.log('call url: '+newURL);
+  if(newURL=="http://127.0.0.1"){newURL=newURL+"laravel5/";}
 var settings = {
   "url": newURL+"/public/paymoneris.php", 
   "method": "POST",

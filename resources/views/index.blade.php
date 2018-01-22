@@ -96,7 +96,7 @@ echo'
 	WRONG USERNAME OR PASSWORD.
 	</div>
   <div class="form-group">
-    <input  type="email" value="tester45@gmail.com "ng-model="formParams.email" required ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" class="form-control" id="useremail" placeholder="Email Address">
+    <input  type="email" value="tester45@gmail.com" ng-model="formParams.email" required ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" class="form-control" id="useremail" placeholder="Email Address">
   </div>
   <div class="form-group">
     <input  type="password" value="1234567AZe" class="form-control" id="userpassword" placeholder="Password">
