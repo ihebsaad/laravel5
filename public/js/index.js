@@ -205,6 +205,71 @@ console.log('fail2');
 }
 
  /******** end login ********/
+ 
+ 
+ /******** logout ********/
+
+   $scope.logout = function() {
+
+var URL = window.location.protocol + "//" + window.location.host ;
+ 
+  var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
+ 
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('GET',''+newURL+'public/session_destroy.php', true);
+    xmlhttp.onreadystatechange=function(){
+       if (xmlhttp.readyState == 4){
+          if(xmlhttp.status == 200){
+			  if (newURL=='http://127.0.0.1/laravel5/'){
+				   window.location.replace(newURL);
+			  }
+			  else{
+				   window.location.replace(URL);
+			  }     
+         }
+       }
+    };
+    xmlhttp.send(null);
+		  
+  }
+  
+
+ /******** end logout ********/
+ 
+ /******** Reset password ********/
+  $scope.resetpassword = function() {
+
+	  document.getElementById("Ssent").style.display="none";
+	  document.getElementById("Wmailrequired").style.display="none";
+	  email= document.getElementById('useremail2').value;
+if(email==""){$(".alert-warning").slideDown();}
+else{
+	var datatosend='{\"client_id\": \"PBbe88ULTLh0kycpE0Db7g4AWjO21hYG\",\"email\": \"'+email+'\",\"connection\": \"Username-Password-Authentication\"}';
+
+
+	console.log('data to send '+datatosend);
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://iristelx.auth0.com/dbconnections/change_password",
+  "method": "POST",
+  "headers": {
+    "content-type": "application/json"
+  },
+  "processData": false,
+  "data": datatosend
+  }
+
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+  $(".alert-success").slideDown();
+});
+	  
+}	  
+  }
+  
+ /******** end Reset password ********/
  var $body = $("body");
 
 $(document).on({

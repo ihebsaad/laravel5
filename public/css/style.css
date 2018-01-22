@@ -578,3 +578,28 @@ fieldset.scheduler-border {
 .radio label input[type="radio"]:disabled + .cr {
     opacity: .5;
 }
+/* style loading ...   */
+.modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 ) 
+                url('http://test.enterpriseesolutions.com/public/ajax-loader.gif') 
+                50% 50% 
+                no-repeat;
+}
+
+body.loading {
+    overflow: hidden;   
+}
+
+
+body.loading .modal {
+    display: block;
+}
+
+
