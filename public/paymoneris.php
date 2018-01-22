@@ -16,13 +16,18 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 			        'require_cvd' => false
 			    ));
             $params = array(
-                'cc_number' => $_POST["creditCard"],
-                'order_id' => 'iristel-or' . date("dmy-G:i:s"),
+                //'cc_number' => $_POST["creditCard"],
+                'cc_number' => '4242424242424242',
+                'order_id' => 'iristel-or-'.date("dmy-G:i:s"),
                 //'order_id' => 'testorderhs',
                 'amount' => '2196.00',
-                'expiry_month' => $_POST["emonth"],
-                'expiry_year' => $_POST["eyear"]
+                //'expiry_month' => $_POST["emonth"],
+                'expiry_month' => '05',
+                //'expiry_year' => $_POST["eyear"]
+                'expiry_year' => '18'
             );
+
+
             $result = $moneris->purchase($params);
             $transaction = $result->transaction();
 
