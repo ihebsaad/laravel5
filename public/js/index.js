@@ -34,8 +34,8 @@ controller('formCtrl', ['$scope', '$http', function($scope, $http) {
 }
 
 $.ajax(settings2).done(function (response) {
-	console.log('response show metaddata'+response.nickname);   
-	console.log('response show metaddata'+response.user_metadata['firstName']);   
+	console.log('response show metaddata1'+response.nickname);   
+	console.log('response show metaddata2'+response.user_metadata['firstName']);   
    document.getElementById('logoutbtn').style.display="block";
   document.getElementById('userinfo').innerHTML='Logged in as '+response.user_metadata['firstName']+' '+response.user_metadata['lastName'];
   	 jQuery('#div_session_write2').load(''+newURL+'public/session_write2.php?username='+response.user_metadata['firstName']+'/'+response.user_metadata['lastName']);
@@ -391,6 +391,7 @@ $.ajax(settings).done(function (response) {
   console.log('done'+response);
   console.log('id'+response.accountId);
   var accountId=response.accountId;
+  
   $scope.CreateService(accountId);
 }); 
 $.ajax(settings).fail(function (response) {
@@ -403,17 +404,17 @@ $.ajax(settings).fail(function (response) {
 /***************** sendWelcomeemail ******************/
  $scope.sendWelcomeemail = function() {
 	 //
-	 
-	 $scope.CreateService(accountId);
+	 console.log("Function send mail");
+
  }
 /***************** End sendWelcomeemail ******************/
 /***************** SignUp ******************/
   
   $scope.signup = function() {
-	  var upassword= document.getElementById('password').value;
- var email= document.getElementById('email').value;
- var fname= document.getElementById('firstname').value;
- var lname= document.getElementById('lastname').value;
+ var upassword=$scope.formParams.password;
+ var email= $scope.formParams.email;
+ var fname= $scope.formParams.first;
+ var lname= $scope.formParams.last;
  	var datatosend='{\"connection\":\"Username-Password-Authentication\",\"email\": \"'+email+'\",\"password\": \"'+upassword+'\",\"user_metadata\": { \"firstName\": \"'+fname+'\", \"lastName\": \"'+lname+'\" }}';
  console.log('data to send '+datatosend);
 var settings = {
@@ -442,11 +443,11 @@ $.ajax(settings).fail(function (response) {console.log('fail');});
    
   $scope.loginsignup = function() {
 
-  var fname= document.getElementById('firstname').value;
- var lname= document.getElementById('lastname').value;
+  var fname=  $scope.formParams.first;
+ var lname=  $scope.formParams.last;
 
- var email= document.getElementById('email').value;
-var upassword= document.getElementById('password').value;
+ var email=  $scope.formParams.email;
+var upassword=  $scope.formParams.password;
 	var datatosend='{\"grant_type\":\"password\",\"username\": \"'+email+'\",\"password\": \"'+upassword+'\",\"audience\": \"https://iristelx.auth0.com/api/v2/\", \"scope\": \"openid\", \"client_id\": \"PBbe88ULTLh0kycpE0Db7g4AWjO21hYG\", \"client_secret\": \"b0As5Ty-RwfckGI6-08qNcmbJu3wP1qTE-QA9Kp7ER4PyZHPiSLVvf4auhHiXp1w\"}';
 console.log('data to send '+datatosend);
 var settings = {
@@ -463,17 +464,17 @@ var settings = {
 
 
 $.ajax(settings).done(function (response) {
-  console.log('response login after signup'+response.user_id);
+  //console.log('response login after signup'+response.user_id);
   var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
   var  token=response.access_token;
 
    var  access_token="Bearer "+token;
    console.log('before load');
   	 jQuery('#div_session_write').load(''+newURL+'public/session_write.php?access_token='+token);
- console.log('after load');	
+
 	document.getElementById('tokeninput').value = token;
 	//show user info
-	 console.log('after save');
+	
 	if (document.getElementById('tokeninput').value == null){
 	token= document.getElementById('div_session_write').innerHTML.substr(26);
 	
@@ -485,9 +486,10 @@ $.ajax(settings).done(function (response) {
 	 document.getElementById('logoutbtn').style.display="block";
   document.getElementById('userinfo').innerHTML='Logged in as '+fname+' '+lname;
   	 jQuery('#div_session_write2').load(''+newURL+'public/session_write2.php?username='+fname+'/'+lname);
-    //$scope.sendWelcomeemail();
-	$scope.next('stagePlans'); 
-	$scope.$apply();
+    $scope.sendWelcomeemail();
+	$scope.CreateService(accountId);
+	//$scope.next('stagePlans'); 
+	//$scope.$apply();
 	//////////
 });
 $.ajax(settings).fail(function (response) {
@@ -499,7 +501,33 @@ console.log('fail2');
 
 
 }
-/********** end login after signup **********/
+/********** End login after signup **********/
+
+/********** GetUser **********/
+$scope.GetUser = function () {
+	var email=$scope.formParams.email;
+	var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://gqnchpomjprsrfglg-mock.stoplight-proxy.io/accounts?query="+email,
+  "method": "GET",
+  "headers": {
+    "authorization": "Bearer {token}.{secret}"
+  },
+  "data": "{}"
+}
+
+$.ajax(settings).done(function (response) {
+  console.log('done get user '+response);
+  $scope.CreateService(response.accountId);
+});
+$.ajax(settings).fail(function (response) {
+  console.log('fail get user '+response);
+});
+
+}
+/********** End GetUser **********/
+
 
 /********** PaymentProcess **********/
 $scope.PaymentProcess = function () {
@@ -507,9 +535,13 @@ $scope.PaymentProcess = function () {
 	//@haythem payment process
 	
 	// if new $scope.signup();
-	
+	if($scope.formParams.customer=="new"){ $scope.CreateAccount(); console.log('new');}
 	//else $scope.CreateService(accountId);
-	
+	if($scope.formParams.customer=="existing"){
+		
+		$scope.GetUser();
+		 console.log('existing');
+		}
 }
 /********** end PaymentProcess **********/
  $scope.submitdatas = function ( ) {
