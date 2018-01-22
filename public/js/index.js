@@ -663,11 +663,15 @@ var settings = {
   "method": "POST",
    "data": { "cvv": datacvv,"creditCard" : datacreditCard,"cardholder" : datacardholder,"emonth" : datamth,"eyear" : datayr, "totalc" : dataamount }
   }
-
+ $scope.formParams.transactionid ="";
 
 $.ajax(settings).done(function (response) {
-  console.log(response);
-  alert(response);
+ 
+ console.log('response done payement : ' + response);
+  if (response != 'empty')
+  {
+    $scope.formParams.transactionid = response;
+  }
  });
 
 $.ajax(settings).fail(function (response) {
