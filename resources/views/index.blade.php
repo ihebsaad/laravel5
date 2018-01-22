@@ -1343,10 +1343,10 @@ $(function () {
         </div>
          <div class="row">
                             <div class="col-sm-3 form-group">
-                                <input type="number" placeholder="Exp Mth" ng-model="formParams.month" class="form-control"  min="1" max="12"  ng-model="month" name="emonth">
+                                <input type="number" placeholder="Exp Mth" ng-model="formParams.emonth" class="form-control"  min="1" max="12"  ng-model="month" name="emonth">
                             </div>  
                             <div class="col-sm-3 form-group">
-                                <input type="number" placeholder="Exp Year" ng-model="formParams.year" class="form-control" min="2018" max="2050"  ng-model="year" name="eyear">
+                                <input type="number" placeholder="Exp Year" ng-model="formParams.eyear" class="form-control" min="2018" max="2050"  ng-model="year" name="eyear">
                             </div>  
                             <div class="col-sm-3 form-group">
                                  <input type="number" placeholder="CVV" class="form-control"    ng-model="formParams.cvv" name="cvv"    ng-model="securityCode"  required  data-ng-pattern="/^[0-9]+$/"  data-ng-minlength="3"  maxlength="4" >
