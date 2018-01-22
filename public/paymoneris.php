@@ -110,7 +110,7 @@ print("\nTimedOut = " . $mpgResponse->getTimedOut());
 print("\nStatusCode = " . $mpgResponse->getStatusCode());
 print("\nStatusMessage = " . $mpgResponse->getStatusMessage());*/
 $msgresp = $mpgResponse->getReferenceNum();
-echo "refnum : ".$msgresp;
+print_r($msgresp);
 
 
 	} else
