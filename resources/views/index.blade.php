@@ -1426,7 +1426,7 @@ $('#password, #confirm_password').on('keyup', function () {
       </div>
     </form>
 
-
+Form : <p>@{{formParams}}</p>
   </div>
 </main>
        
@@ -1439,52 +1439,11 @@ $('#password, #confirm_password').on('keyup', function () {
  <script  src="public/js/index.js"></script>
   <script type="text/javascript">
   var URL = window.location.protocol + "//" + window.location.host ;
-   // alert('URL'+URL);
+ 
   var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
  
-  /*
-function login(){
-	
-email= document.getElementById('useremail').value;
-password= document.getElementById('userpassword').value;
-	var datatosend='{\"grant_type\":\"password\",\"username\": \"'+email+'\",\"password\": \"'+password+'\",\"audience\": \"https://raniasaad.eu.auth0.com/api/v2/\", \"scope\": \"openid\", \"client_id\": \"JBL90aJJc4ZG7DxcIfITrYB-UrjbvY_u\", \"client_secret\": \"XugxD0AsEQpw5pwatO6kPjXouUPdBfuumztpf3p6LllTAR27JTzLvhhEcaEkQrla\"}';
-console.log('data to send '+datatosend);
-var settings = {
-  "async": true,
-  "crossDomain": true,
-  "url": "https://raniasaad.eu.auth0.com/oauth/token",
-  "method": "POST",
-  "headers": {
-    "content-type": "application/json"
-  },
-  "processData": false,
-  "data": datatosend
-  }
-
-
-$.ajax(settings).done(function (response) {
-     token=response.access_token;
-    access_token="Bearer "+token;
-  	 jQuery('#div_session_write').load('http://127.0.0.1/laravel5/public/session_write.php?access_token='+token);
-	 document.getElementById('tokeninput').value = token;
-	//show user info
-	
-	if (document.getElementById('tokeninput').value == null){
-	token= document.getElementById('div_session_write').innerHTML.substr(26);
-	
-	}
-	else {token= document.getElementById('tokeninput').value;}
-	 access_token="Bearer "+token;
-	showuserinfo(access_token);
-	
-	
-});
-
-
-}
-*/
   function logout(){
-		  //var xmlhttp = getXmlHttp();
+
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open('GET',''+newURL+'public/session_destroy.php', true);
     xmlhttp.onreadystatechange=function(){
