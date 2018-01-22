@@ -32,22 +32,7 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
             $result = $moneris->purchase($params);
             $transaction = $result->transaction();
 
-            // was it a successful transaction?
-			// any response code greater than 49 is an error code:
-			if ((int) $result->ResponseCode >= 50 || (int) $result->ResponseCode == 0) {
-				// trying to make some sense of this... grouping them as best as I can:
-				switch ($result->ResponseCode) {
-					// ...
-					case '481':$this->error_code(Moneris_Result::ERROR_DECLINED);
-						break;
-					case '483':
-						$this->error_code(Moneris_Result::ERROR_DECLINED);
-						break;
-					// ...
-				}
-				return $this->was_successful(false);
-			}
-
+            
             if ($result->was_successful()) {
             	$trnum = $transaction->number();
             	//echo $_POST["cvv"].' // '.$_POST["creditCard"].' // '.$_POST["cardholder"].' // '.$_POST["emonth"].' // '.$_POST["eyear"];
@@ -63,6 +48,7 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 
         } catch (Moneris_Exception $e) {
                 $errors[] = $e->getMessage();
+                print_r($errors);
         }
 
 
