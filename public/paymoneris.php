@@ -33,7 +33,7 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 
             // was it a successful transaction?
 			// any response code greater than 49 is an error code:
-			if ((int) $moneris->ResponseCode >= 50 || (int) $moneris->ResponseCode == 0) {
+			/*if ((int) $moneris->ResponseCode >= 50 || (int) $moneris->ResponseCode == 0) {
 				// trying to make some sense of this... grouping them as best as I can:
 				switch ($moneris->ResponseCode) {
 					// ...
@@ -44,7 +44,7 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 					// ...
 				}
 				return $this->was_successful(false);
-			}
+			}*/
 
             if ($result->was_successful()) {
             	$trnum = $transaction->number();
