@@ -3,7 +3,7 @@
 require './moneris/lib/Moneris.php';
 //require './moneris/examples/mpgClasses.php';
 
-if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["cardholder"]) && isset ( $_POST["emonth"]) && isset ( $_POST["eyear"])) 
+if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["cardholder"]) && isset ( $_POST["emonth"]) && isset ( $_POST["eyear"]) && isset ( $_POST["totalc"])) 
 	{
 		//$expyear = 
 		try {
@@ -21,7 +21,7 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
                 //'cc_number' => '4242424242424242',
                 'order_id' => 'iristel-or-'.date("dmy-G:i:s"),
                 //'order_id' => 'testorderhs',
-                'amount' => '2196.00',
+                'amount' => $_POST["totalc"],
                 //'expiry_month' => $_POST["emonth"],
                 'expiry_month' => '05',
                 //'expiry_year' => $_POST["eyear"]
