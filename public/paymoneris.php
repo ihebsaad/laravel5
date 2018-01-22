@@ -16,21 +16,26 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 			        'require_cvd' => false
 			    ));
             $params = array(
-                'cc_number' => $_POST["creditCard"],
-                'order_id' => 'iristel-or' . date("dmy-G:i:s"),
+                //'cc_number' => $_POST["creditCard"],
+                'cc_number' => '4242424242424242',
+                'order_id' => 'iristel-or-'.date("dmy-G:i:s"),
                 //'order_id' => 'testorderhs',
                 'amount' => '2196.00',
-                'expiry_month' => $_POST["emonth"],
-                'expiry_year' => $_POST["eyear"]
+                //'expiry_month' => $_POST["emonth"],
+                'expiry_month' => '05',
+                //'expiry_year' => $_POST["eyear"]
+                'expiry_year' => '18'
             );
+
+
             $result = $moneris->purchase($params);
             $transaction = $result->transaction();
 
             // was it a successful transaction?
 			// any response code greater than 49 is an error code:
-			/*if ((int) $result->ResponseCode >= 50 || (int) $result->ResponseCode == 0) {
+			/*if ((int) $moneris->ResponseCode >= 50 || (int) $moneris->ResponseCode == 0) {
 				// trying to make some sense of this... grouping them as best as I can:
-				switch ($result->ResponseCode) {
+				switch ($moneris->ResponseCode) {
 					// ...
 					case '481':
 					case '483':
