@@ -1414,6 +1414,46 @@ $('#password, #confirm_password').on('keyup', function () {
 			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('stagePhone')"><i class="icnleft"></i>  Back</button>  
 			</div>
             <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
+              <script>
+
+                  function doMonerisSubmit()
+                  {
+                      var monFrameRef = document.getElementById('monerisFrame').contentWindow;
+                      var cardn = document.getElementById('credit').value;
+                      
+                      document.getElementById('monerisDataInput').value = cardn ;
+
+                      monFrameRef.postMessage('','https://esqa.moneris.com/HPPtoken/index.php');
+                      return false;
+                  }
+
+                  var respMsg = function(e)
+                  {
+                      var respData = eval("(" + e.data + ")");
+                      document.getElementById("monerisResponse").innerHTML = e.origin + " SENT " + " - " + respData.responseCode + "-" + respData.dataKey + "-" + respData.errorMessage;
+
+                      if (respData.dataKey) {
+                          document.getElementById('data_key').value = respData.dataKey;
+                          document.getElementById('form').submit();
+                      }
+
+                  }
+
+                  window.onload = function()
+                  {
+                      if (window.addEventListener)
+                      {
+                          window.addEventListener ("message", respMsg, false);
+                      }
+                      else
+                      {
+                          if (window.attachEvent)
+                          {
+                              window.attachEvent("onmessage", respMsg);
+                          }
+                      }
+                  }
+    </script>
               <div style="">
                 <div id=monerisResponse></div>
 
