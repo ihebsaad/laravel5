@@ -668,12 +668,11 @@ var settings = {
 var res = $.ajax(settings).done(function (response) {
 
  console.log('response done payement : ' + response);
-  if (response != 'empty')
-  {
+  
   //  $scope.formParams.transactionid = res.responseText;
-    $scope.formParams.transactionid = 'tessst';
-  }
-   if (res.responseText != 'empty')
+    $scope.formParams.transactionid = response;
+ 
+   if (response.match(/empty/))
   {
   //  $scope.formParams.transactionid = res.responseText;
     $scope.formParams.transactionid = 'tessst2';
