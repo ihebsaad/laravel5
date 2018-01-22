@@ -399,6 +399,14 @@ $.ajax(settings).fail(function (response) {
 	 
  }
 /***************** End CreateAccount ******************/
+
+/***************** sendWelcomeemail ******************/
+ $scope.sendWelcomeemail = function() {
+	 //
+	 
+	 $scope.CreateService(accountId);
+ }
+/***************** End sendWelcomeemail ******************/
 /***************** SignUp ******************/
   
   $scope.signup = function() {
@@ -477,7 +485,7 @@ $.ajax(settings).done(function (response) {
 	 document.getElementById('logoutbtn').style.display="block";
   document.getElementById('userinfo').innerHTML='Logged in as '+fname+' '+lname;
   	 jQuery('#div_session_write2').load(''+newURL+'public/session_write2.php?username='+fname+'/'+lname);
-
+    //$scope.sendWelcomeemail();
 	$scope.next('stagePlans'); 
 	$scope.$apply();
 	//////////
