@@ -5,6 +5,7 @@ require './moneris/lib/Moneris.php';
 
 if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["cardholder"]) && isset ( $_POST["emonth"]) && isset ( $_POST["eyear"])) 
 	{
+		$expyear = 
 		try {
 			$moneris = Moneris::create(
 			    array(
@@ -16,8 +17,8 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 			        'require_cvd' => false
 			    ));
             $params = array(
-                //'cc_number' => $_POST["creditCard"],
-                'cc_number' => '4242424242424242',
+                'cc_number' => $_POST["creditCard"],
+                //'cc_number' => '4242424242424242',
                 'order_id' => 'iristel-or-'.date("dmy-G:i:s"),
                 //'order_id' => 'testorderhs',
                 'amount' => '2196.00',
@@ -48,8 +49,9 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 
             if ($result->was_successful()) {
             	$trnum = $transaction->number();
-            	echo $_POST["cvv"].' // '.$_POST["creditCard"].' // '.$_POST["cardholder"].' // '.$_POST["emonth"].' // '.$_POST["eyear"];
-            exit("transaction was successful ". $trnum);
+            	//echo $_POST["cvv"].' // '.$_POST["creditCard"].' // '.$_POST["cardholder"].' // '.$_POST["emonth"].' // '.$_POST["eyear"];
+            	//echo '<script>$scope.formParams.transaction=$trnum
+            exit($trnum);
 
             } else {
                 $errors[] = $result->error_message();
