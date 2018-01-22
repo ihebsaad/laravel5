@@ -573,7 +573,8 @@ $('#password, #confirm_password').on('keyup', function () {
 </div> <!-- End Stage plans -->
  
    
-   	<!--   Stage 5  STAGE PHONE NUMBERS  ---------------------------------------------------------->
+  
+<!--   Stage 5  STAGE PHONE NUMBERS  ---------------------------------------------------------->
 
 <div class="animate-switch" ng-switch-when="stagePhone">
 	<div   class="container center_div"  style="max-width: 850px!important;" >
@@ -582,18 +583,18 @@ $('#password, #confirm_password').on('keyup', function () {
         <div class="col-sm-12">
         <div class="row">
         <div class="col-sm-4 form-group">
-        <select class="form-control" id="sel1">
-            <option value="" disabled selected>Province</option>
+        <select ng-model="formParams.province2" class="form-control" id="sel1">
+            <option  value="" disabled selected>Province</option>
         </select>
         </div>
         <div class="col-sm-4 form-group">
-        <select class="form-control" id="sel2">
+        <select ng-model="formParams.city2" class="form-control" id="sel2">
             <option value="" disabled selected>City</option>
         </select>
         </div>
         <div class="col-sm-4 form-group">
-        <select class="form-control" id="sel3">
-            <option value="" disabled selected>Area code</option>
+        <select ng-model="formParams.area" class="form-control" id="sel3">
+            <option  value="" disabled selected>Area code</option>
         </select>
         </div>
         </div>
@@ -605,8 +606,8 @@ $('#password, #confirm_password').on('keyup', function () {
           
 		       <ul style="list-style-type: none;margin-left: -20;" class="form">
 				<div ng-repeat="data in NData"   >
- 					<div ng-if="$first && ($index<10)" ng-init="setFirst(data.phone)" ><li><label  ng-click="setNum(data.phone)" class="radio inline"><input class="radio-inline"  ng-attr-id="@{{data.phone}}"  checked="checked"  type="radio" name="phonenum"   /><span for="@{{data.phone}}" ng-bind="data.phone"   class="labelradio control-label " ></label> </span></li></div>
-					<div ng-if="!$first && ($index<10)" ><li><label ng-click="setNum(data.phone)" class="radio inline"><input class="radio-inline"  ng-attr-id="@{{data.phone}}"    type="radio"   name="phonenum"  /><span for="@{{data.phone}}" ng-bind="data.phone"   class="labelradio control-label"> </span></label></li></div>
+ 					<div ng-if="$first && ($index<10)" ng-init="setFirst(data.telephoneNumber)" ><li><label  ng-click="setNum(data.telephoneNumber)" class="radio inline"><input class="radio-inline"  ng-attr-id="@{{data.telephoneNumber}}"  checked="checked"  type="radio" name="phonenum"   /><span for="@{{data.telephoneNumber}}" ng-bind="data.telephoneNumber"   class="labelradio control-label " ></label> </span></li></div>
+					<div ng-if="!$first && ($index<10)" ><li><label ng-click="setNum(data.telephoneNumber)" class="radio inline"><input class="radio-inline"  ng-attr-id="@{{data.telephoneNumber}}"    type="radio"   name="phonenum"  /><span for="@{{data.telephoneNumber}}" ng-bind="data.telephoneNumber"   class="labelradio control-label"> </span></label></li></div>
 				</div>	
 			   </ul>
 		  
@@ -621,7 +622,7 @@ $('#password, #confirm_password').on('keyup', function () {
 			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('stagePlans')"><i class="icnleft"></i>  Back</button>  
 			</div>
             <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
-				<button style="float:right" type="button" class="btn btn-primary btn btn-success btn-previous btn-md" id="next4" disabled ng-click="next('stageBilling')">Next  <i class="icnright"></i></button>
+				<button style="float:right" type="button" class="btn btn-primary btn btn-success btn-previous btn-md" id="next4" disabled ng-click="initTax();next('stageBilling')">Next  <i class="icnright"></i></button>
             </div>
 			</div>
 
@@ -830,52 +831,6 @@ $('#password, #confirm_password').on('keyup', function () {
       ]
     },
     {
-      name: "Newfoundland",
-      cities: [{
-        name: "St. John's",
-        acodes: [
-          "709"
-        ]
-      }
-      ]
-    },
-    {
-      name: "Northwest Territories",
-      cities: [{
-        name: "Yellowknife",
-        acodes: [
-          "867"
-        ]
-      }
-      ]
-    },
-    {
-      name: "Nunavut",
-      cities: [{
-        name: "Iqaluit",
-        acodes: [
-          "867"
-        ]
-      }
-      ]
-    },
-    {
-      name: "Yukon",
-      cities: [{
-        name: "Whitehorse",
-        acodes: [
-          "867"
-        ]
-      },
-      {
-        name: "Dawson City",
-        acodes: [
-          "867"
-        ]
-      }
-      ]
-    },
-    {
       name: "Nova Scotia",
       cities: [{
         name: "Halifax",
@@ -892,21 +847,33 @@ $('#password, #confirm_password').on('keyup', function () {
         ]
       }
       ]
+    },	
+    {
+      name: "Newfoundland",
+      cities: [{
+        name: "St. John's",
+        acodes: [
+          "709"
+        ]
+      }
+      ]
+    },	
+    {
+      name: "Northwest Territories",
+      cities: [{
+        name: "Yellowknife",
+        acodes: [
+          "867"
+        ]
+      }
+      ]
     },
     {
-      name: "Prince Edward Island",
+      name: "Nunavut",
       cities: [{
-        name: "Charlottetown",
+        name: "Iqaluit",
         acodes: [
-          "902",
-          "782"
-        ]
-      },
-      {
-        name: "Summerside",
-        acodes: [
-          "902",
-          "782"
+          "867"
         ]
       }
       ]
@@ -1115,6 +1082,24 @@ $('#password, #confirm_password').on('keyup', function () {
       ]
     },
     {
+      name: "Prince Edward Island",
+      cities: [{
+        name: "Charlottetown",
+        acodes: [
+          "902",
+          "782"
+        ]
+      },
+      {
+        name: "Summerside",
+        acodes: [
+          "902",
+          "782"
+        ]
+      }
+      ]
+    },	
+    {
       name: "Quebec",
       cities: [{
         name: "Levis",
@@ -1240,7 +1225,25 @@ $('#password, #confirm_password').on('keyup', function () {
         ]
       }
       ]
-    }
+    },
+    {
+      name: "Yukon",
+      cities: [{
+        name: "Whitehorse",
+        acodes: [
+          "867"
+        ]
+      },
+      {
+        name: "Dawson City",
+        acodes: [
+          "867"
+        ]
+      }
+      ]
+    }	
+	
+	
     ],
     defOption = '<option value="" disabled selected>Please select</option>';
   
@@ -1267,12 +1270,15 @@ $('#password, #confirm_password').on('keyup', function () {
     }
   });
 });
-
+/* stage billing Help title tooltip */
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
 </script>
 
  </div> 
 </div>  <!-- End Stage Phone numbers  -->		
-   
+ 
    
    
 <!--   Stage Billing     ---------------------------------------------------------> 
@@ -1282,43 +1288,44 @@ $('#password, #confirm_password').on('keyup', function () {
 
     <fieldset class="scheduler-border" style="padding-top: 20px!important;">
         <legend class="scheduler-border" style="color: grey;">Total Due Today</legend>
-        <div class="col-sm-12">
+        <div class="col-sm-12 col-md-12 col-lg-12">
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-3 col-md-3 col-lg-3 ">
                     &nbsp;
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-6 col-md-6 col-lg-6">
                     <span id="planname" style="font-size:18px;color:#31B404;  font-weight: bold;float: right;" ng-bind="formParams.plantypes" >  </span>
                 </div>
-                <div class="col-sm-2">
-                    <span style="font-size:18px;color:#31B404;"  id="planprice"  ng-bind="formParams.plancharge" >   </span>$
+                <div class="col-sm-3 col-md-3 col-lg-3 ">
+                    <span style="font-size:17px;color:#31B404;font-weight:bold;"  id="planprice"  ng-bind="formParams.plancharge" >   </span><span style="font-size:17px;color:#31B404;font-weight:bold;"  > $</span>
                 </div>
             </div>
         </div>
 
-        <div class="col-sm-12">
+        <div class="col-sm-12 col-md-12 col-lg-12">
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-3 col-md-3 col-lg-3 ">
                     &nbsp;
                 </div>
-                <div class="col-sm-6">
-                    <span style="font-size:18px;color:grey;float:right"id="taxes"   >Taxes</span>
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                    <span style="font-size:15px;color:grey;float:right"id="taxes"   >Taxes ( <label  style="font-wight:normal;" ng-bind="formParams.tax">  </label> %) </span> 
+					 
                 </div>
-                <div class="col-sm-2">
-                    <span style="font-size:18px;color:grey;" id="taxesprice" >10$</span>
+                <div class="col-sm-3 col-md-3 col-lg-3 " style="font-size:15px;color:grey;" >
+                    <span style="font-weight:bold;" id="taxesprice" ng-bind="formParams.taxVal"  >  </span><span style="font-size:15px;color:grey;"> $  </span>
                 </div>
             </div>
         </div>
-        <div class="col-sm-12">
+        <div class="col-sm-12 col-md-12 col-lg-12">
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-3 col-md-3 col-lg-3 ">
                     &nbsp;
                 </div>
-                <div class="col-sm-6">
-                    <span id="total" style="font-weight: bold;float: right;font-size:18px;color:#31B404;" >Total</span>
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                    <span id="total" style="font-weight: bold;float: right;font-size:17px;color:#31B404;" >Total</span>
                 </div>
-                <div class="col-sm-2">
-                    <span style="font-size:18px;color:#31B404;" id="totalprice" >79$</span>
+                <div class="col-sm-3 col-md-3 col-lg-3 " style="font-weight: bold;float: right;font-size:17px;color:#31B404;">
+                    <span  id="totalprice"  ng-bind="formParams.totalcharge"> </span> $
                 </div>
             </div>
         </div>
@@ -1328,11 +1335,10 @@ $('#password, #confirm_password').on('keyup', function () {
             <input type="text"   class="form-control" id="cardholder" placeholder="Cardholder Name" ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="35"  ng-model="formParams.cardholder"  /></input>        </div>
         <div class="form-group">
             <input type="number"  id="credit" name="creditCard"  ng-model="formParams.creditCard"  required  data-credit-card-type   data-ng-pattern="/^[0-9]+$/"  data-ng-minlength="15"     maxlength="19" class="form-control" id="cardnumber" placeholder="Card Number" />
-			    <ul ng-show="!FormActivate.$valid">
+			<ul ng-show="!FormActivate.$valid">
       <li ng-show="FormActivate.creditCard.$error.pattern">Credit card must contain digits only</li>
       <li ng-show="FormActivate.creditCard.$error.minlength">Credit card must be 15-19 digits</li>
       <li ng-show="FormActivate.creditCard.$error.maxlength">Credit card must contain a maximum of 19 digits </li>
- 
 	  </ul>
         </div>
          <div class="row">
@@ -1397,12 +1403,11 @@ $('#password, #confirm_password').on('keyup', function () {
 			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('stagePhone')"><i class="icnleft"></i>  Back</button>  
 			</div>
             <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
-				<button style="float:right" type="button" style="float:right" class="btn btn-primary btn btn-success btn-previous btn-md" id="next5" ng-disabled="FormActivate.$pristine || FormActivate.$invalid"  ng-click="PaymentProcess();">Finish  </i></button>
+				<button style="float:right" type="button" style="float:right" class="btn btn-primary btn btn-success btn-previous btn-md" id="next5" ng-disabled="FormActivate.$pristine || FormActivate.$invalid"  ng-click="">Finish  </i></button>
             </div>
 			</div>
             </div>
 </div><!--   End Stage  -->	
- 
  
 </div><!--   End container  -->		
 		 
