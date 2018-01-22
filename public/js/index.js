@@ -69,25 +69,60 @@ $scope.DataPins ={} ;
           });
 
 
-   /*   $scope.existe=false;
-    $scope.checkPin = function () {
-        var pin = document.getElementById('pin').value;
-          $('#pin').css('border', '1px solid #FA5858');
-
-        for(var i = 0; i < $scope.DataPins.length; i++) {
-            if ($scope.DataPins[i].pin == pin) {
-            $scope.existe = true;
-             $('#pin').css('border', '1px solid #5cb85c');
-
-            break;
-            } else {$scope.existe = false;
-                    $('#pin').css('border', '1px solid #FA5858');
-                    }
-        }
-         return $scope.existe;
- 
-     } 
-	 */
+$scope.initTax = function () {
+		 $scope.formParams.tax=0;
+		$scope.formParams.taxVal=0
+        var province =  $scope.formParams.province2 ;
+	if (province !="")
+	{	
+switch (parseInt(province)) {
+    case 0:
+        $scope.formParams.tax = 0.05;
+        break;
+    case 1:
+        $scope.formParams.tax = 0.12;
+        break;
+    case 2:
+        $scope.formParams.tax = 0.13;
+        break;
+    case 3:
+        $scope.formParams.tax = 0.15;
+        break;
+    case 4:
+        $scope.formParams.tax = 0.15;
+        break;
+    case 5:
+        $scope.formParams.tax = 0.05;
+        break;
+    case 6:
+        $scope.formParams.tax = 0.15;
+		break;
+    case 7:
+        $scope.formParams.tax = 0.05;
+        break;
+    case 8:
+        $scope.formParams.tax = 0.13;
+        break;
+    case 9:
+        $scope.formParams.tax = 0.15;
+        break;
+    case 10:
+        $scope.formParams.tax = 0.1498;
+        break;
+    case 11:
+        $scope.formParams.tax = 0.11;
+        break;
+    case 12:
+        $scope.formParams.tax = 0.05;
+		} 
+	
+	$scope.formParams.taxVal= (parseFloat(parseFloat($scope.formParams.plancharge) * parseFloat($scope.formParams.tax)) ).toFixed(2);
+	
+	$scope.formParams.totalcharge= (parseFloat($scope.formParams.plancharge)  + parseFloat($scope.formParams.taxVal)).toFixed(2) ;
+	
+	} else{alert('error ! Please go back and select a Province');}
+	
+}
 	  
 	 	$scope.init = function () {
 			if(document.getElementById('pin').value >999){ $('#pin').css('border', '1px solid #5cb85c');}
@@ -143,9 +178,10 @@ $scope.DataPins ={} ;
             $scope.myData = response2;
         });
 		
-		  $http.get('https://jsonplaceholder.typicode.com/users').success(function (response3) {
+		// $http.get('https://jsonplaceholder.typicode.com/users').success(function (response3) {
+		  $http.get('https://gqnchpomjprsrfglg-mock.stoplight-proxy.io/telephone-numbers/reserved').success(function (response3) {
   //$http.get('https://jsonplaceholder.typicode.com/todos').success(function (response) {
-            $scope.NData = response3;
+            $scope.NData = response3.telephoneNumbers;
 		 		
         });
  
