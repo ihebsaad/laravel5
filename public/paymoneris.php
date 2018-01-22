@@ -156,9 +156,9 @@ $mpgRequest->setTestMode(true); //false or comment out this line for production 
 
 /***************************** HTTPS Post Object *****************************/
 
-/* Status Check Example
+
 $mpgHttpPost  =new mpgHttpsPostStatus($store_id,$api_token,$status_check,$mpgRequest);
-*/
+
 
 $mpgHttpPost  =new mpgHttpsPost($store_id,$api_token,$mpgRequest);
 
