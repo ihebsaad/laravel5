@@ -16,6 +16,7 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 			        'environment' => Moneris::ENV_TESTING,
 			        // optional:
 			        'require_avs' => true, // default: false
+			        'avs_codes' => array('A','B', 'D', 'M', 'P', 'W', 'X', 'Y', 'Z'), 
 			        'require_cvd' => true,
 			        'cvd_codes' => array('M', 'Y', 'P', 'S', 'U') 
 			    ));
@@ -62,11 +63,11 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 			$mpgRequest->setTestMode(true);
 			$mpgHttpPost  =new mpgHttpsPost('store5','yesguy',$mpgRequest);*/
 
-            $errors = array();
+           /* $errors = array();
 			$purchase_result = $moneris->purchase($params);
 			
 
-			if ($purchase_result->was_successful() && $purchase_result->failed_cvd() ) {
+			if ($purchase_result->was_successful() && ( $purchase->failed_avs() || $purchase_result->failed_cvd() )) {
 				$errors[] = $purchase_result->error_message();
 				$void = $moneris->void($purchase_result->transaction());
 				// print errors
@@ -80,9 +81,25 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 				$transaction = $purchase_result->transaction();
 				$trnum = $transaction->number();
             	exit($trnum);
-			}
+			}*/
 
+			$errors = array();
+			$verification_result = $moneris->verify($params);
 
+			if ($verification_result->was_successful() && $verification_result->passed_avs() && $verification_result->passed_cvd()) {
+				
+				$purchase_result = $moneris->purchase($params);
+				$transaction = $purchase_result->transaction();
+
+				if ($purchase_result->was_successful()) {
+					$trnum = $transaction->number();
+            		exit($trnum);
+				} else {
+					$errors[] = $purchase_result->error_message();
+					print_r($errors);
+				}
+				
+			} 
 
 
         } catch (Moneris_Exception $e) {
