@@ -12,7 +12,7 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 			$moneris = Moneris::create(
 			    array(
 			        'api_key' => 'yesguy',
-			        'store_id' => 'store1',
+			        'store_id' => 'store5',
 			        'environment' => Moneris::ENV_TESTING,
 			        // optional:
 			        'require_avs' => false, // default: false
