@@ -15,8 +15,9 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 			        'store_id' => 'store5',
 			        'environment' => Moneris::ENV_TESTING,
 			        // optional:
-			        'require_avs' => false, // default: false
-			        'require_cvd' => true
+			        'require_avs' => true, // default: false
+			        'require_cvd' => true,
+			        'cvd_codes' => array('M', 'Y', 'P', 'S', 'U') 
 			    ));
             $params = array(
                 'cc_number' => $_POST["creditCard"],
@@ -32,7 +33,7 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 
             // without CVD AVS
             
-            $result = $moneris->purchase($params);
+            /*$result = $moneris->purchase($params);
             $transaction = $result->transaction();
 
             
@@ -45,7 +46,7 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
                 print_r($errors);
                 exit();
 
-            }
+            }*/
 			
             // verify card
             //  https://developer.moneris.com/Documentation/NA/E-Commerce%20Solutions/API/Card%20Verification?lang=php
@@ -61,11 +62,11 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 			$mpgRequest->setTestMode(true);
 			$mpgHttpPost  =new mpgHttpsPost('store5','yesguy',$mpgRequest);*/
 
-            /*$errors = array();
+            $errors = array();
 			$purchase_result = $moneris->purchase($params);
-			$transaction = $purchase_result->transaction();
+			
 
-			if ($purchase_result->was_successful() || $purchase_result->failed_cvd() ) {
+			if ($purchase_result->was_successful() && $purchase_result->failed_cvd() ) {
 				$errors[] = $purchase_result->error_message();
 				$void = $moneris->void($purchase_result->transaction());
 				// print errors
@@ -76,9 +77,10 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 				print_r($errors);
 			} else {
 				// success
+				$transaction = $purchase_result->transaction();
 				$trnum = $transaction->number();
             	exit($trnum);
-			}*/
+			}
 
 
 
