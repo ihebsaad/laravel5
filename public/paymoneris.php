@@ -49,12 +49,23 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 			*/
             // verify card
             //  https://developer.moneris.com/Documentation/NA/E-Commerce%20Solutions/API/Card%20Verification?lang=php
+            /*$cvdTemplate = array(
+					 'cvd_indicator' => '1',
+                     'cvd_value' => $_POST["cvv"]
+                    );
+            $mpgCvdInfo = new mpgCvdInfo ($cvdTemplate);
+            $mpgTxn = new mpgTransaction($txnArray);
+            $mpgTxn->setCvdInfo($mpgCvdInfo);
+            $mpgRequest = new mpgRequest($mpgTxn);
+			$mpgRequest->setProcCountryCode("CA"); 
+			$mpgRequest->setTestMode(true);
+			$mpgHttpPost  =new mpgHttpsPost('store5','yesguy',$mpgRequest);*/
 
             $errors = array();
 			$purchase_result = $moneris->purchase($params);
 			$transaction = $result->transaction();
 
-			if ($purchase_result->was_successful() && ( $purchase->failed_avs() || $purchase_result->failed_cvd() )) {
+			if ($purchase_result->was_successful() && $purchase_result->failed_cvd() ) {
 				$errors[] = $purchase_result->error_message();
 				$void = $moneris->void($purchase_result->transaction());
 				// print errors
