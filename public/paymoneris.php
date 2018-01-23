@@ -73,7 +73,7 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 			$mpgResponse=$mpgHttpPost->getMpgResponse();
 
 			//print_r($mpgResponse);
-			echo "\nITDResponse = " . $mpgResponse->getITDResponse();
+			//echo "\nITDResponse = " . $mpgResponse->getITDResponse();
 			echo 'here we are';
 
            /* 
