@@ -245,34 +245,7 @@ console.log('fail2');
  /******** end login ********/
  
  
- /******** logout ********/
 
-   $scope.logout = function() {
-
-var URL = window.location.protocol + "//" + window.location.host ;
- 
-  var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
- 
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('GET',''+newURL+'public/session_destroy.php', true);
-    xmlhttp.onreadystatechange=function(){
-       if (xmlhttp.readyState == 4){
-          if(xmlhttp.status == 200){
-			  if (newURL=='http://127.0.0.1/laravel5/'){
-				   window.location.replace(newURL);
-			  }
-			  else{
-				   window.location.replace(URL);
-			  }     
-         }
-       }
-    };
-    xmlhttp.send(null);
-		  
-  }
-  
-
- /******** end logout ********/
  
  /******** Reset password ********/
   $scope.resetpassword = function() {
@@ -321,8 +294,17 @@ $(document).on({
  
  
 /***************** Add Automatic Payment  ******************/
- $scope.AutomaticPayment = function(serviceId) {
-	 
+ $scope.AutomaticPayment = function() {
+ //$scope.AutomaticPayment = function(serviceId) {
+	 var serviceId="d8e56f1e-c451-4b49-8068-b35ecefc3f4c";
+	var cardholder=$scope.formParams.cardholder;
+	var creditCard=$scope.formParams.creditCard;
+	var emonth=$scope.formParams.emonth;
+	var eyear=$scope.formParams.eyear;
+	var cvv=$scope.formParams.cvv;
+	var datatosend='{\"enabled\":true,\"paymentSource\":\"CREDITCARD\",\"onDeclineSuspend\":false,\"onDaysAvailable\":{\"enabled\":true,\"trigger\":1},\"creditCard\":{\"cardType\":\"VISA\",\"number\":\"'+creditCard+'\",\"holder\":\"'+cardholder+'\",\"expMonth\":\"'+emonth+'\",\"expYear\":\"'+eyear+'\",\"CVV\":\"'+cvv+'\"}}';
+ console.log('datatosend for automatic payment'+datatosend);
+
 	 var settings = {
   "async": true,
   "crossDomain": true,
@@ -331,8 +313,8 @@ $(document).on({
   "headers": {
     "authorization": "Bearer {token}.{secret}"
   },
-  "data": "{\"enabled\":true,\"paymentSource\":\"CREDITCARD\",\"onDeclineSuspend\":false,\"onDaysAvailable\":{\"enabled\":true,\"trigger\":1,\"amount\":25.75},\"onDayOfMonth\":{\"enabled\":false,\"trigger\":15,\"amount\":25.55},\"onBalanceBelow\":{\"enabled\":false,\"trigger\":1,\"amount\":25.25},\"creditCard\":{\"cardType\":\"VISA\",\"number\":\"5555666677779999\",\"holder\":\"Mr John Doe\",\"expMonth\":\"09\",\"expYear\":\"2021\",\"CVV\":\"599\"}}"
-}
+  "data": datatosend
+  }
 
 $.ajax(settings).done(function (response) {
   console.log('done AutomaticPayment '+response);
@@ -346,10 +328,12 @@ $.ajax(settings).fail(function (response) {
  $scope.AddPayment = function(serviceId) {
 	 var ref=document.getElementById('transactionid').value;
 	 console.log('ref'+ref);
-	var amount=$scope.formParams.totalcharge;
-	 var datatosend='{\"amount\":\"'+amount+'\",\"currency\":\"CAD\",\"paymentMethod\":\"CASH\",\"reference\":\"'+ref+'\"}';
+	var amount=parseFloat($scope.formParams.totalcharge);
+	 var datatosend='{\"amount\":'+amount+',\"currency\":\"CAD\",\"paymentMethod\":\"CREDITCARD\",\"reference\":\"'+ref+'\"}';
  console.log('datatosend for payment'+datatosend);
-	 var settings = {
+	
+
+	var settings = {
   "async": true,
   "crossDomain": true,
   "url": "https://gqnchpomjprsrfglg-mock.stoplight-proxy.io/billing/"+serviceId+"/payments",
@@ -650,7 +634,7 @@ var dataamount = $scope.formParams.totalcharge;
 
   console.log('data to send '+datacreditCard+' // '+datacvv+' // '+datacardholder+' // '+datayr+' // '+datamth);
   console.log('call url: '+newURL);
-  if(newURL=="http://127.0.0.1"){newURL=newURL+"laravel5/";}
+  if(newURL=="http://127.0.0.1"){newURL=newURL+"/laravel5";}
 var settings = {
   "url": newURL+"/public/paymoneris.php", 
   "method": "POST",
