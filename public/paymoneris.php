@@ -16,7 +16,7 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 			        'environment' => Moneris::ENV_TESTING,
 			        // optional:
 			        'require_avs' => false, // default: false
-			        'require_cvd' => false
+			        'require_cvd' => true
 			    ));
             $params = array(
                 'cc_number' => $_POST["creditCard"],
@@ -30,15 +30,14 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
                 //'expiry_year' => '18'
             );
 
-
+            // without CVD AVS
+            /*
             $result = $moneris->purchase($params);
             $transaction = $result->transaction();
 
             
             if ($result->was_successful()) {
             	$trnum = $transaction->number();
-            	//echo $_POST["cvv"].' // '.$_POST["creditCard"].' // '.$_POST["cardholder"].' // '.$_POST["emonth"].' // '.$_POST["eyear"];
-            	//echo '<script>$scope.formParams.transaction=$trnum
             exit($trnum);
 
             } else {
@@ -47,9 +46,43 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
                 exit();
 
             }
+			*/
+            // verify card
+            //  https://developer.moneris.com/Documentation/NA/E-Commerce%20Solutions/API/Card%20Verification?lang=php
+            /*$cvdTemplate = array(
+					 'cvd_indicator' => '1',
+                     'cvd_value' => $_POST["cvv"]
+                    );
+            $mpgCvdInfo = new mpgCvdInfo ($cvdTemplate);
+            $mpgTxn = new mpgTransaction($txnArray);
+            $mpgTxn->setCvdInfo($mpgCvdInfo);
+            $mpgRequest = new mpgRequest($mpgTxn);
+			$mpgRequest->setProcCountryCode("CA"); 
+			$mpgRequest->setTestMode(true);
+			$mpgHttpPost  =new mpgHttpsPost('store5','yesguy',$mpgRequest);*/
+
+            $errors = array();
+			$purchase_result = $moneris->purchase($params);
+			$transaction = $purchase_result->transaction();
+
+			if ($purchase_result->was_successful() && $purchase_result->failed_cvd() ) {
+				$errors[] = $purchase_result->error_message();
+				$void = $moneris->void($purchase_result->transaction());
+				// print errors
+				print_r($errors);
+			} else if (! $purchase_result->was_successful()) {
+				$errors[] = $purchase_result->error_message();
+				// print errors
+				print_r($errors);
+			} else {
+				// success
+				$trnum = $transaction->number();
+            	exit($trnum);
+			}
 
         } catch (Moneris_Exception $e) {
                 $errors[] = $e->getMessage();
+                print_r($errors);
                //exit(),
         }
 
