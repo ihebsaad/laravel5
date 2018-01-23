@@ -1,7 +1,7 @@
 <?php
 
 require './moneris/lib/Moneris.php';
-//require './moneris/examples/mpgClasses.php';
+require './moneris/examples/mpgClasses.php';
 
 if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["cardholder"]) && isset ( $_POST["emonth"]) && isset ( $_POST["eyear"]) && isset ( $_POST["totalc"])) 
 	{
@@ -15,8 +15,7 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 			        'store_id' => 'store5',
 			        'environment' => Moneris::ENV_TESTING,
 			        // optional:
-			        'require_avs' => true, // default: false
-			        'avs_codes' => array('A','B', 'D', 'M', 'P', 'W', 'X', 'Y', 'Z'), 
+			        'require_avs' => false, // default: false
 			        'require_cvd' => true,
 			        'cvd_codes' => array('M', 'Y', 'P', 'S', 'U') 
 			    ));
@@ -52,7 +51,7 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 			
             // verify card
             //  https://developer.moneris.com/Documentation/NA/E-Commerce%20Solutions/API/Card%20Verification?lang=php
-            /*$cvdTemplate = array(
+            $cvdTemplate = array(
 					 'cvd_indicator' => '1',
                      'cvd_value' => $_POST["cvv"]
                     );
@@ -62,9 +61,14 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
             $mpgRequest = new mpgRequest($mpgTxn);
 			$mpgRequest->setProcCountryCode("CA"); 
 			$mpgRequest->setTestMode(true);
-			$mpgHttpPost  =new mpgHttpsPost('store5','yesguy',$mpgRequest);*/
+			$mpgHttpPost  =new mpgHttpsPost('store5','yesguy',$mpgRequest);
+			$mpgResponse=$mpgHttpPost->getMpgResponse();
 
-           /* $errors = array();
+			print_r($mpgResponse);
+
+           /* 
+			// method 1
+            $errors = array();
 			$purchase_result = $moneris->purchase($params);
 			
 
@@ -84,6 +88,8 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
             	exit($trnum);
 			}*/
 
+			/*
+			// method 2
 			$errors = array();
 			$verification_result = $moneris->verify($params);
 
@@ -101,7 +107,7 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 					print_r($errors);
 				}
 				
-			} 
+			} */
 
 
         } catch (Moneris_Exception $e) {
