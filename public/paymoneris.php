@@ -64,7 +64,8 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 			$mpgHttpPost  =new mpgHttpsPost('store5','yesguy',$mpgRequest);
 			$mpgResponse=$mpgHttpPost->getMpgResponse();
 
-			print_r($mpgResponse);
+			//print_r($mpgResponse);
+			echo "\nITDResponse = " . $mpgResponse->getITDResponse();
 
            /* 
 			// method 1
