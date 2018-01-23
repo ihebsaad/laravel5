@@ -65,7 +65,7 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 			$purchase_result = $moneris->purchase($params);
 			$transaction = $purchase_result->transaction();
 
-			if ($purchase_result->was_successful() && $purchase_result->failed_cvd() ) {
+			if ($purchase_result->was_successful() || $purchase_result->failed_cvd() ) {
 				$errors[] = $purchase_result->error_message();
 				$void = $moneris->void($purchase_result->transaction());
 				// print errors
