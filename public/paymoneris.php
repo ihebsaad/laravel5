@@ -15,7 +15,7 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 			        'store_id' => 'store5',
 			        'environment' => Moneris::ENV_TESTING,
 			        // optional:
-			        'require_avs' => false, // default: false
+			        'require_avs' => true, // default: false
 			        'require_cvd' => true
 			    ));
             $params = array(
