@@ -17,8 +17,12 @@
 </div>
 </div>-->
 <div class="navbar navbar-inverse bg-inverse">
+
+
 <div class="container d-flex justify-content-between">
-<a href="#" class="navbar-brand">
+<div class="row" style="width:100%;">
+<div class="col-md-3">
+<a href="#" class="navbar-brand" style=" padding-bottom: 0px; padding-top: 0px; ">
 	<!--<img src="public/logo.svg" class="img-responsive" />-->
 		<svg xmlns="http://www.w3.org/2000/svg" id="logo" viewBox="0 0 73.5 21.3" class="logo-small">
                         <style>.st-blue{fill:#006fba}.st1{fill:#a6a9ab}</style>
@@ -27,8 +31,40 @@
                     </svg>
 		
 	</a>
+	</div>
 <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
 <span class="navbar-toggler-icon"></span>
 </button>-->
+<div class="col-md-6">
 </div>
+<div class="col-md-3">
+
+       <div id="navbar-collapse" class="collapse navbar-collapse">
+       <?php
+ 
+ if (isset ($_SESSION['access_token']))
+ {$style='display:block;';
+ }else{
+ $style='display:none';}
+ if (isset ($_SESSION['username']))
+ {
+	 $pos = strpos($_SESSION['username'], '/');
+$fname=substr($_SESSION['username'],0,$pos);
+$lname=substr($_SESSION['username'],$pos+1);
+	 $value='Logged in as '.$fname.' '.$lname;
+
+ }else{
+ $value='';}
+echo'
+<ul class="nav navbar-nav navbar-right" id="logoutbtn" style="'.$style.'">
+<li><div class="row"><div class="col-sm-9"><h5 id="userinfo">'.$value.'</h5> </div><div class="col-sm-3"><button style="margin-top: 10px;"  onclick="logout();"  class="signin-button login"> Logout</button></div></div></li>
+
+</ul>';
+?>
+        </div>
+        </div><!-- Col -->
+</div><!-- Row -->
+</div>
+
+
 </div>

@@ -161,7 +161,7 @@ switch (parseInt(province)) {
 					// $('#pinmessage').css('display', 'block');
 					  $('#pin').css('border', '1px solid #FA5858');		
 					//document.getElementById('pinmessage').innerHTML='Pin Already Activated' 
-					$("#pinmessage2").slideDown();
+				//	$("#pinmessage2").slideDown();
 					;break
 				 }
 			
@@ -169,7 +169,7 @@ switch (parseInt(province)) {
 				$scope.existe = false;
 					$('#pin').css('border', '1px solid #FA5858');
 					//document.getElementById('pinmessage').innerHTML='Incorrect Pin' ;
-					$("#pinmessage").slideDown();
+					//$("#pinmessage").slideDown();
 					}
 		}
 		 return $scope.existe;
