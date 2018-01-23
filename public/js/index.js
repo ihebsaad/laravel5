@@ -252,7 +252,7 @@ console.log('fail2');
 
 	  document.getElementById("Ssent").style.display="none";
 	  document.getElementById("Wmailrequired").style.display="none";
-	  email= document.getElementById('useremail2').value;
+	 var email= $scope.formParams.email;
 if(email==""){$(".alert-warning").slideDown();}
 else{
 	var datatosend='{\"client_id\": \"PBbe88ULTLh0kycpE0Db7g4AWjO21hYG\",\"email\": \"'+email+'\",\"connection\": \"Username-Password-Authentication\"}';
