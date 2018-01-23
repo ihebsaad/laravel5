@@ -51,12 +51,12 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 			
             // verify card
             //  https://developer.moneris.com/Documentation/NA/E-Commerce%20Solutions/API/Card%20Verification?lang=php
-            $txnArray=array(
+            /*$txnArray=array(
 				'type'=>'purchase',
        			'order_id'=>'iristel-or-'.date("dmy-G:i:s").rand(pow(10, $digits-1), pow(10, $digits)-1),
        			'amount'=>'10.10',
        			'pan'=>$_POST["creditCard"],
-       			'expdate'=>'1805',
+       			'expdate'=>'0818',
        			'crypt_type'=>'7'
           		);
             $cvdTemplate = array(
@@ -73,7 +73,8 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 			$mpgResponse=$mpgHttpPost->getMpgResponse();
 
 			//print_r($mpgResponse);
-			echo "\nITDResponse = " . $mpgResponse->getITDResponse();
+			echo "\nITDResponse = " . $mpgResponse->getITDResponse();*/
+			echo 'here we are';
 
            /* 
 			// method 1
