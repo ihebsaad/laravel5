@@ -92,8 +92,9 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 				$transaction = $purchase_result->transaction();
 
 				if ($purchase_result->was_successful()) {
-					$trnum = $transaction->number();
-            		exit($trnum);
+					/*$trnum = $transaction->number();
+            		exit($trnum);*/
+            		exit('success');
 				} else {
 					$errors[] = $purchase_result->error_message();
 					print_r($errors);
