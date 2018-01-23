@@ -82,6 +82,7 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 
         } catch (Moneris_Exception $e) {
                 $errors[] = $e->getMessage();
+                print_r($errors);
                //exit(),
         }
 
