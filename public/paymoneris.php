@@ -70,11 +70,12 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 			$mpgRequest->setProcCountryCode("CA"); 
 			$mpgRequest->setTestMode(true);
 			$mpgHttpPost  =new mpgHttpsPost('store5','yesguy',$mpgRequest);
+			echo 'here we are';
 			$mpgResponse=$mpgHttpPost->getMpgResponse();
 
 			//print_r($mpgResponse);
-			//echo "\nITDResponse = " . $mpgResponse->getITDResponse();
-			echo 'here we are';
+			echo "\nITDResponse = " . $mpgResponse->getITDResponse();
+			
 
            /* 
 			// method 1
