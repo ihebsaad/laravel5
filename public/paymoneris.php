@@ -25,7 +25,8 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
                 //'cc_number' => '4242424242424242',
                 'order_id' => 'iristel-or-'.date("dmy-G:i:s").rand(pow(10, $digits-1), pow(10, $digits)-1),
                 //'order_id' => 'testorderhs',
-                'amount' => $_POST["totalc"],
+                //'amount' => $_POST["totalc"],
+                'amount' => '10.10',
                 'expiry_month' => $_POST["emonth"],
                 //'expiry_month' => '05',
                 'expiry_year' => $nexpyear
@@ -92,9 +93,9 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 				$transaction = $purchase_result->transaction();
 
 				if ($purchase_result->was_successful()) {
-					/*$trnum = $transaction->number();
-            		exit($trnum);*/
-            		exit('success');
+					$trnum = $transaction->number();
+            		exit($trnum);
+            		//exit('success');
 				} else {
 					$errors[] = $purchase_result->error_message();
 					print_r($errors);
