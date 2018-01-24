@@ -778,7 +778,7 @@ $scope.Next="stageAccount";
   // console.log('after load');
    
 	 	  $.ajax({
-  url: 'http://test.enterpriseesolutions.com/resources/views/mail.blade.php',
+  url: 'http://test.enterpriseesolutions.com/mail',
   success: function(data) {
    console.log(data);
   },error: function(data) {
