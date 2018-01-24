@@ -6,12 +6,18 @@ angular.module('formApp', [
 controller('formCtrl', ['$scope', '$http', function($scope, $http) {
   $scope.formParams = {};
   $scope.stage = "";
-  $scope.formValidation = false;
+   $scope.formValidation = false;
+ $scope.loggedin = false;
  
    // Navigation functions
   $scope.next = function (stage) {
   
-  
+  if (stage== 'stageLogin')
+  {
+	if ( $scope.loggedin)  
+	{
+		stage='stagePlans';}
+	}
     //////$scope.formValidation = true;
     
    ////// if ($scope.FormActivate.$valid) {
@@ -231,6 +237,7 @@ $.ajax(settings).done(function (response) {
 	$scope.showuserinfo(access_token);
 	$scope.next('stagePlans'); 
 	$scope.$apply();
+	$scope.loggedin=true;
 	//////////
 });
 $.ajax(settings).fail(function (response) {
