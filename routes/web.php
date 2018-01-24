@@ -67,7 +67,3 @@ Route::post('/pay', function () {
 Route::get('/index2', function () {
     return view('index2');
 });
-Route::get('/index0', function () {
-    return view('index0');
-});
-
