@@ -17,8 +17,8 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 	$order_id='iristel-'.date("dmy-G:i:s").rand(pow(10, $digits-1), pow(10, $digits)-1); 
 	//$cust_id='my_cust_id'; 
 	$cust_id=$_POST["cardholder"]; 
-	//$amount='10.10'; 
-	$amount=$_POST["totalc"]; 
+	$amount='10.10'; 
+	//$amount=$_POST["totalc"]; 
 	//$pan='4242424242424242'; 
 	$pan=$_POST["creditCard"];
 	//$expiry_date='0818';
