@@ -778,10 +778,10 @@ $scope.Next2="stageAccount";
   $scope.mailing = function () {
 	  console.log('enter');
 var mail=$scope.formParams.email;
-var reviever= $scope.formParams.first+' '+$scope.formParams.last;
+var reciever= $scope.formParams.first+' '+$scope.formParams.last;
    
 	 	  $.ajax({
-  url: 'http://test.enterpriseesolutions.com/mail?mail='+mail+'&reviever'+reviever,
+  url: 'http://test.enterpriseesolutions.com/mail?mail='+mail+'&reciever='+reciever,
   "method": "GET",
   // "data": { "mail": mail }, 
   success: function(data) {

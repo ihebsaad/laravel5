@@ -8,4 +8,5 @@ Mail::send('emails.email1', [], function ($message) {
   });
   echo'here';
   echo 'email= '.$_GET['mail'];
+  echo 'reciever= '.$_GET['reciever'];
   ?>
