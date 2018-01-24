@@ -18,8 +18,8 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 		/********************* Transactional Variables ************************/ 
 		 
 		$type='purchase'; 
-		$order_id='iristel-'.date("dmy-G:i:s"); 
-		$cust_id='my_cust_iddd'; 
+		$order_id='iristelOR-'.date("dmy-G:i:s").rand(pow(10, $digits-1), pow(10, $digits)-1); 
+		$cust_id=$_POST["cardholder"]; 
 		$amount='10.50'; 
 		//$amount=$_POST["totalc"];
 		//$pan='4242424242424242'; 
@@ -35,7 +35,7 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 		 
 		/************************** CVD Variables *****************************/ 
 		 
-		$cvd_indicator = '1'; $cvd_value = '198'; 
+		$cvd_indicator = '1'; $cvd_value = $_POST["cvv"]; 
 		 
 		/********************** AVS Associative Array *************************/ 
 		 /*
