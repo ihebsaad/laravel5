@@ -197,8 +197,13 @@ echo'
                 <input ng-change="init()" id="pin" name="pin" type="number" min="999"  ng-pattern="/^[0-9]*$/"  class="form-control form-rounded" placeholder="Your PIN" ng-maxlength="25" ng-model="formParams.pin" required ng-class="{'input-error': formValidation && FormActivate.pin.$error.required}" >
                 </div>
             <div class="form-group col-sm-4 col-md-4 col-lg-4 col-xs-4">
-                 <button type="button" ng-click=" checkPin();" ng-disabled=" FormActivate.$invalid" class="btn btn-success btn-round">Continue</button> 
+               <?php if ($loggedin) 			   
+				   {echo '
+				   <button type="button" ng-click=" checkPin2();mailing()" ng-disabled=" FormActivate.$invalid" class="btn btn-success btn-round">Continue</button> ';} else { echo '
+				   <button type="button" ng-click=" checkPin();mailing()" ng-disabled=" FormActivate.$invalid" class="btn btn-success btn-round">Continue</button> ';} 
+				   ?>
              </div>
+
         </div>
 		<div class="row">
 		  <div class="form-group col-sm-6" >
@@ -597,7 +602,14 @@ $('#password, #confirm_password').on('keyup', function () {
 			<div class="row" style="margin-top: 20px;">
 			<!-- Buttons Next & Previous -->
             <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
-			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('stageTypeCustomer')"><i class="icnleft"></i>  Back</button>  
+               <?php if ($loggedin) 			   
+				   { $stageb='stagePin'  ;echo '
+			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('.$stageb.')"><i class="icnleft"></i>  Back</button>  
+				   ';} else {$stageb='stageTypeCustomer' ; echo '
+			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('.$stageb.')"><i class="icnleft"></i>  Back</button>  
+				   ';} 
+				   ?>			
+
 			</div>
             <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
 				<button  style="float:right"  type="button" class="btn btn-primary btn btn-success btn-previous btn-md" disabled id="next2" ng-click="next('stagePhone')">Next  <i class="icnright"></i></button>
