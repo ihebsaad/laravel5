@@ -44,11 +44,13 @@
 
        <div id="navbar-collapse" class="collapse navbar-collapse">
        <?php
- 
- if (isset ($_SESSION['access_token']))
+
+  if (isset ($_SESSION['access_token']))
  {$style='display:block;';
+	$loggedin=true;
  }else{
- $style='display:none';}
+ $style='display:none';
+ $loggedin=false;}
  if (isset ($_SESSION['username']))
  {
 	 $pos = strpos($_SESSION['username'], '/');
@@ -286,10 +288,14 @@ img.onclick = function(){
 			<div class="row" style="margin-top: 20px;">
 			<!-- Buttons Next & Previous -->
 			<div class="col-sm-9 col-md-9 col-xs-9 col-lg-9 form-group">
-			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('')"><i class="icnleft"></i>  Back</button>  
+			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('default')"><i class="icnleft"></i>  Back</button>  
 			</div>
             <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3 form-group">
-				<button type="button" style="float:right" class="btn btn-primary btn btn-success btn-previous btn-md" id="next1" disabled ng-click="next(Next)">Next  <i class="icnright"></i></button>
+				<?php
+				if (!$loggedin){ echo '
+				<button type="button" style="float:right" class="btn btn-primary btn btn-success btn-previous btn-md" id="next1" disabled ng-click="next(Next)">Next  <i class="icnright"></i></button>';}
+				else{ echo '
+				<button type="button" style="float:right" class="btn btn-primary btn btn-success btn-previous btn-md" id="next1" disabled ng-click="next(Next2)">Next  <i class="icnright"></i></button>';}?>
             </div>
 			</div>
             </div>
