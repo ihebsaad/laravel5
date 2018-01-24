@@ -10,16 +10,23 @@ controller('formCtrl', ['$scope', '$http', function($scope, $http) {
  $scope.loggedin = false;
  
    // Navigation functions
-  $scope.next = function (stage) {
+ $scope.next = function (stage) {
   
   if (stage== 'stageLogin')
   {
 	if ( $scope.loggedin)  
 	{
-		stage='stagePlans';}
+		stage='stagePlans';
 	}
-    //////$scope.formValidation = true;
-    
+  }
+    if (stage== 'stageTypeCustomer')
+  {
+	if ( $scope.loggedin)  
+	{
+		stage='stagePlans';
+	}
+  }
+    //////$scope.formValidation = true;    
    ////// if ($scope.FormActivate.$valid) {
       $scope.direction = 1;
       $scope.stage = stage;
@@ -181,7 +188,49 @@ switch (parseInt(province)) {
 		 return $scope.existe;
  
  	}
-	 
+
+	$scope.checkPin2 = function () {
+		 $('#pinmessage').css('display', 'none');
+		 $('#pinmessage2').css('display', 'none');
+		var pin = document.getElementById('pin').value;
+	 	 $('#pin').css('border', '1px solid #FA5858');
+
+		for(var i = 0; i < $scope.DataPins.length; i++) {
+			// pin existe
+			if ($scope.DataPins[i].pin == pin) {
+				 if ($scope.DataPins[i].enabled==0)
+				 { // pin not active
+					 $scope.existe = true;
+					 $('#pin').css('border', '1px solid #5cb85c');
+					//$('#pinmessage').css('display', 'none');
+					//
+					//document.getElementById('pinmessage').innerHTML='';
+						$scope.next('stagePlans');
+						$('#pinmessage').css('display', 'none');
+						$('#pinmessage2').css('display', 'none');
+						//$scope.$apply();
+				  break;
+				 }
+				 
+				 else{
+					 // Pin already Activated
+					// $('#pinmessage').css('display', 'block');
+					  $('#pin').css('border', '1px solid #FA5858');		
+					//document.getElementById('pinmessage').innerHTML='Pin Already Activated' 
+				//	$("#pinmessage2").slideDown();
+					;break
+				 }
+			
+				} else {
+				$scope.existe = false;
+					$('#pin').css('border', '1px solid #FA5858');
+					//document.getElementById('pinmessage').innerHTML='Incorrect Pin' ;
+					//$("#pinmessage").slideDown();
+					}
+		}
+		 return $scope.existe;
+ 
+ 	}	
       $http.get('https://gqnchpomjprsrfglg-mock.stoplight-proxy.io/plans').success(function (response2) {
             $scope.myData = response2;
         });
