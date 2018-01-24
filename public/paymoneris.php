@@ -78,7 +78,7 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 		 
 		/*********************** HTTPS Post Object ****************************/ 
 		 
-		$mpgHttpPost  =new mpgHttpsPost($store_id,$api_token,$mpgRequest); 
+		//$mpgHttpPost  =new mpgHttpsPost($store_id,$api_token,$mpgRequest); 
 		 
 		/*************************** Response *********************************/ 
 		 
