@@ -343,7 +343,7 @@ img.onclick = function(){
                                 <input ng-model="formParams.box" type="text" required ng-pattern="/^[a-zA-Z0-9 ]*$/" ng-minlength="1" ng-maxlength="10" placeholder="PO BOX" class="form-control">
                             </div>  
                             <div class="col-sm-4 form-group">
-                                <input ng-model="formParams.postal" type="text" required ng-pattern="/^[a-zA-Z0-9 ]*$/" ng-minlength="1" ng-maxlength="10" placeholder="Postal Code" class="form-control">
+                                <input ng-model="formParams.postal" type="text" required ng-pattern="/^[abceghjklmnprstvxyABCEGHJKLMNPRSTVXY][0-9][abceghjklmnprstvwxyzABCEGHJKLMNPRSTVWXYZ][\\s]{0,1}[0-9][abceghjklmnprstvwxyzABCEGHJKLMNPRSTVWXYZ][0-9]$/" ng-minlength="1" ng-maxlength="10" placeholder="Postal Code" class="form-control">
                             </div>      
                         </div>
                         <div class="row">
@@ -351,7 +351,7 @@ img.onclick = function(){
                                 <input ng-model="formParams.city" type="text" required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="2" ng-maxlength="25" placeholder="City" class="form-control">
                             </div>      
                             <div class="col-sm-6 form-group">
-                                <input ng-model="formParams.province" type="text" required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="2" ng-maxlength="25" placeholder="Province" class="form-control">
+                                <input ng-model="formParams.province" type="text" required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="1" ng-maxlength="2" placeholder="Province" class="form-control">
                             </div>  
                         </div>
                             
