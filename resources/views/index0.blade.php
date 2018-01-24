@@ -87,7 +87,6 @@ echo'
 </div>
 
 
-
 <main ng-app="formApp" ng-controller="formCtrl" ng-cloak>
   <div class="container" style="width:100%;padding: 0px;">
    <div id='div_session_write' style="display:none;"> </div>
@@ -147,8 +146,7 @@ echo'
           <!--</div>-->
 		  </div>
 </div>
-</div>
-        </div> <!-- End Stage  --> 
+</div> <!-- End Stage  --> 
 
 	
 <!--   Stage Forgot password    ------------------------------------------------------------>
