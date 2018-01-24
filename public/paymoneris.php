@@ -78,13 +78,13 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 		 
 		/*********************** HTTPS Post Object ****************************/ 
 		 
-		//$mpgHttpPost  =new mpgHttpsPost($store_id,$api_token,$mpgRequest); 
+		$mpgHttpPost  =new mpgHttpsPost($store_id,$api_token,$mpgRequest); 
 		 
 		/*************************** Response *********************************/ 
 		 
-		//$mpgResponse=$mpgHttpPost->getMpgResponse(); 
+		$mpgResponse=$mpgHttpPost->getMpgResponse(); 
 		 
-		/*print("\nCardType = " . $mpgResponse->getCardType()); 
+		print("\nCardType = " . $mpgResponse->getCardType()); 
 		print("\nTransAmount = " . $mpgResponse->getTransAmount()); 
 		print("\nTxnNumber = " . $mpgResponse->getTxnNumber()); 
 		print("\nReceiptId = " . $mpgResponse->getReceiptId()); 
@@ -101,8 +101,8 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 		print("\nTimedOut = " . $mpgResponse->getTimedOut()); 
 		//print("\nAVSResponse = " . $mpgResponse->getAvsResultCode()); 
 		print("\nCVDResponse = " . $mpgResponse->getCvdResultCode()); 
-		print("\nITDResponse = " . $mpgResponse->getITDResponse()); */
-		//print($mpgResponse->getTxnNumber());
+		print("\nITDResponse = " . $mpgResponse->getITDResponse()); 
+		print($mpgResponse->getTxnNumber());
 	
 
 }
