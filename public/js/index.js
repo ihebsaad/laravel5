@@ -779,8 +779,7 @@ var mail="example@gmail.com";
 	 	  $.ajax({
   url: 'http://test.enterpriseesolutions.com/mail',
   "method": "POST",
-   "data": { "mail": mail }
- 
+   "data": { "mail": mail }, 
   success: function(data) {
    console.log(data);
   },error: function(data) {
