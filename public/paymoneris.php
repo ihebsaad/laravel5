@@ -82,7 +82,7 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 		 
 		/*************************** Response *********************************/ 
 		 
-		$mpgResponse=$mpgHttpPost->getMpgResponse(); 
+		//$mpgResponse=$mpgHttpPost->getMpgResponse(); 
 		 
 		/*print("\nCardType = " . $mpgResponse->getCardType()); 
 		print("\nTransAmount = " . $mpgResponse->getTransAmount()); 
