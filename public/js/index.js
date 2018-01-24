@@ -774,11 +774,13 @@ $scope.Next="stageAccount";
   }
   $scope.mailing = function () {
 	  console.log('enter');
-// jQuery('#div_session_write3').load(''+newURL+'resources/views/mail.blade.php');
-  // console.log('after load');
+var mail="example@gmail.com";
    
 	 	  $.ajax({
   url: 'http://test.enterpriseesolutions.com/mail',
+  "method": "POST",
+   "data": { "mail": mail }
+ 
   success: function(data) {
    console.log(data);
   },error: function(data) {
