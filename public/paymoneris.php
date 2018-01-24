@@ -15,13 +15,13 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 		$type='purchase'; 
 		$order_id='iristel-'.date("dmy-G:i:s"); 
 		$cust_id='my_cust_iddd'; 
-		//$amount='10.90'; 
-		$amount=$_POST["totalc"];
+		$amount='10.50'; 
+		//$amount=$_POST["totalc"];
 		//$pan='4242424242424242'; 
 		$pan=$_POST["creditCard"]; 
 		//$expiry_date='0818';  //December 2008 
 		$expiry_date=$_POST["emonth"].$nexpyear; 
-		$crypt='7'; 
+		//$crypt='7'; 
 		 
 		/************************** AVS Variables *****************************/ 
 		 /*
