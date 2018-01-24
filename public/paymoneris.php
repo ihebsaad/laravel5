@@ -16,8 +16,8 @@ $api_token='yesguy';
  
 $type='purchase'; 
 $order_id='iristel-OR-'.date("dmy-G:i:s"); 
-$cust_id='my_customer_id'; 
-$amount='10.30'; 
+$cust_id='my_customer99'; 
+$amount='10.50'; 
 $pan='4242424242424242'; 
 $expiry_date='0818';  //December 2008 $crypt='7'; 
  
