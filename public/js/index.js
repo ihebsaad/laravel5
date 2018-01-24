@@ -618,7 +618,11 @@ $.ajax(settings).fail(function (response) {console.log('fail');});
 	 
 
       ,error : function (xhr,status,error)
-        { console.log(error);}
+        { 
+		console.log(error);
+		console.log(xhr);
+		console.log(status);
+		}
       ,success:function(result){
       console.log('done');
 	console.log(result);
