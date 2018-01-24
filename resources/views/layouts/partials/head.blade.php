@@ -1,8 +1,4 @@
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
-<title>SIM Activation</title>
+
 <!-- Bootstrap core CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
@@ -34,7 +30,7 @@ html|* > svg {
 /* background img */
 body {
 /*background:url(public/back3.jpeg) no-repeat center center fixed;*/
-background:url(public/background.jpg) no-repeat center center fixed;
+background:url(public/background-.jpg) no-repeat center center fixed;
 background-size:cover;
 }
 /* page title section */
@@ -46,6 +42,8 @@ background-size:cover;
     border-bottom-left-radius: none!important;
     border-radius: 0rem; 
     background-color: #ebebeb!important;
+    border-bottom: 5px solid #006fb9;
+    box-shadow: 0px 2px 8px #ebebeb;
 }
 /* subtitle and footer font*/
 section.jumbotron.text-center h5 , .footer p{
@@ -96,7 +94,6 @@ border-radius: 1rem;
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
 }
-
 .icnleft {
     border: solid white;
     border-width: 0 3px 3px 0;
@@ -131,14 +128,20 @@ border-radius: 1rem!important;
   border-bottom-color: #006fb9;
 }
 .btn-success {
-    color: #ffffff;
-    background-color: #008cd2;
-    border-color: #006496;
+    color: #fff;
+    background-color: #006fb9;
+   border: 1px solid #006fb9;
 }
 .btn-success:hover {
-    color: #ffffff;
-    background-color: #006496;
-    border-color: #006496;
+    color: #464646;
+    background-color: #ebebeb;
+    border-color: #a5a8ab;
 }
 button {cursor: pointer;}
+/* selectable div */
+#selectable .ui-selected {
+    background: #006fb9!important;
+    color: white;
+}
+#selectable .ui-selecting { background: #ebebeb; }
 </style>

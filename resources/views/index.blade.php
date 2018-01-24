@@ -6,6 +6,7 @@
 ?>
 
  <?php
+ \Log::info('Here');
   if (isset ($_SESSION['access_token']))
  {echo ' <input type="hidden" id="tokeninput" value="'.$_SESSION["access_token"].'" />';}
  else{echo ' <input type="hidden" id="tokeninput" />';}
@@ -15,6 +16,10 @@
 <html lang="en" >
 
 <head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+
   <meta charset="UTF-8">  
   <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
   <link rel="stylesheet" href="public/css/style.css">
@@ -23,20 +28,30 @@
  <!--   <link href="https://cdn.auth0.com/styleguide/4.8.10/index.min.css" rel="stylesheet" />-->
   <style> input.ng-valid.ng-dirty  {border:1px solid #5cb85c;}  input.ng-invalid.ng-dirty {border:1px solid #FA5858;}   </style>
 
-<script src="https://cdn.auth0.com/js/auth0/9.0.1/auth0.min.js"></script>
+<!--<script src="https://cdn.auth0.com/js/auth0/9.0.1/auth0.min.js"></script>-->
 
 
 </head>
 <body>
+<div class="navbar navbar-inverse bg-inverse" style="margin-bottom:0px;">
 
-<div class="navbar navbar-inverse bg-inverse">
-<div class="row">
-<div class="col-md-3">
 
 <div class="container d-flex justify-content-between">
-<a href="#" class="navbar-brand"><img src="public/logo.svg" class="img-responsive" /></a>
-</div>
-</div>
+<div class="row" style="width:100%;">
+<div class="col-md-3">
+<a href="#" class="navbar-brand" style=" padding-bottom: 0px; padding-top: 0px; ">
+	<!--<img src="public/logo.svg" class="img-responsive" />-->
+		<svg xmlns="http://www.w3.org/2000/svg" id="logo" viewBox="0 0 73.5 21.3" class="logo-small">
+                        <style>.st-blue{fill:#006fba}.st1{fill:#a6a9ab}</style>
+                        <path d="M40.2.1c0-.1-.2-.1-.3-.1l-1.8.9c-4 1.9-13.7 6.3-17 6.4h-.2c-3.3 0-12-4.2-15.9-6.2C4.3.7 3.6.4 3 0h-.3c-.1.1-.1.2-.1.3l.1.1c.2.1.3.2.5.2.5.4 1.1.7 1.8 1.1 14.2 7.4 16 8.1 16.4 8.1h.1c.9-.6 12.2-6.1 16.8-8.3 1.1-.5 1.8-.8 1.9-.9.1-.2.1-.3 0-.5z" class="st-blue"></path>
+                        <path d="M16.5 16.2c.5-.5.7-1.1.7-1.9 0-1-.4-1.8-1.1-2.2-.8-.5-1.9-.7-3.6-.7H5.7v9.9h2.8v-3.9h3.2l3 3.9h3.1l-3.3-4.1c.9-.2 1.5-.5 2-1zm-2.6-.9c-.4.2-1.1.3-2 .3H8.5v-2.5h3.4c1 0 1.6.1 2 .3.3.2.5.5.5 1 0 .4-.2.8-.5.9zM0 11.4h3v9.9H0zm19.5 0h3v9.9h-3zm18.3 1.7H42v8.2h2.9v-8.2h4.3v-1.7H37.8zm-1.7 3.1c-.7-.4-1.7-.6-3.2-.6h-3.7c-.6 0-1.1-.1-1.3-.3-.3-.2-.5-.5-.5-.8 0-.4.2-.8.5-1 .3-.2.9-.3 1.7-.3h6.9v-1.8h-7.3c-1.7 0-2.8.2-3.6.7-.7.5-1.1 1.3-1.1 2.3 0 1 .4 1.7 1.1 2.2.7.4 1.8.6 3.4.6h3.3c.7 0 1.3.1 1.5.3.3.2.5.5.5.9s-.2.7-.5.8c-.3.1-.9.3-1.7.3h-7v1.8h7.5c1.6 0 2.8-.2 3.5-.7.7-.5 1.1-1.3 1.1-2.2-.1-1.1-.4-1.8-1.1-2.2zm29.8 3.4v-8.2h-2.8v9.9h10.4v-1.7zm-14.6-6.9c-1 .8-1.5 2.1-1.5 3.9 0 .9.2 1.7.5 2.3.3.6.9 1.2 1.5 1.6.5.3 1.1.5 1.6.6.6.1 1.5.2 2.5.2h4.7v-1.8H56c-1.1 0-2-.1-2.4-.6-.5-.4-.7-1-.7-1.8h7.7v-1.8h-7.7c.1-.8.3-1.3.9-1.8.5-.4 1.3-.6 2.3-.6h4.6v-1.7H56c-2.1.2-3.7.6-4.7 1.5z" class="st1"></path>
+                    </svg>
+		
+	</a>
+	</div>
+<!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>-->
 <div class="col-md-6">
 </div>
 <div class="col-md-3">
@@ -49,37 +64,31 @@
  }else{
  $style='display:none';}
  if (isset ($_SESSION['username']))
- { $value='Logged in as '.$_SESSION['username'];
+ {
+	 $pos = strpos($_SESSION['username'], '/');
+$fname=substr($_SESSION['username'],0,$pos);
+$lname=substr($_SESSION['username'],$pos+1);
+	 $value='Logged in as '.$fname.' '.$lname;
+
  }else{
  $value='';}
 echo'
 <ul class="nav navbar-nav navbar-right" id="logoutbtn" style="'.$style.'">
-<li><div class="row"><div class="col-sm-9"><h5 id="userinfo">'.$value.'</h5> </div><div class="col-sm-3"><button style="margin-top: 25px;"  onclick="logout();" class="signin-button login"> Logout</button></div></div></li>
+<li><div class="row"><div class="col-sm-9"><h5 id="userinfo">'.$value.'</h5> </div><div class="col-sm-3"><button style="margin-top: 10px;"  onclick="logout();"  class="signin-button login"> Logout</button></div></div></li>
 
 </ul>';
-
-
-
- 
-/*
-if (isset ($_SESSION['access_token']))
- {$style='display:block;';
- }else{
- $style='display:none';}
-
-echo'
-<ul class="nav navbar-nav navbar-right" id="logoutbtn" style="'.$style.'">
-<li><div class="row"><div class="col-sm-6"><h3 id="userinfo"></h3> </div><div class="col-sm-6"><button style="margin-top: 25px;"  onclick="logout();" class="signin-button login"> Logout</button></div></div></li>
-
-</ul>';
-*/
 ?>
         </div>
         </div><!-- Col -->
 </div><!-- Row -->
-</div><!-- Navbar -->
+</div>
+
+
+</div>
+
+
 <main ng-app="formApp" ng-controller="formCtrl" ng-cloak>
-  <div class="container">
+  <div class="container" style="width:100%;padding: 0px;">
    <div id='div_session_write' style="display:none;"> </div>
    <div id='div_session_write2' style="display:none;"> </div>
 
@@ -88,29 +97,29 @@ echo'
 
 		
 <!--   Stage 4  : STAGE LOGIN   ------------------------------------------------------------>
-<div class="animate-switch" ng-switch-when="stageLogin">
+<div class="animate-switch" ng-switch-when="stageLogin" style="padding:0px;">
  <section class="jumbotron text-center">
 <div class="container center_div">
 <h1 class="jumbotron-heading">Existing Customer Login</h1>
 </div>
 </section>          
-
-		   <div class="row">
+<div class="inner-wrapper">
+<div class="container">
+		   <!--<div class="row">-->
 
 
   <div class="row">
-    <div class="col-sm-4 col-sm-offset-4">
-	
-      <form name="login_form" id='login_form'>
+    <div class="col-sm-4 col-sm-offset-4 center_div">
+	  <form name="login_form" id='login_form'>
 	  <div style="display:none;" class="alert alert-danger">
 	  <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
 	WRONG USERNAME OR PASSWORD.
 	</div>
   <div class="form-group">
-    <input  type="email" ng-model="formParams.email" required ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" class="form-control" id="useremail" placeholder="Email Address">
+    <input  type="email" value="tester45@gmail.com" ng-model="formParams.email" required ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" class="form-control" id="useremail" placeholder="Email Address">
   </div>
   <div class="form-group">
-    <input  type="password" class="form-control" id="userpassword" placeholder="Password">
+    <input  type="password" value="1234567AZe" class="form-control" id="userpassword" placeholder="Password">
   </div>
   <div class="row" style="margin-top: 20px;">
   <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
@@ -134,8 +143,10 @@ echo'
             </div>
 			</div>
             </div>
-          </div>
-        </div> <!-- End Stage  --> 
+          <!--</div>-->
+		  </div>
+</div>
+</div> <!-- End Stage  --> 
 
 	
 <!--   Stage Forgot password    ------------------------------------------------------------>
@@ -172,7 +183,7 @@ echo'
             <a href="#" style="font-size:  18px;"  ng-click="back('stageLogin')">Cancel</a>
         </div>      
    <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 form-group">
-            <button type="button" onclick="resetpassword();" class="btn btn-success btn-round" id="sendpwd" style="float: right;margin-right: 0px;" >Send</button>
+            <button type="button" ng-click="resetpassword();" class="btn btn-success btn-round" id="sendpwd" style="float: right;margin-right: 0px;" >Send</button>
         </div>  
    </div>
 </form>
@@ -187,7 +198,16 @@ echo'
 		
 		
 <!--   Stage 0   Pin Step  ------------------------------------------------------------>
- <div class="animate-switch" ng-switch-default >
+ <div class="animate-switch" style="width:100%;padding:0px;" ng-switch-default >
+  <section class="jumbotron text-center">
+<div class="container">
+<h1 class="jumbotron-heading">Activate Your SIM</h1>
+<h5>To begin, enter the Activation PIN on your SIM KIT.</h5>
+</div>
+</section>
+<div class="container-triangle"></div>
+<div class="contentcontain">
+
   <div class="row">
   <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 ">
             
@@ -272,13 +292,22 @@ img.onclick = function(){
     </div>
    </div>
    </div>
+   </div>
 </div> <!-- End Stage  -->
 
 
 <!--   Stage Type Customer     ------------------------------------------------------------>
 <div class="animate-switch" ng-switch-when="stageTypeCustomer">
 		 <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-             <div class="row">
+<section class="jumbotron text-center">
+<div class="container">
+<h1 class="jumbotron-heading">I AM ...</h1>
+</div>
+</section> 
+<div class="container-triangle"></div>
+<div class="contentcontain">
+          
+		   <div class="row">
  <div class="container center_div" >
          <div class="row" >
             <ol id="selectable">
@@ -303,6 +332,7 @@ img.onclick = function(){
 			</div>
             </div>
           </div>
+          </div>
         </div> <!-- End Stage  -->
 
 
@@ -320,20 +350,20 @@ img.onclick = function(){
                                 <input  ng-model="formParams.first" required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="25" type="text" placeholder="First Name" id="firstname" class="form-control">
                             </div>
                             <div class="col-sm-6 form-group">
-                                <input ng-model="formParams.last" type="text" required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="25" placeholder="Last Name" class="form-control">
+                                <input ng-model="formParams.last" type="text" required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="25" placeholder="Last Name" id="lastname" class="form-control">
                             </div>
                         </div> 
                         <div class="row">
                             <div class="col-sm-4 form-group">
-                                <input ng-model="formParams.streetnum"  required type="number" ng-pattern="/^[0-9]*$/" placeholder="Street #" min="1" max="99999" class="form-control">                         
+                                <input ng-model="formParams.streetnum"  required type="number" ng-pattern="/^[0-9]*$/" placeholder="Street #" min="1" max="99999" id="address1" class="form-control">                         
 						  </div>      
                             <div class="col-sm-8 form-group">
-                                <input ng-model="formParams.streetname" required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="35" type="text" placeholder="Street Name" class="form-control">
+                                <input ng-model="formParams.streetname" required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="35" id="address2" type="text" placeholder="Street Name" class="form-control">
                             </div>  
                         </div>
                         <div class="row">
                             <div class="col-sm-4 form-group">
-                                <input ng-model="formParams.unit" type="number" required ng-pattern="/^[0-9]*$/" placeholder="Unit #" min="1" max="99999" class="form-control">
+                                <input ng-model="formParams.unit" type="number" required ng-pattern="/^[0-9]*$/" placeholder="Unit #" min="1" max="99999" id="address3" class="form-control">
                             </div>  
                             <div class="col-sm-4 form-group">
                                 <input ng-model="formParams.box" type="text" required ng-pattern="/^[a-zA-Z0-9 ]*$/" ng-minlength="1" ng-maxlength="10" placeholder="PO BOX" class="form-control">
@@ -352,7 +382,7 @@ img.onclick = function(){
                         </div>
                             
                     <div class="form-group">
-                        <input type="email" required ng-model="formParams.email" placeholder="Email Address" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" class="form-control">
+                        <input type="email"  id="email"  required ng-model="formParams.email" placeholder="Email Address" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" class="form-control">
                     </div>  
                      <div class="row" style="margin-bottom: 20px;">
                          <div class="col-sm-6 form-group" style="margin-top: 20px!important;">
@@ -375,7 +405,34 @@ img.onclick = function(){
 			</div>
 	
 <script>
+ /******** logout ********/
 
+  function logout() {
+
+var URL = window.location.protocol + "//" + window.location.host ;
+ 
+  var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
+ 
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('GET',''+newURL+'public/session_destroy.php', true);
+    xmlhttp.onreadystatechange=function(){
+       if (xmlhttp.readyState == 4){
+          if(xmlhttp.status == 200){
+			  if (newURL=='http://127.0.0.1/laravel5/'){
+				   window.location.replace(newURL);
+			  }
+			  else{
+				   window.location.replace(URL);
+			  }     
+         }
+       }
+    };
+    xmlhttp.send(null);
+		  
+  }
+  
+
+ /******** end logout ********/
 
   (function(exports) {
 
@@ -582,7 +639,8 @@ $('#password, #confirm_password').on('keyup', function () {
 </div> <!-- End Stage plans -->
  
    
-   	<!--   Stage 5  STAGE PHONE NUMBERS  ---------------------------------------------------------->
+  
+<!--   Stage 5  STAGE PHONE NUMBERS  ---------------------------------------------------------->
 
 <div class="animate-switch" ng-switch-when="stagePhone">
 	<div   class="container center_div"  style="max-width: 850px!important;" >
@@ -591,18 +649,18 @@ $('#password, #confirm_password').on('keyup', function () {
         <div class="col-sm-12">
         <div class="row">
         <div class="col-sm-4 form-group">
-        <select class="form-control" id="sel1">
-            <option value="" disabled selected>Province</option>
+        <select ng-model="formParams.province2" class="form-control" id="sel1">
+            <option  value="" disabled selected>Province</option>
         </select>
         </div>
         <div class="col-sm-4 form-group">
-        <select class="form-control" id="sel2">
+        <select ng-model="formParams.city2" class="form-control" id="sel2">
             <option value="" disabled selected>City</option>
         </select>
         </div>
         <div class="col-sm-4 form-group">
-        <select class="form-control" id="sel3">
-            <option value="" disabled selected>Area code</option>
+        <select ng-model="formParams.area" class="form-control" id="sel3">
+            <option  value="" disabled selected>Area code</option>
         </select>
         </div>
         </div>
@@ -614,8 +672,8 @@ $('#password, #confirm_password').on('keyup', function () {
           
 		       <ul style="list-style-type: none;margin-left: -20;" class="form">
 				<div ng-repeat="data in NData"   >
- 					<div ng-if="$first && ($index<10)" ng-init="setFirst(data.phone)" ><li><label  ng-click="setNum(data.phone)" class="radio inline"><input class="radio-inline"  ng-attr-id="@{{data.phone}}"  checked="checked"  type="radio" name="phonenum"   /><span for="@{{data.phone}}" ng-bind="data.phone"   class="labelradio control-label " ></label> </span></li></div>
-					<div ng-if="!$first && ($index<10)" ><li><label ng-click="setNum(data.phone)" class="radio inline"><input class="radio-inline"  ng-attr-id="@{{data.phone}}"    type="radio"   name="phonenum"  /><span for="@{{data.phone}}" ng-bind="data.phone"   class="labelradio control-label"> </span></label></li></div>
+ 					<div ng-if="$first && ($index<10)" ng-init="setFirst(data.telephoneNumber)" ><li><label  ng-click="setNum(data.telephoneNumber)" class="radio inline"><input class="radio-inline"  ng-attr-id="@{{data.telephoneNumber}}"  checked="checked"  type="radio" name="phonenum"   /><span for="@{{data.telephoneNumber}}" ng-bind="data.telephoneNumber"   class="labelradio control-label " ></label> </span></li></div>
+					<div ng-if="!$first && ($index<10)" ><li><label ng-click="setNum(data.telephoneNumber)" class="radio inline"><input class="radio-inline"  ng-attr-id="@{{data.telephoneNumber}}"    type="radio"   name="phonenum"  /><span for="@{{data.telephoneNumber}}" ng-bind="data.telephoneNumber"   class="labelradio control-label"> </span></label></li></div>
 				</div>	
 			   </ul>
 		  
@@ -630,7 +688,7 @@ $('#password, #confirm_password').on('keyup', function () {
 			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('stagePlans')"><i class="icnleft"></i>  Back</button>  
 			</div>
             <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
-				<button style="float:right" type="button" class="btn btn-primary btn btn-success btn-previous btn-md" id="next4" disabled ng-click="next('stageBilling')">Next  <i class="icnright"></i></button>
+				<button style="float:right" type="button" class="btn btn-primary btn btn-success btn-previous btn-md" id="next4" disabled ng-click="initTax();next('stageBilling')">Next  <i class="icnright"></i></button>
             </div>
 			</div>
 
@@ -839,52 +897,6 @@ $('#password, #confirm_password').on('keyup', function () {
       ]
     },
     {
-      name: "Newfoundland",
-      cities: [{
-        name: "St. John's",
-        acodes: [
-          "709"
-        ]
-      }
-      ]
-    },
-    {
-      name: "Northwest Territories",
-      cities: [{
-        name: "Yellowknife",
-        acodes: [
-          "867"
-        ]
-      }
-      ]
-    },
-    {
-      name: "Nunavut",
-      cities: [{
-        name: "Iqaluit",
-        acodes: [
-          "867"
-        ]
-      }
-      ]
-    },
-    {
-      name: "Yukon",
-      cities: [{
-        name: "Whitehorse",
-        acodes: [
-          "867"
-        ]
-      },
-      {
-        name: "Dawson City",
-        acodes: [
-          "867"
-        ]
-      }
-      ]
-    },
-    {
       name: "Nova Scotia",
       cities: [{
         name: "Halifax",
@@ -901,21 +913,33 @@ $('#password, #confirm_password').on('keyup', function () {
         ]
       }
       ]
+    },	
+    {
+      name: "Newfoundland",
+      cities: [{
+        name: "St. John's",
+        acodes: [
+          "709"
+        ]
+      }
+      ]
+    },	
+    {
+      name: "Northwest Territories",
+      cities: [{
+        name: "Yellowknife",
+        acodes: [
+          "867"
+        ]
+      }
+      ]
     },
     {
-      name: "Prince Edward Island",
+      name: "Nunavut",
       cities: [{
-        name: "Charlottetown",
+        name: "Iqaluit",
         acodes: [
-          "902",
-          "782"
-        ]
-      },
-      {
-        name: "Summerside",
-        acodes: [
-          "902",
-          "782"
+          "867"
         ]
       }
       ]
@@ -1124,6 +1148,24 @@ $('#password, #confirm_password').on('keyup', function () {
       ]
     },
     {
+      name: "Prince Edward Island",
+      cities: [{
+        name: "Charlottetown",
+        acodes: [
+          "902",
+          "782"
+        ]
+      },
+      {
+        name: "Summerside",
+        acodes: [
+          "902",
+          "782"
+        ]
+      }
+      ]
+    },	
+    {
       name: "Quebec",
       cities: [{
         name: "Levis",
@@ -1249,7 +1291,25 @@ $('#password, #confirm_password').on('keyup', function () {
         ]
       }
       ]
-    }
+    },
+    {
+      name: "Yukon",
+      cities: [{
+        name: "Whitehorse",
+        acodes: [
+          "867"
+        ]
+      },
+      {
+        name: "Dawson City",
+        acodes: [
+          "867"
+        ]
+      }
+      ]
+    }	
+	
+	
     ],
     defOption = '<option value="" disabled selected>Please select</option>';
   
@@ -1276,83 +1336,86 @@ $('#password, #confirm_password').on('keyup', function () {
     }
   });
 });
-
+/* stage billing Help title tooltip 
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})*/
 </script>
 
  </div> 
 </div>  <!-- End Stage Phone numbers  -->		
+ 
    
    
-   
-<!--   Stage Billing     ---------------------------------------------------------> 
+<!--   Stage Billing     ------------------------------------------------------- --> 
 <div class="animate-switch" ng-switch-when="stageBilling">
  
 <div class="container center_div">
 
     <fieldset class="scheduler-border" style="padding-top: 20px!important;">
         <legend class="scheduler-border" style="color: grey;">Total Due Today</legend>
-        <div class="col-sm-12">
+        <div class="col-sm-12 col-md-12 col-lg-12">
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-3 col-md-3 col-lg-3 ">
                     &nbsp;
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-6 col-md-6 col-lg-6">
                     <span id="planname" style="font-size:18px;color:#31B404;  font-weight: bold;float: right;" ng-bind="formParams.plantypes" >  </span>
                 </div>
-                <div class="col-sm-2">
-                    <span style="font-size:18px;color:#31B404;"  id="planprice"  ng-bind="formParams.plancharge" >   </span>$
+                <div class="col-sm-3 col-md-3 col-lg-3 ">
+                    <span style="font-size:17px;color:#31B404;font-weight:bold;"  id="planprice"  ng-bind="formParams.plancharge" >   </span><span style="font-size:17px;color:#31B404;font-weight:bold;"  > $</span>
                 </div>
             </div>
         </div>
 
-        <div class="col-sm-12">
+        <div class="col-sm-12 col-md-12 col-lg-12">
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-3 col-md-3 col-lg-3 ">
                     &nbsp;
                 </div>
-                <div class="col-sm-6">
-                    <span style="font-size:18px;color:grey;float:right"id="taxes"   >Taxes</span>
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                    <span style="font-size:15px;color:grey;float:right"id="taxes"   >Taxes ( <label  style="font-wight:normal;" ng-bind="formParams.tax">  </label> %) </span> 
+					 
                 </div>
-                <div class="col-sm-2">
-                    <span style="font-size:18px;color:grey;" id="taxesprice" >10$</span>
+                <div class="col-sm-3 col-md-3 col-lg-3 " style="font-size:15px;color:grey;" >
+                    <span style="font-weight:bold;" id="taxesprice" ng-bind="formParams.taxVal"  >  </span><span style="font-size:15px;color:grey;"> $  </span>
                 </div>
             </div>
         </div>
-        <div class="col-sm-12">
+        <div class="col-sm-12 col-md-12 col-lg-12">
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-3 col-md-3 col-lg-3 ">
                     &nbsp;
                 </div>
-                <div class="col-sm-6">
-                    <span id="total" style="font-weight: bold;float: right;font-size:18px;color:#31B404;" >Total</span>
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                    <span id="total" style="font-weight: bold;float: right;font-size:17px;color:#31B404;" >Total</span>
                 </div>
-                <div class="col-sm-2">
-                    <span style="font-size:18px;color:#31B404;" id="totalprice" >79$</span>
+                <div class="col-sm-3 col-md-3 col-lg-3 " style="font-weight: bold;float: right;font-size:17px;color:#31B404;">
+                    <span id="totalprice"  ng-bind="formParams.totalcharge"> </span> $
                 </div>
             </div>
         </div>
         <hr />
         <div id="creditcard" style="margin-top: 20px;" >
         <div class="form-group">
-            <input type="text"   class="form-control" id="cardholder" placeholder="Cardholder Name" ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="35"  ng-model="formParams.cardholder"  /></input>        </div>
+            <input type="text"   class="form-control" id="cardholder" placeholder="Cardholder Name" ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="35"  ng-model="formParams.cardholder" name="cardholder"  /></input>        </div>
         <div class="form-group">
-            <input type="number"  id="credit" name="creditCard"  ng-model="formParams.creditCard"  required  data-credit-card-type   data-ng-pattern="/^[0-9]+$/"  data-ng-minlength="15"     maxlength="19" class="form-control" id="cardnumber" placeholder="Card Number" />
-			    <ul ng-show="!FormActivate.$valid">
+            <input type="number"  id="credit" name="creditCard"  value="2222400041240011" ng-model="formParams.creditCard"  required  data-credit-card-type   data-ng-pattern="/^[0-9]+$/"  data-ng-minlength="15"     maxlength="19" class="form-control" id="cardnumber" placeholder="Card Number" />
+			<ul ng-show="!FormActivate.$valid">
       <li ng-show="FormActivate.creditCard.$error.pattern">Credit card must contain digits only</li>
       <li ng-show="FormActivate.creditCard.$error.minlength">Credit card must be 15-19 digits</li>
       <li ng-show="FormActivate.creditCard.$error.maxlength">Credit card must contain a maximum of 19 digits </li>
- 
 	  </ul>
         </div>
          <div class="row">
                             <div class="col-sm-3 form-group">
-                                <input type="number" placeholder="Exp Mth" ng-model="formParams.month" class="form-control"  min="1" max="12"  ng-model="month" >
+                                <input type="number" placeholder="Exp Mth" ng-model="formParams.emonth" class="form-control"  min="1" max="12"  ng-model="month" name="emonth">
                             </div>  
                             <div class="col-sm-3 form-group">
-                                <input type="number" placeholder="Exp Year" ng-model="formParams.year" class="form-control" min="2018" max="2050"  ng-model="year" >
+                                <input type="number" placeholder="Exp Year" ng-model="formParams.eyear" class="form-control" min="2018" max="2050"  ng-model="year" name="eyear">
                             </div>  
                             <div class="col-sm-3 form-group">
-                                 <input type="number" placeholder="CVV" class="form-control"    ng-model="formParams.cvv" name="securityCode"    ng-model="securityCode"  required  data-ng-pattern="/^[0-9]+$/"  data-ng-minlength="3"  maxlength="4">
+                                 <input type="number" placeholder="CVV" class="form-control"    ng-model="formParams.cvv" name="cvv"    ng-model="securityCode"  required  data-ng-pattern="/^[0-9]+$/"  data-ng-minlength="3"  maxlength="4" >
                               <ul ng-show=" !FormActivate.$valid">
       <li ng-show="FormActivate.securityCode.$error.pattern">Security code must contain only numbers</li>
       <li ng-show="FormActivate.securityCode.$error.minlength">Security code must be 3-4 digits</li>
@@ -1368,9 +1431,13 @@ $('#password, #confirm_password').on('keyup', function () {
         </div>
         <div class="row" style="margin-left: 0px">
             <div class="checkbox" style="color: #464a4c;">
+                <input type="hidden" name="transactionid" id="transactionid" ng-model="formParams.transactionid"/>
                 <label><input id="atotopup" name="atotopup" ng-model="formParams.autopay" type="checkbox" value=""><span class="cr"><i class="cr-icon" style="font-size: 18px;left: 0px"><b>✓</b></i></span>  <b>Automatically Topup my account every 30 days</b></label>
             </div>
         </div>
+		<div class="row" style="margin-top: 20px;">
+			<button ng-click="AutomaticPayment()">AutomaticPayment</button>
+			</div>
         </div>
     </fieldset>
 
@@ -1406,21 +1473,19 @@ $('#password, #confirm_password').on('keyup', function () {
 			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('stagePhone')"><i class="icnleft"></i>  Back</button>  
 			</div>
             <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
-				<button style="float:right" type="button" style="float:right" class="btn btn-primary btn btn-success btn-previous btn-md" id="next5" ng-disabled="FormActivate.$pristine || FormActivate.$invalid"  ng-click="">Finish  </i></button>
+				<button style="float:right" type="button" style="float:right" class="btn btn-primary btn btn-success btn-previous btn-md" id="next5" ng-disabled="FormActivate.$pristine || FormActivate.$invalid"  ng-click="PaymentProcess()">Finish  </i></button>
             </div>
 			</div>
             </div>
 </div><!--   End Stage  -->	
- 
  
 </div><!--   End container  -->		
 		 
   
       </div>
     </form>
-	 
-	 
- 
+
+Form : <p>@{{formParams}}</p>
   </div>
 </main>
        
@@ -1430,148 +1495,17 @@ $('#password, #confirm_password').on('keyup', function () {
 <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-animate.min.js'></script> 
 
 
+
  <script  src="public/js/index.js"></script>
-  <script type="text/javascript">
-  var URL = window.location.protocol + "//" + window.location.host ;
-   // alert('URL'+URL);
-  var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
  
-  /*
-function login(){
-	
-email= document.getElementById('useremail').value;
-password= document.getElementById('userpassword').value;
-	var datatosend='{\"grant_type\":\"password\",\"username\": \"'+email+'\",\"password\": \"'+password+'\",\"audience\": \"https://raniasaad.eu.auth0.com/api/v2/\", \"scope\": \"openid\", \"client_id\": \"JBL90aJJc4ZG7DxcIfITrYB-UrjbvY_u\", \"client_secret\": \"XugxD0AsEQpw5pwatO6kPjXouUPdBfuumztpf3p6LllTAR27JTzLvhhEcaEkQrla\"}';
-console.log('data to send '+datatosend);
-var settings = {
-  "async": true,
-  "crossDomain": true,
-  "url": "https://raniasaad.eu.auth0.com/oauth/token",
-  "method": "POST",
-  "headers": {
-    "content-type": "application/json"
-  },
-  "processData": false,
-  "data": datatosend
-  }
-
-
-$.ajax(settings).done(function (response) {
-     token=response.access_token;
-    access_token="Bearer "+token;
-  	 jQuery('#div_session_write').load('http://127.0.0.1/laravel5/public/session_write.php?access_token='+token);
-	 document.getElementById('tokeninput').value = token;
-	//show user info
-	
-	if (document.getElementById('tokeninput').value == null){
-	token= document.getElementById('div_session_write').innerHTML.substr(26);
-	
-	}
-	else {token= document.getElementById('tokeninput').value;}
-	 access_token="Bearer "+token;
-	showuserinfo(access_token);
-	
-	
-});
-
-
-}
-*/
-  function logout(){
-		  //var xmlhttp = getXmlHttp();
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('GET',''+newURL+'public/session_destroy.php', true);
-    xmlhttp.onreadystatechange=function(){
-       if (xmlhttp.readyState == 4){
-          if(xmlhttp.status == 200){
-			  if (newURL=='http://127.0.0.1/laravel5/'){
-				   window.location.replace(newURL);
-			  }
-			  else{
-				   window.location.replace(URL);
-			  }     
-         }
-       }
-    };
-    xmlhttp.send(null);
-		  
-  }
-  
-  function resetpassword(){
-	  document.getElementById("Ssent").style.display="none";
-	  document.getElementById("Wmailrequired").style.display="none";
-	  email= document.getElementById('useremail2').value;
-if(email==""){$(".alert-warning").slideDown();}
-else{
-	var datatosend='{\"client_id\": \"JBL90aJJc4ZG7DxcIfITrYB-UrjbvY_u\",\"email\": \"'+email+'\",\"connection\": \"databaseserver\"}';
-
-
-	console.log('data to send '+datatosend);
-var settings = {
-  "async": true,
-  "crossDomain": true,
-  "url": "https://raniasaad.eu.auth0.com/dbconnections/change_password",
-  "method": "POST",
-  "headers": {
-    "content-type": "application/json"
-  },
-  "processData": false,
-  "data": datatosend
-  }
-
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
-  $(".alert-success").slideDown();
-});
-	  
-}	  
-  }
-
-</script>
 <div class="modal"><!-- Place at bottom of page --></div>
 
 
 </div>
 
 
-
-
 </body>
-<style>
-/* Start by settingkkdisplay:none to make this hidden.
-   Then we position it in relation to the viewport window
-   with position:fixed. Width, height, top and left speak
-   for themselves. Background we set to 80% white with
-   our animation centered, and no-repeating */
-.modal {
-    display:    none;
-    position:   fixed;
-    z-index:    1000;
-    top:        0;
-    left:       0;
-    height:     100%;
-    width:      100%;
-    background: rgba( 255, 255, 255, .8 ) 
-                url('http://test.enterpriseesolutions.com/public/ajax-loader.gif') 
-                50% 50% 
-                no-repeat;
-}
 
-/* When the body has the loading class, we turn
-   the scrollbar off with overflow:hidden */
-body.loading {
-    overflow: hidden;   
-}
-
-/* Anytime the body has the loading class, our
-   modal element will be visible */
-body.loading .modal {
-    display: block;
-}
-
-
-</style>
 </html>
 
 

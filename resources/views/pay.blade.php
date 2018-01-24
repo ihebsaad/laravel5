@@ -1,48 +1,5 @@
 @extends('layouts.mainlayout')
-<?php
-//define('ROOTUP', realpath(__DIR__ . '/public/moneris/lib/') . DS);
-require '/var/www/vhosts/localhost.localdomain/httpdocs/Apps/Sales00/public/moneris/lib/Moneris.php';
-/*
-$errors = array();
 
-if (! empty($_POST)) {
-
-    print_r($_POST);
-    $moneris = Moneris::create(
-    array(
-        'api_key' => 'yesguy',
-        'store_id' => 'store1',
-        'environment' => Moneris::ENV_TESTING,
-        // optional:
-        'require_avs' => false, // default: false
-        'require_cvd' => false
-    ));
-
-    try { 
-            $params = array(
-                'cc_number' => '4242424242424242',
-                'order_id' => 'icewireless-or' . date("dmy-G:i:s"),
-                //'order_id' => 'testorderhs',
-                'amount' => '20.00',
-                'expiry_month' => '08',
-                'expiry_year' => '18'
-            );
-            $result = $moneris->purchase($params);
-            if ($result->was_successful()) {
-            exit("transaction was successful");
-
-            } else {
-                $errors[] = $result->error_message();
-                print_r($errors);
-                exit();
-
-            }
-
-        } catch (Moneris_Exception $e) {
-                $errors[] = $e->getMessage();
-        }
-        }*/
-?>
 <style>
 
 fieldset.scheduler-border {
@@ -123,9 +80,27 @@ fieldset.scheduler-border {
 }
 
 </style>
-<script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-animate.min.js'></script> 
+    <script type="text/javascript">
+        'use strict';
 
+        angular.module('formApp', [
+          'ngAnimate'
+        ]).
+        controller('formCtrl', ['$scope', '$http', function($scope, $http) {
+
+                $scope.formParams = {PostDataResponse = 'test'};
+               //.formParams.PostDataResponse = 'test';
+
+
+
+
+
+
+        }]);
     </script>
+
 @section('content')
 <section class="jumbotron text-center">
 <div class="container">
@@ -133,24 +108,9 @@ fieldset.scheduler-border {
 </div>
 </section>
 <div class="container center_div">
-<FORM METHOD="POST" ACTION= https://esqa.moneris.com/HPPDP/index.php >
+<div ng-app="formApp" ng-controller="formCtrl">
+ <div class="container center_div">
 
-     <INPUT TYPE="HIDDEN" NAME="ps_store_id" VALUE="69FLHtore1">
-
-     <INPUT TYPE="HIDDEN" NAME="hpp_key" VALUE="hpJM8HDJDSXP">
-
-     <INPUT TYPE="HIDDEN" NAME="charge_total" VALUE="105.00">
-     <INPUT TYPE="HIDDEN" NAME="expdate" VALUE="0818">
-     <!--MORE OPTIONAL VARIABLES CAN BE DEFINED HERE -->
-     <INPUT TYPE="HIDDEN" NAME="bill_first_name" VALUE="John">
-     <INPUT TYPE="HIDDEN" NAME="bill_last_name" VALUE="Smith">
-
-<input type="hidden" name="order_id" VALUE=<?php echo 'icewireless-or' . date("dmy-G:i:s"); ?> >
-
-    <INPUT TYPE="SUBMIT" NAME="SUBMIT" VALUE="Click to proceed to Secure Page">
-
-</FORM>
-<form>
     <fieldset class="scheduler-border" style="padding-top: 20px!important;">
         <legend class="scheduler-border" style="color: grey;">Total Due Today</legend>
         <div class="col-sm-12">
@@ -159,10 +119,10 @@ fieldset.scheduler-border {
                     &nbsp;
                 </div>
                 <div class="col-sm-6">
-                    <span id="planname" style="font-weight: bold;float: right;" >Talk, Text and Surf</span>
+                    <span id="planname" style="font-size:18px;color:#31B404;  font-weight: bold;float: right;" ng-bind="formParams.plantypes" >  </span>
                 </div>
                 <div class="col-sm-2">
-                    <span id="planprice" >69$</span>
+                    <span style="font-size:18px;color:#31B404;"  id="planprice"  ng-bind="formParams.plancharge" >   </span>$
                 </div>
             </div>
         </div>
@@ -173,45 +133,53 @@ fieldset.scheduler-border {
                     &nbsp;
                 </div>
                 <div class="col-sm-6">
-                    <span id="taxes" style="font-weight: bold;float: right;" >Taxes</span>
+                    <span style="font-size:18px;color:grey;float:right"id="taxes"   >Taxes</span>
                 </div>
                 <div class="col-sm-2">
-                    <span id="taxesprice" >10$</span>
+                    <span style="font-size:18px;color:grey;" id="taxesprice" >10$</span>
                 </div>
             </div>
         </div>
-
         <div class="col-sm-12">
             <div class="row">
                 <div class="col-sm-4">
                     &nbsp;
                 </div>
                 <div class="col-sm-6">
-                    <span id="total" style="font-weight: bold;float: right;" >Total</span>
+                    <span id="total" style="font-weight: bold;float: right;font-size:18px;color:#31B404;" >Total</span>
                 </div>
                 <div class="col-sm-2">
-                    <span id="totalprice" >79$</span>
+                    <span style="font-size:18px;color:#31B404;" id="totalprice" >79$</span>
                 </div>
             </div>
         </div>
         <hr />
         <div id="creditcard" style="margin-top: 20px;" >
         <div class="form-group">
-            <input type="text" class="form-control" id="cardholder" placeholder="Cardholder Name">
-        </div>
+            <input type="text"   class="form-control" id="cardholder" placeholder="Cardholder Name" ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="35"  ng-model="formParams.cardholder"  /></input>        </div>
         <div class="form-group">
-            <input type="number" class="form-control" id="cardnumber" placeholder="Card Number">
+            <input type="number"  id="credit" name="creditCard"  ng-model="formParams.creditCard"  required  data-credit-card-type   data-ng-pattern="/^[0-9]+$/"  data-ng-minlength="15"     maxlength="19" class="form-control" id="cardnumber" placeholder="Card Number" />
+                <ul ng-show="!FormActivate.$valid">
+      <li ng-show="FormActivate.creditCard.$error.pattern">Credit card must contain digits only</li>
+      <li ng-show="FormActivate.creditCard.$error.minlength">Credit card must be 15-19 digits</li>
+      <li ng-show="FormActivate.creditCard.$error.maxlength">Credit card must contain a maximum of 19 digits </li>
+ 
+      </ul>
         </div>
          <div class="row">
                             <div class="col-sm-3 form-group">
-                                <input type="text" placeholder="Exp Mth" class="form-control">
+                                <input type="number" placeholder="Exp Mth" ng-model="formParams.month" class="form-control"  min="1" max="12"  ng-model="month" >
                             </div>  
                             <div class="col-sm-3 form-group">
-                                <input type="text" placeholder="Exp Year" class="form-control">
+                                <input type="number" placeholder="Exp Year" ng-model="formParams.year" class="form-control" min="2018" max="2050"  ng-model="year" >
                             </div>  
                             <div class="col-sm-3 form-group">
-                                 <input type="text" placeholder="CVV" class="form-control">
-                            </div>   
+                                 <input type="number" placeholder="CVV" class="form-control"    ng-model="formParams.cvv" name="securityCode"    ng-model="securityCode"  required  data-ng-pattern="/^[0-9]+$/"  data-ng-minlength="3"  maxlength="4">
+                              <ul ng-show=" !FormActivate.$valid">
+      <li ng-show="FormActivate.securityCode.$error.pattern">Security code must contain only numbers</li>
+      <li ng-show="FormActivate.securityCode.$error.minlength">Security code must be 3-4 digits</li>
+
+      </ul></div>   
                             <div class="col-sm-1 form-group">
                                  <button type="button" class="btn btn-default" style="width: 30px; height: 30px; padding: 6px 0px; border-radius: 15px; text-align: center; font-size: 12px; 
                                  line-height: 1.42857;" data-toggle="tooltip" data-html="true" title="<em>Help</em> <u>Info</u> <b>TEXT</b>"><b>?</b></button> 
@@ -220,10 +188,9 @@ fieldset.scheduler-border {
                                  &nbsp;
                             </div>   
         </div>
-        <input type="hidden" name="amount" id="tamount" value="79" />
         <div class="row" style="margin-left: 0px">
             <div class="checkbox" style="color: #464a4c;">
-                <label><input id="atotopup" name="atotopup" type="checkbox" value=""><span class="cr"><i class="cr-icon" style="font-size: 18px;left: 0px"><b>✓</b></i></span>  <b>Automatically Topup my account every 30 days</b></label>
+                <label><input id="atotopup" name="atotopup" ng-model="formParams.autopay" type="checkbox" value=""><span class="cr"><i class="cr-icon" style="font-size: 18px;left: 0px"><b>✓</b></i></span>  <b>Automatically Topup my account every 30 days</b></label>
             </div>
         </div>
         </div>
@@ -247,20 +214,30 @@ fieldset.scheduler-border {
     </div>
     <div class="row" style="margin-left: -10px;margin-top: 20px;">
             <div class="checkbox" style="color: #464a4c;">
-                <label><input id="atotopup" name="atotopup" type="checkbox" value=""><span class="cr"><i class="cr-icon" style="font-size: 18px;left: 0px"><b>✓</b></i></span>  <b>I accept the terms of services</b></label>
+                <label><input required id="atotopup2" name="atotopup2" ng-model="atotopup2" type="checkbox" value=""><span class="cr"><i class="cr-icon" style="font-size: 18px;left: 0px"><b>✓</b></i></span>  <b>I accept the terms of services</b></label>
             </div>
         </div>
     </div>
     </fieldset>
-    <div class="row" style="margin-top: 20px;">
-                            <div class="col-sm-9 form-group">
-                                 <button type="button" class="btn btn-success btn-previous" id="Previous"><i class="icnleft"></i> Back</button>
-                            </div>      
-                            <div class="col-sm-3 form-group">
-                                 <button type="button" class="btn btn-success btn-next" style="float: right;" id="Next">Finish</button>
-                            </div>  
-    </div>  
-</form>
+ 
+
+    </div> 
+            <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 ">
+            <div class="row" style="margin-top: 20px;">
+            <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
+            <button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('stagePhone')"><i class="icnleft"></i>  Back</button>  
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
+                <button style="float:right" type="button" style="float:right" class="btn btn-primary btn btn-success btn-previous btn-md" id="next5" ng-disabled="FormActivate.$pristine || FormActivate.$invalid"  ng-click="">Finish  </i></button>
+            </div>
+            </div>
+            </div>
+
+
+
+
+<hr />
+@{{formParams.cardholder}}
 </div>
 <script>
 

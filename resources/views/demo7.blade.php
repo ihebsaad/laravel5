@@ -28,8 +28,9 @@
 <h5>Please select the phone number that you wish to use below</h5>
 </div>
 </section>
-
-<div class="container center_div"  style="max-width: 850px!important;">
+<div class="container-triangle"></div>
+<div class="contentcontain">
+<div class="container center_div"  style="max-width: 700px!important;">
     <div class="form-group"></div>
     <div class="form-group">
         <div class="col-sm-12">
@@ -82,6 +83,7 @@
                                  <button type="button" class="btn btn-success btn-next" style="float: right;" id="Next">Next <i class="icnright"></i></button>
                             </div>  
     </div>  
+</div>
 </div>
 
 <script>
