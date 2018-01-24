@@ -565,7 +565,7 @@ $.ajax(settings).fail(function (response) {console.log('fail');});
     "content-type": "application/json"
   },
   processData: false,
-  data": datatosend
+  data: datatosend
 	 
 
       ,error : function (xhr,status,error)
