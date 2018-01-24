@@ -19,7 +19,7 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 	//$cust_id=$_POST["cardholder"]; 
 	$amount='10.10'; 
 	//$amount=$_POST["totalc"]; 
-	$pan='4242424242424242'; 
+	$pan='4005554444444403'; 
 	//$pan=$_POST["creditCard"];
 	$expiry_date='0818';
 	//$expiry_date=$_POST["emonth"].$nexpyear;  
@@ -33,7 +33,7 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 	/************************** CVD Variables *****************************/ 
 	 
 	$cvd_indicator = '1'; 
-	$cvd_value = '099'; 
+	$cvd_value = '198'; 
 	//$cvd_value = $_POST["cvv"]; 
 	 
 	/********************** AVS Associative Array *************************/ 
