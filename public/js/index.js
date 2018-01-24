@@ -596,15 +596,16 @@ var settings = {
   "data": datatosend
   }
 
-/*
+
 $.ajax(settings).done(function (response) {
 	console.log('done');
 	console.log(response);
 	$scope.loginsignup(accountId);
 });
-$.ajax(settings).fail(function (response) {console.log('fail');});
-*/
-
+$.ajax(settings).fail(function ( jqXHR, textStatus ) {
+  alert( "Request failed: " + textStatus );
+});
+/*
  $.ajax({
   async: true,
   crossDomain: true,
@@ -627,7 +628,7 @@ $.ajax(settings).fail(function (response) {console.log('fail');});
       console.log('done');
 	console.log(result);
     }});
-
+*/
 
 
   }
