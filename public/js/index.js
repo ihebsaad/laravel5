@@ -428,7 +428,8 @@ $.ajax(settings).fail(function (response) {
 	 var address3= $scope.formParams.unit ;
 	 var city= $scope.formParams.city ;
 	 var province= $scope.formParams.province ;
-	 var country= $scope.formParams.box ;
+	 var country= 'CA';
+	// var country= $scope.formParams.box ;
 	 var postalCode= $scope.formParams.postal ;
 	 var emailAddress= $scope.formParams.email ;
 	 var planCode= $scope.formParams.plancode ;
@@ -546,13 +547,35 @@ var settings = {
   "data": datatosend
   }
 
-
+/*
 $.ajax(settings).done(function (response) {
 	console.log('done');
 	console.log(response);
 	$scope.loginsignup(accountId);
 });
 $.ajax(settings).fail(function (response) {console.log('fail');});
+*/
+
+ $.ajax({
+  async: true,
+  crossDomain: true,
+  url: "https://iristelx.auth0.com/dbconnections/signup",
+  method: "POST",
+  headers: {
+    "content-type": "application/json"
+  },
+  processData: false,
+  data": datatosend
+	 
+
+      ,error : function (xhr,status,error)
+        { console.log(error);}
+      ,success:function(result){
+      console.log('done');
+	console.log(result);
+    }});
+
+
 
   }
 /************* end sign up ***************/
