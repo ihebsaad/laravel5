@@ -16,13 +16,10 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 	$type='purchase'; 
 	$order_id='iristel-'.date("dmy-G:i:s").rand(pow(10, $digits-1), pow(10, $digits)-1); 
 	$cust_id='my_cust_id'; 
-	//$cust_id=$_POST["cardholder"]; 
 	$amount='10.10'; 
-	//$amount=$_POST["totalc"]; 
-	$pan='4005554444444403'; 
-	//$pan=$_POST["creditCard"];
-	$expiry_date='0818';
-	//$expiry_date=$_POST["emonth"].$nexpyear;  
+	//$pan='4242424242424242'; 
+	$pan=$_POST["creditCard"];
+	$expiry_date='0818';  
 	//December 2008 $crypt='7'; 
 	 
 	/************************** AVS Variables *****************************/ 
@@ -34,7 +31,6 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 	 
 	$cvd_indicator = '1'; 
 	$cvd_value = '198'; 
-	//$cvd_value = $_POST["cvv"]; 
 	 
 	/********************** AVS Associative Array *************************/ 
 	 /*
@@ -88,7 +84,7 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 		 
 		$mpgResponse=$mpgHttpPost->getMpgResponse(); 
 		 
-		print("\nCardType = " . $mpgResponse->getCardType()); 
+		/*print("\nCardType = " . $mpgResponse->getCardType()); 
 		print("\nTransAmount = " . $mpgResponse->getTransAmount()); 
 		print("\nTxnNumber = " . $mpgResponse->getTxnNumber()); 
 		print("\nReceiptId = " . $mpgResponse->getReceiptId()); 
@@ -105,7 +101,7 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 		print("\nTimedOut = " . $mpgResponse->getTimedOut()); 
 		//print("\nAVSResponse = " . $mpgResponse->getAvsResultCode()); 
 		print("\nCVDResponse = " . $mpgResponse->getCvdResultCode()); 
-		print("\nITDResponse = " . $mpgResponse->getITDResponse()); 
+		print("\nITDResponse = " . $mpgResponse->getITDResponse()); */
 		print($mpgResponse->getTxnNumber());
 	
 
