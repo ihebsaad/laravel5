@@ -102,7 +102,7 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 		//print("\nAVSResponse = " . $mpgResponse->getAvsResultCode()); 
 		print("\nCVDResponse = " . $mpgResponse->getCvdResultCode()); 
 		print("\nITDResponse = " . $mpgResponse->getITDResponse()); */
-		print($mpgResponse->getTxnNumber());
+		//print($mpgResponse->getTxnNumber());
 	
 
 }
