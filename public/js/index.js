@@ -677,6 +677,7 @@ $.ajax(settings).fail(function (response) {
   };
   
     $scope.Next = "";
+    $scope.Next2 = "";
 	 $scope.chekPass = function () {
 		 return (document.getElementById('confirm_password').value == document.getElementById('password').value) ;
 	 }
@@ -711,6 +712,7 @@ document.getElementById('newcustomer').style.backgroundColor='rgb(246, 246, 246)
 document.getElementById('next1').disabled=false;
 
 $scope.Next="stageLogin";
+$scope.Next2="stagePlans";
 //$scope.stage="stageLogin";
 // $scope.$apply();	
 }
@@ -732,6 +734,7 @@ document.getElementById('next1').disabled=false;
  $scope.formParams.customer="new";
 
 $scope.Next="stageAccount";
+$scope.Next2="stageAccount";
 
 }
 
