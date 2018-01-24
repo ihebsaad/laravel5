@@ -2,8 +2,8 @@
 
 Mail::send('emails.email1', [], function ($message) {
     $message
-      ->from('postmaster@test.enterpriseesolutions.com', 'Houba')
-      ->to('ihebsaad@gmail.com', 'iheb')
+      ->from('postmaster@test.enterpriseesolutions.com', 'Iristel')
+      ->to($_GET['mail'], $_GET['reciever'])
       ->subject('From SparkPost with ?');
   });
   echo'here';

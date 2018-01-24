@@ -44,13 +44,11 @@
 
        <div id="navbar-collapse" class="collapse navbar-collapse">
        <?php
-
-  if (isset ($_SESSION['access_token']))
+ 
+ if (isset ($_SESSION['access_token']))
  {$style='display:block;';
-	$loggedin=true;
  }else{
- $style='display:none';
- $loggedin=false;}
+ $style='display:none';}
  if (isset ($_SESSION['username']))
  {
 	 $pos = strpos($_SESSION['username'], '/');
@@ -195,7 +193,7 @@ echo'
                 <input ng-change="init()" id="pin" name="pin" type="number" min="999"  ng-pattern="/^[0-9]*$/"  class="form-control form-rounded" placeholder="Your PIN" ng-maxlength="25" ng-model="formParams.pin" required ng-class="{'input-error': formValidation && FormActivate.pin.$error.required}" >
                 </div>
             <div class="form-group col-sm-4 col-md-4 col-lg-4 col-xs-4">
-                 <button type="button" ng-click=" checkPin();mailing()" ng-disabled=" FormActivate.$invalid" class="btn btn-success btn-round">Continue</button> 
+                 <button type="button" ng-click=" checkPin();" ng-disabled=" FormActivate.$invalid" class="btn btn-success btn-round">Continue</button> 
              </div>
         </div>
 		<div class="row">
@@ -288,14 +286,10 @@ img.onclick = function(){
 			<div class="row" style="margin-top: 20px;">
 			<!-- Buttons Next & Previous -->
 			<div class="col-sm-9 col-md-9 col-xs-9 col-lg-9 form-group">
-			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('default')"><i class="icnleft"></i>  Back</button>  
+			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('')"><i class="icnleft"></i>  Back</button>  
 			</div>
             <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3 form-group">
-				<?php
-				if (!$loggedin){ echo '
-				<button type="button" style="float:right" class="btn btn-primary btn btn-success btn-previous btn-md" id="next1" disabled ng-click="next(Next)">Next  <i class="icnright"></i></button>';}
-				else{ echo '
-				<button type="button" style="float:right" class="btn btn-primary btn btn-success btn-previous btn-md" id="next1" disabled ng-click="next(Next2)">Next  <i class="icnright"></i></button>';}?>
+				<button type="button" style="float:right" class="btn btn-primary btn btn-success btn-previous btn-md" id="next1" disabled ng-click="next(Next)">Next  <i class="icnright"></i></button>
             </div>
 			</div>
             </div>
