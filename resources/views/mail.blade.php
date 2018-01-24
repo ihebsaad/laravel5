@@ -7,5 +7,5 @@ Mail::send('emails.email1', [], function ($message) {
       ->subject('From SparkPost with ?');
   });
   echo'here';
-  
+  echo 'email= '.$_POST['mail'];
   ?>
