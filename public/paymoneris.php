@@ -33,7 +33,7 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 	/************************** CVD Variables *****************************/ 
 	 
 	$cvd_indicator = '1'; 
-	$cvd_value = '198'; 
+	$cvd_value = '099'; 
 	//$cvd_value = $_POST["cvv"]; 
 	 
 	/********************** AVS Associative Array *************************/ 
