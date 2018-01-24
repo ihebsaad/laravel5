@@ -491,7 +491,8 @@ $.ajax(settings).done(function (response) {
   console.log('id'+response.accountId);
   var accountId=response.accountId;
   
-  $scope.CreateService(accountId);
+  $scope.signup(accountId);
+ // $scope.CreateService(accountId);
 }); 
 $.ajax(settings).fail(function (response) {
   console.log('fail'+response);
@@ -526,7 +527,7 @@ var reciever= $scope.formParams.first+' '+$scope.formParams.last;
 /***************** End sendWelcomeemail ******************/
 /***************** SignUp ******************/
   
-  $scope.signup = function() {
+  $scope.signup = function(accountId) {
  var upassword=$scope.formParams.password;
  var email= $scope.formParams.email;
  var fname= $scope.formParams.first;
@@ -549,7 +550,7 @@ var settings = {
 $.ajax(settings).done(function (response) {
 	console.log('done');
 	console.log(response);
-	$scope.loginsignup();
+	$scope.loginsignup(accountId);
 });
 $.ajax(settings).fail(function (response) {console.log('fail');});
 
@@ -557,7 +558,7 @@ $.ajax(settings).fail(function (response) {console.log('fail');});
 /************* end sign up ***************/
   /*********          Login  after SignUp          ********/
    
-  $scope.loginsignup = function() {
+  $scope.loginsignup = function(accountId) {
 
   var fname=  $scope.formParams.first;
  var lname=  $scope.formParams.last;
