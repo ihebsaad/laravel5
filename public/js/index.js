@@ -534,11 +534,13 @@ $.ajax(settings).fail(function (response) {
 	 var address3= $scope.formParams.unit ;
 	 var city= $scope.formParams.city ;
 	 var province= $scope.formParams.province ;
-	 var country= $scope.formParams.box ;
+	 var country= 'CA' ;
 	 var postalCode= $scope.formParams.postal ;
 	 var emailAddress= $scope.formParams.email ;
 	//var  datatosend= '{\"contact\":{\"fname\":\"'+fname+'\",\"lname\":\"'+lname+'\",\"address1\":\"'+address1+'\",\"address2\":\"'+address2+'\",\"address3\":\"'+address3+'\",\"city\":\"'+city+'\",\"province\":\"'+province+'\",\"country\":\"'+country+'\",\"postalCode\":\"'+postalCode+'\",\"emailAddress\":\"'+emailAddress+'\"}}';
-//console.log('datatosend'+datatosend);
+var  datatosend='{\"contact\":{\"fname\":\"'+fname+'\",\"lname\":\"'+lname+'\",\"address1\":\"'+address1+'\",\"address2\":\"'+address2+'\",\"address3\":\"'+address3+'\",\"city\":\"'+city+'\",\"province\":\"'+province+'\",\"country\":\"'+country+'\",\"postalCode\":\"'+postalCode+'\",\"emailAddress\":\"'+emailAddress+'\"}}';
+
+	console.log('datatosend'+datatosend);
 	var settings = {
   "async": true,
   "crossDomain": true,
@@ -549,8 +551,7 @@ $.ajax(settings).fail(function (response) {
     "content-type": "application/json"
   },
   "processData": false,
-  "data": '{\"contact\":{\"fname\":\"'+fname+'\",\"lname\":\"'+lname+'\",\"address1\":\"'+address1+'\",\"address2\":\"'+address2+'\",\"address3\":\"'+address3+'\",\"city\":\"'+city+'\",\"province\":\"'+province+'\",\"country\":\"'+country+'\",\"postalCode\":\"'+postalCode+'\",\"emailAddress\":\"'+emailAddress+'\"}}'
-}
+  "data": datatosend}
 
 
 $.ajax(settings).done(function (response) {
