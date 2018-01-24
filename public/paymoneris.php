@@ -2,8 +2,8 @@
 ## ## This program takes 3 arguments from the command line: ## 1. Store id ## 2. api token ## 3. order id ## ## Example php -q TestPurchase-Efraud.php store1 45728773 45109 ## 
 require './moneris/examples/mpgClasses.php';
  
-/*if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["cardholder"]) && isset ( $_POST["emonth"]) && isset ( $_POST["eyear"]) && isset ( $_POST["totalc"])) 
-{*/
+if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["cardholder"]) && isset ( $_POST["emonth"]) && isset ( $_POST["eyear"]) && isset ( $_POST["totalc"])) 
+{
 	$expyear = strtotime($_POST["eyear"]);
 	$nexpyear = date("y", $expyear);
 	$digits = 3;
@@ -16,7 +16,7 @@ require './moneris/examples/mpgClasses.php';
 	$type='purchase'; 
 	$order_id='iristel-'.date("dmy-G:i:s").rand(pow(10, $digits-1), pow(10, $digits)-1); 
 	$cust_id='my_cust_id'; 
-	$amount='10.30'; 
+	$amount='10.10'; 
 	//$pan='4242424242424242'; 
 	$pan=$_POST["creditCard"];
 	$expiry_date='0818';  
@@ -47,7 +47,7 @@ require './moneris/examples/mpgClasses.php';
 	/************************** AVS Object ********************************/ 
 	 /*
 	$mpgAvsInfo = new mpgAvsInfo ($avsTemplate); */
-	try {
+	
 	 
 		/************************** CVD Object ********************************/ 
 		 
@@ -102,17 +102,13 @@ require './moneris/examples/mpgClasses.php';
 		//print("\nAVSResponse = " . $mpgResponse->getAvsResultCode()); 
 		print("\nCVDResponse = " . $mpgResponse->getCvdResultCode()); 
 		print("\nITDResponse = " . $mpgResponse->getITDResponse()); */
-		exit($mpgResponse->getTxnNumber());
-	} catch (Moneris_Exception $e) {
-                /*$errors[] = $e->getMessage();
-                print_r($errors);*/
-               exit('errror!!!'),
-        }
+		print($mpgResponse->getTxnNumber());
+	
 
-/*}
+}
 else {
 
 	echo 'empty';
 }
- */
+ 
 ?> 
