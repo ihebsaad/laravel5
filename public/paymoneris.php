@@ -2,22 +2,16 @@
 ## ## This program takes 3 arguments from the command line: ## 1. Store id ## 2. api token ## 3. order id ## ## Example php -q TestPurchase-Efraud.php store1 45728773 45109 ## 
 require './moneris/examples/mpgClasses.php';
  
-/*if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["cardholder"]) && isset ( $_POST["emonth"]) && isset ( $_POST["eyear"]) && isset ( $_POST["totalc"])) 
-{
-$expyear = strtotime($_POST["eyear"]);
-$nexpyear = date("y", $expyear);
-$digits = 3;*/
 /************************ Request Variables ***************************/ 
  
-$store_id='store5'; 
-$api_token='yesguy'; 
+$store_id='store5'; $api_token='yesguy'; 
  
 /********************* Transactional Variables ************************/ 
  
 $type='purchase'; 
-$order_id='iristel-OR-'.date("dmy-G:i:s"); 
-$cust_id='my_customer99'; 
-$amount='10.50'; 
+$order_id='iristel-'.date("dmy-G:i:s"); 
+$cust_id='my_cust_idd'; 
+$amount='10.30'; 
 $pan='4242424242424242'; 
 $expiry_date='0818';  //December 2008 $crypt='7'; 
  
@@ -52,7 +46,7 @@ $mpgCvdInfo = new mpgCvdInfo ($cvdTemplate);
  
 /***************** Transactional Associative Array ********************/ 
  
-$txnArray=array(   'type'=>$type,
+$txnArray=array( 	'type'=>$type,
 		           'order_id'=>$order_id,           
 		           'cust_id'=>$cust_id,           
 		           'amount'=>$amount,           
@@ -80,26 +74,9 @@ $mpgHttpPost  =new mpgHttpsPost($store_id,$api_token,$mpgRequest);
 /*************************** Response *********************************/ 
  
 $mpgResponse=$mpgHttpPost->getMpgResponse(); 
-/* 
-print("\nCardType = " . $mpgResponse->getCardType()); 
-print("\nTransAmount = " . $mpgResponse->getTransAmount()); 
-print("\nTxnNumber = " . $mpgResponse->getTxnNumber()); 
-print("\nReceiptId = " . $mpgResponse->getReceiptId()); 
-print("\nTransType = " . $mpgResponse->getTransType()); 
-print("\nReferenceNum = " . $mpgResponse->getReferenceNum()); 
-print("\nResponseCode = " . $mpgResponse->getResponseCode()); 
-print("\nISO = " . $mpgResponse->getISO()); 
-print("\nMessage = " . $mpgResponse->getMessage()); 
-print("\nAuthCode = " . $mpgResponse->getAuthCode()); 
-print("\nComplete = " . $mpgResponse->getComplete()); 
-print("\nTransDate = " . $mpgResponse->getTransDate()); 
-print("\nTransTime = " . $mpgResponse->getTransTime()); 
-print("\nTicket = " . $mpgResponse->getTicket()); 
-print("\nTimedOut = " . $mpgResponse->getTimedOut()); 
+ 
+print("\nCardType = " . $mpgResponse->getCardType()); print("\nTransAmount = " . $mpgResponse->getTransAmount()); print("\nTxnNumber = " . $mpgResponse->getTxnNumber()); print("\nReceiptId = " . $mpgResponse->getReceiptId()); print("\nTransType = " . $mpgResponse->getTransType()); print("\nReferenceNum = " . $mpgResponse->getReferenceNum()); print("\nResponseCode = " . $mpgResponse->getResponseCode()); print("\nISO = " . $mpgResponse->getISO()); print("\nMessage = " . $mpgResponse->getMessage()); print("\nAuthCode = " . $mpgResponse->getAuthCode()); print("\nComplete = " . $mpgResponse->getComplete()); print("\nTransDate = " . $mpgResponse->getTransDate()); print("\nTransTime = " . $mpgResponse->getTransTime()); print("\nTicket = " . $mpgResponse->getTicket()); print("\nTimedOut = " . $mpgResponse->getTimedOut()); 
 //print("\nAVSResponse = " . $mpgResponse->getAvsResultCode()); 
-print("\nCVDResponse = " . $mpgResponse->getCvdResultCode()); 
-print("\nITDResponse = " . $mpgResponse->getITDResponse()); 
-
-}*/
+print("\nCVDResponse = " . $mpgResponse->getCvdResultCode()); print("\nITDResponse = " . $mpgResponse->getITDResponse()); 
  
 ?> 
