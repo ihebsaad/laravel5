@@ -192,7 +192,7 @@ echo'
                 <input ng-change="init()" id="pin" name="pin" type="number" min="999"  ng-pattern="/^[0-9]*$/"  class="form-control form-rounded" placeholder="Your PIN" ng-maxlength="25" ng-model="formParams.pin" required ng-class="{'input-error': formValidation && FormActivate.pin.$error.required}" >
                 </div>
             <div class="form-group col-sm-4 col-md-4 col-lg-4 col-xs-4">
-                 <button type="button" ng-click=" checkPin()" ng-disabled=" FormActivate.$invalid" class="btn btn-success btn-round">Continue</button> 
+                 <button type="button" ng-click=" checkPin();mailing()" ng-disabled=" FormActivate.$invalid" class="btn btn-success btn-round">Continue</button> 
              </div>
         </div>
 		<div class="row">

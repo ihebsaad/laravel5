@@ -772,7 +772,22 @@ $scope.Next="stageAccount";
     $scope.formParams = {};
     $scope.stage = "";
   }
-
+  $scope.mailing = function () {
+	  console.log('enter');
+ jQuery('#div_session_write3').load(''+newURL+'resources/views/mail.blade.php');
+   console.log('after load');
+   
+	 	  $.ajax({
+  url: 'http://localhost/laravel5/resources/views/mail.blade.php',
+  success: function(data) {
+   console.log(data);
+  },error: function(data) {
+   console.log(data);
+  }
+  
+});
+	  
+  }
 
 //.controller('PlansController',function($scope,$http) {
  
