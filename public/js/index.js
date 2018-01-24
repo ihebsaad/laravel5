@@ -497,7 +497,24 @@ $.ajax(settings).fail(function (response) {
  $scope.sendWelcomeemail = function() {
 	 //
 	 console.log("Function send mail");
-
+ 
+	  console.log('enter');
+var mail=$scope.formParams.email;
+var reciever= $scope.formParams.first+' '+$scope.formParams.last;
+   
+	 	  $.ajax({
+  url: 'http://test.enterpriseesolutions.com/mail?mail='+mail+'&reciever='+reciever,
+  "method": "GET",
+  // "data": { "mail": mail }, 
+  success: function(data) {
+   console.log(data);
+  },error: function(data) {
+   console.log(data);
+  }
+  
+});
+	  
+  
  }
 /***************** End sendWelcomeemail ******************/
 /***************** SignUp ******************/
@@ -775,24 +792,7 @@ $scope.Next2="stageAccount";
     $scope.formParams = {};
     $scope.stage = "";
   }
-  $scope.mailing = function () {
-	  console.log('enter');
-var mail=$scope.formParams.email;
-var reciever= $scope.formParams.first+' '+$scope.formParams.last;
-   
-	 	  $.ajax({
-  url: 'http://test.enterpriseesolutions.com/mail?mail='+mail+'&reciever='+reciever,
-  "method": "GET",
-  // "data": { "mail": mail }, 
-  success: function(data) {
-   console.log(data);
-  },error: function(data) {
-   console.log(data);
-  }
-  
-});
-	  
-  }
+
 
 //.controller('PlansController',function($scope,$http) {
  
