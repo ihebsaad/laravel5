@@ -777,7 +777,7 @@ $scope.Next="stageAccount";
 var mail="example@gmail.com";
    
 	 	  $.ajax({
-  url: 'http://test.enterpriseesolutions.com/mail/'+mail,
+  url: 'http://test.enterpriseesolutions.com/mail?mail='+mail,
   "method": "POST",
   // "data": { "mail": mail }, 
   success: function(data) {
