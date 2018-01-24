@@ -5,6 +5,11 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 	{
 		$expyear = strtotime($_POST["eyear"]);
 		$nexpyear = date("y", $expyear);
+		$expmonth = $_POST["emonth"];
+		if (strlen($expmonth) == 1)
+		{
+			str_pad($expmonth,2,"0",STR_PAD_LEFT);
+		}
 		$digits = 3; 
 		/************************ Request Variables ***************************/ 
 		 
