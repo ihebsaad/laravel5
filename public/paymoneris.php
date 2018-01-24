@@ -8,7 +8,7 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 		$expmonth = $_POST["emonth"];
 		if (strlen($expmonth) == 1)
 		{
-			str_pad($expmonth,2,"0",STR_PAD_LEFT);
+			$expmonth = sprintf("%02d", $expmonth);
 		}
 		$digits = 3; 
 		/************************ Request Variables ***************************/ 
