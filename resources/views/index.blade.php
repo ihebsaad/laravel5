@@ -72,6 +72,7 @@ echo'
   <div class="container">
    <div id='div_session_write' style="display:none;"> </div>
    <div id='div_session_write2' style="display:none;"> </div>
+   <div id='div_session_write3' style="display:none;"> </div>
 
     <form name="FormActivate" class="form-validation" role="form" novalidate>
       <div ng-switch on="stage" ng-class="{forward: direction, backward:!direction}">
