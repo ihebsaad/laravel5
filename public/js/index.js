@@ -291,7 +291,9 @@ $.ajax(settings).done(function (response) {
 });
 $.ajax(settings).fail(function (response) {
 	$(".alert-danger").slideDown();
-console.log('fail2');
+var parsedData = JSON.parse(response.responseText);
+		console.log('parsedData2'+parsedData.description);
+
 
 });
 
@@ -377,6 +379,9 @@ $.ajax(settings).done(function (response) {
 });
 $.ajax(settings).fail(function (response) {
   console.log('fail AutomaticPayment '+response);
+  var parsedData = JSON.parse(response.responseText);
+		console.log('parsedData2'+parsedData.description);
+
 });
  }
  /***************** End Automatic Payment  ******************/
@@ -411,6 +416,9 @@ $.ajax(settings).done(function (response) {
 });
 $.ajax(settings).fail(function (response) {
   console.log('fail AddPayment'+response);
+  var parsedData = JSON.parse(response.responseText);
+		console.log('parsedData2'+parsedData.description);
+
 });
  }
  /***************** End Add Payment  ******************/
@@ -436,6 +444,9 @@ $.ajax(settings).done(function (response) {
 });
 $.ajax(settings).fail(function (response) {
   console.log('fail add SIM'+response);
+  var parsedData = JSON.parse(response.responseText);
+		console.log('parsedData2'+parsedData.description);
+
 });
 	 
  }
@@ -461,6 +472,9 @@ $.ajax(settings).done(function (response) {
 });
 $.ajax(settings).fail(function (response) {
   console.log('fail AddTelephoneNumber'+response);
+  var parsedData = JSON.parse(response.responseText);
+		console.log('parsedData2'+parsedData.description);
+
 });
 
 
@@ -502,6 +516,9 @@ $.ajax(settings).done(function (response) {
 });
 $.ajax(settings).fail(function (response) {
   console.log('fail create service'+response);
+  var parsedData = JSON.parse(response.responseText);
+		console.log('parsedData2'+parsedData.description);
+
 });
  
  }
@@ -546,6 +563,9 @@ $.ajax(settings).done(function (response) {
 }); 
 $.ajax(settings).fail(function (response) {
   console.log('fail'+response);
+  var parsedData = JSON.parse(response.responseText);
+		console.log('parsedData2'+parsedData.description);
+
 }); 
 	 
  }
@@ -692,6 +712,9 @@ $.ajax(settings).done(function (response) {
 });
 $.ajax(settings).fail(function (response) {
 	$(".alert-danger").slideDown();
+	var parsedData = JSON.parse(response.responseText);
+		console.log('parsedData2'+parsedData.description);
+
 console.log('fail2');
 
 
@@ -721,6 +744,9 @@ $.ajax(settings).done(function (response) {
 });
 $.ajax(settings).fail(function (response) {
   console.log('fail get user '+response);
+  var parsedData = JSON.parse(response.responseText);
+		console.log('parsedData2'+parsedData.description);
+
 });
 
 }
@@ -772,7 +798,9 @@ var res = $.ajax(settings).done(function (response) {
 
 $.ajax(settings).fail(function (response) {
   console.log(response);
-  alert(response);
+ var parsedData = JSON.parse(response.responseText);
+		console.log('parsedData2'+parsedData.description);
+
  });
 
 }
