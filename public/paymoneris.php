@@ -14,7 +14,7 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 	/********************* Transactional Variables ************************/ 
 	 
 	$type='purchase'; 
-	$order_id='iristel-'.date("dmy-G:i:s").rand(pow(10, $digits-1), pow(10, $digits)-1); 
+	$order_id='iristel_or-'.date("dmy-G:i:s").rand(pow(10, $digits-1), pow(10, $digits)-1); 
 	$cust_id='my_cust_id'; 
 	$amount='10.10'; 
 	$pan='4242424242424242'; 
