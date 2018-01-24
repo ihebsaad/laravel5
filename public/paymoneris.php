@@ -21,8 +21,8 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 	//$amount=$_POST["totalc"]; 
 	//$pan='4242424242424242'; 
 	$pan=$_POST["creditCard"];
-	//$expiry_date='0818';
-	$expiry_date=$_POST["emonth"].$nexpyear;  
+	$expiry_date='0818';
+	//$expiry_date=$_POST["emonth"].$nexpyear;  
 	//December 2008 $crypt='7'; 
 	 
 	/************************** AVS Variables *****************************/ 
