@@ -9,15 +9,15 @@ $api_token='yesguy';
 
 /************************ Transaction Variables ******************************/
 
-//$data_key='t8RCndWBNFNt4Dx32CCnl2tlz';
-$orderid='iristelORD-'.date("dmy-G:i:s");
+$data_key='t8RCndWBNFNt4Dx32CCnl2tlz';
+$orderid='res-purch-'.date("dmy-G:i:s");
 $crypt_type='1';
 
 $expdate='1911'; //for temp token
 /************************ Transaction Array **********************************/
 
 $txnArray=array(type=>'res_card_verification_cc',
-				/*data_key=>$data_key,*/
+				data_key=>$data_key,
 		        order_id=>$orderid,
 				crypt_type=>$crypt_type,
 		        expdate=>$expdate
