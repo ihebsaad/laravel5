@@ -602,9 +602,13 @@ $.ajax(settings).done(function (response) {
 	console.log(response);
 	$scope.loginsignup(accountId);
 });
-$.ajax(settings).fail(function ( jqXHR, textStatus ) {
-  alert( "Request failed: " + textStatus );
+$.ajax(settings).fail(function (response) {console.log('fail');
+
+var parsedData = JSON.parse(response.responseText);
+		console.log('parsedData2'+parsedData.description);
+
 });
+
 /*
  $.ajax({
   async: true,
@@ -620,16 +624,16 @@ $.ajax(settings).fail(function ( jqXHR, textStatus ) {
 
       ,error : function (xhr,status,error)
         { 
-		console.log(error);
-		console.log(xhr);
-		console.log(status);
+		var parsedData = JSON.parse(xhr.responseText);
+		console.log('parsedData2'+parsedData.description);
+
 		}
       ,success:function(result){
       console.log('done');
 	console.log(result);
     }});
-*/
 
+*/
 
   }
 /************* end sign up ***************/
