@@ -3,13 +3,14 @@
 require './moneris/examples/mpgClasses.php';
  
 /*if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["cardholder"]) && isset ( $_POST["emonth"]) && isset ( $_POST["eyear"]) && isset ( $_POST["totalc"])) 
-{*/
+{
 $expyear = strtotime($_POST["eyear"]);
 $nexpyear = date("y", $expyear);
-$digits = 3;
+$digits = 3;*/
 /************************ Request Variables ***************************/ 
  
-$store_id='store5'; $api_token='yesguy'; 
+$store_id='store5'; 
+$api_token='yesguy'; 
  
 /********************* Transactional Variables ************************/ 
  
