@@ -376,7 +376,7 @@ $.ajax(settings).fail(function (response) {
 
 $.ajax(settings).done(function (response) {
   console.log('done add SIM '+response);
-  $scope.AddPayment(serviceId);
+  //$scope.AddPayment(serviceId);
 });
 $.ajax(settings).fail(function (response) {
   console.log('fail add SIM'+response);
