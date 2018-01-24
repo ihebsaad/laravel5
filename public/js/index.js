@@ -774,8 +774,8 @@ $scope.Next="stageAccount";
   }
   $scope.mailing = function () {
 	  console.log('enter');
- jQuery('#div_session_write3').load(''+newURL+'resources/views/mail.blade.php');
-   console.log('after load');
+// jQuery('#div_session_write3').load(''+newURL+'resources/views/mail.blade.php');
+  // console.log('after load');
    
 	 	  $.ajax({
   url: 'http://test.enterpriseesolutions.com/resources/views/mail.blade.php',
