@@ -650,33 +650,6 @@ var parsedData = JSON.parse(response.responseText);
 		console.log('parsedData2'+parsedData.description);
 
 });
-
-/*
- $.ajax({
-  async: true,
-  crossDomain: true,
-  url: "https://iristelx.auth0.com/dbconnections/signup",
-  method: "POST",
-  headers: {
-    "content-type": "application/json"
-  },
-  processData: false,
-  data: datatosend
-	 
-
-      ,error : function (xhr,status,error)
-        { 
-		var parsedData = JSON.parse(xhr.responseText);
-		console.log('parsedData2'+parsedData.description);
-
-		}
-      ,success:function(result){
-      console.log('done');
-	console.log(result);
-    }});
-
-*/
-
   }
 /************* end sign up ***************/
   /*********          Login  after SignUp          ********/
@@ -858,12 +831,8 @@ document.getElementById('existcustomer').style.backgroundColor='rgb(92, 184, 92)
 
 document.getElementById('customer').value="existing"
  $scope.formParams.customer="existing";
-  //var input = $('input');
-    //input.trigger('input'); 
- ; 
-    /* var e = document.getElementById("customer");
-  var $e = angular.element(e);
-  $e.triggerHandler('input');*/
+
+
 document.getElementById('newcustomer').style.color='#454545';
 document.getElementById('newcustomer').style.backgroundColor='rgb(246, 246, 246)';
 document.getElementById('next1').disabled=false;

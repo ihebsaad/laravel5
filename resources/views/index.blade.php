@@ -21,11 +21,7 @@
   <link rel="stylesheet" href="public/css/style.css">
  	 <script  src="public/js/jquery-3.2.1.min.js" type="text/javascript"> </script>
   <title>SIM Activation</title>
- <!--   <link href="https://cdn.auth0.com/styleguide/4.8.10/index.min.css" rel="stylesheet" />-->
-  <style> input.ng-valid.ng-dirty  {border:1px solid #5cb85c;}  input.ng-invalid.ng-dirty {border:1px solid #FA5858;}   </style>
-
-<script src="https://cdn.auth0.com/js/auth0/9.0.1/auth0.min.js"></script>
-
+   <style> input.ng-valid.ng-dirty  {border:1px solid #5cb85c;}  input.ng-invalid.ng-dirty {border:1px solid #FA5858;}   </style>
 
 </head>
 <body>
