@@ -115,7 +115,7 @@ echo'
 	  <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
 	WRONG EMAIL OR PASSWORD.
 	</div>
-  <div class="form-group">
+  <div class="form-group" style="margin-top: 30px;">
     <input  type="email"  ng-model="formParams.email" required ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" class="form-control" id="useremail" placeholder="Email Address">
   </div>
   <div class="form-group">
@@ -152,8 +152,8 @@ echo'
 <div class="animate-switch" ng-switch-when="stageForgotPassword">
 <div class="container-triangle"></div>
 <div class="contentcontain">
- <div class="container center_div" >
-  <div class="row">
+ <div class="container center_div">
+  <div class="row"  style="margin-top: 20px;">
  <div class="col-md-2 col-sm-2 col-xs-2 col-lg-2 ">
  </div>
  <div class="col-md-8 col-sm-8 col-xs-8 col-lg-8 ">
@@ -1356,7 +1356,7 @@ $(function () {
 <!--   Stage Billing     ------------------------------------------------------- --> 
 <div class="animate-switch" ng-switch-when="stageBilling">
 <div class="container-triangle"></div>
-<div class="contentcontain"> 
+<div class="contentcontain" style="height:800px"> 
 <div class="container center_div">
 
     <fieldset class="scheduler-border" style="padding-top: 20px!important;">
