@@ -407,8 +407,8 @@ $.ajax(settings).fail(function (response) {
  /***************** End Automatic Payment  ******************/
 /***************** Add Payment  ******************/
  $scope.AddPayment = function(serviceId) {
-	 var ref=document.getElementById('transactionid').value.replace(/\s/g, '');
-	 console.log('ref'+ref);
+	 var ref=document.getElementById('transactionid').value.replace(/(\r\n|\n|\r)/gm,"");
+	 console.log('new ref'+ref);
 	var amount=parseFloat($scope.formParams.totalcharge);
 	 var datatosend='{\"amount\":'+amount+',\"currency\":\"CAD\",\"paymentMethod\":\"CREDITCARD\",\"reference\":\"'+ref+'\"}';
  console.log('datatosend for payment'+datatosend);
