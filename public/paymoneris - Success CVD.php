@@ -56,30 +56,6 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 		/************************** CVD Object ********************************/ 
 		 
 		$mpgCvdInfo = new mpgCvdInfo ($cvdTemplate); 
-
-		/********************* Recurring Billing Variables ************************/ 
-		if (isset($_POST["atotopup"]))
-		{
-			/********************************* Recur Variables ****************************/
-			$recurUnit = 'day';
-			$startDate = date('Y/m/d',strtotime('+30 days',strtotime(date("Y/m/d")))) . PHP_EOL; // after 30 days from today date
-			$numRecurs = '99';
-			$recurInterval = '30';
-			$recurAmount = $_POST["totalc"];
-			$startNow = 'true';
-
-			/*********************** Recur Associative Array **********************/
-
-			$recurArray = array('recur_unit'=>$recurUnit, // (day | week | month)
-								'start_date'=>$startDate, //yyyy/mm/dd
-								'num_recurs'=>$numRecurs,
-								'start_now'=>$startNow,
-								'period' => $recurInterval,
-								'recur_amount'=> $recurAmount
-								);
-
-			$mpgRecur = new mpgRecur($recurArray);
-		}
 		 
 		/***************** Transactional Associative Array ********************/ 
 		 
@@ -95,14 +71,10 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 		 
 		$mpgTxn = new mpgTransaction($txnArray); 
 		 
-		/************************ Set AVS and CVD and Recur object *****************************/ 
+		/************************ Set AVS and CVD *****************************/ 
 		 
 		//$mpgTxn->setAvsInfo($mpgAvsInfo); 
 		$mpgTxn->setCvdInfo($mpgCvdInfo); 
-		if (isset($_POST["atotopup"]))
-		{
-			$mpgTxn->setRecur($mpgRecur);
-		}
 		 
 		/************************ Request Object ******************************/ 
 		 
