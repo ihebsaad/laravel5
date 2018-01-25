@@ -371,9 +371,9 @@ var phone=$scope.formParams.phonenumber;
  
  
 /***************** Add Automatic Payment  ******************/
- $scope.AutomaticPayment = function() {
+ $scope.AutomaticPayment = function(serviceId) {
  //$scope.AutomaticPayment = function(serviceId) {
-	 var serviceId="d8e56f1e-c451-4b49-8068-b35ecefc3f4c";
+	
 	var cardholder=$scope.formParams.cardholder;
 	var creditCard=$scope.formParams.creditCard;
 	var emonth=$scope.formParams.emonth;
@@ -395,6 +395,7 @@ var phone=$scope.formParams.phonenumber;
 
 $.ajax(settings).done(function (response) {
   console.log('done AutomaticPayment '+response);
+  $scope.ServiceAdditionEmail();
 });
 $.ajax(settings).fail(function (response) {
   console.log('fail AutomaticPayment '+response);
@@ -429,9 +430,8 @@ $.ajax(settings).fail(function (response) {
 
 $.ajax(settings).done(function (response) {
   console.log('done AddPayment '+response);
-  //if automatic Payment $scope.AutomaticPayment(serviceId);
-  
-  //else $scope.ServiceAdditionEmail();
+  if($scope.formParams.autopay == true){$scope.AutomaticPayment(serviceId);}
+  else {$scope.ServiceAdditionEmail();}
 });
 $.ajax(settings).fail(function (response) {
   console.log('fail AddPayment'+response);
@@ -459,7 +459,7 @@ $.ajax(settings).fail(function (response) {
 
 $.ajax(settings).done(function (response) {
   console.log('done add SIM '+response);
-  //$scope.AddPayment(serviceId);
+  $scope.AddPayment(serviceId);
 });
 $.ajax(settings).fail(function (response) {
   console.log('fail add SIM'+response);
@@ -642,7 +642,9 @@ var settings = {
 $.ajax(settings).done(function (response) {
 	console.log('done');
 	console.log(response);
-	$scope.loginsignup(accountId);
+	//$scope.loginsignup(accountId);
+	$scope.sendWelcomeemail(accountId);
+	$scope.CreateService(accountId);
 });
 $.ajax(settings).fail(function (response) {console.log('fail');
 
@@ -699,8 +701,7 @@ $.ajax(settings).done(function (response) {
 	 document.getElementById('logoutbtn').style.display="block";
   document.getElementById('userinfo').innerHTML='Logged in as '+fname+' '+lname;
   	 jQuery('#div_session_write2').load(''+newURL+'public/session_write2.php?username='+fname+'/'+lname);
-    $scope.sendWelcomeemail(accountId);
-	$scope.CreateService(accountId);
+    
 	//$scope.next('stagePlans'); 
 	//$scope.$apply();
 	//////////
@@ -781,7 +782,8 @@ var res = $.ajax(settings).done(function (response) {
     alert ( "Transaction Fail !");
   }
   else{
-	  if($scope.formParams.customer=="new"){ $scope.CreateAccount(); console.log('new');}
+	  if($scope.formParams.customer=="new"){
+		  $scope.CreateAccount(); console.log('new');}
 	//else $scope.CreateService(accountId);
 	if($scope.formParams.customer=="existing"){
 		
