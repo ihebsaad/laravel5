@@ -283,7 +283,7 @@ switch (parseInt(province)) {
  var email= document.getElementById('useremail').value;
 var upassword= document.getElementById('userpassword').value;
 	var datatosend='{\"grant_type\":\"password\",\"username\": \"'+email+'\",\"password\": \"'+upassword+'\",\"audience\": \"https://iristelx.auth0.com/api/v2/\", \"scope\": \"openid\", \"client_id\": \"PBbe88ULTLh0kycpE0Db7g4AWjO21hYG\", \"client_secret\": \"b0As5Ty-RwfckGI6-08qNcmbJu3wP1qTE-QA9Kp7ER4PyZHPiSLVvf4auhHiXp1w\"}';
-console.log('data to send '+datatosend);
+//console.log('data to send '+datatosend);
 var settings = {
   "async": true,
   "crossDomain": true,
@@ -348,7 +348,7 @@ else{
 	var datatosend='{\"client_id\": \"PBbe88ULTLh0kycpE0Db7g4AWjO21hYG\",\"email\": \"'+email+'\",\"connection\": \"Username-Password-Authentication\"}';
 
 
-	console.log('data to send '+datatosend);
+	//console.log('data to send '+datatosend);
 var settings = {
   "async": true,
   "crossDomain": true,
@@ -394,7 +394,7 @@ var phone=$scope.formParams.phonenumber;
   // "data": { "mail": mail }, 
   success: function(data) {
    console.log('success send'+data);
-   alert('Your account isactivated successfully');
+   alert('Your account is activated successfully');
   },error: function(data) {
    console.log('Fail send'+data);
   }
@@ -416,7 +416,7 @@ var phone=$scope.formParams.phonenumber;
 	var eyear=$scope.formParams.eyear;
 	var cvv=$scope.formParams.cvv;
 	var datatosend='{\"enabled\":true,\"paymentSource\":\"CREDITCARD\",\"onDeclineSuspend\":false,\"onDaysAvailable\":{\"enabled\":true,\"trigger\":1},\"creditCard\":{\"cardType\":\"VISA\",\"number\":\"'+creditCard+'\",\"holder\":\"'+cardholder+'\",\"expMonth\":\"'+emonth+'\",\"expYear\":\"'+eyear+'\",\"CVV\":\"'+cvv+'\"}}';
- console.log('datatosend for automatic payment'+datatosend);
+ //console.log('datatosend for automatic payment'+datatosend);
 
 	 var settings = {
   "async": true,
@@ -447,7 +447,7 @@ $.ajax(settings).fail(function (response) {
 	 console.log('new ref'+ref);
 	var amount=parseFloat($scope.formParams.totalcharge);
 	 var datatosend='{\"amount\":'+amount+',\"currency\":\"CAD\",\"paymentMethod\":\"CREDITCARD\",\"reference\":\"'+ref+'\"}';
- console.log('datatosend for payment'+datatosend);
+ //console.log('datatosend for payment'+datatosend);
 	
 
 	var settings = {
@@ -596,7 +596,7 @@ $.ajax(settings).fail(function (response) {
 	//var  datatosend= '{\"contact\":{\"fname\":\"'+fname+'\",\"lname\":\"'+lname+'\",\"address1\":\"'+address1+'\",\"address2\":\"'+address2+'\",\"address3\":\"'+address3+'\",\"city\":\"'+city+'\",\"province\":\"'+province+'\",\"country\":\"'+country+'\",\"postalCode\":\"'+postalCode+'\",\"emailAddress\":\"'+emailAddress+'\"}}';
 var  datatosend='{\"contact\":{\"fname\":\"'+fname+'\",\"lname\":\"'+lname+'\",\"address1\":\"'+address1+'\",\"address2\":\"'+address2+'\",\"address3\":\"'+address3+'\",\"city\":\"'+city+'\",\"province\":\"'+province+'\",\"country\":\"'+country+'\",\"postalCode\":\"'+postalCode+'\",\"emailAddress\":\"'+emailAddress+'\"}}';
 
-	console.log('datatosend'+datatosend);
+	//console.log('datatosend'+datatosend);
 	var settings = {
   "async": true,
   "crossDomain": true,
@@ -662,7 +662,7 @@ var address2= $scope.formParams.box+' '+$scope.formParams.postal+' '+$scope.form
  var fname= $scope.formParams.first;
  var lname= $scope.formParams.last;
  	var datatosend='{\"connection\":\"Username-Password-Authentication\",\"email\": \"'+email+'\",\"password\": \"'+upassword+'\",\"user_metadata\": { \"firstName\": \"'+fname+'\", \"lastName\": \"'+lname+'\" }}';
- console.log('data to send '+datatosend);
+ //console.log('data to send '+datatosend);
 var settings = {
   "async": true,
   "crossDomain": true,
@@ -701,7 +701,7 @@ var parsedData = JSON.parse(response.responseText);
  var email=  $scope.formParams.email;
 var upassword=  $scope.formParams.password;
 	var datatosend='{\"grant_type\":\"password\",\"username\": \"'+email+'\",\"password\": \"'+upassword+'\",\"audience\": \"https://iristelx.auth0.com/api/v2/\", \"scope\": \"openid\", \"client_id\": \"PBbe88ULTLh0kycpE0Db7g4AWjO21hYG\", \"client_secret\": \"b0As5Ty-RwfckGI6-08qNcmbJu3wP1qTE-QA9Kp7ER4PyZHPiSLVvf4auhHiXp1w\"}';
-console.log('data to send '+datatosend);
+//console.log('data to send '+datatosend);
 var settings = {
   "async": true,
   "crossDomain": true,
