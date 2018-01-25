@@ -11,4 +11,5 @@ Mail::send('emails.email2', ['firstname'=>$firstname,'type'=>$type,'charge'=>$ch
       ->subject('From SparkPost with ?');
   });
   echo'email sent to '.$_GET['reciever'] .'('.$_GET['mail'] .')';
+   \Log::info('Sending Service Addition email');
    ?>

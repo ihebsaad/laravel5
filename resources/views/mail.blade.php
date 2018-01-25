@@ -12,4 +12,5 @@ Mail::send('emails.email1', ['username'=>$username,'email'=>$email,'accountid'=>
       ->subject('From SparkPost with ?');
   });
   echo'email sent to '.$_GET['reciever'] .'('.$_GET['mail'] .')';
+   \Log::info('Sending Welcome email');
    ?>
