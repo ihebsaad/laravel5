@@ -71,9 +71,8 @@ Route::get('/mail', function () {
     return view('mail');
 });
 
- 
 
-Route::get('/email1', function () {
+Route::get('/email1/username/{username}', function ($username) {
     return view('email1');
 });
 
