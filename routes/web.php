@@ -67,15 +67,19 @@ Route::post('/pay', function () {
 Route::get('/index2', function () {
     return view('index2');
 });
-Route::get('/mail', function () {
+Route::get('/mail2', function () {
     return view('mail');
 });
-
-
-Route::get('/email1', function () {
-    return view('email1');
+Route::get('/mail2', function () {
+    return view('mail2');
 });
 
+Route::get('/emails/email1', function () {
+    return view('/emails/email1');
+});
+Route::get('/emails/email2', function () {
+    return view('/emails/email2');
+});
 Route::get('/welcomeemail', function () {
 	
   Mail::send('emails.email1', [], function ($message) {

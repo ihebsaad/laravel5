@@ -349,15 +349,15 @@ $(document).on({
 /***************** ServiceAdditionEmail  ******************/
  $scope.ServiceAdditionEmail = function() {
 	 	 console.log("Function send service addition mail");
- 
-	  console.log('enter');
-var mail=$scope.formParams.email;
+ var mail=$scope.formParams.email;
 var reciever= $scope.formParams.first+' '+$scope.formParams.last;
-var address1= $scope.formParams.streetnum+' '+$scope.formParams.streetname+' '+$scope.formParams.unit;
-var address2= $scope.formParams.box+' '+$scope.formParams.postal+' '+$scope.formParams.city+' '+$scope.formParams.province;
+var firstname=$scope.formParams.first;
+var type=$scope.formParams.planType;
+var charge=$scope.formParams.plancharge;
+var phone=$scope.formParams.phonenumber;
    
 	 	  $.ajax({
-  url: 'http://test.enterpriseesolutions.com/mail2?mail='+mail+'&reciever='+reciever+'&accountId='+accountId+'&address1='+address1+'&address2='+address2,
+  url: 'http://test.enterpriseesolutions.com/mail2?mail='+mail+'&reciever='+reciever+'&firstname='+firstname+'&type='+type+'&charge='+charge+'&phone='+phone,
   "method": "GET",
   // "data": { "mail": mail }, 
   success: function(data) {
