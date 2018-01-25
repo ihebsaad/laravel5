@@ -54,37 +54,22 @@ $mpgTxn = new mpgTransaction($txnArray);
 
 $mpgTxn->setRecur($mpgRecur);
 
-/****************************** Request Object *******************************/
-
-$mpgRequest = new mpgRequest($mpgTxn);
-$mpgRequest->setProcCountryCode("CA"); //"US" for sending transaction to US environment
-$mpgRequest->setTestMode(true); //false or comment out this line for production transactions
-
-/***************************** HTTPS Post Object *****************************/
-
-$mpgHttpPost = new mpgHttpsPost($store_id,$api_token,$mpgRequest);
-
-/******************************* Response ************************************/
-
-$mpgResponse=$mpgHttpPost->getMpgResponse();
-
-print ("\nCardType = " . $mpgResponse->getCardType());
-print("\nTransAmount = " . $mpgResponse->getTransAmount());
-print("\nTxnNumber = " . $mpgResponse->getTxnNumber());
-print("\nReceiptId = " . $mpgResponse->getReceiptId());
-print("\nTransType = " . $mpgResponse->getTransType());
-print("\nReferenceNum = " . $mpgResponse->getReferenceNum());
-print("\nResponseCode = " . $mpgResponse->getResponseCode());
-print("\nISO = " . $mpgResponse->getISO());
-print("\nMessage = " . $mpgResponse->getMessage());
-print("\nIsVisaDebit = " . $mpgResponse->getIsVisaDebit());
-print("\nAuthCode = " . $mpgResponse->getAuthCode());
-print("\nComplete = " . $mpgResponse->getComplete());
-print("\nTransDate = " . $mpgResponse->getTransDate());
-print("\nTransTime = " . $mpgResponse->getTransTime());
-print("\nTicket = " . $mpgResponse->getTicket());
-print("\nTimedOut = " . $mpgResponse->getTimedOut());
-print("\nRecurSuccess = " . $mpgResponse->getRecurSuccess());
+/************************ Request Object ******************************/ 
+		 
+		$mpgRequest = new mpgRequest($mpgTxn); 
+		 
+		/*********************** HTTPS Post Object ****************************/ 
+		 
+		$mpgHttpPost  =new mpgHttpsPost($store_id,$api_token,$mpgRequest); 
+		 
+		/*************************** Response *********************************/ 
+		 
+		$mpgResponse=$mpgHttpPost->getMpgResponse(); 
+		 
+		/*print("\nCardType = " . $mpgResponse->getCardType()); print("\nTransAmount = " . $mpgResponse->getTransAmount()); print("\nTxnNumber = " . $mpgResponse->getTxnNumber()); print("\nReceiptId = " . $mpgResponse->getReceiptId()); print("\nTransType = " . $mpgResponse->getTransType()); print("\nReferenceNum = " . $mpgResponse->getReferenceNum()); print("\nResponseCode = " . $mpgResponse->getResponseCode()); print("\nISO = " . $mpgResponse->getISO()); print("\nMessage = " . $mpgResponse->getMessage()); print("\nAuthCode = " . $mpgResponse->getAuthCode()); print("\nComplete = " . $mpgResponse->getComplete()); print("\nTransDate = " . $mpgResponse->getTransDate()); print("\nTransTime = " . $mpgResponse->getTransTime()); print("\nTicket = " . $mpgResponse->getTicket()); print("\nTimedOut = " . $mpgResponse->getTimedOut()); 
+		//print("\nAVSResponse = " . $mpgResponse->getAvsResultCode()); 
+		print("\nCVDResponse = " . $mpgResponse->getCvdResultCode()); print("\nITDResponse = " . $mpgResponse->getITDResponse()); */
+		print($mpgResponse->getTxnNumber());
 ?>
 
      
