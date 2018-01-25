@@ -10,7 +10,13 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 		{
 			$expmonth = sprintf("%02d", $expmonth);
 		}
-		//$digits = 3; 
+		/*$digits = 3; 
+		$randnum = rand(pow(10, $digits-1), pow(10, $digits)-1);*/
+		$t = microtime(true);
+		$micro = sprintf("%06d",($t - floor($t)) * 1000000);
+		$d = new DateTime( date('Y-m-d H:i:s.'.$micro, $t) );
+
+		$ortime = $d->format("Y-m-d-H:i:s.u"); 
 		/************************ Request Variables ***************************/ 
 		 
 		$store_id='store5'; $api_token='yesguy'; 
@@ -18,7 +24,7 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 		/********************* Transactional Variables ************************/ 
 		 
 		$type='purchase'; 
-		$order_id='iristelOR-'.date("dmy-G:i:s"); 
+		$order_id='iristelOR-'.$ortime; 
 		$cust_id=$_POST["cardholder"]; 
 		$amount='10.50'; 
 		//$amount=$_POST["totalc"];
