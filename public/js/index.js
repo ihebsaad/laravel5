@@ -573,22 +573,24 @@ $.ajax(settings).fail(function (response) {
 /***************** End CreateAccount ******************/
 
 /***************** sendWelcomeemail ******************/
- $scope.sendWelcomeemail = function() {
+ $scope.sendWelcomeemail = function(accountId) {
 	 //
 	 console.log("Function send mail");
  
 	  console.log('enter');
 var mail=$scope.formParams.email;
 var reciever= $scope.formParams.first+' '+$scope.formParams.last;
+var address1= $scope.formParams.streetnum+' '+$scope.formParams.streetname+' '+$scope.formParams.unit;
+var address2= $scope.formParams.box+' '+$scope.formParams.postal+' '+$scope.formParams.city+' '+$scope.formParams.province;
    
 	 	  $.ajax({
-  url: 'http://test.enterpriseesolutions.com/mail?mail='+mail+'&reciever='+reciever,
+  url: 'http://test.enterpriseesolutions.com/mail?mail='+mail+'&reciever='+reciever+'&accountId='+accountId+'&address1='+address1+'&address2='+address2,
   "method": "GET",
   // "data": { "mail": mail }, 
   success: function(data) {
-   console.log(data);
+   console.log('success send'+data);
   },error: function(data) {
-   console.log(data);
+   console.log('Fail send'+data);
   }
   
 });
@@ -705,7 +707,7 @@ $.ajax(settings).done(function (response) {
 	 document.getElementById('logoutbtn').style.display="block";
   document.getElementById('userinfo').innerHTML='Logged in as '+fname+' '+lname;
   	 jQuery('#div_session_write2').load(''+newURL+'public/session_write2.php?username='+fname+'/'+lname);
-    $scope.sendWelcomeemail();
+    $scope.sendWelcomeemail(accountId);
 	$scope.CreateService(accountId);
 	//$scope.next('stagePlans'); 
 	//$scope.$apply();
