@@ -60,6 +60,7 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 		/********************* Recurring Billing Variables ************************/ 
 		if (isset($_POST["atotopup"]))
 		{
+			echo "recurbilling passed!!!!!!!!";
 			/********************************* Recur Variables ****************************/
 			$recurUnit = 'day';
 			$startDate = date('Y/m/d',strtotime('+30 days',strtotime(date("Y/m/d")))) . PHP_EOL; // after 30 days from today date
