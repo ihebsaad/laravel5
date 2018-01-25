@@ -147,6 +147,7 @@ switch (parseInt(province)) {
 		}
 			
 	 	$scope.checkPin = function () {
+			console.log('enter to checkPin ');
 		 $('#pinmessage').css('display', 'none');
 		 $('#pinmessage2').css('display', 'none');
 		var pin = document.getElementById('pin').value;
@@ -174,7 +175,7 @@ switch (parseInt(province)) {
 					// $('#pinmessage').css('display', 'block');
 					  $('#pin').css('border', '1px solid #FA5858');		
 					//document.getElementById('pinmessage').innerHTML='Pin Already Activated' 
-				//	$("#pinmessage2").slideDown();
+					$("#pinmessage2").slideDown();
 					;break
 				 }
 			
@@ -182,7 +183,7 @@ switch (parseInt(province)) {
 				$scope.existe = false;
 					$('#pin').css('border', '1px solid #FA5858');
 					//document.getElementById('pinmessage').innerHTML='Incorrect Pin' ;
-					//$("#pinmessage").slideDown();
+					$("#pinmessage").slideDown();
 					}
 		}
 		 return $scope.existe;
@@ -241,8 +242,7 @@ switch (parseInt(province)) {
             $scope.NData = response3.telephoneNumbers;
 		 		
         });
- 
-
+  
   /*********          Login            ********/
    
   $scope.login = function() {

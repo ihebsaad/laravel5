@@ -99,7 +99,7 @@ echo'
       <form name="login_form" id='login_form'>
 	  <div style="display:none;" class="alert alert-danger">
 	  <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
-	WRONG USERNAME OR PASSWORD.
+	WRONG EMAIL OR PASSWORD.
 	</div>
   <div class="form-group">
     <input  type="email" value="tester45@gmail.com" ng-model="formParams.email" required ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" class="form-control" id="useremail" placeholder="Email Address">
@@ -343,7 +343,7 @@ img.onclick = function(){
                                 <input ng-model="formParams.box" type="text" required ng-pattern="/^[a-zA-Z0-9 ]*$/" ng-minlength="1" ng-maxlength="10" placeholder="PO BOX" class="form-control">
                             </div>  
                             <div class="col-sm-4 form-group">
-                                <input ng-model="formParams.postal" type="text" required ng-pattern="" ng-minlength="1" ng-maxlength="10" placeholder="Postal Code" class="form-control">
+                                <input ng-model="formParams.postal" type="text" required ng-pattern="/^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/" ng-minlength="6" ng-maxlength="7" placeholder="Postal Code" class="form-control">
                             </div>      
                         </div>
                         <div class="row">
@@ -363,7 +363,8 @@ img.onclick = function(){
                              <input ng-model="formParams.password" ng-pattern="/^(?=.*\d)(?=.*[A-Z])/"   required id="password" type="password" ng-minlength="8" ng-maxlength="25" class="form-control ex-input" placeholder="Password" /></br>
                              <input ng-model="formParams.confirm"  required id="confirm_password" type="password"  data-match="FormActivate.password" class="form-control ex-input" placeholder="Re-Type Password" />
                              <span id='message' style="font-size: 12px;float:right;"></span>
-                         </div>
+<button ng-click="sendWelcomeemail()">Send Mail</button>                       
+					   </div>
                          <div class="col-sm-6 form-group" >
                              <div class="wrapper" style="margin: 0px!important;">
                                 <div class="popover right show">
@@ -641,7 +642,7 @@ $('#password, #confirm_password').on('keyup', function () {
         </div>
         <div class="col-sm-4 form-group">
         <select ng-model="formParams.area" class="form-control" id="sel3">
-            <option  value="" disabled selected>Area code</option>
+            <option  ng-select="SelectPhone()" value="" disabled selected>Area code</option>
         </select>
         </div>
         </div>
@@ -1379,7 +1380,7 @@ $(function () {
         <hr />
         <div id="creditcard" style="margin-top: 20px;" >
         <div class="form-group">
-            <input type="text"   class="form-control" id="cardholder" placeholder="Cardholder Name" ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="35"  ng-model="formParams.cardholder" name="cardholder"  /></input>        </div>
+            <input type="text"   class="form-control" id="cardholder" placeholder="Cardholder Name" required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="35"  ng-model="formParams.cardholder" name="cardholder"  /></input>        </div>
         <div class="form-group">
             <input type="number"  id="credit" name="creditCard"  value="2222400041240011" ng-model="formParams.creditCard"  required  data-credit-card-type   data-ng-pattern="/^[0-9]+$/"  data-ng-minlength="15"     maxlength="19" class="form-control" id="cardnumber" placeholder="Card Number" />
 			<ul ng-show="!FormActivate.$valid">
@@ -1390,10 +1391,10 @@ $(function () {
         </div>
          <div class="row">
                             <div class="col-sm-3 form-group">
-                                <input type="number" placeholder="Exp Mth" ng-model="formParams.emonth" class="form-control"  min="1" max="12"  ng-model="month" name="emonth">
+                                <input type="number" placeholder="Exp Mth" ng-model="formParams.emonth" class="form-control"  min="1" max="12" required  ng-model="month" name="emonth">
                             </div>  
                             <div class="col-sm-3 form-group">
-                                <input type="number" placeholder="Exp Year" ng-model="formParams.eyear" class="form-control" min="2018" max="2050"  ng-model="year" name="eyear">
+                                <input type="number" placeholder="Exp Year" ng-model="formParams.eyear" class="form-control" min="2018" max="2050" required ng-model="year" name="eyear">
                             </div>  
                             <div class="col-sm-3 form-group">
                                  <input type="number" placeholder="CVV" class="form-control"    ng-model="formParams.cvv" name="cvv"    ng-model="securityCode"  required  data-ng-pattern="/^[0-9]+$/"  data-ng-minlength="3"  maxlength="4" >
