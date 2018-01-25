@@ -716,7 +716,7 @@ border-radius: 1rem!important;
 .contentcontain{
     margin: 0 auto!important;
     background: #ffffff;
-    width: 420px!important;
+    min-width: 550px!important;
     height: 500px!important;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     border-radius: 0.4rem!important;
