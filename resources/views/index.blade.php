@@ -116,10 +116,10 @@ echo'
 	WRONG EMAIL OR PASSWORD.
 	</div>
   <div class="form-group">
-    <input  type="email" value="tester45@gmail.com" ng-model="formParams.email" required ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" class="form-control" id="useremail" placeholder="Email Address">
+    <input  type="email"  ng-model="formParams.email" required ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" class="form-control" id="useremail" placeholder="Email Address">
   </div>
   <div class="form-group">
-    <input  type="password" value="1234567AZe" class="form-control" id="userpassword" placeholder="Password">
+    <input  type="password"  class="form-control" id="userpassword" placeholder="Password">
   </div>
   <div class="row" style="margin-top: 20px;">
   <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
@@ -383,7 +383,7 @@ img.onclick = function(){
                              <input ng-model="formParams.password" ng-pattern="/^(?=.*\d)(?=.*[A-Z])/"   required id="password" type="password" ng-minlength="8" ng-maxlength="25" class="form-control ex-input" placeholder="Password" /></br>
                              <input ng-model="formParams.confirm"  required id="confirm_password" type="password"  data-match="FormActivate.password" class="form-control ex-input" placeholder="Re-Type Password" />
                              <span id='message' style="font-size: 12px;float:right;"></span>
-<button ng-click="sendWelcomeemail()">Send Welcome Mail</button>                                  
+<!--<button ng-click="sendWelcomeemail()">Send Welcome Mail</button>-->                                  
 					   </div>
                          <div class="col-sm-6 form-group" >
                              <div class="wrapper" style="margin: 0px!important;">
@@ -1406,7 +1406,7 @@ $(function () {
         <div class="form-group">
             <input type="text"   class="form-control" id="cardholder" placeholder="Cardholder Name" required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="35"  ng-model="formParams.cardholder" name="cardholder"  /></input>        </div>
         <div class="form-group">
-            <input type="number"  id="credit" name="creditCard"  value="2222400041240011" ng-model="formParams.creditCard"  required  data-credit-card-type   data-ng-pattern="/^[0-9]+$/"  data-ng-minlength="15"     maxlength="19" class="form-control" id="cardnumber" placeholder="Card Number" />
+            <input type="number"  id="credit" name="creditCard" ng-model="formParams.creditCard"  required  data-credit-card-type   data-ng-pattern="/^[0-9]+$/"  data-ng-minlength="15"     maxlength="19" class="form-control" id="cardnumber" placeholder="Card Number" />
 			<ul ng-show="!FormActivate.$valid">
       <li ng-show="FormActivate.creditCard.$error.pattern">Credit card must contain digits only</li>
       <li ng-show="FormActivate.creditCard.$error.minlength">Credit card must be 15-19 digits</li>
@@ -1442,7 +1442,7 @@ $(function () {
             </div>
         </div>
 		<div class="row" style="margin-top: 20px;">
-			<button ng-click="AutomaticPayment()">AutomaticPayment</button>
+			<!--<button ng-click="AutomaticPayment()">AutomaticPayment</button>-->
 			</div>
         </div>
     </fieldset>
@@ -1491,8 +1491,8 @@ $(function () {
   
       </div>
     </form>
-
-Form : <p>@{{formParams}}</p>
+<!-- FORMPARAMS display
+Form : <p>@{{formParams}}</p>-->
   </div>
 </main>
        
