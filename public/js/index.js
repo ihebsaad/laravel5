@@ -641,7 +641,7 @@ $.ajax(settings).fail(function (response) {
 	  console.log('enter');
 var mail=$scope.formParams.email;
  var reciever='';
- if ($scope.formParams.first==""){var reciever=document.getElementById('uinfo').value;}
+ if ($scope.formParams.customer=="existing"){var reciever=document.getElementById('uinfo').value;}
  else
  {var reciever= $scope.formParams.first+' '+$scope.formParams.last;}
 var reciever= $scope.formParams.first+' '+$scope.formParams.last;
