@@ -89,7 +89,8 @@ $.ajax(settings2).done(function (response) {
    document.getElementById('logoutbtn').style.display="block";
   document.getElementById('userinfo').innerHTML='Logged in as '+response.user_metadata['firstName']+' '+response.user_metadata['lastName'];
   document.getElementById('uinfo').value=response.user_metadata['firstName']+' '+response.user_metadata['lastName'];
-  	 jQuery('#div_session_write2').load(''+newURL+'public/session_write2.php?username='+response.user_metadata['firstName']+'/'+response.user_metadata['lastName']);
+console.log('uinfo'+document.getElementById('uinfo').value);
+	jQuery('#div_session_write2').load(''+newURL+'public/session_write2.php?username='+response.user_metadata['firstName']+'/'+response.user_metadata['lastName']);
 
 
 });
@@ -384,9 +385,9 @@ $(document).on({
 	 	 console.log("Function send service addition mail");
  var mail=$scope.formParams.email;
  var reciever='';
- if ($scope.formParams.first==""){var reciever=document.getElementById('uinfo').value;}
+ if ($scope.formParams.first==""){console.log('her0');var reciever=document.getElementById('uinfo').value;}
  else
- {var reciever= $scope.formParams.first+' '+$scope.formParams.last;}
+ {console.log('her1');var reciever= $scope.formParams.first+' '+$scope.formParams.last;}
 var firstname=$scope.formParams.first;
 var type=$scope.formParams.plantypes;
 var charge=$scope.formParams.plancharge;
