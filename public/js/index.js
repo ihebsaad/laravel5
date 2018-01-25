@@ -26,13 +26,48 @@ controller('formCtrl', ['$scope', '$http', function($scope, $http) {
 		stage='stagePlans';
 	}
   }
+  // change page heading section
+      switch (stage) {
+        case 'stageTypeCustomer':
+            document.getElementById("pagetitle").innerHTML ="I AM ...";
+            document.getElementById("pagesubtitle").innerHTML ="";
+            break; 
+
+        case 'stageAccount':
+            document.getElementById("pagetitle").innerHTML ="Account Info";
+            document.getElementById("pagesubtitle").innerHTML ="Please provide the details below to in order to create your new account";
+            break;
+        case 'stageLogin':
+            document.getElementById("pagetitle").innerHTML ="Existing Customer Login";
+            document.getElementById("pagesubtitle").innerHTML ="";
+            break;  
+        case 'stageForgotPassword':
+            document.getElementById("pagetitle").innerHTML ="Forgot your password";
+            document.getElementById("pagesubtitle").innerHTML ="Not a problem. Enter your email adress below and well send you password reset instructions.";
+            break; 
+        case 'stagePlans':
+            document.getElementById("pagetitle").innerHTML ="Select your plan";
+            document.getElementById("pagesubtitle").innerHTML ="Please select the plan that you wish to use below";
+            break; 
+        case 'stagePhone':
+            document.getElementById("pagetitle").innerHTML ="Select Your #";
+            document.getElementById("pagesubtitle").innerHTML ="Please select the phone number that you wish to use below";
+            break;
+        case 'stageBilling':
+            document.getElementById("pagetitle").innerHTML ="Billing Details";
+            document.getElementById("pagesubtitle").innerHTML ="";
+            break;
+        default: 
+            document.getElementById("pagetitle").innerHTML ="Activate You SIM";
+            document.getElementById("pagesubtitle").innerHTML ="To begin, enter the Activation PIN on your SIM KIT.";
+    }
     //////$scope.formValidation = true;    
    ////// if ($scope.FormActivate.$valid) {
       $scope.direction = 1;
       $scope.stage = stage;
     /////  $scope.formValidation = false;
     /////}
-  };
+  }
     
     $scope.showusermetadata = function(access_token,user_id) {
 	     var settings2 = {
@@ -372,8 +407,8 @@ var phone=$scope.formParams.phonenumber;
  
 /***************** Add Automatic Payment  ******************/
  $scope.AutomaticPayment = function(serviceId) {
- //$scope.AutomaticPayment = function(serviceId) {
-	
+ 
+	//var serviceId="d8e56f1e-c451-4b49-8068-b35ecefc3f4c";
 	var cardholder=$scope.formParams.cardholder;
 	var creditCard=$scope.formParams.creditCard;
 	var emonth=$scope.formParams.emonth;
@@ -430,8 +465,8 @@ $.ajax(settings).fail(function (response) {
 
 $.ajax(settings).done(function (response) {
   console.log('done AddPayment '+response);
-  if($scope.formParams.autopay == true){$scope.AutomaticPayment(serviceId);}
-  else {$scope.ServiceAdditionEmail();}
+ /* if($scope.formParams.autopay == true){$scope.AutomaticPayment(serviceId);}
+  else {$scope.ServiceAdditionEmail();}*/
 });
 $.ajax(settings).fail(function (response) {
   console.log('fail AddPayment'+response);
@@ -806,7 +841,42 @@ $.ajax(settings).fail(function (response) {
   $scope.back = function (stage) {
     $scope.direction = 0;
     $scope.stage = stage;
-  };
+	// change page heading section
+      switch (stage) {
+        case 'stageTypeCustomer':
+            document.getElementById("pagetitle").innerHTML ="I AM ...";
+            document.getElementById("pagesubtitle").innerHTML ="";
+            break; 
+
+        case 'stageAccount':
+            document.getElementById("pagetitle").innerHTML ="Account Info";
+            document.getElementById("pagesubtitle").innerHTML ="Please provide the details below to in order to create your new account";
+            break;
+        case 'stageLogin':
+            document.getElementById("pagetitle").innerHTML ="Existing Customer Login";
+            document.getElementById("pagesubtitle").innerHTML ="";
+            break;  
+        case 'stageForgotPassword':
+            document.getElementById("pagetitle").innerHTML ="Forgot your password";
+            document.getElementById("pagesubtitle").innerHTML ="Not a problem. Enter your email adress below and well send you password reset instructions.";
+            break; 
+        case 'stagePlans':
+            document.getElementById("pagetitle").innerHTML ="Select your plan";
+            document.getElementById("pagesubtitle").innerHTML ="Please select the plan that you wish to use below";
+            break; 
+        case 'stagePhone':
+            document.getElementById("pagetitle").innerHTML ="Select Your #";
+            document.getElementById("pagesubtitle").innerHTML ="Please select the phone number that you wish to use below";
+            break;
+        case 'stageBilling':
+            document.getElementById("pagetitle").innerHTML ="Billing Details";
+            document.getElementById("pagesubtitle").innerHTML ="";
+            break;
+        default: 
+            document.getElementById("pagetitle").innerHTML ="Activate You SIM";
+            document.getElementById("pagesubtitle").innerHTML ="To begin, enter the Activation PIN on your SIM KIT.";
+    }
+  }
   
     $scope.Next = "";
     $scope.Next2 = "";
