@@ -26,7 +26,7 @@
 </head>
 <body>
 
-<div class="navbar navbar-inverse bg-inverse" style="border-color: #fff!important;border-radius: 0px!important;">
+<div class="navbar navbar-inverse bg-inverse" style="border-color: #fff!important;border-radius: 0px!important;margin-bottom: 0px!important;">
 
 
 <div class="container d-flex justify-content-between">
@@ -82,7 +82,12 @@ echo'
 
 
 </div> <!-- end NAV BAR -->
-
+<section class="jumbotron text-center">
+<div class="container">
+<h1 class="jumbotron-heading" id="pagetitle">Activate You SIM</h1>
+<h5 id="pagesubtitle">To begin, enter the Activation PIN on your SIM KIT.</h5>
+</div>
+</section>
 
 
 <main ng-app="formApp" ng-controller="formCtrl" ng-cloak>
@@ -97,12 +102,8 @@ echo'
 		
 <!--   Stage 4  : STAGE LOGIN   ------------------------------------------------------------>
 <div class="animate-switch" ng-switch-when="stageLogin">
- <section class="jumbotron text-center">
-<div class="container center_div">
-<h1 class="jumbotron-heading">Existing Customer Login</h1>
-</div>
-</section>          
-
+<div class="container-triangle"></div>
+<div class="contentcontain">
 		   <div class="row">
 
 
@@ -143,18 +144,14 @@ echo'
 			</div>
             </div>
           </div>
+        </div>
         </div> <!-- End Stage  --> 
 
 	
 <!--   Stage Forgot password    ------------------------------------------------------------>
 <div class="animate-switch" ng-switch-when="stageForgotPassword">
-<section class="jumbotron text-center">
-<div class="container">
-<h1 class="jumbotron-heading">Forgot your password</h1>
-<h5>Not a problem. Enter your email adress below and well send you password reset instructions.</h5>
-</div>
-</section>
-
+<div class="container-triangle"></div>
+<div class="contentcontain">
  <div class="container center_div" >
   <div class="row">
  <div class="col-md-2 col-sm-2 col-xs-2 col-lg-2 ">
@@ -189,13 +186,17 @@ echo'
  </div>
   </div>
 </div>	
-
+</div>
 
 </div> <!-- End Stage  -->
 		
 		
 <!--   Stage 0   Pin Step  ------------------------------------------------------------>
  <div class="animate-switch" ng-switch-default >
+
+
+<div class="container-triangle"></div>
+<div class="contentcontain">
   <div class="row">
   <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 ">
             
@@ -285,12 +286,15 @@ img.onclick = function(){
     </div>
    </div>
    </div>
+ </div>
 </div> <!-- End Stage  -->
 
 
 <!--   Stage Type Customer     ------------------------------------------------------------>
 <div class="animate-switch" ng-switch-when="stageTypeCustomer">
 		 <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+     <div class="container-triangle"></div>
+<div class="contentcontain">
              <div class="row">
  <div class="container center_div" >
          <div class="row" >
@@ -320,12 +324,15 @@ img.onclick = function(){
 			</div>
             </div>
           </div>
+        </div>
         </div> <!-- End Stage  -->
 
 
 <!--   Stage ACCOUNT CUSTOMER   stageAccount  ------------------------------------------------------------>
 
 <div class="animate-switch" ng-switch-when="stageAccount">
+  <div class="container-triangle"></div>
+<div class="contentcontain">
   <div class="row">
    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 " >
 <div class="container center_div well" style="padding-bottom:80px;padding-top:60px">
@@ -588,12 +595,14 @@ $('#password, #confirm_password').on('keyup', function () {
 			</div>
   </div>
  </div>
+</div>
 </div> <!-- End Stage  -->	
 		
 <!--   Stage 3  : STAGE PLANS    ------------------------------------------------------------>
 	
 <div class="animate-switch" ng-switch-when="stagePlans" id="plans" >
- 
+   <div class="container-triangle"></div>
+  <div class="contentcontain">
    <div class="row"  >
    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 " style="width:100%"> 
 
@@ -630,6 +639,7 @@ $('#password, #confirm_password').on('keyup', function () {
             </div>
 			</div>
             </div>
+          </div>
  	   
 </div> <!-- End Stage plans -->
  
@@ -638,6 +648,8 @@ $('#password, #confirm_password').on('keyup', function () {
 <!--   Stage 5  STAGE PHONE NUMBERS  ---------------------------------------------------------->
 
 <div class="animate-switch" ng-switch-when="stagePhone">
+  <div class="container-triangle"></div>
+<div class="contentcontain">
 	<div   class="container center_div"  style="max-width: 850px!important;" >
     <div class="form-group">
         <div class="col-sm-12">
@@ -1334,7 +1346,7 @@ $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })*/
 </script>
-
+</div>
  </div> 
 </div>  <!-- End Stage Phone numbers  -->		
  
@@ -1342,7 +1354,8 @@ $(function () {
    
 <!--   Stage Billing     ------------------------------------------------------- --> 
 <div class="animate-switch" ng-switch-when="stageBilling">
- 
+<div class="container-triangle"></div>
+<div class="contentcontain"> 
 <div class="container center_div">
 
     <fieldset class="scheduler-border" style="padding-top: 20px!important;">
@@ -1470,6 +1483,7 @@ $(function () {
             </div>
 			</div>
             </div>
+          </div>
 </div><!--   End Stage  -->	
  
 </div><!--   End container  -->		
