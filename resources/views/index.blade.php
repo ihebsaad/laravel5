@@ -649,8 +649,9 @@ $('#password, #confirm_password').on('keyup', function () {
 
 <div class="animate-switch" ng-switch-when="stagePhone">
   <div class="container-triangle"></div>
-<div class="contentcontain">
-	<div   class="container center_div"  style="max-width: 850px!important;" >
+<!--<div class="contentcontain">-->
+	<div   class="container center_div"  style="max-width: 850px!important;background-color: white;padding: 20px 20px 20px 20px;box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    border-radius: 0.4rem!important;" >
     <div class="form-group">
         <div class="col-sm-12">
         <div class="row">
@@ -1346,7 +1347,7 @@ $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })*/
 </script>
-</div>
+<!--</div>-->
  </div> 
 </div>  <!-- End Stage Phone numbers  -->		
  
@@ -1494,6 +1495,7 @@ $(function () {
 <!-- FORMPARAMS display
 Form : <p>@{{formParams}}</p>-->
   </div>
+  <input type="hidden" name="uinfo" id="uinfo" />
 </main>
        
  
