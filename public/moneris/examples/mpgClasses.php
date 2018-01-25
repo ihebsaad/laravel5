@@ -49,7 +49,7 @@ class mpgHttpsPost{
   $this->mpgRequest=$mpgRequestOBJ;
 
   $dataToSend=$this->toXML();
-  //echo "DATA TO SEND = $dataToSend\n\n";
+  echo "DATA TO SEND = $dataToSend\n\n";
 
   //do post
 
@@ -76,12 +76,12 @@ class mpgHttpsPost{
 
   curl_close ($ch);
 
-  //echo "RESPONSE = $response\n\n";
+  echo "RESPONSE = $response\n\n";
 
   if(!$response)
    {
 
-     /*$response="<?xml version=\"1.0\"?><response><receipt>".
+     $response="<?xml version=\"1.0\"?><response><receipt>".
           "<ReceiptId>Global Error Receipt</ReceiptId>".
           "<ReferenceNum>null</ReferenceNum><ResponseCode>null</ResponseCode>".
           "<ISO>null</ISO> <AuthCode>null</AuthCode><TransTime>null</TransTime>".
@@ -89,9 +89,9 @@ class mpgHttpsPost{
           "<Message>null</Message><TransAmount>null</TransAmount>".
           "<CardType>null</CardType>".
           "<TransID>null</TransID><TimedOut>null</TimedOut>".
-          "</receipt></response>";*/
+          "</receipt></response>";
           // hs change
-          $response="no response!";
+         // $response="no response!";
    }
 
   $this->mpgResponse=new mpgResponse($response);
