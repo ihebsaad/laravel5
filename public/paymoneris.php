@@ -5,6 +5,11 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 	{
 		$expyear = strtotime($_POST["eyear"]);
 		$nexpyear = date("y", $expyear);
+		$expmonth = $_POST["emonth"];
+		if (strlen($expmonth) == 1)
+		{
+			$expmonth = sprintf("%02d", $expmonth);
+		}
 		$digits = 3; 
 		/************************ Request Variables ***************************/ 
 		 
@@ -13,15 +18,15 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 		/********************* Transactional Variables ************************/ 
 		 
 		$type='purchase'; 
-		$order_id='iristel-'.date("dmy-G:i:s"); 
-		$cust_id='my_cust_iddd'; 
-		//$amount='10.90'; 
-		$amount=$_POST["totalc"];
+		$order_id='iristelOR-'.date("dmy-G:i:s").rand(pow(10, $digits-1), pow(10, $digits)-1); 
+		$cust_id=$_POST["cardholder"]; 
+		$amount='10.50'; 
+		//$amount=$_POST["totalc"];
 		//$pan='4242424242424242'; 
 		$pan=$_POST["creditCard"]; 
 		//$expiry_date='0818';  //December 2008 
-		$expiry_date=$_POST["emonth"].$nexpyear; 
-		$crypt='7'; 
+		$expiry_date=$expmonth.$nexpyear; 
+		//$crypt='7'; 
 		 
 		/************************** AVS Variables *****************************/ 
 		 /*
@@ -30,7 +35,7 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 		 
 		/************************** CVD Variables *****************************/ 
 		 
-		$cvd_indicator = '1'; $cvd_value = '198'; 
+		$cvd_indicator = '1'; $cvd_value = $_POST["cvv"]; 
 		 
 		/********************** AVS Associative Array *************************/ 
 		 /*
@@ -83,9 +88,10 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 		 
 		$mpgResponse=$mpgHttpPost->getMpgResponse(); 
 		 
-		print("\nCardType = " . $mpgResponse->getCardType()); print("\nTransAmount = " . $mpgResponse->getTransAmount()); print("\nTxnNumber = " . $mpgResponse->getTxnNumber()); print("\nReceiptId = " . $mpgResponse->getReceiptId()); print("\nTransType = " . $mpgResponse->getTransType()); print("\nReferenceNum = " . $mpgResponse->getReferenceNum()); print("\nResponseCode = " . $mpgResponse->getResponseCode()); print("\nISO = " . $mpgResponse->getISO()); print("\nMessage = " . $mpgResponse->getMessage()); print("\nAuthCode = " . $mpgResponse->getAuthCode()); print("\nComplete = " . $mpgResponse->getComplete()); print("\nTransDate = " . $mpgResponse->getTransDate()); print("\nTransTime = " . $mpgResponse->getTransTime()); print("\nTicket = " . $mpgResponse->getTicket()); print("\nTimedOut = " . $mpgResponse->getTimedOut()); 
+		/*print("\nCardType = " . $mpgResponse->getCardType()); print("\nTransAmount = " . $mpgResponse->getTransAmount()); print("\nTxnNumber = " . $mpgResponse->getTxnNumber()); print("\nReceiptId = " . $mpgResponse->getReceiptId()); print("\nTransType = " . $mpgResponse->getTransType()); print("\nReferenceNum = " . $mpgResponse->getReferenceNum()); print("\nResponseCode = " . $mpgResponse->getResponseCode()); print("\nISO = " . $mpgResponse->getISO()); print("\nMessage = " . $mpgResponse->getMessage()); print("\nAuthCode = " . $mpgResponse->getAuthCode()); print("\nComplete = " . $mpgResponse->getComplete()); print("\nTransDate = " . $mpgResponse->getTransDate()); print("\nTransTime = " . $mpgResponse->getTransTime()); print("\nTicket = " . $mpgResponse->getTicket()); print("\nTimedOut = " . $mpgResponse->getTimedOut()); 
 		//print("\nAVSResponse = " . $mpgResponse->getAvsResultCode()); 
-		print("\nCVDResponse = " . $mpgResponse->getCvdResultCode()); print("\nITDResponse = " . $mpgResponse->getITDResponse()); 
+		print("\nCVDResponse = " . $mpgResponse->getCvdResultCode()); print("\nITDResponse = " . $mpgResponse->getITDResponse()); */
+		print($mpgResponse->getTxnNumber());
  }
  else
 	{
