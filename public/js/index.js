@@ -352,7 +352,7 @@ $(document).on({
  var mail=$scope.formParams.email;
 var reciever= $scope.formParams.first+' '+$scope.formParams.last;
 var firstname=$scope.formParams.first;
-var type=$scope.formParams.planType;
+var type=$scope.formParams.plantypes;
 var charge=$scope.formParams.plancharge;
 var phone=$scope.formParams.phonenumber;
    

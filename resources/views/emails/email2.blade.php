@@ -660,7 +660,7 @@ This email is to confirm that you've added the following services to your accoun
 
    
 <div style="text-align: left;"><br>
-<?php echo $type.' '.$charge;?> 49<br>
+<?php echo $type.' '.$charge;?><br>
 Unlimited Canada-Wide Talk &amp; Text<br>
 2 GB Data<br>
 <?php echo $charge;?>$/mth + tax<br>
