@@ -71,7 +71,11 @@ Route::get('/mail', function () {
     return view('mail');
 });
 
+ 
 
+Route::get('/emails/email1', function () {
+    return view('email1');
+});
 
 Route::get('/welcomeemail', function () {
 	
