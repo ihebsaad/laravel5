@@ -597,7 +597,7 @@
                         
                             <h1><span style="font-family:open sans,helvetica neue,helvetica,arial,sans-serif">Your Ice Wirless Subscription</span></h1>
 
-<p><span style="font-family:open sans,helvetica neue,helvetica,arial,sans-serif">Hi Jhon,<br>
+<p><span style="font-family:open sans,helvetica neue,helvetica,arial,sans-serif">Hi <?php echo $firstname;?>,<br>
 <br>
 This email is to confirm that you've added the following services to your account:</span><br>
 &nbsp;</p>
@@ -657,14 +657,14 @@ This email is to confirm that you've added the following services to your accoun
                             <table border="0" cellspacing="0" class="mcnTextContentContainer" width="100%" style="min-width: 100% !important;background-color: #DDDDDD;">
                                 <tbody><tr>
                                     <td valign="top" class="mcnTextContent" style="padding: 18px;color: #555555;font-family: Helvetica;font-size: 14px;font-weight: normal;text-align: center;">
-                                        <div style="text-align: left;"><span style="font-size:20px"><strong><span style="font-family:open sans,helvetica neue,helvetica,arial,sans-serif">Service Added</span></strong></span></div>
 
+   
 <div style="text-align: left;"><br>
-Talk, Text and Surf 49<br>
+<?php echo $type.' '.$charge;?> 49<br>
 Unlimited Canada-Wide Talk &amp; Text<br>
 2 GB Data<br>
-49$/mth + tax<br>
-Phone Number: (867) 600 - 7890</div>
+<?php echo $charge;?>$/mth + tax<br>
+Phone Number: <?php echo $phone;?></div>
 
                                     </td>
                                 </tr>

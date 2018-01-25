@@ -363,7 +363,8 @@ img.onclick = function(){
                              <input ng-model="formParams.password" ng-pattern="/^(?=.*\d)(?=.*[A-Z])/"   required id="password" type="password" ng-minlength="8" ng-maxlength="25" class="form-control ex-input" placeholder="Password" /></br>
                              <input ng-model="formParams.confirm"  required id="confirm_password" type="password"  data-match="FormActivate.password" class="form-control ex-input" placeholder="Re-Type Password" />
                              <span id='message' style="font-size: 12px;float:right;"></span>
-<button ng-click="sendWelcomeemail()">Send Mail</button>                       
+<button ng-click="sendWelcomeemail()">Send Welcome Mail</button>                       
+<button ng-click="ServiceAdditionEmail()">Send Service Additon Mail</button>                       
 					   </div>
                          <div class="col-sm-6 form-group" >
                              <div class="wrapper" style="margin: 0px!important;">

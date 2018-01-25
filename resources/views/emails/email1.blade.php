@@ -487,7 +487,8 @@
 
 }</style></head>
     <body>
-	<?php echo'reciever '.$_GET['username'];?>
+
+	
 		<!--*|IF:MC_PREVIEW_TEXT|*-->
 		<!--[if !gte mso 9]><!----><span class="mcnPreviewText" style="display:none; font-size:0px; line-height:0px; max-height:0px; max-width:0px; opacity:0; overflow:hidden; visibility:hidden; mso-hide:all;">*|MC_PREVIEW_TEXT|*</span><!--<![endif]-->
 		<!--*|END:IF|*-->
@@ -599,7 +600,7 @@
                         
                             <h1><span style="font-family:open sans,helvetica neue,helvetica,arial,sans-serif">Welcome to Ice Wireless</span></h1>
 
-<p><span style="font-family:open sans,helvetica neue,helvetica,arial,sans-serif">Hi Jhon,<br>
+<p><span style="font-family:open sans,helvetica neue,helvetica,arial,sans-serif">Hi  <?php echo $username;?>,<br>
 <br>
 Thank you for becoming our newest customer. We are grateful for the pleasure of serving you.</span><br>
 &nbsp;</p>
@@ -662,11 +663,11 @@ Thank you for becoming our newest customer. We are grateful for the pleasure of 
                                         <div style="text-align: left;"><span style="font-size:20px"><strong><span style="font-family:open sans,helvetica neue,helvetica,arial,sans-serif">Account Details</span></strong></span></div>
 
 <div style="text-align: left;"><br>
-Account #: ICENP21326546548<br>
-Username: jhondoe@hotmail.com<br>
--------------: ----------------------------&nbsp;<br>
--------------: ----------------------------&nbsp;<br>
--------------: ----------------------------&nbsp;</div>
+Account #:<?php echo $accountid;?><br>
+Username: <?php echo $username;?><br>
+email:    <?php echo $email;?>&nbsp;<br>
+Address:  <?php echo $address1;?>&nbsp;<br>
+          <?php echo $address2;?>&nbsp;</div>
 
                                     </td>
                                 </tr>
