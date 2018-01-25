@@ -347,7 +347,29 @@ $(document).on({
 }); 
 
 /***************** ServiceAdditionEmail  ******************/
- $scope.ServiceAdditionEmail = function() {}
+ $scope.ServiceAdditionEmail = function() {
+	 	 console.log("Function send service addition mail");
+ 
+	  console.log('enter');
+var mail=$scope.formParams.email;
+var reciever= $scope.formParams.first+' '+$scope.formParams.last;
+var address1= $scope.formParams.streetnum+' '+$scope.formParams.streetname+' '+$scope.formParams.unit;
+var address2= $scope.formParams.box+' '+$scope.formParams.postal+' '+$scope.formParams.city+' '+$scope.formParams.province;
+   
+	 	  $.ajax({
+  url: 'http://test.enterpriseesolutions.com/mail2?mail='+mail+'&reciever='+reciever+'&accountId='+accountId+'&address1='+address1+'&address2='+address2,
+  "method": "GET",
+  // "data": { "mail": mail }, 
+  success: function(data) {
+   console.log('success send'+data);
+  },error: function(data) {
+   console.log('Fail send'+data);
+  }
+  
+});
+	  
+  
+ }
 /***************** End ServiceAdditionEmail  ******************/ 
  
  
@@ -575,7 +597,7 @@ $.ajax(settings).fail(function (response) {
 /***************** sendWelcomeemail ******************/
  $scope.sendWelcomeemail = function(accountId) {
 	 //
-	 console.log("Function send mail");
+	 console.log("Function send welcome mail");
  
 	  console.log('enter');
 var mail=$scope.formParams.email;
@@ -766,6 +788,7 @@ var datacardholder = $scope.formParams.cardholder;
 var datayr = $scope.formParams.eyear;
 var datamth = $scope.formParams.emonth;
 var dataamount = $scope.formParams.totalcharge;
+var checkboxautomatic = $scope.formParams.autopay;
 
   console.log('data to send '+datacreditCard+' // '+datacvv+' // '+datacardholder+' // '+datayr+' // '+datamth);
   console.log('call url: '+newURL);
@@ -773,7 +796,7 @@ var dataamount = $scope.formParams.totalcharge;
 var settings = {
   "url": newURL+"/public/paymoneris.php", 
   "method": "POST",
-   "data": { "cvv": datacvv,"creditCard" : datacreditCard,"cardholder" : datacardholder,"emonth" : datamth,"eyear" : datayr, "totalc" : dataamount }
+   "data": { "cvv": datacvv,"creditCard" : datacreditCard,"cardholder" : datacardholder,"emonth" : datamth,"eyear" : datayr, "totalc" : dataamount,"atotopup": checkboxautomatic }
   }
  $scope.formParams.transactionid ="";
 
