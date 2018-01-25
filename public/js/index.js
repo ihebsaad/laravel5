@@ -236,11 +236,8 @@ switch (parseInt(province)) {
             $scope.myData = response2;
         });
 		
-		// $http.get('https://jsonplaceholder.typicode.com/users').success(function (response3) {
-		  $http.get('https://gqnchpomjprsrfglg-mock.stoplight-proxy.io/telephone-numbers/reserved').success(function (response3) {
-  //$http.get('https://jsonplaceholder.typicode.com/todos').success(function (response) {
-            $scope.NData = response3.telephoneNumbers;
-		 		
+	  $http.get('https://gqnchpomjprsrfglg-mock.stoplight-proxy.io/telephone-numbers/reserved').success(function (response3) {
+            $scope.NData = response3.telephoneNumbers; 		
         });
   
   /*********          Login            ********/
@@ -985,11 +982,65 @@ $scope.Next2="stageAccount";
   
   document.getElementById('next4').disabled=false;
     		 $scope.formParams.phonenumber=num;
-
-
 			 
   }
   
-//});
+/****************  SELECT PHONE NUMBER    *******************************/  
+  $scope.search = {};
+  
+   $scope.province = function () 
+{
+	var Text="";
+	  var elt = document.getElementById('sel1');
+
+    if (elt.selectedIndex == -1)
+	{Text="";}
+	else {
+    Text=  elt.options[elt.selectedIndex].text;
+	document.getElementById('provinceText').value=Text;
+	document.getElementById('sel2').options[document.getElementById('sel2').selectedIndex].value=-1;$scope.search.city="";
+	document.getElementById('sel3').options[document.getElementById('sel3').selectedIndex].value=-1; $scope.search.areaCode="";
+
+	}
+   $scope.search.province=Text;
+    $('#divnumbers').css('display', 'none');
+
+  }
+
+   $scope.city = function () 
+{
+	var Text="";
+	  var elt = document.getElementById('sel2');
+
+    if (elt.selectedIndex == -1)
+	{Text="";}
+	else {
+    Text=  elt.options[elt.selectedIndex].text;
+	document.getElementById('cityText').value=Text;
+	document.getElementById('sel3').options[document.getElementById('sel3').selectedIndex].value=-1;$scope.search.areaCode="";
+
+	}
+	   $scope.search.city=Text;
+   $('#divnumbers').css('display', 'none');
+
+ 
+}
+
+   $scope.area = function () 
+{
+	var Text="";
+	  var elt = document.getElementById('sel3');
+
+    if (elt.selectedIndex == -1)
+	{Text="";}
+	else {
+    Text=  elt.options[elt.selectedIndex].text;
+	document.getElementById('areaText').value=Text;
+	}
+	   $scope.search.areaCode=Text;
+
+   $('#divnumbers').css('display', 'block');
+
+  }
 
 }]);

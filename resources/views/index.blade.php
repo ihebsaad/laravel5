@@ -58,7 +58,7 @@
 	 $pos = strpos($_SESSION['username'], '/');
 $fname=substr($_SESSION['username'],0,$pos);
 $lname=substr($_SESSION['username'],$pos+1);
-	 $value='Logged in as '.$fname.' '.$lname;
+	 $value='User : '.$fname.' '.$lname;
 
  }else{
  $value='';}
@@ -626,38 +626,34 @@ $('#password, #confirm_password').on('keyup', function () {
 
 <div class="animate-switch" ng-switch-when="stagePhone">
 	<div   class="container center_div"  style="max-width: 850px!important;" >
-     
     <div class="form-group">
         <div class="col-sm-12">
         <div class="row">
-        <div class="col-sm-4 form-group">
-        <select ng-model="formParams.province2" class="form-control" id="sel1">
+        <div class="col-sm-4 form-group"><input ng-model="search.province" id="provinceText" type="hidden"></input>
+        <select   ng-model="formParams.province2" class="form-control" id="sel1" ng-click="province();" ng-change="province();">
             <option  value="" disabled selected>Province</option>
         </select>
         </div>
-        <div class="col-sm-4 form-group">
-        <select ng-model="formParams.city2" class="form-control" id="sel2">
+        <div class="col-sm-4 form-group"><input ng-model="search.city" id="cityText" type="hidden"></input>
+        <select   ng-model="formParams.city2" class="form-control" id="sel2" ng-click="city()"  ng-change="city();">
             <option value="" disabled selected>City</option>
         </select>
         </div>
-        <div class="col-sm-4 form-group">
-        <select ng-model="formParams.area" class="form-control" id="sel3">
-            <option  ng-select="SelectPhone()" value="" disabled selected>Area code</option>
-        </select>
-		           
-<button ng-click="ServiceAdditionEmail()">Send Service Additon Mail</button> 
+        <div class="col-sm-4 form-group"><input ng-model="search.areaCode" id="areaText" type="hidden"></input>
+        <select ng-model="formParams.areaCode" class="form-control" id="sel3"  ng-click="area();"  ng-change="area();">
+            <option  value="" disabled selected>Area code</option>
+        </select> 
         </div>
         </div>
         </div>
     </div> 
    <div class="row" style="margin-top: 20px;">
         <div class=" scroller  " style="height: 300px; overflow-y: scroll; padding-top: 20px; border: 2px solid LightGray;border-radius: 1rem; width: 100%!important;">
-            <div class="form-group ">
-          
+            <div class="form-group " id="divnumbers" style="display:none" >
 		       <ul style="list-style-type: none;margin-left: -20;" class="form">
-				<div ng-repeat="data in NData"   >
- 					<div ng-if="$first && ($index<10)" ng-init="setFirst(data.telephoneNumber)" ><li><label  ng-click="setNum(data.telephoneNumber)" class="radio inline"><input class="radio-inline"  ng-attr-id="@{{data.telephoneNumber}}"  checked="checked"  type="radio" name="phonenum"   /><span for="@{{data.telephoneNumber}}" ng-bind="data.telephoneNumber"   class="labelradio control-label " ></label> </span></li></div>
-					<div ng-if="!$first && ($index<10)" ><li><label ng-click="setNum(data.telephoneNumber)" class="radio inline"><input class="radio-inline"  ng-attr-id="@{{data.telephoneNumber}}"    type="radio"   name="phonenum"  /><span for="@{{data.telephoneNumber}}" ng-bind="data.telephoneNumber"   class="labelradio control-label"> </span></label></li></div>
+				<div ng-repeat="data in NData  | filter : search "   >
+  				 	<!--<div ng-if="$first && ($index<10)" ng-init="setFirst(data.telephoneNumber)" ><li><label  ng-click="setNum(data.telephoneNumber)" class="radio inline"><input class="radio-inline"  ng-attr-id="@{{data.telephoneNumber}}"  checked="checked"  type="radio" name="phonenum"   /><span for="@{{data.telephoneNumber}}" ng-bind="data.telephoneNumber"   class="labelradio control-label " ></label> </span></li></div>-->
+					<div  ><li><label ng-click="setNum(data.telephoneNumber)" class="radio inline"><input class="radio-inline"  ng-attr-id="@{{data.telephoneNumber}}"    type="radio"   name="phonenum"  /><span for="@{{data.telephoneNumber}}" ng-bind="data.telephoneNumber"   class="labelradio control-label"> </span></label></li></div>
 				</div>	
 			   </ul>
 		  
@@ -929,7 +925,7 @@ $('#password, #confirm_password').on('keyup', function () {
       ]
     },
     {
-      name: "Ontario",
+      name: "On",
       cities: [{
         name: "Toronto",
         acodes: [
