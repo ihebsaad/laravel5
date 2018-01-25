@@ -8,7 +8,7 @@ $api_token = 'yesguy';
 
 /********************************* Recur Variables ****************************/
 $recurUnit = 'day';
-$startDate = date("Y/m/d");
+$startDate = date('Y/m/d',strtotime('+30 days',strtotime(date("Y/m/d")))) . PHP_EOL; // after 30 days from today date
 $numRecurs = '99';
 $recurInterval = '30';
 $recurAmount = '31.00';
@@ -65,10 +65,6 @@ $mpgTxn->setRecur($mpgRecur);
 		/*************************** Response *********************************/ 
 		 
 		$mpgResponse=$mpgHttpPost->getMpgResponse(); 
-		 
-		/*print("\nCardType = " . $mpgResponse->getCardType()); print("\nTransAmount = " . $mpgResponse->getTransAmount()); print("\nTxnNumber = " . $mpgResponse->getTxnNumber()); print("\nReceiptId = " . $mpgResponse->getReceiptId()); print("\nTransType = " . $mpgResponse->getTransType()); print("\nReferenceNum = " . $mpgResponse->getReferenceNum()); print("\nResponseCode = " . $mpgResponse->getResponseCode()); print("\nISO = " . $mpgResponse->getISO()); print("\nMessage = " . $mpgResponse->getMessage()); print("\nAuthCode = " . $mpgResponse->getAuthCode()); print("\nComplete = " . $mpgResponse->getComplete()); print("\nTransDate = " . $mpgResponse->getTransDate()); print("\nTransTime = " . $mpgResponse->getTransTime()); print("\nTicket = " . $mpgResponse->getTicket()); print("\nTimedOut = " . $mpgResponse->getTimedOut()); 
-		//print("\nAVSResponse = " . $mpgResponse->getAvsResultCode()); 
-		print("\nCVDResponse = " . $mpgResponse->getCvdResultCode()); print("\nITDResponse = " . $mpgResponse->getITDResponse()); */
 		print($mpgResponse->getTxnNumber());
 ?>
 
