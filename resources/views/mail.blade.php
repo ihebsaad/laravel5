@@ -1,7 +1,7 @@
 <?php 
    $username=$_GET['reciever']     ;   
    $email=$_GET['mail']     ;   
-   $accountid=$_GET['accountid']     ;   
+   $accountid=$_GET['accountId']     ;   
    $address1=$_GET['address1']     ;   
    $address2=$_GET['address2']     ;   
 //Mail::send('emails.email1/username?username='.$_GET['reciever'], [], function ($message) {
