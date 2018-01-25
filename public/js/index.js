@@ -394,6 +394,7 @@ var phone=$scope.formParams.phonenumber;
   // "data": { "mail": mail }, 
   success: function(data) {
    console.log('success send'+data);
+   alert('Your account isactivated successfully');
   },error: function(data) {
    console.log('Fail send'+data);
   }
@@ -467,6 +468,7 @@ $.ajax(settings).done(function (response) {
   console.log('done AddPayment '+response);
  /* if($scope.formParams.autopay == true){$scope.AutomaticPayment(serviceId);}
   else {$scope.ServiceAdditionEmail();}*/
+   $scope.ServiceAdditionEmail(); //remove this if automatic payment is fixed
 });
 $.ajax(settings).fail(function (response) {
   console.log('fail AddPayment'+response);
