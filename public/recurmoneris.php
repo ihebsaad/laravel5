@@ -57,8 +57,8 @@ $mpgTxn->setRecur($mpgRecur);
 /****************************** Request Object *******************************/
 
 $mpgRequest = new mpgRequest($mpgTxn);
-//$mpgRequest->setProcCountryCode("CA"); //"US" for sending transaction to US environment
-//$mpgRequest->setTestMode(true); //false or comment out this line for production transactions
+$mpgRequest->setProcCountryCode("CA"); //"US" for sending transaction to US environment
+$mpgRequest->setTestMode(true); //false or comment out this line for production transactions
 
 /***************************** HTTPS Post Object *****************************/
 
@@ -67,7 +67,7 @@ $mpgHttpPost = new mpgHttpsPost($store_id,$api_token,$mpgRequest);
 /******************************* Response ************************************/
 
 $mpgResponse=$mpgHttpPost->getMpgResponse();
-/*
+
 print ("\nCardType = " . $mpgResponse->getCardType());
 print("\nTransAmount = " . $mpgResponse->getTransAmount());
 print("\nTxnNumber = " . $mpgResponse->getTxnNumber());
@@ -84,7 +84,7 @@ print("\nTransDate = " . $mpgResponse->getTransDate());
 print("\nTransTime = " . $mpgResponse->getTransTime());
 print("\nTicket = " . $mpgResponse->getTicket());
 print("\nTimedOut = " . $mpgResponse->getTimedOut());
-print("\nRecurSuccess = " . $mpgResponse->getRecurSuccess());*/
+print("\nRecurSuccess = " . $mpgResponse->getRecurSuccess());
 ?>
 
      
