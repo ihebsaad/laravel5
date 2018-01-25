@@ -241,8 +241,7 @@ switch (parseInt(province)) {
             $scope.NData = response3.telephoneNumbers;
 		 		
         });
- 
-
+  
   /*********          Login            ********/
    
   $scope.login = function() {
