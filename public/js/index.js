@@ -386,9 +386,11 @@ $(document).on({
  var mail=$scope.formParams.email;
  var reciever='';
  if ($scope.formParams.customer=="existing"){console.log('her0');var reciever=document.getElementById('uinfo').value;}
- else if((document.getElementById('tokeninput').value.length)>0) { reciever=document.getElementById('userinfo').value.substring(13);}
+ else if($scope.formParams.customer=="existing")=="new") { 
+ var reciever= $scope.formParams.first+' '+$scope.formParams.last;}
  else
- {console.log('her1');var reciever= $scope.formParams.first+' '+$scope.formParams.last;}
+ {
+ var reciever=document.getElementById('userinfo').innerHTML.substring(13);}
 var firstname=$scope.formParams.first;
 var type=$scope.formParams.plantypes;
 var charge=$scope.formParams.plancharge;
