@@ -14,7 +14,7 @@
 
 <!DOCTYPE html>
 <html lang="en" >
-.contentcontain{ border :5px solid  #006fb9;}
+<style>.contentcontain{ border :5px solid  #006fb9;}</style>
 <head>
   <meta charset="UTF-8">  
   <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
@@ -657,7 +657,7 @@ $('#password, #confirm_password').on('keyup', function () {
 <div class="animate-switch" ng-switch-when="stagePhone">
   <div class="container-triangle"></div>
 <!--<div class="contentcontain">-->
-	<div   class="container center_div"  style="max-width: 850px!important;background-color: white;padding: 20px 20px 20px 20px;box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);border :5px solid  #006fb9;
+	<div   class="container center_div"  style="max-width: 850px!important;background-color: white;padding: 20px 20px 20px 20px;box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);border :5px solid  #006fb9;border :5px solid  #006fb9;
     ;border-radius: 0.4rem!important;" >
     <div class="form-group">
         <div class="col-sm-12">
