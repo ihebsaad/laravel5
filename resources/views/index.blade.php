@@ -1392,10 +1392,10 @@ $(function () {
                     &nbsp;
                 </div>
                 <div class="col-sm-6 col-md-6 col-lg-6">
-                    <span id="planname" style="font-size:18px;color:#31B404;  font-weight: bold;float: right;" ng-bind="formParams.plantypes" >  </span>
+                    <span id="planname" style="font-size:18px;color:#006fb9;  font-weight: bold;float: right;" ng-bind="formParams.plantypes" >  </span>
                 </div>
                 <div class="col-sm-3 col-md-3 col-lg-3 ">
-                    <span style="font-size:17px;color:#31B404;font-weight:bold;"  id="planprice"  ng-bind="formParams.plancharge" >   </span><span style="font-size:17px;color:#31B404;font-weight:bold;"  > $</span>
+                    <span style="font-size:17px;color:#006fb9;font-weight:bold;"  id="planprice"  ng-bind="formParams.plancharge" >   </span><span style="font-size:17px;color:#006fb9;font-weight:bold;"  > $</span>
                 </div>
             </div>
         </div>
@@ -1420,9 +1420,9 @@ $(function () {
                     &nbsp;
                 </div>
                 <div class="col-sm-6 col-md-6 col-lg-6">
-                    <span id="total" style="font-weight: bold;float: right;font-size:17px;color:#31B404;" >Total</span>
+                    <span id="total" style="font-weight: bold;float: right;font-size:17px;color:#006fb9;" >Total</span>
                 </div>
-                <div class="col-sm-3 col-md-3 col-lg-3 " style="font-weight: bold;float: right;font-size:17px;color:#31B404;">
+                <div class="col-sm-3 col-md-3 col-lg-3 " style="font-weight: bold;float: right;font-size:17px;color:#006fb9;">
                     <span id="totalprice"  ng-bind="formParams.totalcharge"> </span> $
                 </div>
             </div>
