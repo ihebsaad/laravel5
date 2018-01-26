@@ -656,8 +656,14 @@ $('#password, #confirm_password').on('keyup', function () {
         <div class="row">
         <div class="col-sm-4 form-group"><input ng-model="search.province" id="provinceText" type="hidden"></input>
         <select   ng-model="formParams.province2" class="form-control" id="sel1" ng-click="province();" ng-change="province();">
-            <option  value="" disabled selected>Province</option>
-        </select>
+		<option value="" disabled="" selected="">Province</option>
+        <option value="0">Alberta</option><option value="1">British Columbia</option>
+		<option value="2">Manitoba</option><option value="3">New Brunswick</option>
+		<option value="4">Nova Scotia</option><option value="5">Newfoundland</option>
+		<option value="6">Northwest Territories</option><option value="7">Nunavut</option>
+		<option value="8">On</option><option value="9">Prince Edward Island</option>
+		<option value="10">Quebec</option><option value="11">Saskatchewan</option><option value="12">Yukon</option>
+         </select>
         </div>
         <div class="col-sm-4 form-group"><input ng-model="search.city" id="cityText" type="hidden"></input>
         <select   ng-model="formParams.city2" class="form-control" id="sel2" ng-click="city()"  ng-change="city();">
@@ -1320,11 +1326,20 @@ $('#password, #confirm_password').on('keyup', function () {
   
   $('#sel2').add('#sel3').prop('disabled', true);
   
-  for(var i = 0; i < a.length; i++) {
+/*  for(var i = 0; i < a.length; i++) {
     $('#sel1').append('<option value="'+i+'">'+a[i].name+'</option>');
   }
-  
+  */
   $('#sel1').on('change', function(){
+    $('#sel3').prop('disabled', true).html(defOption);
+    $('#sel2').prop('disabled', false).html(defOption);
+    
+    for(var i = 0; i < a[$(this).val()].cities.length; i++) {
+      $('#sel2').append('<option value="'+i+'">'+a[$(this).val()].cities[i].name+'</option>');
+    }
+  });
+ 
+  $('#sel1').on('click', function(){
     $('#sel3').prop('disabled', true).html(defOption);
     $('#sel2').prop('disabled', false).html(defOption);
     
