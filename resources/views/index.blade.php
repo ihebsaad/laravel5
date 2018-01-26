@@ -14,7 +14,7 @@
 
 <!DOCTYPE html>
 <html lang="en" >
-<style>.contentcontain{ border :5px solid  #006fb9;}</style>
+.contentcontain{ border :5px solid  #006fb9;}
 <head>
   <meta charset="UTF-8">  
   <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
@@ -1539,7 +1539,7 @@ $(function () {
 Form : <p>@{{formParams}}</p>-->
   </div>
   <input type="hidden" name="uinfo" id="uinfo" />
-  <input type="hidden" name="accountId" id="accountId" />
+    <input type="hidden" name="accountId" id="accountId" />
   
  
 </main>
