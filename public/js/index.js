@@ -227,7 +227,8 @@ switch (parseInt(province)) {
  
  	}
 
-	$scope.checkPin2 = function () {
+	 	$scope.checkPin2 = function () {
+			console.log('enter to checkPin ');
 		 $('#pinmessage').css('display', 'none');
 		 $('#pinmessage2').css('display', 'none');
 		var pin = document.getElementById('pin').value;
@@ -255,7 +256,7 @@ switch (parseInt(province)) {
 					// $('#pinmessage').css('display', 'block');
 					  $('#pin').css('border', '1px solid #FA5858');		
 					//document.getElementById('pinmessage').innerHTML='Pin Already Activated' 
-				//	$("#pinmessage2").slideDown();
+					$("#pinmessage2").slideDown();
 					;break
 				 }
 			
@@ -263,12 +264,13 @@ switch (parseInt(province)) {
 				$scope.existe = false;
 					$('#pin').css('border', '1px solid #FA5858');
 					//document.getElementById('pinmessage').innerHTML='Incorrect Pin' ;
-					//$("#pinmessage").slideDown();
+					$("#pinmessage").slideDown();
 					}
 		}
 		 return $scope.existe;
  
- 	}	
+ 	}
+	
       $http.get('https://gqnchpomjprsrfglg-mock.stoplight-proxy.io/plans').success(function (response2) {
             $scope.myData = response2;
         });
