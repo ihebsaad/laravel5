@@ -833,6 +833,7 @@ var res = $.ajax(settings).done(function (response) {
 	  if($scope.formParams.customer=="new"){
 		  $scope.CreateAccount(); console.log('new');}
 	//else $scope.CreateService(accountId);
+	alert($scope.loggedin);
 	if (($scope.formParams.customer=="existing") || ($scope.loggedin) ){
 		
 		$scope.GetUser();
