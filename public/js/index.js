@@ -87,6 +87,8 @@ $.ajax(settings2).done(function (response) {
 	console.log('response show metaddata1'+response.nickname);   
 	console.log('response show metaddata2'+response.user_metadata['firstName']);   
    document.getElementById('logoutbtn').style.display="block";
+   document.getElementById('userinfo0').innerHTML="Logged in as ";
+ 
   document.getElementById('userinfo').innerHTML=response.user_metadata['firstName']+' '+response.user_metadata['lastName']+'</B>';
   document.getElementById('uinfo').value=response.user_metadata['firstName']+' '+response.user_metadata['lastName'];
 console.log('uinfo'+document.getElementById('uinfo').value);
