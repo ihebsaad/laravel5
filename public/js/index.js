@@ -210,8 +210,7 @@ switch (parseInt(province)) {
 				 }
 				 
 				 else{
-				 	if ($scope.existe)
-				{
+
 					 // Pin already Activated
 					// $('#pinmessage').css('display', 'block');
 					  $('#pin').css('border', '1px solid #FA5858');		
@@ -219,18 +218,14 @@ switch (parseInt(province)) {
 					$("#pinmessage2").slideDown();
 					;break
 				 }
-				 }
 			
 				} else {
-				if (!$scope.existe)
-				{
 					$('#pin').css('border', '1px solid #FA5858');
 					//document.getElementById('pinmessage').innerHTML='Incorrect Pin' ;
 					$("#pinmessage").slideDown();
 					 $('#pinmessage2').css('display', 'none');
 
 					}
-				}
 		}
   
  	}
@@ -260,27 +255,23 @@ switch (parseInt(province)) {
 				 }
 				 
 				 else{
-				 	if ($scope.existe)
-				{
+
 					 // Pin already Activated
 					// $('#pinmessage').css('display', 'block');
 					  $('#pin').css('border', '1px solid #FA5858');		
 					//document.getElementById('pinmessage').innerHTML='Pin Already Activated' 
 					$("#pinmessage2").slideDown();
 					;break
-				 }
+				
 				 }
 			
 				} else {
-				if (!$scope.existe)
-				{
 					$('#pin').css('border', '1px solid #FA5858');
 					//document.getElementById('pinmessage').innerHTML='Incorrect Pin' ;
 					$("#pinmessage").slideDown();
 					 $('#pinmessage2').css('display', 'none');
 
 					}
-				}
 		}
   
  	}	
