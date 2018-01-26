@@ -408,7 +408,7 @@ $.ajax(settings2).done(function (response) {
   console.log('email= '+response.email);
 var reciever=response.email;
 });
- var reciever=document.getElementById('userinfo').innerHTML.substring(13);}
+ }
 var firstname=$scope.formParams.first;
 var type=$scope.formParams.plantypes;
 var charge=$scope.formParams.plancharge;
