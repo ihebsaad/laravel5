@@ -390,6 +390,23 @@ $(document).on({
  var reciever= $scope.formParams.first+' '+$scope.formParams.last;}
  else
  {
+	var access_token=document.getElementById('tokeninput').value; 
+  var settings2 = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://iristelx.auth0.com/userinfo",
+  "method": "GET",
+  "headers": {
+    "authorization": access_token
+  },
+  "data": "{}"
+}
+
+$.ajax(settings2).done(function (response) {
+  console.log(response);
+  console.log('email= '+response.email);
+
+});
  var reciever=document.getElementById('userinfo').innerHTML.substring(13);}
 var firstname=$scope.formParams.first;
 var type=$scope.formParams.plantypes;
