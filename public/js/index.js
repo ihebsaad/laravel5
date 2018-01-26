@@ -420,7 +420,8 @@ var phone=$scope.formParams.phonenumber;
 	var emonth=$scope.formParams.emonth;
 	var eyear=$scope.formParams.eyear;
 	var cvv=$scope.formParams.cvv;
-	var datatosend='{\"enabled\":true,\"paymentSource\":\"CREDITCARD\",\"onDeclineSuspend\":false,\"onDaysAvailable\":{\"enabled\":true,\"trigger\":1},\"creditCard\":{\"cardType\":\"VISA\",\"number\":\"'+creditCard+'\",\"holder\":\"'+cardholder+'\",\"expMonth\":\"'+emonth+'\",\"expYear\":\"'+eyear+'\",\"CVV\":\"'+cvv+'\"}}';
+	var amount=parseFloat($scope.formParams.totalcharge);
+	var datatosend='{\"enabled\":true,\"paymentSource\":\"CREDITCARD\",\"onDeclineSuspend\":false,\"onDaysAvailable\":{\"enabled\":true,\"trigger\":1,\"amount\":\"'+amount+'\"},\"creditCard\":{\"cardType\":\"VISA\",\"number\":\"'+creditCard+'\",\"holder\":\"'+cardholder+'\",\"expMonth\":\"'+emonth+'\",\"expYear\":\"'+eyear+'\",\"CVV\":\"'+cvv+'\"}}';
  console.log('datatosend for automatic payment'+datatosend);
 
 	 var settings = {
