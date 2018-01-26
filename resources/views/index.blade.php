@@ -1521,7 +1521,20 @@ Form : <p>@{{formParams}}</p>-->
   </div>
   <input type="hidden" name="uinfo" id="uinfo" />
   
-  <!-- Success Modal -->
+ 
+</main>
+       
+ 
+ 
+<script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-animate.min.js'></script> 
+
+
+ <script  src="public/js/index.js"></script>
+ 
+<div class="modal"><!-- Place at bottom of page --></div>
+
+ <!-- Success Modal -->
 <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -1540,18 +1553,6 @@ Form : <p>@{{formParams}}</p>-->
     </div>
   </div>
 </div>
-</main>
-       
- 
- 
-<script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-animate.min.js'></script> 
-
-
- <script  src="public/js/index.js"></script>
- 
-<div class="modal"><!-- Place at bottom of page --></div>
-
 
 </div>
 
