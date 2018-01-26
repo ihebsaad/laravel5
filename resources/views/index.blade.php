@@ -1515,9 +1515,12 @@ $(function () {
 <div class="animate-switch" ng-switch-when="stageSuccess">
 <div class="container-triangle"></div>
 <div class="contentcontain">
-  <div class="row">
+  <div class="row"><div class="col-sm-3 form-group">
      <h3 id='status'>
-      Your account is activated successfully  </h3>  <button ng-model="test" type="button" ng-click="" class="btn btn-success btn-round" style="float: right;margin-right: 0px;" >OK</button>
+      Your account is activated successfully  </h3>  </div>
+      <div class="col-sm-3 form-group">
+        <button ng-model="test" type="button" ng-click="" class="btn btn-success btn-round" style="float: right;margin-right: 0px;" >OK</button>
+      </div>
   </div>
          
     </div>
