@@ -405,8 +405,7 @@ var phone=$scope.formParams.phonenumber;
   success: function(data) {
    console.log('success send'+data);
    //alert('Your account is activated successfully');
-   //jQuery.noConflict();
-   jQuery('#successModal').modal('show');
+   $scope.next('stageSuccess');
   },error: function(data) {
    console.log('Fail send'+data);
   }
@@ -422,8 +421,7 @@ var phone=$scope.formParams.phonenumber;
   success: function(data) {
    console.log('success send'+data);
    //alert('Your account is activated successfully');
-   //jQuery.noConflict();
-   jQuery('#successModal').modal('show');
+   $scope.next('stageSuccess');
   },error: function(data) {
    console.log('Fail send'+data);
   }
@@ -457,8 +455,7 @@ var firstname=reciever;
   success: function(data) {
    console.log('success send'+data);
    //alert('Your account is activated successfully');
-   //jQuery.noConflict();
-   jQuery('#successModal').modal('show');
+   $scope.next('stageSuccess');
   },error: function(data) {
    console.log('Fail send'+data);
   }
