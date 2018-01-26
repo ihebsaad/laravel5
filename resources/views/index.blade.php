@@ -1342,10 +1342,12 @@ $('#password, #confirm_password').on('keyup', function () {
   $('#sel1').on('click', function(){
     $('#sel3').prop('disabled', true).html(defOption);
     $('#sel2').prop('disabled', false).html(defOption);
-    
-    for(var i = 0; i < a[$(this).val()].cities.length; i++) {
-      $('#sel2').append('<option value="'+i+'">'+a[$(this).val()].cities[i].name+'</option>');
-    }
+     if (document.getElementById('sel1').selectedIndex > 0)
+	{
+		for(var i = 0; i < a[$(this).val()].cities.length; i++) {
+		$('#sel2').append('<option value="'+i+'">'+a[$(this).val()].cities[i].name+'</option>');
+		}
+	}
   });
   
   $('#sel2').on('change', function(){
