@@ -382,11 +382,16 @@ $(document).on({
 
 /***************** ServiceAdditionEmail  ******************/
  $scope.ServiceAdditionEmail = function() {
+	
+var type=$scope.formParams.plantypes;
+var charge=$scope.formParams.plancharge;
+var phone=$scope.formParams.phonenumber;
+
 	 	 console.log("Function send service addition mail");
  var mail=$scope.formParams.email;
  var reciever='';
- if ($scope.formParams.customer=="existing"){console.log('her0');var reciever=document.getElementById('uinfo').value;}
- else if($scope.formParams.customer=="new") { 
+ if ($scope.formParams.customer=="existing"){var firstname=reciever;var reciever=document.getElementById('uinfo').value;}
+ else if($scope.formParams.customer=="new") {  var firstname=$scope.formParams.first;
  var reciever= $scope.formParams.first+' '+$scope.formParams.last;}
  else
  {
@@ -411,7 +416,6 @@ var reciever=document.getElementById('userinfo').innerHTML.substring(13);
 var firstname=reciever;
 });
  }
-
    
 	 	  $.ajax({
   url: 'http://test.enterpriseesolutions.com/mail2?mail='+mail+'&reciever='+reciever+'&firstname='+firstname+'&type='+type+'&charge='+charge+'&phone='+phone,
