@@ -1010,7 +1010,8 @@ document.getElementById('next1').disabled=false;
 
 $scope.Next="stageAccount";
 $scope.Next2="stageAccount";
-document.getElementById("alertUserExist").style.display="none";
+//document.getElementById("alertUserExist").style.display="none";
+$('#alertUserExist').css('display', 'none');
 }
 
   // Post to desired exposed web service.
