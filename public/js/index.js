@@ -320,7 +320,8 @@ $.ajax(settings).done(function (response) {
 	 access_token="Bearer "+token;
 	
 	$scope.showuserinfo(access_token);
-	
+	$scope.next('stagePlans');
+	$scope.$apply()
 	$scope.loggedin=true;
 	//////////
 });
@@ -758,6 +759,7 @@ $.ajax(settings).fail(function (response) {console.log('fail');
 
 var parsedData = JSON.parse(response.responseText);
 		console.log('parsedData2'+parsedData.description);
+		alert('parsedData.description');
 
 });
   }
