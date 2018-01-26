@@ -64,15 +64,15 @@
    $pos = strpos($_SESSION['username'], '/');
 $fname=substr($_SESSION['username'],0,$pos);
 $lname=substr($_SESSION['username'],$pos+1);
-   $value='Logged in as '.$fname.' '.$lname;
+   $value='Logged in as  <B style="font-size:16px;color:#049afe">'.$fname.' '.$lname.'</B>';
 
  }else{
  $value='';}
 echo'
 <ul class="nav navbar-nav navbar-right" id="logoutbtn" style="'.$style.'">
-<li><div class="row"><style> a:hover{background-color:#049afe!important;}</style>
+<li><div class="row"><style> .logout a:hover{background-color:#049afe!important;}</style>
 <div class="col-sm-9"><br><B style="font-size:12px;margin-top:20px; " id="userinfo">'.$value.'</B> </div>
-<div class="col-sm-3"><a style="background-color:#006fb9;margin-top:10px" href="#" class="btn btn-info " onclick="logout();"> <span   class="glyphicon glyphicon-log-out"></span> Log out</a></div></div></li>
+<div class="logout col-sm-3"><a style="background-color:#006fb9;margin-top:10px" href="#" class="btn btn-info " onclick="logout();"> <span   class="glyphicon glyphicon-log-out"></span> Log out</a></div></div></li>
 
 </ul>';
 ?>
