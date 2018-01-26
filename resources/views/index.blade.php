@@ -33,7 +33,6 @@
 <div class="row" style="width:100%;">
 <div class="col-md-3">
 <a href="#" class="navbar-brand" style=" padding-bottom: 0px; padding-top: 0px; ">
-  <!--<img src="public/logo.svg" class="img-responsive" />-->
     <svg xmlns="http://www.w3.org/2000/svg" id="logo" viewBox="0 0 73.5 21.3" class="logo-small">
                         <style>.st-blue{fill:#006fba}.st1{fill:#a6a9ab}</style>
                         <path d="M40.2.1c0-.1-.2-.1-.3-.1l-1.8.9c-4 1.9-13.7 6.3-17 6.4h-.2c-3.3 0-12-4.2-15.9-6.2C4.3.7 3.6.4 3 0h-.3c-.1.1-.1.2-.1.3l.1.1c.2.1.3.2.5.2.5.4 1.1.7 1.8 1.1 14.2 7.4 16 8.1 16.4 8.1h.1c.9-.6 12.2-6.1 16.8-8.3 1.1-.5 1.8-.8 1.9-.9.1-.2.1-.3 0-.5z" class="st-blue"></path>

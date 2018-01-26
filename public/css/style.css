@@ -367,7 +367,7 @@ button {cursor: pointer;}
 /*********************          PLANS SELECTION                  *******************/
  #plans  #feedback { font-size: 1.4em; }
  #plans  #selectable .ui-selecting { background: #7eb97e; }
- #plans  #selectable .ui-selected { background: #5cb85c; color: white; }
+ #plans  #selectable .ui-selected { background: #a5a8ab; color: white; }
  #plans  #selectable { list-style-type: none; margin: 0; padding: 0;  }
  #plans  #selectable li { margin: 10px; padding: 10px; padding-top: 10%; float: left;  height: 200px; font-size: 4em; text-align: center; border-radius: 1rem!important; cursor: pointer;}
  #plans ol #selectable li { margin: 10px; padding: 10px; padding-top: 10%; float: left;  height: 200px; font-size: 4em; text-align: center; border-radius: 1rem!important; cursor: pointer;}
@@ -376,7 +376,7 @@ button {cursor: pointer;}
  
  #plans  #feedback { font-size: 1.4em; }
  #plans  #selectable .ui-selecting { background: #7eb97e; }
- #plans  #selectable .ui-selected { background: #5cb85c; color: white; }
+ #plans  #selectable .ui-selected { background: #a5a8ab; color: white; }
  #plans  #selectable { list-style-type: none; margin: 0; padding: 0;  }
  #plans  #selectable li { margin: 10px; padding: 10px; padding-top: 10%; float: left;  height: 200px; font-size: 4em; text-align: center; border-radius: 1rem!important; cursor: pointer;}
  #plans ol #selectable li { margin: 10px; padding: 10px; padding-top: 10%; float: left;  height: 200px; font-size: 4em; text-align: center; border-radius: 1rem!important; cursor: pointer;}
@@ -395,7 +395,7 @@ button {cursor: pointer;}
   
   #feedback { font-size: 1.4em; }
   #selectable .ui-selecting { background: #7eb97e; }
-  #selectable .ui-selected { background: #5cb85c; color: white; }
+  #selectable .ui-selected { background: #a5a8ab; color: white; }
   #selectable { list-style-type: none; margin: 0; padding: 0;   }
   #selectable li { margin: 10px; padding: 10px; padding-top: 10%;    height: 200px; font-size: 4em; text-align: center; border-radius: 1rem!important; cursor: pointer;}
   #selectable li p {font-size: 16px;}
@@ -717,7 +717,9 @@ border-radius: 1rem!important;
     margin: 0 auto!important;
     background: #ffffff;
     min-width: 400px!important;
-    min-height: 700px!important;
+    max-width: 855px;
+    min-height: 500px!important;
+    max-height: 790px!important;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     border-radius: 0.4rem!important;
 }
