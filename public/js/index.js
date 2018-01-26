@@ -421,12 +421,12 @@ var phone=$scope.formParams.phonenumber;
 	var eyear=$scope.formParams.eyear;
 	var cvv=$scope.formParams.cvv;
 	var datatosend='{\"enabled\":true,\"paymentSource\":\"CREDITCARD\",\"onDeclineSuspend\":false,\"onDaysAvailable\":{\"enabled\":true,\"trigger\":1},\"creditCard\":{\"cardType\":\"VISA\",\"number\":\"'+creditCard+'\",\"holder\":\"'+cardholder+'\",\"expMonth\":\"'+emonth+'\",\"expYear\":\"'+eyear+'\",\"CVV\":\"'+cvv+'\"}}';
- //console.log('datatosend for automatic payment'+datatosend);
+ console.log('datatosend for automatic payment'+datatosend);
 
 	 var settings = {
   "async": true,
   "crossDomain": true,
-  "url": "https://gqnchpomjprsrfglg-mock.stoplight-proxy.io/"+serviceId+"/automatic-payment",
+  "url": "https://gqnchpomjprsrfglg-mock.stoplight-proxy.io/billing/"+serviceId+"/automatic-payment",
   "method": "PATCH",
   "headers": {
     "authorization": "Bearer {token}.{secret}"
@@ -471,9 +471,9 @@ $.ajax(settings).fail(function (response) {
 
 $.ajax(settings).done(function (response) {
   console.log('done AddPayment '+response);
- /* if($scope.formParams.autopay == true){$scope.AutomaticPayment(serviceId);}
-  else {$scope.ServiceAdditionEmail();}*/
-   $scope.ServiceAdditionEmail(); //remove this if automatic payment is fixed
+  if($scope.formParams.autopay == true){$scope.AutomaticPayment(serviceId);}
+  else {$scope.ServiceAdditionEmail();}
+   //$scope.ServiceAdditionEmail(); //remove this if automatic payment is fixed
 });
 $.ajax(settings).fail(function (response) {
   console.log('fail AddPayment'+response);
