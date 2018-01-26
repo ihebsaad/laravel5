@@ -599,15 +599,15 @@ $.ajax(settings).fail(function (response) {
  $scope.CreateService = function(accountId) { 
  var fname= $scope.formParams.first ;
 	 var lname= $scope.formParams.last ;
-	 if($scope.formParams.unit != ""){
+	 if($scope.formParams.unit != null){
 		var address1=$scope.formParams.unit+'-'+$scope.formParams.streetnum+' '+ $scope.formParams.streetname; 
 	 }
 	 else{
 		var address1=$scope.formParams.streetnum+' '+ $scope.formParams.streetname; 
 	 }
-	 if(country= $scope.formParams.box != ""){
+	 if(country= $scope.formParams.box != null){
 		var address2='PO BOX'+$scope.formParams.box;	 }
-	 
+	 else {var address2='NULL';}
 	  var city= $scope.formParams.city ;
 	 var province= $scope.formParams.province ;
 	 var country= 'CA';
@@ -647,14 +647,15 @@ $.ajax(settings).fail(function (response) {
  $scope.CreateAccount = function() {
 	 var fname= $scope.formParams.first ;
 	 var lname= $scope.formParams.last ;
-if($scope.formParams.unit != ""){
+if($scope.formParams.unit != null){
 		var address1=$scope.formParams.unit+'-'+$scope.formParams.streetnum+' '+ $scope.formParams.streetname; 
 	 }
 	 else{
 		var address1=$scope.formParams.streetnum+' '+ $scope.formParams.streetname; 
 	 }
-	 if(country= $scope.formParams.box != ""){
+	 if(country= $scope.formParams.box != null){
 		var address2='PO BOX'+$scope.formParams.box;	 }
+		else {var address2='NULL';}
 	
 	 var city= $scope.formParams.city ;
 	 var province= $scope.formParams.province ;
