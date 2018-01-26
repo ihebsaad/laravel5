@@ -64,7 +64,7 @@
    $pos = strpos($_SESSION['username'], '/');
 $fname=substr($_SESSION['username'],0,$pos);
 $lname=substr($_SESSION['username'],$pos+1);
-   $value='User : '.$fname.' '.$lname;
+   $value='Logged in as '.$fname.' '.$lname;
 
  }else{
  $value='';}
