@@ -741,6 +741,12 @@ border-radius: 1rem!important;
     border-color: #a5a8ab;
 }
 button {cursor: pointer;}
+#pagetitle {font-size: 40px!important;}
+#pagesubtitle {min-height: 22px!important; font-size: 20px!important; font-weight: 400;}
+html,body
+{
+overflow-x: hidden
+}
 /* selectable div */
 #selectable .ui-selected {
     background: #006fb9!important;
