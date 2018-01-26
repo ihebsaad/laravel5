@@ -736,8 +736,24 @@ border-radius: 1rem!important;
    border: 1px solid #006fb9;
 }
 .btn-success:hover {
-    color: #464646;
-    background-color: #ebebeb;
+    color: #fff;
+    background-color: #a5a8ab;
+    border-color: #a5a8ab;
+}
+.btn-success:active, 
+.btn-success.active, 
+.btn-success:focus, 
+.btn-success.focus,
+.btn.btn-success.active.focus,
+.btn.btn-success.active:focus,
+.btn.btn-success.active:hover,
+.btn.btn-success:active.focus,
+.btn.btn-success:active:focus,
+.btn.btn-success:active:hover,
+.btn.btn-success[disabled],
+.btn.btn-success:disabled{
+    color: #fff;
+    background-color: #006fb9;
     border-color: #a5a8ab;
 }
 button {cursor: pointer;}
