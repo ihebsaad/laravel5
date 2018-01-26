@@ -976,13 +976,13 @@ $.ajax(settings).fail(function (response) {
   $scope.existingcust = function () {
  //function existingcust(){
 document.getElementById('existcustomer').style.color='white';
-document.getElementById('existcustomer').style.backgroundColor='rgb(92, 184, 92)';
+document.getElementById('existcustomer').style.backgroundColor='rgb(165, 168, 171)';
 
 document.getElementById('customer').value="existing"
  $scope.formParams.customer="existing";
 
 
-document.getElementById('newcustomer').style.color='#454545';
+document.getElementById('newcustomer').style.color='#464646';
 document.getElementById('newcustomer').style.backgroundColor='rgb(246, 246, 246)';
 document.getElementById('next1').disabled=false;
 
@@ -996,13 +996,13 @@ $scope.Next2="stagePlans";
   $scope.newcustomer = function () {
 
 document.getElementById('newcustomer').style.color='white';
-document.getElementById('newcustomer').style.backgroundColor='rgb(92, 184, 92)';
+document.getElementById('newcustomer').style.backgroundColor='rgb(165, 168, 171)';
 
 document.getElementById('customer').value="new";
   //var input = $('input');
   //  input.trigger('input'); 
 	
-document.getElementById('existcustomer').style.color='#454545';
+document.getElementById('existcustomer').style.color='#464646';
 document.getElementById('existcustomer').style.backgroundColor='rgb(246, 246, 246)';
 document.getElementById('next1').disabled=false;
 
@@ -1062,12 +1062,12 @@ document.getElementById("alertUserExist").style.display="none";
  			  document.getElementById('plancode').value=plan;
 		 $scope.formParams.plancode=plan;
 
-		  $('#plans ol li').css('color', '#454545');
+		  $('#plans ol li').css('color', '#464646');
 		  $('#plans ol li').css('backgroundColor', 'rgb(246, 246, 246)');
 		  
 			   document.getElementById(plan).style.color='white';
 			  // document.getElementById('@'+plan).style.color='white';
-			   document.getElementById(plan).style.backgroundColor='rgb(92, 184, 92)';
+			   document.getElementById(plan).style.backgroundColor='rgb(165, 168, 171)';
 			 //  document.getElementById('@'+plan).style.backgroundColor='rgb(92, 184, 92)';
 			   document.getElementById('next2').disabled=false;
 			    
