@@ -87,7 +87,7 @@ $.ajax(settings2).done(function (response) {
 	console.log('response show metaddata1'+response.nickname);   
 	console.log('response show metaddata2'+response.user_metadata['firstName']);   
    document.getElementById('logoutbtn').style.display="block";
-  document.getElementById('userinfo').innerHTML='Logged in as '+response.user_metadata['firstName']+' '+response.user_metadata['lastName'];
+  document.getElementById('userinfo').innerHTML='Logged in as   <B style="font-size:16px;color:#049afe">'+response.user_metadata['firstName']+' '+response.user_metadata['lastName']+'</B>';
   document.getElementById('uinfo').value=response.user_metadata['firstName']+' '+response.user_metadata['lastName'];
 console.log('uinfo'+document.getElementById('uinfo').value);
 	jQuery('#div_session_write2').load(''+newURL+'public/session_write2.php?username='+response.user_metadata['firstName']+'/'+response.user_metadata['lastName']);
@@ -807,7 +807,7 @@ $.ajax(settings).done(function (response) {
 	
 	//$scope.showuserinfo2(access_token);
 	 document.getElementById('logoutbtn').style.display="block";
-  document.getElementById('userinfo').innerHTML='Logged in as '+fname+' '+lname;
+  document.getElementById('userinfo').innerHTML='<B style="font-size:16px;color:#049afe">Logged in as  '+fname+' '+lname +'</B>';
   	 jQuery('#div_session_write2').load(''+newURL+'public/session_write2.php?username='+fname+'/'+lname);
     
 	//$scope.next('stagePlans'); 
