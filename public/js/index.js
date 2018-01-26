@@ -810,6 +810,7 @@ $.ajax(settings).done(function (response) {
 	//$scope.showuserinfo2(access_token);
 	 document.getElementById('logoutbtn').style.display="block";
   document.getElementById('userinfo').innerHTML=fname+' '+lname ;
+  document.getElementById('userinfo0').innerHTML="Logged in as ";
   	 jQuery('#div_session_write2').load(''+newURL+'public/session_write2.php?username='+fname+'/'+lname);
     
 	//$scope.next('stagePlans'); 
