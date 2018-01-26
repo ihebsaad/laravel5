@@ -761,7 +761,7 @@ $.ajax(settings).fail(function (response) {console.log('fail');
 
 var parsedData = JSON.parse(response.responseText);
 		console.log('parsedData2'+parsedData.description);
-		alert('parsedData.description');
+		alert(parsedData.descriptio');
 
 });
   }
