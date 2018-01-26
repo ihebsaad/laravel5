@@ -1540,11 +1540,9 @@ $(function () {
             <button ng-model="test" type="button" ng-click="" class="btn btn-success btn-round" style="float: right;margin-right: 0px;" >OK</button>
         </div>  
     </div>
-</form>
     </div>
   </div> 
-        </div>
-        </div> <!-- End Stage  --> 
+   </div> <!-- End Stage  --> 
  
 </div><!--   End container  -->		
 		 
