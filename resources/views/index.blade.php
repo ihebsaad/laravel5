@@ -1512,7 +1512,7 @@ $(function () {
 </div><!--   End Stage  -->	
 
 <!--   Stage final  : STAGE SUCCESS  ------------------------------------------------------------>
-<!--<div class="animate-switch" ng-switch-when="stageSuccess">
+<div class="animate-switch" ng-switch-when="stageSuccess">
 <div class="container-triangle"></div>
 <div class="contentcontain">
   <div class="row">
@@ -1529,7 +1529,7 @@ $(function () {
     </div>
     </div>
   </div> 
-   </div>--> <!-- End Stage  --> 
+   </div><!-- End Stage  --> 
  
 </div><!--   End container  -->		
 		 
