@@ -128,7 +128,7 @@ echo'
             <a style="font-size: 16px;" ng-click="next('stageForgotPassword')" href="#">Forgot Password?</a>
         </div>      
  <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
-            <button ng-model="test" type="button" ng-click="login();$scope.next('stagePlans');$scope.$apply();" class="btn btn-success btn-round" style="float: right;margin-right: 0px;" >Login</button>
+            <button ng-model="test" type="button" ng-click="login();next('stagePlans');$apply();" class="btn btn-success btn-round" style="float: right;margin-right: 0px;" >Login</button>
         </div>  
     </div>
 </form>
