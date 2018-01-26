@@ -405,6 +405,8 @@ var phone=$scope.formParams.phonenumber;
   success: function(data) {
    console.log('success send'+data);
    //alert('Your account is activated successfully');
+  var accountId= document.getElementById('accountId').value;
+  $scope.loginsignup(accountId);
    $scope.next('stageSuccess');
   },error: function(data) {
    console.log('Fail send'+data);
@@ -693,7 +695,7 @@ $.ajax(settings).done(function (response) {
   console.log('done'+response);
   console.log('id'+response.accountId);
   var accountId=response.accountId;
-  
+  document.getElementById('accountId').value=accountId;
   $scope.signup(accountId);
  // $scope.CreateService(accountId);
 }); 
