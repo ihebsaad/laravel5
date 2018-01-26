@@ -133,7 +133,7 @@ echo'
     </div>
   </div> 
             <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 ">
-			<div class="row" style="margin-top: 20px;">
+			<div class="row" style="margin-top: 20px;margin-left:30px;margin-right:30px;">
 
             <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
 			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back(default)"><i class="icnleft"></i>  Back</button>  
@@ -308,7 +308,7 @@ img.onclick = function(){
 			 <!--<p>PIN : <span ng-bind="formParams.pin"></span></p>-->
 			 
             <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 ">
-			<div class="row" style="margin-top: 20px;">
+			<div class="row" style="margin-top: 20px;margin-left:30px;margin-right:30px;">
 			<!-- Buttons Next & Previous -->
 			<div class="col-sm-9 col-md-9 col-xs-9 col-lg-9 form-group">
 			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('')"><i class="icnleft"></i>  Back</button>  
@@ -583,7 +583,7 @@ $('#password, #confirm_password').on('keyup', function () {
 
 		
 			
-			<div class="row" style="margin-top: 20px;">
+			<div class="row" style="margin-top: 20px;margin-left:30px;margin-right:30px;">
 			<!-- Buttons Next & Previous -->
 			<div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
 			<button style="float:center" type="button" class="btn btn-success btn-previous btn-md" ng-click="back('stageTypeCustomer')"><i class="icnleft"></i>  Back</button>  
@@ -621,7 +621,7 @@ $('#password, #confirm_password').on('keyup', function () {
  
 
             <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 "  >
-			<div class="row" style="margin-top: 20px;">
+			<div class="row" style="margin-top: 20px;margin-left:30px;margin-right:30px;">
 			<!-- Buttons Next & Previous -->
             <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
                <?php if ($loggedin) 			   
@@ -693,7 +693,7 @@ $('#password, #confirm_password').on('keyup', function () {
         </div>
     </div> <!--  end Row -->
 	
- 			<div class="row" style="margin-top: 20px;">
+ 			<div class="row" style="margin-top: 20px;margin-left:30px;margin-right:30px;">
 
             <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
 			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('stagePlans')"><i class="icnleft"></i>  Back</button>  
@@ -1491,7 +1491,7 @@ $(function () {
 
 	</div> 
             <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 ">
-			<div class="row" style="margin-top: 20px;">
+			<div class="row" style="margin-top: 20px;margin-left:30px;margin-right:30px;">
  			<div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
 			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('stagePhone')"><i class="icnleft"></i>  Back</button>  
 			</div>
