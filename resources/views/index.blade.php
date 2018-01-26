@@ -20,7 +20,7 @@
   <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
   <link rel="stylesheet" href="public/css/simstyle.css">
  	 <script  src="public/js/jquery-3.2.1.min.js" type="text/javascript"> </script>
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" ></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <title>SIM Activation</title>
    <style> input.ng-valid.ng-dirty  {border:1px solid #5cb85c;}  input.ng-invalid.ng-dirty {border:1px solid #FA5858;}   </style>
 
