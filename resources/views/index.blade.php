@@ -6,7 +6,7 @@
 ?>
 
  <?php
- \Log::info('Here');
+ \Log::info('Vist Iristel Activation Portal');
   if (isset ($_SESSION['access_token']))
  {echo ' <input type="hidden" id="tokeninput" value="'.$_SESSION["access_token"].'" />';}
  else{echo ' <input type="hidden" id="tokeninput" />';}
