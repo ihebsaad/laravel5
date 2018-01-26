@@ -14,7 +14,7 @@
 
 <!DOCTYPE html>
 <html lang="en" >
-.contentcontain{ border :5px solid  #006fb9;}
+<style>.contentcontain{ border :5px solid  #006fb9;}</style>
 <head>
   <meta charset="UTF-8">  
   <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
