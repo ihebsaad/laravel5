@@ -356,10 +356,10 @@ img.onclick = function(){
                         </div>
                         <div class="row">
                             <div class="col-sm-4 form-group">
-                                <input ng-model="formParams.unit" type="number" required ng-pattern="/^[0-9]*$/" placeholder="Unit #" min="1" max="99999" id="address3" class="form-control">
+                                <input ng-model="formParams.unit" type="number"  ng-pattern="/^[0-9]*$/" placeholder="Unit #" min="1" max="99999" id="address3" class="form-control">
                             </div>  
                             <div class="col-sm-4 form-group">
-                                <input ng-model="formParams.box" type="text" required ng-pattern="/^[a-zA-Z0-9 ]*$/" ng-minlength="1" ng-maxlength="10" placeholder="PO BOX" class="form-control">
+                                <input ng-model="formParams.box" type="number"  ng-pattern="/^[a-zA-Z0-9 ]*$/" ng-minlength="1" ng-maxlength="10" placeholder="PO BOX" class="form-control">
                             </div>  
                             <div class="col-sm-4 form-group">
                                 <input ng-model="formParams.postal" type="text" required ng-pattern="/^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/" ng-minlength="6" ng-maxlength="7" placeholder="Postal Code" class="form-control">

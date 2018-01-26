@@ -599,13 +599,18 @@ $.ajax(settings).fail(function (response) {
  $scope.CreateService = function(accountId) { 
  var fname= $scope.formParams.first ;
 	 var lname= $scope.formParams.last ;
-	 var address1=$scope.formParams.streetnum ;
-	 var address2= $scope.formParams.streetname ;
-	 var address3= $scope.formParams.unit ;
-	 var city= $scope.formParams.city ;
+	 if($scope.formParams.unit != ""){
+		var address1=$scope.formParams.unit+'-'+$scope.formParams.streetnum+' '+ $scope.formParams.streetname; 
+	 }
+	 else{
+		var address1=$scope.formParams.streetnum+' '+ $scope.formParams.streetname; 
+	 }
+	 if(country= $scope.formParams.box != ""){
+		var address2='PO BOX'+$scope.formParams.box;	 }
+	 
+	  var city= $scope.formParams.city ;
 	 var province= $scope.formParams.province ;
 	 var country= 'CA';
-	// var country= $scope.formParams.box ;
 	 var postalCode= $scope.formParams.postal ;
 	 var emailAddress= $scope.formParams.email ;
 	 var planCode= $scope.formParams.plancode ;
@@ -617,7 +622,7 @@ $.ajax(settings).fail(function (response) {
   "method": "POST",
   "headers": {
       },
-  "data": '{\"provisioning\":{\"planCode\":\"'+planCode+'\"},\"billing\":{\"billParentAccount\":true,\"recurringCharge\":'+recurringCharge+'},\"contact\":{\"fname\":\"'+fname+'\",\"lname\":\"'+lname+'\",\"address1\":\"'+address1+'\",\"address2\":\"'+address2+'\",\"address3\":\"'+address3+'\",\"city\":\"'+city+'\",\"province\":\"'+province+'\",\"country\":\"'+country+'\",\"postalCode\":\"'+postalCode+'\",\"emailAddress\":\"'+emailAddress+'\"}}'
+  "data": '{\"provisioning\":{\"planCode\":\"'+planCode+'\"},\"billing\":{\"billParentAccount\":true,\"recurringCharge\":'+recurringCharge+'},\"contact\":{\"fname\":\"'+fname+'\",\"lname\":\"'+lname+'\",\"address1\":\"'+address1+'\",\"address2\":\"'+address2+'\",\"address3\":\"\",\"city\":\"'+city+'\",\"province\":\"'+province+'\",\"country\":\"'+country+'\",\"postalCode\":\"'+postalCode+'\",\"emailAddress\":\"'+emailAddress+'\"}}'
 
 }
 
@@ -642,18 +647,24 @@ $.ajax(settings).fail(function (response) {
  $scope.CreateAccount = function() {
 	 var fname= $scope.formParams.first ;
 	 var lname= $scope.formParams.last ;
-	 var address1=$scope.formParams.streetnum ;
-	 var address2= $scope.formParams.streetname ;
-	 var address3= $scope.formParams.unit ;
+if($scope.formParams.unit != ""){
+		var address1=$scope.formParams.unit+'-'+$scope.formParams.streetnum+' '+ $scope.formParams.streetname; 
+	 }
+	 else{
+		var address1=$scope.formParams.streetnum+' '+ $scope.formParams.streetname; 
+	 }
+	 if(country= $scope.formParams.box != ""){
+		var address2='PO BOX'+$scope.formParams.box;	 }
+	
 	 var city= $scope.formParams.city ;
 	 var province= $scope.formParams.province ;
 	 var country= 'CA' ;
 	 var postalCode= $scope.formParams.postal ;
 	 var emailAddress= $scope.formParams.email ;
 	//var  datatosend= '{\"contact\":{\"fname\":\"'+fname+'\",\"lname\":\"'+lname+'\",\"address1\":\"'+address1+'\",\"address2\":\"'+address2+'\",\"address3\":\"'+address3+'\",\"city\":\"'+city+'\",\"province\":\"'+province+'\",\"country\":\"'+country+'\",\"postalCode\":\"'+postalCode+'\",\"emailAddress\":\"'+emailAddress+'\"}}';
-var  datatosend='{\"contact\":{\"fname\":\"'+fname+'\",\"lname\":\"'+lname+'\",\"address1\":\"'+address1+'\",\"address2\":\"'+address2+'\",\"address3\":\"'+address3+'\",\"city\":\"'+city+'\",\"province\":\"'+province+'\",\"country\":\"'+country+'\",\"postalCode\":\"'+postalCode+'\",\"emailAddress\":\"'+emailAddress+'\"}}';
+var  datatosend='{\"contact\":{\"fname\":\"'+fname+'\",\"lname\":\"'+lname+'\",\"address1\":\"'+address1+'\",\"address2\":\"'+address2+'\",\"address3\":\"\",\"city\":\"'+city+'\",\"province\":\"'+province+'\",\"country\":\"'+country+'\",\"postalCode\":\"'+postalCode+'\",\"emailAddress\":\"'+emailAddress+'\"}}';
 
-	//console.log('datatosend'+datatosend);
+	console.log('datatosend'+datatosend);
 	var settings = {
   "async": true,
   "crossDomain": true,
