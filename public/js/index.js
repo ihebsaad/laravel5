@@ -189,12 +189,12 @@ switch (parseInt(province)) {
 			console.log('enter to checkPin ');
 		 $('#pinmessage').css('display', 'none');
 		 $('#pinmessage2').css('display', 'none');
-		var pin = document.getElementById('pin').value;
+		$scope.pin = document.getElementById('pin').value;
 	 	 $('#pin').css('border', '1px solid #FA5858');
 
 		for(var i = 0; i < $scope.DataPins.length; i++) {
 			// pin existe
-			if ($scope.DataPins[i].pin == pin) {
+			if ($scope.DataPins[i].pin == $scope.pin) {
 				 if ($scope.DataPins[i].enabled==0)
 				 { // pin not active
 					 $scope.existe = true;
@@ -210,6 +210,8 @@ switch (parseInt(province)) {
 				 }
 				 
 				 else{
+				 	if ($scope.existe)
+				{
 					 // Pin already Activated
 					// $('#pinmessage').css('display', 'block');
 					  $('#pin').css('border', '1px solid #FA5858');		
@@ -217,28 +219,32 @@ switch (parseInt(province)) {
 					$("#pinmessage2").slideDown();
 					;break
 				 }
+				 }
 			
 				} else {
-				$scope.existe = false;
+				if (!$scope.existe)
+				{
 					$('#pin').css('border', '1px solid #FA5858');
 					//document.getElementById('pinmessage').innerHTML='Incorrect Pin' ;
 					$("#pinmessage").slideDown();
+					 $('#pinmessage2').css('display', 'none');
+
 					}
+				}
 		}
-		 return $scope.existe;
- 
+  
  	}
 
 	 	$scope.checkPin2 = function () {
 			console.log('enter to checkPin ');
 		 $('#pinmessage').css('display', 'none');
 		 $('#pinmessage2').css('display', 'none');
-		var pin = document.getElementById('pin').value;
+		$scope.pin = document.getElementById('pin').value;
 	 	 $('#pin').css('border', '1px solid #FA5858');
 
 		for(var i = 0; i < $scope.DataPins.length; i++) {
 			// pin existe
-			if ($scope.DataPins[i].pin == pin) {
+			if ($scope.DataPins[i].pin == $scope.pin) {
 				 if ($scope.DataPins[i].enabled==0)
 				 { // pin not active
 					 $scope.existe = true;
@@ -254,6 +260,8 @@ switch (parseInt(province)) {
 				 }
 				 
 				 else{
+				 	if ($scope.existe)
+				{
 					 // Pin already Activated
 					// $('#pinmessage').css('display', 'block');
 					  $('#pin').css('border', '1px solid #FA5858');		
@@ -261,17 +269,21 @@ switch (parseInt(province)) {
 					$("#pinmessage2").slideDown();
 					;break
 				 }
+				 }
 			
 				} else {
-				$scope.existe = false;
+				if (!$scope.existe)
+				{
 					$('#pin').css('border', '1px solid #FA5858');
 					//document.getElementById('pinmessage').innerHTML='Incorrect Pin' ;
 					$("#pinmessage").slideDown();
+					 $('#pinmessage2').css('display', 'none');
+
 					}
+				}
 		}
-		 return $scope.existe;
- 
- 	}
+  
+ 	}	
 	
       $http.get('https://gqnchpomjprsrfglg-mock.stoplight-proxy.io/plans').success(function (response2) {
             $scope.myData = response2;

@@ -235,11 +235,9 @@ echo'
 				<!--<span id="pinmessage" class="help-block" style=" ;color:red"  >
                   </span>-->
 				<div id="pinmessage" style="display:none;min-width:250px;margin-left:50px;" class="alert alert-danger">
-				<button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
 				Incorrect Pin !
 				</div>
 				<div id="pinmessage2" style="display:none;min-width:250px;;margin-left:50px;" class="alert alert-danger">
-				<button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
 				Pin Already Activated !
 				</div>				
 				  </td>
