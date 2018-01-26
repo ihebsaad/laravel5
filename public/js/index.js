@@ -408,6 +408,7 @@ $.ajax(settings2).done(function (response) {
   console.log('email= '+response.email);
 var mail=response.email;
 var reciever=document.getElementById('userinfo').innerHTML.substring(13);
+var firstname=reciever;
 });
  }
 
