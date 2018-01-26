@@ -390,9 +390,34 @@ var phone=$scope.formParams.phonenumber;
 	 	 console.log("Function send service addition mail");
  var mail=$scope.formParams.email;
  var reciever='';
- if ($scope.formParams.customer=="existing"){var firstname=reciever;var reciever=document.getElementById('uinfo').value;}
+ if ($scope.formParams.customer=="existing"){var firstname=reciever;var reciever=document.getElementById('uinfo').value;
+ 	  $.ajax({
+  url: 'http://test.enterpriseesolutions.com/mail2?mail='+mail+'&reciever='+reciever+'&firstname='+firstname+'&type='+type+'&charge='+charge+'&phone='+phone,
+  "method": "GET",
+  // "data": { "mail": mail }, 
+  success: function(data) {
+   console.log('success send'+data);
+   alert('Your account is activated successfully');
+  },error: function(data) {
+   console.log('Fail send'+data);
+  }
+  
+});
+ }
  else if($scope.formParams.customer=="new") {  var firstname=$scope.formParams.first;
- var reciever= $scope.formParams.first+' '+$scope.formParams.last;}
+ var reciever= $scope.formParams.first+' '+$scope.formParams.last;
+ 	  $.ajax({
+  url: 'http://test.enterpriseesolutions.com/mail2?mail='+mail+'&reciever='+reciever+'&firstname='+firstname+'&type='+type+'&charge='+charge+'&phone='+phone,
+  "method": "GET",
+  // "data": { "mail": mail }, 
+  success: function(data) {
+   console.log('success send'+data);
+   alert('Your account is activated successfully');
+  },error: function(data) {
+   console.log('Fail send'+data);
+  }
+  
+});}
  else
  {
 	var token=document.getElementById('tokeninput').value;
@@ -414,10 +439,7 @@ $.ajax(settings2).done(function (response) {
 var mail=response.email;
 var reciever=document.getElementById('userinfo').innerHTML.substring(13);
 var firstname=reciever;
-});
- }
-   
-	 	  $.ajax({
+	  $.ajax({
   url: 'http://test.enterpriseesolutions.com/mail2?mail='+mail+'&reciever='+reciever+'&firstname='+firstname+'&type='+type+'&charge='+charge+'&phone='+phone,
   "method": "GET",
   // "data": { "mail": mail }, 
@@ -429,6 +451,10 @@ var firstname=reciever;
   }
   
 });
+});
+ }
+   
+	 
 	  
   
  }
