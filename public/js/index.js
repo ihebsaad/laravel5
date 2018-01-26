@@ -763,7 +763,8 @@ var parsedData = JSON.parse(response.responseText);
 		console.log('parsedData2'+parsedData.description);
 		$scope.next('stageAccount'); 
 	    $scope.$apply();
-		alert(parsedData.description);
+		$("#alertUserExist").slideDown();
+		//alert(parsedData.description);
 		
 
 });
@@ -824,6 +825,7 @@ $.ajax(settings).done(function (response) {
 });
 $.ajax(settings).fail(function (response) {
 	$(".alert-danger").slideDown();
+	
 	var parsedData = JSON.parse(response.responseText);
 		console.log('parsedData2'+parsedData.description);
 

@@ -342,6 +342,10 @@ img.onclick = function(){
 
 
 <div class="col-sm-12" >
+  <div style="display:none;" id="alertUserExist" class="alert alert-danger">
+	  <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+	EMAIL already in use.
+	</div>
                         <div class="row">
                             <div class="col-sm-6 form-group"> <!---->
                                 <input  ng-model="formParams.first" required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="25" type="text" placeholder="First Name" id="firstname" class="form-control">
