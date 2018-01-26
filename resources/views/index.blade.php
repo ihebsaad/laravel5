@@ -1516,12 +1516,8 @@ $(function () {
 <div class="container-triangle"></div>
 <div class="contentcontain">
   <div class="row">
-  <div id='upper-side' >
-  </div>
-      <h3 id='status'>
-      Your account is activated successfully
-    </h3>
-            <button ng-model="test" type="button" ng-click="" class="btn btn-success btn-round" style="float: right;margin-right: 0px;" >OK</button>
+     <h3 id='status'>
+      Your account is activated successfully  </h3>  <button ng-model="test" type="button" ng-click="" class="btn btn-success btn-round" style="float: right;margin-right: 0px;" >OK</button>
   </div>
          
     </div>
