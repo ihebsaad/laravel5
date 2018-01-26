@@ -386,7 +386,7 @@ $(document).on({
  var mail=$scope.formParams.email;
  var reciever='';
  if ($scope.formParams.customer=="existing"){console.log('her0');var reciever=document.getElementById('uinfo').value;}
- else if($scope.formParams.customer=="existing")=="new") { 
+ else if($scope.formParams.customer=="new") { 
  var reciever= $scope.formParams.first+' '+$scope.formParams.last;}
  else
  {
