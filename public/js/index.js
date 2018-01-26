@@ -406,13 +406,11 @@ $(document).on({
 $.ajax(settings2).done(function (response) {
   console.log(response);
   console.log('email= '+response.email);
-var reciever=response.email;
+var mail=response.email;
+var reciever=document.getElementById('userinfo').innerHTML.substring(13);
 });
  }
-var firstname=$scope.formParams.first;
-var type=$scope.formParams.plantypes;
-var charge=$scope.formParams.plancharge;
-var phone=$scope.formParams.phonenumber;
+
    
 	 	  $.ajax({
   url: 'http://test.enterpriseesolutions.com/mail2?mail='+mail+'&reciever='+reciever+'&firstname='+firstname+'&type='+type+'&charge='+charge+'&phone='+phone,
