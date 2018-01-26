@@ -70,7 +70,9 @@ $lname=substr($_SESSION['username'],$pos+1);
  $value='';}
 echo'
 <ul class="nav navbar-nav navbar-right" id="logoutbtn" style="'.$style.'">
-<li><div class="row"><div class="col-sm-9"><h5 id="userinfo">'.$value.'</h5> </div><div class="col-sm-3"><button style="margin-top: 25px;"  onclick="logout();"  class="signin-button login"> Logout</button></div></div></li>
+<li><div class="row">
+<div class="col-sm-9"><h5 id="userinfo">'.$value.'</h5> </div>
+<div class="col-sm-3"><a style="margin-top:10px" href="#" class="btn btn-info " onclick="logout();"> <span  class="glyphicon glyphicon-log-out"></span> Log out</a></div></div></li>
 
 </ul>';
 ?>
