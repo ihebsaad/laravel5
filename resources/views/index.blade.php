@@ -115,7 +115,7 @@ echo'
     <div class="col-sm-4 col-sm-offset-4">
 	
       <form name="login_form" id='login_form'>
-	  <div style="display:none;" class="alert alert-danger">
+	  <div style="display:none;margin-top: 10px;" class="alert alert-danger">
 	  <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
 	WRONG EMAIL OR PASSWORD.
 	</div>
@@ -126,11 +126,11 @@ echo'
     <input  type="password"  class="form-control" id="userpassword" placeholder="Password">
   </div>
   <div class="row" style="margin-top: 20px;">
-  <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
+  <div class="col-sm-7 col-md-7 col-xs-7 col-lg-7 form-group">
      
             <a style="font-size: 16px;" ng-click="next('stageForgotPassword')" href="#">Forgot Password?</a>
         </div>      
- <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
+ <div class="col-sm-5 col-md-5 col-xs-5 col-lg-5 form-group">
             <button ng-model="test" type="button" ng-click="login();" class="btn btn-success btn-round" style="float: right;margin-right: 0px;" >Login</button>
         </div>  
     </div>
@@ -1516,16 +1516,21 @@ $(function () {
 <div class="container-triangle"></div>
 <div class="contentcontain">
   <div class="row">
-    <div class="col-sm-4 col-sm-offset-4">
   <div id='upper-side' >
+    <div class="sa">
+  <div class="sa-success">
+  <div class="sa-success-tip"></div>
+  <div class="sa-success-long"></div>
+  <div class="sa-success-placeholder"></div>
+  <div class="sa-success-fix"></div>
+  </div>
+  </div>
       <h3 id='status'>
       Your account is activated successfully
     </h3>
-  </div>
- <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
             <button ng-model="test" type="button" ng-click="" class="btn btn-success btn-round" style="float: right;margin-right: 0px;" >OK</button>
-        </div>  
-    </div>
+  </div>
+         
     </div>
   </div> 
    </div><!-- End Stage  --> 

@@ -408,6 +408,7 @@ var phone=$scope.formParams.phonenumber;
   var accountId= document.getElementById('accountId').value;
   $scope.loginsignup(accountId);
    $scope.next('stageSuccess');
+   $scope.$apply();
   },error: function(data) {
    console.log('Fail send'+data);
   }
@@ -423,7 +424,10 @@ var phone=$scope.formParams.phonenumber;
   success: function(data) {
    console.log('success send'+data);
    //alert('Your account is activated successfully');
+   $scope.loginsignup( document.getElementById('accountId').value );
    $scope.next('stageSuccess');
+   $scope.$apply();
+
   },error: function(data) {
    console.log('Fail send'+data);
   }
@@ -457,7 +461,9 @@ var firstname=reciever;
   success: function(data) {
    console.log('success send'+data);
    //alert('Your account is activated successfully');
+   $scope.loginsignup( document.getElementById('accountId').value );
    $scope.next('stageSuccess');
+   $scope.$apply();
   },error: function(data) {
    console.log('Fail send'+data);
   }
