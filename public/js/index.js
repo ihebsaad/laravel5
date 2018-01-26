@@ -762,7 +762,7 @@ $.ajax(settings).fail(function (response) {console.log('fail');
 var parsedData = JSON.parse(response.responseText);
 		console.log('parsedData2'+parsedData.description);
 		$scope.next('stageAccount'); 
-	    $scope.$apply();
+	   // $scope.$apply();
 		alert(parsedData.description');
 		
 
