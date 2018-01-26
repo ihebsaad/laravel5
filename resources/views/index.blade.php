@@ -1517,13 +1517,6 @@ $(function () {
 <div class="contentcontain">
   <div class="row">
   <div id='upper-side' >
-    <div class="sa">
-  <div class="sa-success">
-  <div class="sa-success-tip"></div>
-  <div class="sa-success-long"></div>
-  <div class="sa-success-placeholder"></div>
-  <div class="sa-success-fix"></div>
-  </div>
   </div>
       <h3 id='status'>
       Your account is activated successfully
