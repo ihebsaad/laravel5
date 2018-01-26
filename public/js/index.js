@@ -390,7 +390,8 @@ $(document).on({
  var reciever= $scope.formParams.first+' '+$scope.formParams.last;}
  else
  {
-	var access_token=document.getElementById('tokeninput').value; 
+	var token=document.getElementById('tokeninput').value;
+ var  access_token="Bearer "+token;	
   var settings2 = {
   "async": true,
   "crossDomain": true,
@@ -405,7 +406,7 @@ $(document).on({
 $.ajax(settings2).done(function (response) {
   console.log(response);
   console.log('email= '+response.email);
-
+var reciever=response.email;
 });
  var reciever=document.getElementById('userinfo').innerHTML.substring(13);}
 var firstname=$scope.formParams.first;
