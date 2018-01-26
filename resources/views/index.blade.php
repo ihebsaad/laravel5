@@ -338,7 +338,7 @@ img.onclick = function(){
 <div class="contentcontain">
   <div class="row">
    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 " >
-   <div class="row" style="margin-left:15px;margin-right:15px;" id="alertUserExist">  <div style="display:none;"  class="alert alert-danger">
+   <div class="row" style="display:none;" id="alertUserExist">  <div style=" margin-left: 15px; margin-right: 15px; " class="alert alert-danger">
 	  <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
 	EMAIL already in use.
 	</div></div>
