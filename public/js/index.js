@@ -57,10 +57,6 @@ controller('formCtrl', ['$scope', '$http', function($scope, $http) {
             document.getElementById("pagetitle").innerHTML ="Billing Details";
             document.getElementById("pagesubtitle").innerHTML ="";
             break;
-        case 'stageSuccess':
-            document.getElementById("pagetitle").innerHTML ="Thank you";
-            document.getElementById("pagesubtitle").innerHTML ="";
-            break;
         default: 
             document.getElementById("pagetitle").innerHTML ="Activate You SIM";
             document.getElementById("pagesubtitle").innerHTML ="To begin, enter the Activation PIN on your SIM KIT.";
@@ -972,10 +968,6 @@ $.ajax(settings).fail(function (response) {
             break;
         case 'stageBilling':
             document.getElementById("pagetitle").innerHTML ="Billing Details";
-            document.getElementById("pagesubtitle").innerHTML ="";
-            break;
-        case 'stageSuccess':
-            document.getElementById("pagetitle").innerHTML ="Thank you";
             document.getElementById("pagesubtitle").innerHTML ="";
             break;
         default: 
