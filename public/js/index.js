@@ -43,7 +43,7 @@ controller('formCtrl', ['$scope', '$http', function($scope, $http) {
             break;  
         case 'stageForgotPassword':
             document.getElementById("pagetitle").innerHTML ="Forgot your password";
-            document.getElementById("pagesubtitle").innerHTML ="Not a problem. Enter your email adress below and well send you password reset instructions.";
+            document.getElementById("pagesubtitle").innerHTML ="Not a problem. Enter your email address below and well send you password reset instructions.";
             break; 
         case 'stagePlans':
             document.getElementById("pagetitle").innerHTML ="Select your plan";
@@ -55,6 +55,10 @@ controller('formCtrl', ['$scope', '$http', function($scope, $http) {
             break;
         case 'stageBilling':
             document.getElementById("pagetitle").innerHTML ="Billing Details";
+            document.getElementById("pagesubtitle").innerHTML ="";
+            break;
+        case 'stageSuccess':
+            document.getElementById("pagetitle").innerHTML ="Thank you";
             document.getElementById("pagesubtitle").innerHTML ="";
             break;
         default: 
@@ -956,7 +960,7 @@ $.ajax(settings).fail(function (response) {
             break;  
         case 'stageForgotPassword':
             document.getElementById("pagetitle").innerHTML ="Forgot your password";
-            document.getElementById("pagesubtitle").innerHTML ="Not a problem. Enter your email adress below and well send you password reset instructions.";
+            document.getElementById("pagesubtitle").innerHTML ="Not a problem. Enter your email address below and well send you password reset instructions.";
             break; 
         case 'stagePlans':
             document.getElementById("pagetitle").innerHTML ="Select your plan";
@@ -968,6 +972,10 @@ $.ajax(settings).fail(function (response) {
             break;
         case 'stageBilling':
             document.getElementById("pagetitle").innerHTML ="Billing Details";
+            document.getElementById("pagesubtitle").innerHTML ="";
+            break;
+        case 'stageSuccess':
+            document.getElementById("pagetitle").innerHTML ="Thank you";
             document.getElementById("pagesubtitle").innerHTML ="";
             break;
         default: 
