@@ -88,7 +88,7 @@ echo'
 </div> <!-- end NAV BAR -->
 <section class="jumbotron text-center">
 <div class="container">
-<h1 class="jumbotron-heading" id="pagetitle">Activate You SIM</h1>
+<h1 class="jumbotron-heading" id="pagetitle">Activate Your SIM</h1>
 <h5 id="pagesubtitle">To begin, enter the Activation PIN on your SIM KIT.</h5>
 </div>
 </section>
@@ -1515,16 +1515,15 @@ $(function () {
 <div class="animate-switch" ng-switch-when="stageSuccess">
 <div class="container-triangle"></div>
 <div class="contentcontain">
-  <div class="row"><div class="col-sm-3 form-group">
+  <div class="row"><div class="col-sm-6 form-group">
      <h3 id='status'>
       Your account is activated successfully  </h3>  </div>
-      <div class="col-sm-3 form-group">
+      <div class="col-sm-6 form-group">
         <button ng-model="test" type="button" ng-click="" class="btn btn-success btn-round" style="float: right;margin-right: 0px;" >OK</button>
       </div>
   </div>
          
     </div>
-  </div> 
    </div><!-- End Stage  --> 
  
 </div><!--   End container  -->		
