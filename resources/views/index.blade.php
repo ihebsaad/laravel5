@@ -123,7 +123,7 @@ echo'
     <input  type="email"  ng-model="formParams.email" required ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" class="form-control" id="useremail" placeholder="Email Address">
   </div>
   <div class="form-group">
-    <input  type="password"  class="form-control" id="userpassword" placeholder="Password">
+    <input  type="password"  ng-model="formParams.passwordlogin" class="form-control" id="userpassword" placeholder="Password" ng-pattern="/^(?=.*\d)(?=.*[A-Z])/"   required ng-minlength="8">
   </div>
   <div class="row" style="margin-top: 20px;">
   <div class="col-sm-7 col-md-7 col-xs-7 col-lg-7 form-group">
@@ -131,7 +131,7 @@ echo'
             <a style="font-size: 16px;" ng-click="next('stageForgotPassword')" href="#">Forgot Password?</a>
         </div>      
  <div class="col-sm-5 col-md-5 col-xs-5 col-lg-5 form-group">
-            <button ng-model="test" type="button" ng-click="login();" class="btn btn-success btn-round" style="float: right;margin-right: 0px;" >Login</button>
+            <button ng-model="test" type="button" ng-click="login();" class="btn btn-success btn-round" ng-disabled=" FormActivate.$invalid" style="float: right;margin-right: 0px;" >Login</button>
         </div>  
     </div>
 </form>
@@ -181,7 +181,7 @@ echo'
             <a href="#" style="font-size:  18px;"  ng-click="back('stageLogin')">Cancel</a>
         </div>      
    <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 form-group">
-            <button type="button" ng-click="resetpassword();" class="btn btn-success btn-round" id="sendpwd" style="float: right;margin-right: 0px;" >Send</button>
+            <button type="button" ng-click="resetpassword();" class="btn btn-success btn-round" ng-disabled=" FormActivate.$invalid" id="sendpwd" style="float: right;margin-right: 0px;" >Send</button>
         </div>  
    </div>
 </form>
