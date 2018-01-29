@@ -1137,6 +1137,8 @@ $('#alertUserExist').css('display', 'none');
 	}
    $scope.search.province=Text;
     $('#divnumbers').css('display', 'none');
+$scope.formParams.phonenumber="";
+  document.getElementById('next4').disabled=true;
 
   }
 
@@ -1156,7 +1158,9 @@ $('#alertUserExist').css('display', 'none');
 	   $scope.search.city=Text;
    $('#divnumbers').css('display', 'none');
 
- 
+ $scope.formParams.phonenumber="";
+   document.getElementById('next4').disabled=true;
+
 }
 
    $scope.area = function () 
@@ -1173,6 +1177,8 @@ $('#alertUserExist').css('display', 'none');
 	   $scope.search.areaCode=Text;
 
    $('#divnumbers').css('display', 'block');
+$scope.formParams.phonenumber="";
+  document.getElementById('next4').disabled=true;
 
   }
 
