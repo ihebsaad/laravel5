@@ -631,8 +631,8 @@ html|* > svg {
 /* background img */
 body {
 /*background:url(public/back3.jpeg) no-repeat center center fixed;*/
-/*background:url(../background-.jpg) no-repeat center center fixed;
-background-size:cover;*/
+background:url(../background-.jpg) no-repeat center center fixed;
+background-size:cover;
 }
 /* page title section */
 .jumbotron {
