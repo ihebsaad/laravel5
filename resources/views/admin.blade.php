@@ -123,7 +123,7 @@
   
  var email= document.getElementById('useremail').value;
 var upassword= document.getElementById('userpassword').value;
-	var datatosend='{\"grant_type\":\"client_credentials\",\"username\": \"'+email+'\",\"password\": \"'+upassword+'\",\"audience\": \"https://iristelx.auth0.com/api/v2/\", \"connection\": \"Admin-Username-Password-Authentication\", \"client_id\": \"YoP9NqMrBM8vAN54ghQAHOh26x8vzY2g\", \"client_secret\": \"cpmLerk2uWdI2rA1hf9qMVpENpc-7kxf-4kVeM1HMeQq8JJpb54MNgsdUdVA9p19\"}';
+	var datatosend='{\"grant_type\":\"http://auth0.com/oauth/grant-type/password-realm\",\"username\": \"'+email+'\",\"password\": \"'+upassword+'\",\"audience\": \"https://iristelx.auth0.com/api/v2/\", \"realm\": \"Admin-Username-Password-Authentication\", \"client_id\": \"YoP9NqMrBM8vAN54ghQAHOh26x8vzY2g\", \"client_secret\": \"cpmLerk2uWdI2rA1hf9qMVpENpc-7kxf-4kVeM1HMeQq8JJpb54MNgsdUdVA9p19\"}';
 console.log('data to send '+datatosend);
 var settings = {
   "async": true,
@@ -139,7 +139,7 @@ var settings = {
 
 
 $.ajax(settings).done(function (response) {
-    var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
+    var newURL = window.location.protocol + "//" + window.location.host;
 	if(window.location.host=="127.0.0.1")
 	{newURL="http://127.0.0.1/laravel5/";}
   var  token=response.access_token;
