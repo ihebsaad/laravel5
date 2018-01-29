@@ -17,9 +17,9 @@ $startNow = 'true';
 /************************* Transactional Variables ****************************/
 
 $orderId = 'recurIristel-'.date("dmy-G:i:s");
-$custId = 'student_number';
-$creditCard = '5454545454545454';
-$nowAmount = '10.00';
+$custId = 'heythemtest';
+$creditCard = '654654';
+$nowAmount = '50.00';
 $expiryDate = '0918';
 $cryptType = '7';
 
@@ -65,7 +65,18 @@ $mpgTxn->setRecur($mpgRecur);
 		/*************************** Response *********************************/ 
 		 
 		$mpgResponse=$mpgHttpPost->getMpgResponse(); 
-		print($mpgResponse->getTxnNumber());
+
+		$respcode = $mpgResponse->getResponseCode();
+
+		if ((int)$respcode < 50)
+		{ print($mpgResponse->getTxnNumber()); }
+		else
+		{
+			echo '</br>';
+			print($mpgResponse->getResponseCode());
+			echo '</br>ERROR:';
+			print($mpgResponse->getMessage());
+		}
 ?>
 
      

@@ -125,8 +125,18 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 		/*print("\nCardType = " . $mpgResponse->getCardType()); print("\nTransAmount = " . $mpgResponse->getTransAmount()); print("\nTxnNumber = " . $mpgResponse->getTxnNumber()); print("\nReceiptId = " . $mpgResponse->getReceiptId()); print("\nTransType = " . $mpgResponse->getTransType()); print("\nReferenceNum = " . $mpgResponse->getReferenceNum()); print("\nResponseCode = " . $mpgResponse->getResponseCode()); print("\nISO = " . $mpgResponse->getISO()); print("\nMessage = " . $mpgResponse->getMessage()); print("\nAuthCode = " . $mpgResponse->getAuthCode()); print("\nComplete = " . $mpgResponse->getComplete()); print("\nTransDate = " . $mpgResponse->getTransDate()); print("\nTransTime = " . $mpgResponse->getTransTime()); print("\nTicket = " . $mpgResponse->getTicket()); print("\nTimedOut = " . $mpgResponse->getTimedOut()); 
 		//print("\nAVSResponse = " . $mpgResponse->getAvsResultCode()); 
 		print("\nCVDResponse = " . $mpgResponse->getCvdResultCode()); print("\nITDResponse = " . $mpgResponse->getITDResponse()); */
-	
-		echo $mpgResponse->getTxnNumber();
+		$respcode = $mpgResponse->getResponseCode();
+
+		if ((int)$respcode < 50)
+		{ print($mpgResponse->getTxnNumber()); }
+		else
+		{
+			/*echo '</br>';
+			print($mpgResponse->getResponseCode());
+			echo '</br>ERROR:';
+			print($mpgResponse->getMessage());*/
+			print ('null');
+		}
  }
  else
 	{
