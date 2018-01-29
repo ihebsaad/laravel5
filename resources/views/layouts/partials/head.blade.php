@@ -28,11 +28,10 @@ html|* > svg {
     transform-origin: 50% 50% 0px;
 }
 /* background img */
-body {
-/*background:url(public/back3.jpeg) no-repeat center center fixed;*/
+/*body {
 background:url(public/background-.jpg) no-repeat center center fixed;
 background-size:cover;
-}
+}*/
 /* page title section */
 .jumbotron {
     border-radius: none!important;
@@ -112,6 +111,7 @@ border-radius: 1rem!important;
   	height: auto;
     padding-top: 20px;
 }
+/*
 .contentcontain{
     margin: 0 auto!important;
     background: #ffffff;
@@ -136,7 +136,7 @@ border-radius: 1rem!important;
     color: #464646;
     background-color: #ebebeb;
     border-color: #a5a8ab;
-}
+}*/
 button {cursor: pointer;}
 /* selectable div */
 #selectable .ui-selected {
