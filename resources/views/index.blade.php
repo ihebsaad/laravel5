@@ -1384,7 +1384,7 @@ $(function () {
 <div class="container center_div">
 <div style="display:none;margin-top: 10px;" class="alert alert-danger" id="failpay">
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
-  PAYMENT DECLINES, PLEASE CHECK YOUR INFORMATIONS AND RETRY.
+  PAYMENT DECLINES, PLEASE CHECK YOUR INFORMATION AND RETRY.
   </div>
     <fieldset class="scheduler-border" style="padding-top: 20px!important;">
         <legend class="scheduler-border" style="color: grey;">Total Due Today</legend>
