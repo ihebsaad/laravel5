@@ -1545,7 +1545,7 @@ Form : <p>@{{formParams}}</p>-->
  
 <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-animate.min.js'></script> 
-<script  src="public/js/ui-bootstrap-2.5.0.min.js"></script>
+<!--<script  src="public/js/ui-bootstrap-2.5.0.min.js"></script>-->
 
 
  <script  src="public/js/index.js"></script>

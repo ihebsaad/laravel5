@@ -1,7 +1,7 @@
 'use strict';
 //angular.module('myModule', ['ui.bootstrap']);
 angular.module('formApp', [
-  'ui.bootstrap'
+  'ngAnimate'
 ]).
 controller('formCtrl', ['$scope', '$http', function($scope, $http) {
   $scope.formParams = {};
