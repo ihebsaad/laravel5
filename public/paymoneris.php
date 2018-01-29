@@ -135,7 +135,7 @@ if (isset ( $_POST["cvv"]) && isset ( $_POST["creditCard"]) && isset ( $_POST["c
 			print($mpgResponse->getResponseCode());
 			echo '</br>ERROR:';
 			print($mpgResponse->getMessage());*/
-			print ('null');
+			print ('Array');
 		}
  }
  else
