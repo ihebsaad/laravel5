@@ -12,7 +12,7 @@
     margin-top: 10px;
     margin-left: 40px;
 }
-svg:not(:root) {
+/*svg:not(:root) {
     overflow: hidden;
 }
 
@@ -26,7 +26,7 @@ svg:not(:root), symbol, image, marker, pattern, foreignObject {
 
 html|* > svg {
     transform-origin: 50% 50% 0px;
-}
+}*/
 /* background img */
 /*body {
 background:url(public/background-.jpg) no-repeat center center fixed;

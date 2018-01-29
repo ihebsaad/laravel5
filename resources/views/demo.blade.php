@@ -95,8 +95,7 @@
 </div>
 </section>
 
-<div class="container-triangle"></div>
-<div class="contentcontain">
+
 <div class="container center_div" style=" padding-right: 10px; padding-left: 25px; padding-top: 55px; padding-bottom: 15px;" >
 <!--<div class="row">
 <div class="form-group col-xs-5 col-lg-offset-5" style="text-align: center;">
@@ -123,7 +122,6 @@
   <span class="close">&times;</span>
   <img class="modal-content" id="img01">
   <div id="caption"></div>
-</div>
 </div>
 </div>
 <script>
