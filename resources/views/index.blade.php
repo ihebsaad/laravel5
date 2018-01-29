@@ -1382,7 +1382,10 @@ $(function () {
 <div class="container-triangle"></div>
 <div class="contentcontain" style="height:800px"> 
 <div class="container center_div">
-
+<div style="display:none;margin-top: 10px;" class="alert alert-danger" id="failpay">
+    <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+  PAYMENT DECLINES, PLEASE CHECK YOUR INFORMATIONS AND RETRY.
+  </div>
     <fieldset class="scheduler-border" style="padding-top: 20px!important;">
         <legend class="scheduler-border" style="color: grey;">Total Due Today</legend>
         <div class="col-sm-12 col-md-12 col-lg-12">

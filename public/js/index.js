@@ -931,7 +931,8 @@ var res = $.ajax(settings).done(function (response) {
    if ((document.getElementById('transactionid').value == "empty") || 
    (document.getElementById('transactionid').value.startsWith("Array")) ||  (document.getElementById('transactionid').value.startsWith("null")))
   {
-    alert ( "Transaction Fail !");
+    //alert ( "Transaction Fail !");
+    $("#failpay").slideDown();
   }
   else{
 	  if($scope.formParams.customer=="new"){
