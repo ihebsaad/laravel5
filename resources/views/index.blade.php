@@ -1516,9 +1516,9 @@ $(function () {
 <div class="container-triangle"></div>
 <div class="contentcontain">
   <div class="row" style="margin-top:50px;margin-left:100px;margin-right:100px;">
-     <h3 id="status">
-      Your SIM is activated successfully  </h3>
-        <button ng-model="test" type="button" ng-click="" class="btn btn-success btn-round ng-pristine ng-untouched ng-valid ng-empty" style="float: right;margin-right: 0px;">OK</button>
+     <h3 id="status" class="alert alert-info">
+      Your SIM was activated successfully ! </h3>
+        <button ng-model="test" type="button" ng-click="Finish();" class="btn btn-success btn-round ng-pristine ng-untouched ng-valid ng-empty" style="float: right;margin-right: 0px;">OK</button>
   </div>
          
     </div>

@@ -424,7 +424,7 @@ var phone=$scope.formParams.phonenumber;
   success: function(data) {
    console.log('success send'+data);
    //alert('Your account is activated successfully');
-   $scope.loginsignup( document.getElementById('accountId').value );
+   //$scope.loginsignup( document.getElementById('accountId').value );
    $scope.next('stageSuccess');
    $scope.$apply();
 
@@ -477,6 +477,22 @@ var firstname=reciever;
   
  }
 /***************** End ServiceAdditionEmail  ******************/ 
+
+/***************** Finish  ******************/ 
+$scope.Finish = function() {
+
+ if($scope.formParams.customer=="new"){
+	$scope.loginsignup( document.getElementById('accountId').value );
+//redirect	
+
+	 
+ }
+ else{
+	//redirect 
+	 
+ }
+ }
+/***************** End Finish  ******************/ 
  
  
 /***************** Add Automatic Payment  ******************/
