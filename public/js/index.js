@@ -923,7 +923,7 @@ var res = $.ajax(settings).done(function (response) {
 
  console.log('response done payement : ' + response);
 
-    document.getElementById('transactionid').value=response;
+    document.getElementById('transactionid').value=response.replace(/(\r\n|\n|\r)/gm,"");
  
    if ((document.getElementById('transactionid').value == "empty") || 
    (document.getElementById('transactionid').value.startsWith("Array")) ||  (document.getElementById('transactionid').value=="null"))
