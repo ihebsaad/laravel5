@@ -927,7 +927,7 @@ var res = $.ajax(settings).done(function (response) {
     console.log('length : ' + document.getElementById('transactionid').value.length);
  
    if ((document.getElementById('transactionid').value == "empty") || 
-   (document.getElementById('transactionid').value.startsWith("Array")) ||  (document.getElementById('transactionid').value=="null"))
+   (document.getElementById('transactionid').value.startsWith("Array")) ||  (document.getElementById('transactionid').value.startsWith("null")))
   {
     alert ( "Transaction Fail !");
   }
