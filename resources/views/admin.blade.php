@@ -35,11 +35,9 @@
  $loggedin=false;}
  if (isset ($_SESSION['usernameA']))
  {
-   $pos = strpos($_SESSION['usernameA'], '/');
-$fname=substr($_SESSION['usernameA'],0,$pos);
-$lname=substr($_SESSION['usernameA'],$pos+1);
+
    $value1='Logged in as ';
-   $value2=$fname.' '.$lname;
+   $value2=$_SESSION['usernameA'];
 
  }else{
  $value1='';$value2='';
@@ -309,8 +307,8 @@ if(newURL=="http://127.0.0.1"){newURL=newURL+"/laravel5";}
   document.getElementById('userinfo').innerHTML=response.nickname+'</B>';
   document.getElementById('uinfo').value=response.nickname;
 console.log('uinfo'+document.getElementById('uinfo').value);
-console.log(''+newURL+'/public/session_writea2.php?username='+response.nickname);
-	jQuery('#div_session_write2').load(''+newURL+'/public/session_writea2.php?username='+response.nickname);
+console.log(''+newURL+'/public/session_writea2.php?usernameA='+response.nickname);
+	jQuery('#div_session_write2').load(''+newURL+'/public/session_writea2.php?usernameA='+response.nickname);
 });
 }
     
@@ -364,8 +362,8 @@ $.ajax(settings).done(function (response) {
   var  token=response.access_token;
 
    var  access_token="Bearer "+token;
-   console.log('before load');
-  	 jQuery('#div_session_write').load(''+newURL+'public/session_writea.php?access_token='+token);
+   console.log(''+newURL+'/public/session_writea.php?access_tokenA='+token);
+  	 jQuery('#div_session_write').load(''+newURL+'/public/session_writea.php?access_tokenA='+token);
  console.log('after load');	
 	document.getElementById('tokeninput').value = token;
 	//show user info
@@ -481,16 +479,16 @@ $(document).on({
 
   function logout() {
 
-var URL = window.location.protocol + "//" + window.location.host ;
+var URL = window.location.protocol + "//" + window.location.host + window.location.pathname;
  
-  var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
- 
+  var newURL = window.location.protocol + "//" + window.location.host;
+ if(newURL=="http://127.0.0.1"){newURL=newURL+"/laravel5";}
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('GET',''+newURL+'public/session_destroy.php', true);
+    xmlhttp.open('GET',''+newURL+'/public/session_destroy.php', true);
     xmlhttp.onreadystatechange=function(){
        if (xmlhttp.readyState == 4){
           if(xmlhttp.status == 200){
-			  if (newURL=='http://127.0.0.1/laravel5/'){
+			  if (newURL=='http://127.0.0.1/laravel5/activate/admin'){
 				   window.location.replace(newURL);
 			  }
 			  else{
