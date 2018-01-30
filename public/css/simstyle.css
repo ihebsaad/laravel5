@@ -302,6 +302,17 @@ border-radius: 1rem!important;
         min-height: 300px!important;
         max-height: 850px!important;
         max-width: 350px!important;
+        width:300px!important;
+      }
+      .animate-switch-container {
+        height: 350px!important;
+        width: 350px!important;
+        border: solid 1px black;
+        box-shadow: 6px 6px 15px gray;
+        padding:10px;
+        border-radius:10px;
+
+        background-size: 50px 50px;
       }
   }
 button {cursor: pointer;}
@@ -731,7 +742,7 @@ border-radius: 1rem!important;
 .contentcontain{
     margin: 0 auto!important;
     background: #ffffff;
-    min-width: 400px!important;
+    /*min-width: 340px!important;*/
     min-height: 500px!important;
     max-height: 790px!important;
     max-width: 855px!important;
