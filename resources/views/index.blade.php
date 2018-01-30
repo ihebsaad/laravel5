@@ -120,6 +120,7 @@ echo'
 	  <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
 	WRONG EMAIL OR PASSWORD.
 	</div>
+	
   <div class="form-group" style="margin-top: 30px;">
     <input  type="email"  ng-model="formParams.email" required ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" class="form-control" id="useremail" placeholder="Email Address">
   </div>
@@ -172,6 +173,10 @@ echo'
 	<div style="display:none;" id="Wmailrequired" class="alert alert-warning">
 	  <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
 	The email is required.
+	</div>
+	<div id="emailnotfound" style="display:none;margin-top: 10px;" class="alert alert-danger">
+	  <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+	NON-EXISTENT EMAIL .
 	</div>
   <div class="form-group">
     <input type="email" ng-model="formParams.email" required ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" class="form-control" id="useremail2" placeholder="Email Address">
