@@ -1,10 +1,17 @@
+<?php session_start(); ?>
+ <?php
+ \Log::info('Visit Iristel Administration Portal');
+  if (isset ($_SESSION['access_tokenA']))
+ {echo ' <input type="hidden" id="tokeninput" value="'.$_SESSION["access_tokenA"].'" />';}
+ else{echo ' <input type="hidden" id="tokeninput" />';}
+?>
 <!DOCTYPE html>
 <html lang="en" >
 
 <head>
   <meta charset="UTF-8">  
   <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
-  <link rel="stylesheet" href="css/style.css">
+  <!--<link rel="stylesheet" href="../public/css/style.css">-->
    <script  src="../public/js/jquery-3.2.1.min.js" type="text/javascript"> </script>
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js'></script>
@@ -12,8 +19,40 @@
 </head>
 
 <body>
+ <input type="hidden" name="uinfo" id="uinfo" />
+   <div id='div_session_write' style="display:none;"> </div>
+   <div id='div_session_write2' style="display:none;"> </div>
+       <div id="navbar-collapse" class="collapse navbar-collapse">
+       <?php
 
-  
+  if (isset ($_SESSION['access_tokenA']))
+ {$style='display:block;';
+  $loggedin=true;
+
+  }else{
+ $style='display:none';
+ 
+ $loggedin=false;}
+ if (isset ($_SESSION['usernameA']))
+ {
+   $pos = strpos($_SESSION['usernameA'], '/');
+$fname=substr($_SESSION['usernameA'],0,$pos);
+$lname=substr($_SESSION['usernameA'],$pos+1);
+   $value1='Logged in as ';
+   $value2=$fname.' '.$lname;
+
+ }else{
+ $value1='';$value2='';
+ }
+echo'
+<ul class="nav navbar-nav navbar-right" id="logoutbtn" style="'.$style.'">
+<li><div class="row"><style> .logout a:hover{background-color:#049afe!important;}</style>
+<div class="col-sm-10"><br><B style="font-size:12px;margin-top:20px;  " ><span id="userinfo0" style="font-size:16px;">'.$value1.'</span><span style="font-size:16px;color:#049afe" id="userinfo">'.$value2.'</span></B> </div>
+<div class="logout col-sm-2"><a style="background-color:#006fb9;margin-top:10px" href="#" class="btn btn-info " onclick="logout();"> <span   class="glyphicon glyphicon-log-out"></span> Log out</a></div></div></li>
+
+</ul>';
+?>
+        </div>
 
 <main ng-app="formApp" ng-controller="formCtrl" ng-cloak>
   <div class="container">
@@ -146,7 +185,7 @@
 <div class="animate-switch"  ng-switch-default>
 <section class="jumbotron text-center">
 <div class="container">
-<div id='div_session_write' style="display:none;"> </div>
+
 <h1 class="jumbotron-heading">Admin Login</h1>
 </div>
 </section>
@@ -172,7 +211,7 @@
             <a style="font-size: 16px;"  ng-click="next('stageForgotPassword')" href="#">Forgot Password?</a>
         </div>      
  <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
-            <button ng-model="test" type="button" ng-click="login();" class="btn btn-success btn-round" style="float: right;margin-right: 0px;" >Login</button>
+            <button ng-model="test" type="button" onclick="login();" class="btn btn-success btn-round" style="float: right;margin-right: 0px;" >Login</button>
         </div>  
     </div>
 </form>
@@ -221,7 +260,7 @@
             <a href="#" style="font-size:  18px;"  ng-click="back('')">Cancel</a>
         </div>      
    <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 form-group">
-            <button type="button" ng-click="resetpassword();" class="btn btn-success btn-round" id="sendpwd" style="float: right;margin-right: 0px;" >Send</button>
+            <button type="button" onclick="resetpassword();" class="btn btn-success btn-round" id="sendpwd" style="float: right;margin-right: 0px;" >Send</button>
         </div>  
    </div>
 </form>
@@ -246,5 +285,225 @@
 
 
 </body>
+<script>
+//@Ran
+    function showusermetadata (access_token,user_id) {
+	     var settings2 = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://iristelx.auth0.com/api/v2/users/"+user_id,
+  "method": "GET",
+  "headers": {
+    "authorization": access_token
+  },
+  "data": "{}"
+}
 
+$.ajax(settings2).done(function (response) {
+	   var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
+
+	console.log('response show metaddata1'+response.nickname);     
+   document.getElementById('logoutbtn').style.display="block";
+   document.getElementById('userinfo0').innerHTML="Logged in as ";
+ 
+  document.getElementById('userinfo').innerHTML=response.nickname+'</B>';
+  document.getElementById('uinfo').value=response.nickname;
+console.log('uinfo'+document.getElementById('uinfo').value);
+	jQuery('#div_session_write2').load(''+newURL+'public/session_writea2.php?username='+response.nickname);
+});
+}
+    
+    function showuserinfo(access_token) {
+
+  var settings2 = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://iristelx.auth0.com/userinfo",
+  "method": "GET",
+  "headers": {
+    "authorization": access_token
+  },
+  "data": "{}"
+}
+
+$.ajax(settings2).done(function (response) {
+  console.log(response);
+  console.log('id= '+response.sub);
+  showusermetadata(access_token,response.sub);
+
+});
+}
+
+    /*********          Login            ********/
+   
+  function login() {
+
+  
+ var email= document.getElementById('useremail').value;
+var upassword= document.getElementById('userpassword').value;
+	var datatosend='{\"grant_type\":\"http://auth0.com/oauth/grant-type/password-realm\",\"username\": \"'+email+'\",\"password\": \"'+upassword+'\",\"audience\": \"https://iristelx.auth0.com/api/v2/\", \"realm\": \"Admin-Username-Password-Authentication\", \"client_id\": \"YoP9NqMrBM8vAN54ghQAHOh26x8vzY2g\", \"client_secret\": \"cpmLerk2uWdI2rA1hf9qMVpENpc-7kxf-4kVeM1HMeQq8JJpb54MNgsdUdVA9p19\",\"scope\":\"openid\"}';
+console.log('data to send: '+datatosend);
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://iristelx.auth0.com/oauth/token",
+  "method": "POST",
+  "headers": {
+    "content-type": "application/json"
+  },
+  "processData": false,
+  "data": datatosend
+  }
+
+
+$.ajax(settings).done(function (response) {
+    var newURL = window.location.protocol + "//" + window.location.host;
+	if(window.location.host=="127.0.0.1")
+	{newURL="http://127.0.0.1/laravel5/";}
+  var  token=response.access_token;
+
+   var  access_token="Bearer "+token;
+   console.log('before load');
+  	 jQuery('#div_session_write').load(''+newURL+'public/session_writea.php?access_token='+token);
+ console.log('after load');	
+	document.getElementById('tokeninput').value = token;
+	//show user info
+	 console.log('after save');
+	if (document.getElementById('tokeninput').value == null){
+	token= document.getElementById('div_session_write').innerHTML.substr(26);
+	
+	}
+	else {token= document.getElementById('tokeninput').value;}
+	 access_token="Bearer "+token;
+		console.log(access_token);
+	showuserinfo(access_token);
+
+});
+$.ajax(settings).fail(function (response) {
+	$(".alert-danger").slideDown();
+console.log('fail2');
+
+});
+
+
+}
+
+ /******** end login ********/
+ 
+ 
+
+ 
+ /******** Reset password ********/
+ 
+ function resetpassword(){
+	  document.getElementById("Ssent").style.display="none";
+	  document.getElementById("Wmailrequired").style.display="none";
+	  document.getElementById("emailnotfound").style.display="none";
+	  email= document.getElementById('useremail2').value;
+if(email==""){$("#Wmailrequired").slideDown();}
+else{
+	
+	var settings0 = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://iristelx.auth0.com/oauth/token",
+  "method": "POST",
+  "headers": {
+    "content-type": "application/json"
+  },
+  "processData": false,
+  "data": '{\"grant_type\":\"client_credentials\",\"client_id\": \"YoP9NqMrBM8vAN54ghQAHOh26x8vzY2g\",\"client_secret\": \"cpmLerk2uWdI2rA1hf9qMVpENpc-7kxf-4kVeM1HMeQq8JJpb54MNgsdUdVA9p19\",\"audience\": \"https://iristelx.auth0.com/api/v2/\"}'
+
+  }
+
+
+$.ajax(settings0).done(function (response) {
+	
+  var  token=response.access_token;
+
+   var  access_token="Bearer "+token;
+   	var settings1 = {
+  "async": true,
+  "crossDomain": true,
+  "url": 'https://iristelx.auth0.com/api/v2/users?q="'+email+'"',
+  "method": "GET",
+  "headers": {
+    "content-type": "application/json",
+	 "authorization": access_token
+  },
+  "processData": false,
+  "data": ''
+
+  }
+  $.ajax(settings1).done(function (response) {
+  //console.log(response[0].identities[0].connection);
+  if(response.length==0){$("#emailnotfound").slideDown();}
+  else if(response[0].identities[0].connection=="Admin-Username-Password-Authentication"){
+var datatosend='{\"client_id\": \"YoP9NqMrBM8vAN54ghQAHOh26x8vzY2g\",\"email\": \"'+email+'\",\"connection\": \"Admin-Username-Password-Authentication\"}';
+
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://iristelx.auth0.com/dbconnections/change_password",
+  "method": "POST",
+  "headers": {
+    "content-type": "application/json"
+  },
+  "processData": false,
+  "data": datatosend
+  }
+
+
+$.ajax(settings).done(function (response) {
+  
+  $(".alert-success").slideDown();
+  
+});
+	  
+  }
+  });
+  $.ajax(settings1).fail(function (response) {console.log(response);});
+});
+ 
+}	  
+  }
+	
+  /******** end Reset password ********/
+ var $body = $("body");
+
+$(document).on({
+    ajaxStart: function() { console.log('start');$body.addClass("loading");    },
+     ajaxStop: function() { $body.removeClass("loading"); }    
+}); 
+
+/******** logout ********/
+
+  function logout() {
+
+var URL = window.location.protocol + "//" + window.location.host ;
+ 
+  var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
+ 
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('GET',''+newURL+'public/session_destroy.php', true);
+    xmlhttp.onreadystatechange=function(){
+       if (xmlhttp.readyState == 4){
+          if(xmlhttp.status == 200){
+			  if (newURL=='http://127.0.0.1/laravel5/'){
+				   window.location.replace(newURL);
+			  }
+			  else{
+				   window.location.replace(URL);
+			  }     
+         }
+       }
+    };
+    xmlhttp.send(null);
+		  
+  }
+  
+
+ /******** end logout ********/
+ 
+</script>
 </html>
