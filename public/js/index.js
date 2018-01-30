@@ -180,7 +180,7 @@ switch (parseInt(province)) {
 	  
 	 	$scope.init = function () {
 			if(document.getElementById('pin').value >999){ $('#pin').css('border', '1px solid #5cb85c');}
-			//document.getElementById('pinmessage').innerHTML='';
+			
 		 $('#pinmessage').css('display', 'none');
 		 $('#pinmessage2').css('display', 'none');
 		}
@@ -192,16 +192,14 @@ switch (parseInt(province)) {
 		$scope.pin = document.getElementById('pin').value;
 	 	 $('#pin').css('border', '1px solid #FA5858');
 
-		for(var i = 0; i < $scope.DataPins.length; i++) {
+		for(var i = 0; i < ($scope.DataPins.length); i++) {
 			// pin existe
-			if ($scope.DataPins[i].pin == $scope.pin) {
+				if ($scope.DataPins[i].pin == $scope.pin) {
+				console.log('pin exists');
 				 if ($scope.DataPins[i].enabled==0)
 				 { // pin not active
-					 $scope.existe = true;
+			 		 $scope.existe = true;
 					 $('#pin').css('border', '1px solid #5cb85c');
-					//$('#pinmessage').css('display', 'none');
-					//
-					//document.getElementById('pinmessage').innerHTML='';
 						$scope.next('stageTypeCustomer');
 						$('#pinmessage').css('display', 'none');
 						$('#pinmessage2').css('display', 'none');
@@ -210,28 +208,31 @@ switch (parseInt(province)) {
 				 }
 				 
 				 else{
-
+                     console.log('pin exists and enabled');
 					 // Pin already Activated
-					// $('#pinmessage').css('display', 'block');
 					  $('#pin').css('border', '1px solid #FA5858');		
-					//document.getElementById('pinmessage').innerHTML='Pin Already Activated' 
-					$("#pinmessage2").slideDown();
-					;break
+						$("#pinmessage2").slideDown();
+						$('#pinmessage').css('display', 'none');
+					break;
 				 }
 			
-				} else {
+				} 
+		}
+	
+		if ((i == ($scope.DataPins.length)) && ($scope.DataPins[($scope.DataPins.length)-1].pin != $scope.pin))
+		{
 					$('#pin').css('border', '1px solid #FA5858');
-					//document.getElementById('pinmessage').innerHTML='Incorrect Pin' ;
 					$("#pinmessage").slideDown();
+					console.log('Incorrect Pin !');
+					console.log('I='+i);
 					 $('#pinmessage2').css('display', 'none');
 
 					}
-		}
   
  	}
 
 	 	$scope.checkPin2 = function () {
-			console.log('enter to checkPin ');
+			console.log('enter to checkPin2 ');
 		 $('#pinmessage').css('display', 'none');
 		 $('#pinmessage2').css('display', 'none');
 		$scope.pin = document.getElementById('pin').value;
@@ -261,18 +262,28 @@ switch (parseInt(province)) {
 					  $('#pin').css('border', '1px solid #FA5858');		
 					//document.getElementById('pinmessage').innerHTML='Pin Already Activated' 
 					$("#pinmessage2").slideDown();
-					;break
+					break;
 				
 				 }
 			
-				} else {
+				else {
 					$('#pin').css('border', '1px solid #FA5858');
 					//document.getElementById('pinmessage').innerHTML='Incorrect Pin' ;
 					$("#pinmessage").slideDown();
 					 $('#pinmessage2').css('display', 'none');
-
+                  break;
 					}
 		}
+		}
+		if ((i == ($scope.DataPins.length)) && ($scope.DataPins[($scope.DataPins.length)-1].pin != $scope.pin))
+		{
+					$('#pin').css('border', '1px solid #FA5858');
+					$("#pinmessage").slideDown();
+					console.log('Incorrect Pin !');
+					console.log('I='+i);
+					 $('#pinmessage2').css('display', 'none');
+
+					}
   
  	}	
 	
