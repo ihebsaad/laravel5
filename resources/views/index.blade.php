@@ -348,19 +348,19 @@ img.onclick = function(){
 <div class="col-sm-12" >
  
                         <div class="row">
-                            <div class="col-sm-6 form-group"> <!---->
-                                <input  ng-model="formParams.first" name="first" required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="25" type="text" placeholder="First Name" id="firstname" class="form-control">
+                            <div class="col-sm-6 form-group">  
+                                <input  ng-model="formParams.first" name="first" required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="25" type="text" placeholder="First Name *" id="firstname" class="form-control">
                             </div>
                             <div class="col-sm-6 form-group">
-                                <input ng-model="formParams.last" name="last" type="text" required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="25" placeholder="Last Name" id="lastname" class="form-control">
+                                <input ng-model="formParams.last" name="last" type="text" required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="25" placeholder="Last Name *" id="lastname" class="form-control">
                             </div>
                         </div> 
                         <div class="row">
                             <div class="col-sm-4 form-group">
-                                <input ng-model="formParams.streetnum" name="streetnum" required type="number" ng-pattern="/^[0-9]*$/" placeholder="Street #" ng-minlength="1" ng-maxlength="4" id="address1" class="form-control">                         
+                                <input ng-model="formParams.streetnum" name="streetnum" required type="number" ng-pattern="/^[0-9]*$/" placeholder="Street # *" ng-minlength="1" ng-maxlength="4" id="address1" class="form-control">                         
 						  </div>      
                             <div class="col-sm-8 form-group">
-                                <input ng-model="formParams.streetname" name="streetname"  required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="35" id="address2" type="text" placeholder="Street Name" class="form-control">
+                                <input ng-model="formParams.streetname" name="streetname"  required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="35" id="address2" type="text" placeholder="Street Name *" class="form-control">
                             </div>  
                         </div>
                         <div class="row">
@@ -371,25 +371,25 @@ img.onclick = function(){
                                 <input ng-model="formParams.box" type="number" name="box"   ng-pattern="/^[a-zA-Z0-9 ]*$/" ng-minlength="1" ng-maxlength="5" placeholder="PO BOX" class="form-control">
                             </div>  
                             <div class="col-sm-4 form-group">
-                                <input ng-model="formParams.postal" type="text" name="postal" required ng-pattern="/^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/" ng-minlength="6" ng-maxlength="7" placeholder="Postal Code" class="form-control">
+                                <input ng-model="formParams.postal" type="text" name="postal" required ng-pattern="/^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/" ng-minlength="6" ng-maxlength="7" placeholder="Postal Code *" class="form-control">
                             </div>      
                         </div>
                         <div class="row">
                             <div class="col-sm-6 form-group">
-                                <input ng-model="formParams.city" type="text" name="city"  required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="2" ng-maxlength="25" placeholder="City" class="form-control">
+                                <input ng-model="formParams.city" type="text" name="city"  required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="2" ng-maxlength="25" placeholder="City *" class="form-control">
                             </div>      
                             <div class="col-sm-6 form-group">
-                                <input ng-model="formParams.province" type="text" name="province"  required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="2" ng-maxlength="2" placeholder="Province" class="form-control">
+                                <input ng-model="formParams.province" type="text" name="province"  required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="2" ng-maxlength="2" placeholder="Province *" class="form-control">
                             </div>  
                         </div>
                             
                     <div class="form-group">
-                        <input type="email"  id="email"  required ng-model="formParams.email" name="email2" placeholder="Email Address" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" class="form-control">
+                        <input type="email"  id="email"  required ng-model="formParams.email" name="email2" placeholder="Email Address *" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" class="form-control">
                     </div>  
                      <div class="row" style="margin-bottom: 20px;">
                          <div class="col-sm-6 form-group" style="margin-top: 20px!important;">
-                             <input ng-model="formParams.password" ng-pattern="/^(?=.*\d)(?=.*[A-Z])/" name="password2"    required id="password" type="password" ng-minlength="8" ng-maxlength="25" class="form-control ex-input" placeholder="Password" /></br>
-                             <input ng-model="formParams.confirm"  required id="confirm_password" type="password"  name="confirm"  data-match="FormActivate.password" class="form-control ex-input" placeholder="Re-Type Password" />
+                             <input ng-model="formParams.password" ng-pattern="/^(?=.*\d)(?=.*[A-Z])/" name="password2"    required id="password" type="password" ng-minlength="8" ng-maxlength="25" class="form-control ex-input" placeholder="Password *" /></br>
+                             <input ng-model="formParams.confirm"  required id="confirm_password" type="password"  name="confirm"  data-match="FormActivate.password" class="form-control ex-input" placeholder="Re-Type Password *" />
                              <span id='message' style="font-size: 12px;float:right;"></span>
  					   </div>
                          <div class="col-sm-6 form-group" >
