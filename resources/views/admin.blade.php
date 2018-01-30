@@ -484,7 +484,8 @@ var URL = window.location.protocol + "//" + window.location.host + window.locati
   var newURL = window.location.protocol + "//" + window.location.host;
  if(newURL=="http://127.0.0.1"){newURL=newURL+"/laravel5";}
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('GET',''+newURL+'/public/session_destroy.php', true);
+    xmlhttp.open('GET',''+newURL+'/public/session_destroyA.php', true);
+   console.log(''+newURL+'/public/session_destroyA.php');
     xmlhttp.onreadystatechange=function(){
        if (xmlhttp.readyState == 4){
           if(xmlhttp.status == 200){
