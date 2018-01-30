@@ -849,7 +849,11 @@ var parsedData = JSON.parse(response.responseText);
 		console.log('parsedData2'+parsedData.description);
 		$scope.next('stageAccount'); 
 	    $scope.$apply();
-		$("#alertUserExist").slideDown();
+		if(parsedData.description=="The user already exists."){
+		$("#alertUserExist").slideDown();}
+		else{
+	   $("#failsignup").slideDown();
+		}
 		//alert(parsedData.description);
 		
 
@@ -1101,6 +1105,7 @@ $scope.Next="stageAccount";
 $scope.Next2="stageAccount";
 //document.getElementById("alertUserExist").style.display="none";
 $('#alertUserExist').css('display', 'none');
+$('#failsignup').css('display', 'none');
 }
 
   // Post to desired exposed web service.

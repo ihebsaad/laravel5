@@ -342,6 +342,10 @@ img.onclick = function(){
 	  <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
 	EMAIL already in use.
 	</div></div>
+	<div class="row" style="display:none;" id="failsignup">  <div style=" margin-left: 15px; margin-right: 15px; " class="alert alert-danger">
+	  <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+	New account creation failed. Please try again.
+	</div></div>
 <div class="container center_div well" style="padding-bottom:80px;padding-top:60px">
 
 
