@@ -17,7 +17,7 @@
 <style>.contentcontain{ border :5px solid  #006fb9;}</style>
 <head>
   <meta charset="UTF-8">  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
   <link rel="stylesheet" href="public/css/simstyle.css">
  	 <script  src="public/js/jquery-3.2.1.min.js" type="text/javascript"> </script>
@@ -113,11 +113,11 @@ echo'
 
 
   <div class="row">
-    <div class="col-sm-4 col-sm-offset-4">
+    <div class="col-sm-4 col-sm-offset-4" id="loginform">
 	
       <form name="login_form" id='login_form'>
 	  <div style="display:none;margin-top: 10px;" class="alert alert-danger">
-	  <button type="button" data-dismiss="alert" aria-hidden="true" class="close">Ã—</button>
+	  <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
 	WRONG EMAIL OR PASSWORD.
 	</div>
   <div class="form-group" style="margin-top: 30px;">
@@ -161,16 +161,16 @@ echo'
   <div class="row"  style="margin-top: 20px;">
  <div class="col-md-2 col-sm-2 col-xs-2 col-lg-2 ">
  </div>
- <div class="col-md-8 col-sm-8 col-xs-8 col-lg-8 ">
+ <div class="col-md-8 col-sm-8 col-xs-8 col-lg-8 "  id="forgetform">
 
 
   <form name="pwd_form" id='pwd_form'>
     <div style="display:none;" id="Ssent" class="alert alert-success">
-	  <button type="button" data-dismiss="alert" aria-hidden="true" class="close">Ã—</button>
+	  <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
 	We've just sent you an email to reset your password.
 	</div>
 	<div style="display:none;" id="Wmailrequired" class="alert alert-warning">
-	  <button type="button" data-dismiss="alert" aria-hidden="true" class="close">Ã—</button>
+	  <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
 	The email is required.
 	</div>
   <div class="form-group">
@@ -339,7 +339,7 @@ img.onclick = function(){
   <div class="row">
    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 " >
    <div class="row" style="display:none;" id="alertUserExist">  <div style=" margin-left: 15px; margin-right: 15px; " class="alert alert-danger">
-	  <button type="button" data-dismiss="alert" aria-hidden="true" class="close">Ã—</button>
+	  <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
 	EMAIL already in use.
 	</div></div>
 <div class="container center_div well" style="padding-bottom:80px;padding-top:60px">
@@ -379,7 +379,7 @@ img.onclick = function(){
                                 <input ng-model="formParams.city" type="text" name="city"  required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="2" ng-maxlength="25" placeholder="City" class="form-control">
                             </div>      
                             <div class="col-sm-6 form-group">
-                                <input ng-model="formParams.province" type="text" name="province"  required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="1" ng-maxlength="2" placeholder="Province" class="form-control">
+                                <input ng-model="formParams.province" type="text" name="province"  required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="2" ng-maxlength="2" placeholder="Province" class="form-control">
                             </div>  
                         </div>
                             
@@ -405,164 +405,158 @@ img.onclick = function(){
             
 				</div>
 					<!-- Validations   class="alert alert-danger" -->
-					<div style="min-height:200px;padding:20px 20px 20px 20px;" class="row "  ng-show="!FormActivate.$valid">
+					<div style="height:150px;padding:20px 20px 20px 20px;" >
+					<div class="row "  ng-show="!FormActivate.$valid">
 					<table  style="color:red;font-weight:bold"  >
 					 <tr>
 					 <td style="margin-right:20px"><small    ng-show="FormActivate.first.$error.pattern">
-						First Name should be letters only !Â Â 
+						First Name should be letters only !  
 						</small></td>
 						<td style="margin-right:20px"><small    ng-show="FormActivate.first.$error.minlength">
-						First Name is too short !Â Â 
+						First Name is too short !  
 						</small></td>
 						<td><small  ng-show="FormActivate.first.$error.maxlength">
-						First Name is too long !Â Â 
+						First Name is too long !  
 						</small></td>
 						
 					</tr>
 					<tr ng-show="FormActivate.first.$valid" >
 					<td style="margin-right:20px"><small    ng-show="FormActivate.last.$error.pattern">
-						Last name should be letters only !Â Â 
+						Last name should be letters only !  
 						</small></td>
 						<td style="margin-right:20px"><small   ng-show="FormActivate.last.$error.minlength">
-						Last name is too short !Â Â 
+						Last name is too short !  
 						</small></td>
 						<td><small  ng-show="FormActivate.last.$error.maxlength">
-						Last name is too long !Â Â 
+						Last name is too long !  
 						</small></td>
 						
 					</tr>
 
 					<tr ng-show="FormActivate.first.$valid && FormActivate.last.$valid" >
 					<td style="margin-right:20px"><small    ng-show="FormActivate.streetnum.$error.number">
-						Street number should be numbers only !Â Â 
+						Street number should be numbers only !  
 						</small></td>
-						<td style="margin-right:20px"><small   ng-show="FormActivate.streetnum.$error.required">
-						Street number is required !Â Â 
+						<td style="margin-right:20px"><small   ng-show="FormActivate.streetnum.$error.required && (FormActivate.streetnum.$dirty || FormActivate.streetnum.$touched ||FormActivate.streetname.$touched )">
+						Street number is required !  
 						</small></td>
 						<td><small  ng-show="FormActivate.streetnum.$error.maxlength">
-						Street number is too long !Â Â 
+						Street number is too long !  
 						</small></td>
-						
 					</tr>
-
 					<tr ng-show="FormActivate.first.$valid && FormActivate.last.$valid && FormActivate.streetnum.$valid " >
 					<td style="margin-right:20px"><small    ng-show="FormActivate.streetname.$error.pattern">
-						Street name should be Letters only !Â Â 
+						Street name should be Letters only !  
 						</small></td>
 						<td style="margin-right:20px"><small   ng-show="FormActivate.streetname.$error.minlength">
-						Street name is too short !Â Â 
+						Street name is too short !  
 						</small></td>
 						<td><small  ng-show="FormActivate.streetname.$error.maxlength">
-						Street name is too long !Â Â 
+						Street name is too long !  
 						</small></td>
 						
 					</tr>
 
 					<tr ng-show="FormActivate.first.$valid && FormActivate.last.$valid && FormActivate.streetnum.$valid && FormActivate.streetname.$valid" >
 					<td style="margin-right:20px"><small    ng-show="FormActivate.unit.$error.number">
-						Unit should be Numbers only !Â Â 
+						Unit should be Numbers only !  
 						</small></td>
-						<td style="margin-right:20px"><small   ng-show="FormActivate.unit.$error.required">
-						Unit is required !Â Â 
+						<td style="margin-right:20px"><small   ng-show="FormActivate.unit.$error.required && (FormActivate.unit.$dirty || FormActivate.unit.$touched || FormActivate.box.$touched ) ">
+						Unit is required !  
 						</small></td>
 						<td><small  ng-show="FormActivate.unit.$error.maxlength">
-						Unit is too long !Â Â 
+						Unit is too long !  
 						</small></td>
 						
 					</tr>	
 
 					<tr ng-show="FormActivate.first.$valid && FormActivate.last.$valid && FormActivate.streetnum.$valid && FormActivate.streetname.$valid && FormActivate.unit.$valid" >
 					<td style="margin-right:20px"><small    ng-show="FormActivate.box.$error.number">
-						Box should be numbers only !Â Â 
+						Box should be numbers only !  
 						</small></td>
-						<td style="margin-right:20px"><small   ng-show="FormActivate.box.$error.required">
-						Box is required !Â Â 
+						<td style="margin-right:20px"><small   ng-show="FormActivate.box.$error.required && (FormActivate.box.$dirty || FormActivate.box.$touched || FormActivate.postal.$touched )">
+						Box is required !  
 						</small></td>
 						<td><small  ng-show="FormActivate.box.$error.maxlength">
-						Box is too long !Â Â 
+						Box is too long !  
 						</small></td>
 						
 					</tr>
 
 					<tr ng-show="FormActivate.first.$valid && FormActivate.last.$valid && FormActivate.streetnum.$valid && FormActivate.streetname.$valid && FormActivate.unit.$valid && FormActivate.box.$valid " >
 					<td style="margin-right:20px"><small    ng-show="FormActivate.postal.$error.pattern">
-						Postal code format is incorrect !Â Â 
-						</small></td>
-						<td style="margin-right:20px"><small   ng-show="FormActivate.postal.$error.minlength">
-						Postal code is too short !Â Â 
+						Postal code format is incorrect !  
+						</small></td><td></td><td></td>
+						<td style="margin-right:20px"><small   ng-show="FormActivate.box.$error.required &&FormActivate.postal.$error.minlength &&  (FormActivate.postal.$dirty || FormActivate.postal.$touched || FormActivate.city.$touched )">
+						Postal code is too short !  
 						</small></td>
 						<td><small  ng-show="FormActivate.postal.$error.maxlength">
-						Postal code is too long !Â Â 
+						Postal code is too long !  
 						</small></td>
 						
 					</tr>
 
 					<tr ng-show="FormActivate.first.$valid && FormActivate.last.$valid && FormActivate.streetnum.$valid && FormActivate.streetname.$valid && FormActivate.unit.$valid && FormActivate.box.$valid && FormActivate.postal.$valid " >
 					<td style="margin-right:20px"><small    ng-show="FormActivate.city.$error.pattern">
-						City should be letters only !Â Â 
+						City should be letters only !  
 						</small></td>
 						<td style="margin-right:20px"><small   ng-show="FormActivate.city.$error.minlength">
-						City is too short !Â Â 
+						City is too short !  
 						</small></td>
 						<td><small  ng-show="FormActivate.city.$error.maxlength">
-						City is too long !Â Â 
+						City is too long !  
 						</small></td>
 						
 					</tr>
 
 					<tr ng-show="FormActivate.first.$valid && FormActivate.last.$valid && FormActivate.streetnum.$valid && FormActivate.streetname.$valid && FormActivate.unit.$valid && FormActivate.box.$valid && FormActivate.postal.$valid && FormActivate.city.$valid " >
 					<td style="margin-right:20px"><small    ng-show="FormActivate.province.$error.pattern">
-						Province should be letters only !Â Â 
+						Province should be letters only !  
 						</small></td>
 						<td style="margin-right:20px"><small   ng-show="FormActivate.province.$error.minlength">
-						Province is too short !Â Â 
+						Province is too short !  
 						</small></td>
 						<td><small  ng-show="FormActivate.province.$error.maxlength">
-						Province is too long !Â Â 
+						Province is too long !  
 						</small></td>
 						
 					</tr>
 
 					<tr ng-show="FormActivate.first.$valid && FormActivate.last.$valid && FormActivate.streetnum.$valid && FormActivate.streetname.$valid && FormActivate.unit.$valid && FormActivate.box.$valid && FormActivate.postal.$valid && FormActivate.city.$valid && FormActivate.province.$valid " >
-					<td style="margin-right:20px"><small    ng-show="FormActivate.email2.$error.email">
-						Email is incorrect !Â Â 
+					<td style="margin-right:20px"><small    ng-show="FormActivate.email2.$error.pattern">
+						Email is incorrect !  
 						</small></td>
 						<td style="margin-right:20px"><small   ng-show="FormActivate.email2.$error.minlength">
-						Email  is too short !Â Â 
+						Email  is too short !  
 						</small></td>
 						<td><small  ng-show="FormActivate.email2.$error.maxlength">
-						Email  is too long !Â Â 
+						Email  is too long !  
 						</small></td>
 						
 					</tr>
 
 					<tr ng-show="FormActivate.first.$valid && FormActivate.last.$valid && FormActivate.streetnum.$valid && FormActivate.streetname.$valid && FormActivate.unit.$valid && FormActivate.box.$valid && FormActivate.postal.$valid && FormActivate.city.$valid && FormActivate.province.$valid && FormActivate.email2.$valid " >
-					<td style="margin-right:20px"><small    ng-show="FormActivate.password.$error.pattern">
-						Password format is incorrect !Â Â 
-						</small></td>
-						<td style="margin-right:20px"><small   ng-show="FormActivate.password.$error.minlength">
-						Password is too short !Â Â 
-						</small></td>
-						<td><small  ng-show="FormActivate.password.$error.maxlength">
-						Password is too long !Â Â 
+					<td style="margin-right:20px"><small    ng-show="FormActivate.password2.$error.pattern">
+						Password format is incorrect !  
+						</small></td><td></td>
+						<td><small  ng-show="FormActivate.password2.$error.maxlength">
+						Password is too long !  
 						</small></td>
 						
 					</tr>
 
 					<tr ng-show="FormActivate.first.$valid && FormActivate.last.$valid && FormActivate.streetnum.$valid && FormActivate.streetname.$valid && FormActivate.unit.$valid && FormActivate.box.$valid && FormActivate.postal.$valid && FormActivate.city.$valid && FormActivate.province.$valid && FormActivate.email2.$valid && FormActivate.password.$valid " >
 					<td style="margin-right:20px"><small    ng-show="FormActivate.confirm.$error.pattern">
-						Password confirmation format is incorrect !Â Â 
+						Password confirmation format is incorrect !  
 						</small></td>
-						<td style="margin-right:20px"><small   ng-show="FormActivate.confirm.$error.minlength">
-						Password confirmation is too short !Â Â 
-						</small></td>
+						</td>
 						<td><small  ng-show="FormActivate.confirm.$error.maxlength">
-						Password confirmation is too long !Â Â 
+						Password confirmation is too long !  
 						</small></td>
 						
 					</tr>						
 					</table>
-					</div>
+					</div></div>
 				
 			</div>
 	
@@ -1543,7 +1537,7 @@ $(function () {
 <div class="contentcontain" style="height:800px"> 
 <div class="container center_div">
 <div style="display:none;margin-top: 10px;" class="alert alert-danger" id="failpay">
-    <button type="button" data-dismiss="alert" aria-hidden="true" class="close">Ã—</button>
+    <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
   PAYMENT DECLINES, PLEASE CHECK YOUR INFORMATION AND RETRY.
   </div>
     <fieldset class="scheduler-border" style="padding-top: 20px!important;">
@@ -1568,7 +1562,7 @@ $(function () {
                     &nbsp;
                 </div>
                 <div class="col-sm-6 col-md-6 col-lg-6">
-                    <span style="font-size:15px;color:grey;float:right"id="taxes"   >TaxesÂ ( <label  style="font-wight:normal;" ng-bind="formParams.tax">  </label> %) </span> 
+                    <span style="font-size:15px;color:grey;float:right"id="taxes"   >Taxes ( <label  style="font-wight:normal;" ng-bind="formParams.tax">  </label> %) </span> 
 					 
                 </div>
                 <div class="col-sm-3 col-md-3 col-lg-3 " style="font-size:15px;color:grey;" >
@@ -1626,7 +1620,7 @@ $(function () {
         <div class="row" style="margin-left: 0px">
             <div class="checkbox" style="color: #464a4c;">
                 <input type="hidden" name="transactionid" id="transactionid" ng-model="formParams.transactionid"/>
-                <label><input id="atotopup" name="atotopup" ng-model="formParams.autopay" type="checkbox" value=""><span class="cr"><i class="cr-icon" style="font-size: 18px;left: 0px"><b>âœ“</b></i></span>  <b>Automatically Topup my account every 30 days</b></label>
+                <label><input id="atotopup" name="atotopup" ng-model="formParams.autopay" type="checkbox" value=""><span class="cr"><i class="cr-icon" style="font-size: 18px;left: 0px"><b>?</b></i></span>  <b>Automatically Topup my account every 30 days</b></label>
             </div>
         </div>
 		<div class="row" style="margin-top: 20px;">
@@ -1653,7 +1647,7 @@ $(function () {
     </div>
     <div class="row" style="margin-left: -10px;margin-top: 20px;">
             <div class="checkbox" style="color: #464a4c;">
-                <label><input required id="atotopup2" name="atotopup2" ng-model="atotopup2" type="checkbox" value=""><span class="cr"><i class="cr-icon" style="font-size: 18px;left: 0px"><b>âœ“</b></i></span>  <b>I accept the terms of services</b></label>
+                <label><input required id="atotopup2" name="atotopup2" ng-model="atotopup2" type="checkbox" value=""><span class="cr"><i class="cr-icon" style="font-size: 18px;left: 0px"><b>?</b></i></span>  <b>I accept the terms of services</b></label>
             </div>
         </div>
     </div>
