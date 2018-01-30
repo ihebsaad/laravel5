@@ -313,8 +313,13 @@ border-radius: 1rem!important;
         box-shadow: 6px 6px 15px gray;
         padding:10px;
         border-radius:10px;
-
         background-size: 50px 50px;
+      }
+      #selectable {
+        margin-left: 33px!important;
+      }
+      .ui-state-default > h5 {
+          font-size: 20px!important;
       }
   }
 button {cursor: pointer;}
