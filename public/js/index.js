@@ -266,13 +266,7 @@ switch (parseInt(province)) {
 				
 				 }
 			
-				else {
-					$('#pin').css('border', '1px solid #FA5858');
-					//document.getElementById('pinmessage').innerHTML='Incorrect Pin' ;
-					$("#pinmessage").slideDown();
-					 $('#pinmessage2').css('display', 'none');
-                  break;
-					}
+			
 		}
 		}
 		if ((i == ($scope.DataPins.length)) && ($scope.DataPins[($scope.DataPins.length)-1].pin != $scope.pin))
