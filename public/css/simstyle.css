@@ -289,6 +289,21 @@ border-radius: 1rem!important;
   	height: auto;
     padding-top: 20px;
 }
+@media only screen and (max-device-width: 480px) {
+      .center_div{
+        max-width: 350px!important;
+      }
+      #myImg {
+        width:320px!important; /* you can use % */
+        height: auto;
+      }
+      .contentcontain{
+        min-width: 320px!important;
+        min-height: 300px!important;
+        max-height: 850px!important;
+        max-width: 350px!important;
+      }
+  }
 button {cursor: pointer;}
 
 
