@@ -302,7 +302,7 @@ border-radius: 1rem!important;
       .contentcontain{
         min-width: 320px!important;
         min-height: 300px!important;
-        max-height: 850px!important;
+        max-height: 1050px!important;
         max-width: 350px!important;
         width:300px!important;
       }
@@ -318,8 +318,13 @@ border-radius: 1rem!important;
       #selectable {
         margin-left: 33px!important;
       }
+      #loginform {width:95%!important; margin-left:30px; }
+      #forgetform {width:105%!important; padding-left:20px; }
       .ui-state-default > h5 {
           font-size: 20px!important;
+      }
+      .container.center_div.well {
+          margin-left: 20px!important;
       }
   }
 button {cursor: pointer;}
@@ -751,7 +756,7 @@ border-radius: 1rem!important;
     background: #ffffff;
     /*min-width: 340px!important;*/
     min-height: 500px!important;
-    max-height: 790px!important;
+    max-height: 790px;
     max-width: 855px!important;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     border-radius: 0.4rem!important;
