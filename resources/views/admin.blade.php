@@ -5,6 +5,8 @@
   <meta charset="UTF-8">  
   <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
   <link rel="stylesheet" href="css/style.css">
+   <script  src="../public/js/jquery-3.2.1.min.js" type="text/javascript"> </script>
+
     <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-animate.min.js'></script>
 </head>
@@ -26,7 +28,7 @@
       <div ng-switch on="stage" ng-class="{forward: direction, backward:!direction}">
 	  	
 		<!--   Stage 0     -->
-        <div class="animate-switch" ng-switch-default>
+        <div class="animate-switch" ng-switch-when="stage0">
          
 		 
 		    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 ">
@@ -141,7 +143,7 @@
       </div> <!-- End  ALL Stages  -->	
   
 <!--   Stage 4  : STAGE LOGIN   ------------------------------------------------------------>
-<div class="animate-switch" ng-switch-when="stageLogin">
+<div class="animate-switch"  ng-switch-default>
 <section class="jumbotron text-center">
 <div class="container">
 <div id='div_session_write' style="display:none;"> </div>
@@ -167,7 +169,7 @@
   <div class="row" style="margin-top: 20px;">
   <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
      
-            <a style="font-size: 16px;"  href="#">Forgot Password?</a>
+            <a style="font-size: 16px;"  ng-click="next('stageForgotPassword')" href="#">Forgot Password?</a>
         </div>      
  <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
             <button ng-model="test" type="button" ng-click="login();" class="btn btn-success btn-round" style="float: right;margin-right: 0px;" >Login</button>
@@ -216,7 +218,7 @@
  </div>
   <div class="row" style="margin-top: 20px;">
    <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 form-group">
-            <a href="#" style="font-size:  18px;"  ng-click="back('stageLogin')">Cancel</a>
+            <a href="#" style="font-size:  18px;"  ng-click="back('')">Cancel</a>
         </div>      
    <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 form-group">
             <button type="button" ng-click="resetpassword();" class="btn btn-success btn-round" id="sendpwd" style="float: right;margin-right: 0px;" >Send</button>
@@ -232,14 +234,14 @@
 
 </div> <!-- End Stage  -->
 
-
+</div>
   </form>
 
 	
-  </div>
+  </div><!-- container -->
 </main>
 
-    <script  src="js/admin.js"></script>
+    <script  src="../public/js/admin.js"></script>
 
 
 
