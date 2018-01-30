@@ -1,34 +1,145 @@
-<?php session_start(); ?>
-<?php 
-    header("Access-Control-Allow-Origin: *");
-    header("Access-Control-Allow-Headers: Authorization");
-    header("Access-Control-Allow-Methods: GET,HEAD,PUT,PATCH,POST,DELETE");
-?>
-
- <?php
-  if (isset ($_SESSION['access_token']))
- {echo ' <input type="hidden" id="tokeninput" value="'.$_SESSION["access_token"].'" />';}
- else{echo ' <input type="hidden" id="tokeninput" />';}
-?>
-
 <!DOCTYPE html>
 <html lang="en" >
 
 <head>
   <meta charset="UTF-8">  
   <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
-  <link rel="stylesheet" href="../public/css/style.css">
- 	 <script  src="../public/js/jquery-3.2.1.min.js" type="text/javascript"> </script>
-  <title>SIM Activation</title>
- <!--   <link href="https://cdn.auth0.com/styleguide/4.8.10/index.min.css" rel="stylesheet" />-->
-  <style> input.ng-valid.ng-dirty  {border:1px solid #5cb85c;}  input.ng-invalid.ng-dirty {border:1px solid #FA5858;}   </style>
-
-<script src="https://cdn.auth0.com/js/auth0/9.0.1/auth0.min.js"></script>
-
-
+  <link rel="stylesheet" href="css/style.css">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-animate.min.js'></script>
 </head>
+
 <body>
 
+  
+
+<main ng-app="formApp" ng-controller="formCtrl" ng-cloak>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">&nbsp;</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+       </div>
+    </div>
+    <form name="FormActivate" class="form-validation" role="form" novalidate>
+      <div ng-switch on="stage" ng-class="{forward: direction, backward:!direction}">
+	  	
+		<!--   Stage 0     -->
+        <div class="animate-switch" ng-switch-default>
+         
+		 
+		    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 ">
+			<div class="row" style="margin-top: 20px;">
+			<!-- Buttons Next & Previous -->
+			<div class="col-sm-9 col-md-9 col-xs-9 col-lg-9 form-group">
+			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('')"><i class="icnleft"></i>  Back</button>  
+			</div>
+            <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3 form-group">
+				<button type="button" style="float:right" class="btn btn-primary btn btn-success btn-previous btn-md" id="stage1"  ng-click="next('stage1')">Next  <i class="icnright"></i></button>
+            </div>
+			</div>
+            </div>
+        </div> <!-- End Stage  -->
+		
+		<!--   Stage 1     -->
+		<div class="animate-switch" ng-switch-when="stage1">
+		<h1>Louckup</h1>
+<div style="width:600px">		
+<label>Serach Pin: <input type="number" ng-change="init()" ng-model="search.pin" ></label> <button ng-click="loockup()"> loockup</button><br>
+ 
+<div id="searcharea" style=" ">     
+<table id="searchObjResults" style="width:200px">
+  <tr><th>PIN</th><th>SIM</th></tr>
+  <tr ng-repeat="data in DataPins | filter : search | limitTo:5">
+    <td ng-bind="data.pin"> </td>
+    <td ng-bind="data.sim"></td>
+  </tr>
+</table> 
+</div></br>
+<div id="pinarea" style=" ;display:none">     
+<div ng-repeat="data in DataPins | filter : search | limitTo:1">
+<table>
+<tr><td>PIN : 	</td><td ng-bind="data.pin"></td></tr>
+<tr><td>SIM : 	</td><td ng-bind="data.sim"></td></tr>
+<tr><td>Status :</td><td  ><span   ng-if="data.enabled == 1">Enabled</span> <span   ng-if="data.enabled == 0">Disabled</span> </td></tr>
+</table>	
+</div>
+</div>	 
+		<!--<ul>
+<div ng-repeat="data in DataPins"   >
+         <li ng-bind="data.pin">  </li>
+         <li ng-bind="data.sim">  </li>
+     </div></ul>-->	
+			
+			<div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 ">
+			<div class="row" style="margin-top: 20px;">
+			<!-- Buttons Next & Previous -->
+			<div class="col-sm-9 col-md-9 col-xs-9 col-lg-9 form-group">
+			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('stage1')"><i class="icnleft"></i>  Back</button>  
+			</div>
+            <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3 form-group">
+				<button type="button" style="float:right" class="btn btn-primary btn btn-success btn-previous btn-md" id="stage2"  ng-click="next('stage2')">Next  <i class="icnright"></i></button>
+            </div>
+			</div>
+            </div>
+        </div> <!-- End Stage 1 -->
+
+		<!--   Stage 2     -->
+		<div class="animate-switch" ng-switch-when="stage2">
+				<h1>Stage 2</h1>
+
+   <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 ">
+			<div class="row" style="margin-top: 20px;">
+			<!-- Buttons Next & Previous -->
+			<div class="col-sm-9 col-md-9 col-xs-9 col-lg-9 form-group">
+			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('stage2')"><i class="icnleft"></i>  Back</button>  
+			</div>
+            <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3 form-group">
+				<button type="button" style="float:right" class="btn btn-primary btn btn-success btn-previous btn-md" ng-click="next('stage3')">Next  <i class="icnright"></i></button>
+            </div>
+			</div>
+            </div>
+        </div> <!-- End Stage  2-->
+		
+		<!--   Stage 3     -->
+		<div class="animate-switch" ng-switch-when="stage3">
+				<h1>Stage 3</h1>
+
+   <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 ">
+			<div class="row" style="margin-top: 20px;">
+			<!-- Buttons Next & Previous -->
+			<div class="col-sm-9 col-md-9 col-xs-9 col-lg-9 form-group">
+			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('stage2')"><i class="icnleft"></i>  Back</button>  
+			</div>
+            <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3 form-group">
+				<button type="button" style="float:right" class="btn btn-primary btn btn-success btn-previous btn-md"  ng-click="next('stage4')">Next  <i class="icnright"></i></button>
+            </div>
+			</div>
+            </div>
+        </div> <!-- End Stage  3-->
+ 
+		<!--   Stage 4     -->
+		<div class="animate-switch" ng-switch-when="stage4">
+		<h1>Stage 4</h1>
+
+		<div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 ">
+			<div class="row" style="margin-top: 20px;">
+			<!-- Buttons Next & Previous -->
+			<div class="col-sm-9 col-md-9 col-xs-9 col-lg-9 form-group">
+			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('stage3')"><i class="icnleft"></i>  Back</button>  
+			</div>
+            <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3 form-group">
+				<button type="button" style="float:right" class="btn btn-primary btn btn-success btn-previous btn-md" ng-click="" >Next  <i class="icnright"></i></button>
+            </div>
+			</div>
+            </div>
+        </div> <!-- End Stage  -->
+
+ 
+		
+      </div> <!-- End  ALL Stages  -->	
+  
 <!--   Stage 4  : STAGE LOGIN   ------------------------------------------------------------>
 <div class="animate-switch" ng-switch-when="stageLogin">
 <section class="jumbotron text-center">
@@ -59,7 +170,7 @@
             <a style="font-size: 16px;"  href="#">Forgot Password?</a>
         </div>      
  <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
-            <button ng-model="test" type="button" onclick="login();" class="btn btn-success btn-round" style="float: right;margin-right: 0px;" >Login</button>
+            <button ng-model="test" type="button" ng-click="login();" class="btn btn-success btn-round" style="float: right;margin-right: 0px;" >Login</button>
         </div>  
     </div>
 </form>
@@ -94,6 +205,11 @@
 	  <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
 	The email is required.
 	</div>
+	<div id="emailnotfound" style="display:none;margin-top: 10px;" class="alert alert-danger">
+	  <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+	NON-EXISTENT EMAIL .
+	</div>
+	
   <div class="form-group">
     <input type="email" ng-model="formParams.email" required ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" class="form-control" id="useremail2" placeholder="Email Address">
                   
@@ -103,7 +219,7 @@
             <a href="#" style="font-size:  18px;"  ng-click="back('stageLogin')">Cancel</a>
         </div>      
    <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 form-group">
-            <button type="button" onclick="resetpassword();" class="btn btn-success btn-round" id="sendpwd" style="float: right;margin-right: 0px;" >Send</button>
+            <button type="button" ng-click="resetpassword();" class="btn btn-success btn-round" id="sendpwd" style="float: right;margin-right: 0px;" >Send</button>
         </div>  
    </div>
 </form>
@@ -115,96 +231,18 @@
 
 
 </div> <!-- End Stage  -->
-<script type="text/javascript">
-  /*********          Login            ********/
-   
-  function login() {
-
-  
- var email= document.getElementById('useremail').value;
-var upassword= document.getElementById('userpassword').value;
-	var datatosend='{\"grant_type\":\"http://auth0.com/oauth/grant-type/password-realm\",\"username\": \"'+email+'\",\"password\": \"'+upassword+'\",\"audience\": \"https://iristelx.auth0.com/api/v2/\", \"realm\": \"Admin-Username-Password-Authentication\", \"client_id\": \"YoP9NqMrBM8vAN54ghQAHOh26x8vzY2g\", \"client_secret\": \"cpmLerk2uWdI2rA1hf9qMVpENpc-7kxf-4kVeM1HMeQq8JJpb54MNgsdUdVA9p19\"}';
-console.log('data to send '+datatosend);
-var settings = {
-  "async": true,
-  "crossDomain": true,
-  "url": "https://iristelx.auth0.com/oauth/token",
-  "method": "POST",
-  "headers": {
-    "content-type": "application/json"
-  },
-  "processData": false,
-  "data": datatosend
-  }
 
 
-$.ajax(settings).done(function (response) {
-    var newURL = window.location.protocol + "//" + window.location.host;
-	if(window.location.host=="127.0.0.1")
-	{newURL="http://127.0.0.1/laravel5/";}
-  var  token=response.access_token;
+  </form>
 
-   var  access_token="Bearer "+token;
-   console.log('before load');
-  	 jQuery('#div_session_write').load(''+newURL+'public/session_write.php?access_token='+token);
- console.log('after load');	
-	document.getElementById('tokeninput').value = token;
-	//show user info
-	 console.log('after save');
-	if (document.getElementById('tokeninput').value == null){
-	token= document.getElementById('div_session_write').innerHTML.substr(26);
 	
-	}
-	else {token= document.getElementById('tokeninput').value;}
-	 access_token="Bearer "+token;
-	
-	//$scope.showuserinfo(access_token);
-	//$scope.next('stagePlans'); 
-	//$scope.$apply();
-	//////////
-});
-$.ajax(settings).fail(function (response) {
-	$(".alert-danger").slideDown();
-console.log('fail2');
+  </div>
+</main>
 
-});
+    <script  src="js/admin.js"></script>
 
 
-}
-
- /******** end login ********/
-  function resetpassword(){
-	  document.getElementById("Ssent").style.display="none";
-	  document.getElementById("Wmailrequired").style.display="none";
-	  email= document.getElementById('useremail2').value;
-if(email==""){$(".alert-warning").slideDown();}
-else{
-	var datatosend='{\"client_id\": \"YoP9NqMrBM8vAN54ghQAHOh26x8vzY2g\",\"email\": \"'+email+'\",\"connection\": \"Admin-Username-Password-Authentication\"}';
-
-
-	console.log('data to send '+datatosend);
-var settings = {
-  "async": true,
-  "crossDomain": true,
-  "url": "https://iristelx.auth0.com/dbconnections/change_password",
-  "method": "POST",
-  "headers": {
-    "content-type": "application/json"
-  },
-  "processData": false,
-  "data": datatosend
-  }
-
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
-  $(".alert-success").slideDown();
-});
-	  
-}	  
-  }
-
-</script>
 
 </body>
+
 </html>
