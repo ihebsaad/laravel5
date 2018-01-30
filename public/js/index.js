@@ -56,6 +56,8 @@ controller('formCtrl', ['$scope', '$http', function($scope, $http) {
         case 'stageBilling':
             document.getElementById("pagetitle").innerHTML ="Billing Details";
             document.getElementById("pagesubtitle").innerHTML ="";
+			$('#failpay').css('display', 'none');
+			$('#failactivation').css('display', 'none');
             break;
         default: 
             document.getElementById("pagetitle").innerHTML ="Activate You SIM";
@@ -649,7 +651,7 @@ $.ajax(settings).fail(function (response) {
   console.log('fail add SIM'+response);
   var parsedData = JSON.parse(response.responseText);
 		console.log('parsedData2'+parsedData.description);
-
+$("#failactivation").slideDown();
 });
 	 
  }
@@ -677,7 +679,7 @@ $.ajax(settings).fail(function (response) {
   console.log('fail AddTelephoneNumber'+response);
   var parsedData = JSON.parse(response.responseText);
 		console.log('parsedData2'+parsedData.description);
-
+		$("#failactivation").slideDown();
 });
 
 
@@ -726,7 +728,7 @@ $.ajax(settings).fail(function (response) {
   console.log('fail create service'+response);
   var parsedData = JSON.parse(response.responseText);
 		console.log('parsedData2'+parsedData.description);
-
+$("#failactivation").slideDown();
 });
  
  }

@@ -340,11 +340,11 @@ img.onclick = function(){
    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 " >
    <div class="row" style="display:none;" id="alertUserExist">  <div style=" margin-left: 15px; margin-right: 15px; " class="alert alert-danger">
 	  <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
-	EMAIL already in use.
+	EMAIL ALREADY IN USE.
 	</div></div>
 	<div class="row" style="display:none;" id="failsignup">  <div style=" margin-left: 15px; margin-right: 15px; " class="alert alert-danger">
 	  <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
-	New account creation failed. Please try again.
+	NEW ACCOUNT CREATION FAILED. PLEASE TRY AGAIN.
 	</div></div>
 <div class="container center_div well" style="padding-bottom:80px;padding-top:60px">
 
@@ -1552,6 +1552,10 @@ $(function () {
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
   PAYMENT DECLINES, PLEASE CHECK YOUR INFORMATION AND RETRY.
   </div>
+  <div style="display:none;margin-top: 10px;" class="alert alert-danger" id="failactivation">
+    <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+  ACTIVATION FAILED. PLEASE TRY AGAIN.
+  </div>
     <fieldset class="scheduler-border" style="padding-top: 20px!important;">
         <legend class="scheduler-border" style="color: grey;">Total Due Today</legend>
         <div class="col-sm-12 col-md-12 col-lg-12">
@@ -1632,7 +1636,7 @@ $(function () {
         <div class="row" style="margin-left: 0px">
             <div class="checkbox" style="color: #464a4c;">
                 <input type="hidden" name="transactionid" id="transactionid" ng-model="formParams.transactionid"/>
-                <label><input id="atotopup" name="atotopup" ng-model="formParams.autopay" type="checkbox" value=""><span class="cr"><i class="cr-icon" style="font-size: 18px;left: 0px"><b>?</b></i></span>  <b>Automatically Topup my account every 30 days</b></label>
+                <label><input id="atotopup" name="atotopup" ng-model="formParams.autopay" type="checkbox" value=""><span class="cr"><i class="cr-icon" style="font-size: 18px;left: 0px"><b>✓</b></i></span>  <b>Automatically Topup my account every 30 days</b></label>
             </div>
         </div>
 		<div class="row" style="margin-top: 20px;">
@@ -1659,7 +1663,7 @@ $(function () {
     </div>
     <div class="row" style="margin-left: -10px;margin-top: 20px;">
             <div class="checkbox" style="color: #464a4c;">
-                <label><input required id="atotopup2" name="atotopup2" ng-model="atotopup2" type="checkbox" value=""><span class="cr"><i class="cr-icon" style="font-size: 18px;left: 0px"><b>?</b></i></span>  <b>I accept the terms of services</b></label>
+                <label><input required id="atotopup2" name="atotopup2" ng-model="atotopup2" type="checkbox" value=""><span class="cr"><i class="cr-icon" style="font-size: 18px;left: 0px"><b>✓</b></i></span>  <b>I accept the terms of services</b></label>
             </div>
         </div>
     </div>
