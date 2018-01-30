@@ -405,7 +405,7 @@ img.onclick = function(){
             
 				</div>
 					<!-- Validations   class="alert alert-danger" -->
-					<div style="height:150px;padding:20px 20px 20px 20px;" >
+					<div style="height:150px;padding-left:50px;padding-top:20px" >
 					<div class="row "  ng-show="!FormActivate.$valid">
 					<table  style="color:red;font-weight:bold"  >
 					 <tr>
@@ -454,7 +454,9 @@ img.onclick = function(){
 						<td><small  ng-show="FormActivate.streetname.$error.maxlength">
 						Street name is too long !  
 						</small></td>
-						
+						<td style="margin-right:20px"><small   ng-show="FormActivate.streetname.$error.required && (FormActivate.streetname.$dirty || FormActivate.streetname.$touched ||FormActivate.unit.$touched )">
+						Street name is required !  
+						</small></td>
 					</tr>
 
 					<tr ng-show="FormActivate.first.$valid && FormActivate.last.$valid && FormActivate.streetnum.$valid && FormActivate.streetname.$valid" >
@@ -493,7 +495,10 @@ img.onclick = function(){
 						<td><small  ng-show="FormActivate.postal.$error.maxlength">
 						Postal code is too long !  
 						</small></td>
-						
+						</td>
+						<td  ><small   ng-show="FormActivate.postal.$error.required && (FormActivate.postal.$dirty || FormActivate.postal.$touched ||FormActivate.city.$touched )">
+						Postal code is required !  
+						</small></td>
 					</tr>
 
 					<tr ng-show="FormActivate.first.$valid && FormActivate.last.$valid && FormActivate.streetnum.$valid && FormActivate.streetname.$valid && FormActivate.unit.$valid && FormActivate.box.$valid && FormActivate.postal.$valid " >
@@ -506,7 +511,9 @@ img.onclick = function(){
 						<td><small  ng-show="FormActivate.city.$error.maxlength">
 						City is too long !  
 						</small></td>
-						
+						<td  ><small  ng-show="FormActivate.city.$error.required && (FormActivate.city.$dirty || FormActivate.city.$touched ||FormActivate.province.$touched )">
+						City is required !  
+						</small></td>
 					</tr>
 
 					<tr ng-show="FormActivate.first.$valid && FormActivate.last.$valid && FormActivate.streetnum.$valid && FormActivate.streetname.$valid && FormActivate.unit.$valid && FormActivate.box.$valid && FormActivate.postal.$valid && FormActivate.city.$valid " >
@@ -519,7 +526,9 @@ img.onclick = function(){
 						<td><small  ng-show="FormActivate.province.$error.maxlength">
 						Province is too long !  
 						</small></td>
-						
+						<td  ><small  ng-show="FormActivate.province.$error.required && (FormActivate.province.$dirty || FormActivate.province.$touched ||FormActivate.email2.$touched )">
+						Province is required !  
+						</small></td>
 					</tr>
 
 					<tr ng-show="FormActivate.first.$valid && FormActivate.last.$valid && FormActivate.streetnum.$valid && FormActivate.streetname.$valid && FormActivate.unit.$valid && FormActivate.box.$valid && FormActivate.postal.$valid && FormActivate.city.$valid && FormActivate.province.$valid " >
@@ -532,6 +541,9 @@ img.onclick = function(){
 						<td><small  ng-show="FormActivate.email2.$error.maxlength">
 						Email  is too long !  
 						</small></td>
+						<td  ><small  ng-show="FormActivate.email2.$error.required && (FormActivate.email2.$dirty || FormActivate.email2.$touched ||FormActivate.password2.$touched )">
+						Email is required !  
+						</small></td>
 						
 					</tr>
 
@@ -542,7 +554,9 @@ img.onclick = function(){
 						<td><small  ng-show="FormActivate.password2.$error.maxlength">
 						Password is too long !  
 						</small></td>
-						
+						 <td  ><small  ng-show="FormActivate.password2.$error.required && (FormActivate.password2.$dirty || FormActivate.password2.$touched  )">
+						Password is required !  
+						</small></td>
 					</tr>
 
 					<tr ng-show="FormActivate.first.$valid && FormActivate.last.$valid && FormActivate.streetnum.$valid && FormActivate.streetname.$valid && FormActivate.unit.$valid && FormActivate.box.$valid && FormActivate.postal.$valid && FormActivate.city.$valid && FormActivate.province.$valid && FormActivate.email2.$valid && FormActivate.password.$valid " >
@@ -1695,7 +1709,6 @@ Form : <p>@{{formParams}}</p>-->
  
 </main>
        
- 
  
 <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-animate.min.js'></script> 
