@@ -348,48 +348,48 @@ img.onclick = function(){
 <div class="col-sm-12" >
  
                         <div class="row">
-                            <div class="col-sm-6 form-group"> <!---->
-                                <input  ng-model="formParams.first" name="first" required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="25" type="text" placeholder="First Name" id="firstname" class="form-control">
+                            <div class="col-sm-6 form-group">  
+                                <input  ng-model="formParams.first" name="first" required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="25" type="text" placeholder="First Name *" id="firstname" class="form-control">
                             </div>
                             <div class="col-sm-6 form-group">
-                                <input ng-model="formParams.last" name="last" type="text" required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="25" placeholder="Last Name" id="lastname" class="form-control">
+                                <input ng-model="formParams.last" name="last" type="text" required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="25" placeholder="Last Name *" id="lastname" class="form-control">
                             </div>
                         </div> 
                         <div class="row">
                             <div class="col-sm-4 form-group">
-                                <input ng-model="formParams.streetnum" name="streetnum" required type="number" ng-pattern="/^[0-9]*$/" placeholder="Street #" ng-minlength="1" ng-maxlength="4" id="address1" class="form-control">                         
+                                <input ng-model="formParams.streetnum" name="streetnum" required type="number" ng-pattern="/^[0-9]*$/" placeholder="Street # *" ng-minlength="1" ng-maxlength="4" id="address1" class="form-control">                         
 						  </div>      
                             <div class="col-sm-8 form-group">
-                                <input ng-model="formParams.streetname" name="streetname"  required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="35" id="address2" type="text" placeholder="Street Name" class="form-control">
+                                <input ng-model="formParams.streetname" name="streetname"  required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="35" id="address2" type="text" placeholder="Street Name *" class="form-control">
                             </div>  
                         </div>
                         <div class="row">
                             <div class="col-sm-4 form-group">
-                                <input ng-model="formParams.unit" type="number" name="unit" required ng-pattern="/^[0-9]*$/" placeholder="Unit #" ng-minlength="1" ng-maxlength="5" id="address3" class="form-control">
+                                <input ng-model="formParams.unit" type="number" name="unit"  ng-pattern="/^[0-9]*$/" placeholder="Unit #" ng-minlength="1" ng-maxlength="5" id="address3" class="form-control">
                             </div>  
                             <div class="col-sm-4 form-group">
-                                <input ng-model="formParams.box" type="number" name="box"  required ng-pattern="/^[a-zA-Z0-9 ]*$/" ng-minlength="1" ng-maxlength="5" placeholder="PO BOX" class="form-control">
+                                <input ng-model="formParams.box" type="number" name="box"   ng-pattern="/^[a-zA-Z0-9 ]*$/" ng-minlength="1" ng-maxlength="5" placeholder="PO BOX" class="form-control">
                             </div>  
                             <div class="col-sm-4 form-group">
-                                <input ng-model="formParams.postal" type="text" name="postal" required ng-pattern="/^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/" ng-minlength="6" ng-maxlength="7" placeholder="Postal Code" class="form-control">
+                                <input ng-model="formParams.postal" type="text" name="postal" required ng-pattern="/^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/" ng-minlength="6" ng-maxlength="7" placeholder="Postal Code *" class="form-control">
                             </div>      
                         </div>
                         <div class="row">
                             <div class="col-sm-6 form-group">
-                                <input ng-model="formParams.city" type="text" name="city"  required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="2" ng-maxlength="25" placeholder="City" class="form-control">
+                                <input ng-model="formParams.city" type="text" name="city"  required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="2" ng-maxlength="25" placeholder="City *" class="form-control">
                             </div>      
                             <div class="col-sm-6 form-group">
-                                <input ng-model="formParams.province" type="text" name="province"  required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="2" ng-maxlength="2" placeholder="Province" class="form-control">
+                                <input ng-model="formParams.province" type="text" name="province"  required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="2" ng-maxlength="2" placeholder="Province *" class="form-control">
                             </div>  
                         </div>
                             
                     <div class="form-group">
-                        <input type="email"  id="email"  required ng-model="formParams.email" name="email2" placeholder="Email Address" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" class="form-control">
+                        <input type="email"  id="email"  required ng-model="formParams.email" name="email2" placeholder="Email Address *" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" class="form-control">
                     </div>  
                      <div class="row" style="margin-bottom: 20px;">
                          <div class="col-sm-6 form-group" style="margin-top: 20px!important;">
-                             <input ng-model="formParams.password" ng-pattern="/^(?=.*\d)(?=.*[A-Z])/" name="password2"    required id="password" type="password" ng-minlength="8" ng-maxlength="25" class="form-control ex-input" placeholder="Password" /></br>
-                             <input ng-model="formParams.confirm"  required id="confirm_password" type="password"  name="confirm"  data-match="FormActivate.password" class="form-control ex-input" placeholder="Re-Type Password" />
+                             <input ng-model="formParams.password" ng-pattern="/^(?=.*\d)(?=.*[A-Z])/" name="password2"    required id="password" type="password" ng-minlength="8" ng-maxlength="25" class="form-control ex-input" placeholder="Password *" /></br>
+                             <input ng-model="formParams.confirm"  required id="confirm_password" type="password"  name="confirm"  data-match="FormActivate.password" class="form-control ex-input" placeholder="Re-Type Password *" />
                              <span id='message' style="font-size: 12px;float:right;"></span>
  					   </div>
                          <div class="col-sm-6 form-group" >
@@ -412,7 +412,7 @@ img.onclick = function(){
 					 <td style="margin-right:20px"><small    ng-show="FormActivate.first.$error.pattern">
 						First Name should be letters only !  
 						</small></td>
-						<td style="margin-right:20px"><small    ng-show="FormActivate.first.$error.minlength">
+						<td style="margin-right:20px"><small  ng-show="FormActivate.first.$error.minlength && FormActivate.last.$touched">
 						First Name is too short !  
 						</small></td>
 						<td><small  ng-show="FormActivate.first.$error.maxlength">
@@ -424,7 +424,7 @@ img.onclick = function(){
 					<td style="margin-right:20px"><small    ng-show="FormActivate.last.$error.pattern">
 						Last name should be letters only !  
 						</small></td>
-						<td style="margin-right:20px"><small   ng-show="FormActivate.last.$error.minlength">
+						<td style="margin-right:20px"><small   ng-show="FormActivate.last.$error.minlength && FormActivate.streetnum.$touched">
 						Last name is too short !  
 						</small></td>
 						<td><small  ng-show="FormActivate.last.$error.maxlength">
@@ -448,7 +448,7 @@ img.onclick = function(){
 					<td style="margin-right:20px"><small    ng-show="FormActivate.streetname.$error.pattern">
 						Street name should be Letters only !  
 						</small></td>
-						<td style="margin-right:20px"><small   ng-show="FormActivate.streetname.$error.minlength">
+						<td style="margin-right:20px"><small   ng-show="FormActivate.streetname.$error.minlength && FormActivate.streetname.$touched">
 						Street name is too short !  
 						</small></td>
 						<td><small  ng-show="FormActivate.streetname.$error.maxlength">
@@ -463,9 +463,6 @@ img.onclick = function(){
 					<td style="margin-right:20px"><small    ng-show="FormActivate.unit.$error.number">
 						Unit should be Numbers only !  
 						</small></td>
-						<td style="margin-right:20px"><small   ng-show="FormActivate.unit.$error.required && (FormActivate.unit.$dirty || FormActivate.unit.$touched || FormActivate.box.$touched ) ">
-						Unit is required !  
-						</small></td>
 						<td><small  ng-show="FormActivate.unit.$error.maxlength">
 						Unit is too long !  
 						</small></td>
@@ -476,9 +473,6 @@ img.onclick = function(){
 					<td style="margin-right:20px"><small    ng-show="FormActivate.box.$error.number">
 						Box should be numbers only !  
 						</small></td>
-						<td style="margin-right:20px"><small   ng-show="FormActivate.box.$error.required && (FormActivate.box.$dirty || FormActivate.box.$touched || FormActivate.postal.$touched )">
-						Box is required !  
-						</small></td>
 						<td><small  ng-show="FormActivate.box.$error.maxlength">
 						Box is too long !  
 						</small></td>
@@ -486,7 +480,7 @@ img.onclick = function(){
 					</tr>
 
 					<tr ng-show="FormActivate.first.$valid && FormActivate.last.$valid && FormActivate.streetnum.$valid && FormActivate.streetname.$valid && FormActivate.unit.$valid && FormActivate.box.$valid " >
-					<td style="margin-right:20px"><small    ng-show="FormActivate.postal.$error.pattern">
+					<td style="margin-right:20px"><small   ng-show="FormActivate.postal.$error.pattern && FormActivate.postal.$touched ">
 						Postal code format is incorrect !  
 						</small></td><td></td><td></td>
 						<td style="margin-right:20px"><small   ng-show="FormActivate.box.$error.required &&FormActivate.postal.$error.minlength &&  (FormActivate.postal.$dirty || FormActivate.postal.$touched || FormActivate.city.$touched )">
@@ -505,7 +499,7 @@ img.onclick = function(){
 					<td style="margin-right:20px"><small    ng-show="FormActivate.city.$error.pattern">
 						City should be letters only !  
 						</small></td>
-						<td style="margin-right:20px"><small   ng-show="FormActivate.city.$error.minlength">
+						<td style="margin-right:20px"><small   ng-show="FormActivate.city.$error.minlength && FormActivate.province.$touched">
 						City is too short !  
 						</small></td>
 						<td><small  ng-show="FormActivate.city.$error.maxlength">
@@ -520,7 +514,7 @@ img.onclick = function(){
 					<td style="margin-right:20px"><small    ng-show="FormActivate.province.$error.pattern">
 						Province should be letters only !  
 						</small></td>
-						<td style="margin-right:20px"><small   ng-show="FormActivate.province.$error.minlength">
+						<td style="margin-right:20px"><small   ng-show="FormActivate.province.$error.minlength && FormActivate.email.$touched">
 						Province is too short !  
 						</small></td>
 						<td><small  ng-show="FormActivate.province.$error.maxlength">
@@ -532,10 +526,10 @@ img.onclick = function(){
 					</tr>
 
 					<tr ng-show="FormActivate.first.$valid && FormActivate.last.$valid && FormActivate.streetnum.$valid && FormActivate.streetname.$valid && FormActivate.unit.$valid && FormActivate.box.$valid && FormActivate.postal.$valid && FormActivate.city.$valid && FormActivate.province.$valid " >
-					<td style="margin-right:20px"><small    ng-show="FormActivate.email2.$error.pattern">
+					<td style="margin-right:20px"><small    ng-show="FormActivate.email2.$error.pattern  && FormActivate.password2.$touched ">
 						Email is incorrect !  
 						</small></td>
-						<td style="margin-right:20px"><small   ng-show="FormActivate.email2.$error.minlength">
+						<td style="margin-right:20px"><small   ng-show="FormActivate.email2.$error.minlength  && FormActivate.password2.$touched">
 						Email  is too short !  
 						</small></td>
 						<td><small  ng-show="FormActivate.email2.$error.maxlength">
@@ -548,7 +542,7 @@ img.onclick = function(){
 					</tr>
 
 					<tr ng-show="FormActivate.first.$valid && FormActivate.last.$valid && FormActivate.streetnum.$valid && FormActivate.streetname.$valid && FormActivate.unit.$valid && FormActivate.box.$valid && FormActivate.postal.$valid && FormActivate.city.$valid && FormActivate.province.$valid && FormActivate.email2.$valid " >
-					<td style="margin-right:20px"><small    ng-show="FormActivate.password2.$error.pattern">
+					<td style="margin-right:20px"><small    ng-show="FormActivate.password2.$error.pattern && FormActivate.confirm.$touched">
 						Password format is incorrect !  
 						</small></td><td></td>
 						<td><small  ng-show="FormActivate.password2.$error.maxlength">
