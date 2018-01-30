@@ -294,9 +294,11 @@ border-radius: 1rem!important;
         max-width: 350px!important;
       }
       #myImg {
-        width:320px!important; /* you can use % */
+        width:300px!important; /* you can use % */
+        margin-left: 5px!important;
         height: auto;
       }
+      .row {margin-right:5px!important;}
       .contentcontain{
         min-width: 320px!important;
         min-height: 300px!important;
