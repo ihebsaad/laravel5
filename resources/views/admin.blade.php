@@ -341,7 +341,6 @@ $.ajax(settings2).done(function (response) {
  var email= document.getElementById('useremail').value;
 var upassword= document.getElementById('userpassword').value;
 	var datatosend='{\"grant_type\":\"http://auth0.com/oauth/grant-type/password-realm\",\"username\": \"'+email+'\",\"password\": \"'+upassword+'\",\"audience\": \"https://iristelx.auth0.com/api/v2/\", \"realm\": \"Admin-Username-Password-Authentication\", \"client_id\": \"YoP9NqMrBM8vAN54ghQAHOh26x8vzY2g\", \"client_secret\": \"cpmLerk2uWdI2rA1hf9qMVpENpc-7kxf-4kVeM1HMeQq8JJpb54MNgsdUdVA9p19\",\"scope\":\"openid\"}';
-console.log('data to send: '+datatosend);
 var settings = {
   "async": true,
   "crossDomain": true,
@@ -401,7 +400,6 @@ console.log('fail2');
 	  email= document.getElementById('useremail2').value;
 if(email==""){$("#Wmailrequired").slideDown();}
 else{
-	
 	var settings0 = {
   "async": true,
   "crossDomain": true,
@@ -435,7 +433,6 @@ $.ajax(settings0).done(function (response) {
 
   }
   $.ajax(settings1).done(function (response) {
-  //console.log(response[0].identities[0].connection);
   if(response.length==0){$("#emailnotfound").slideDown();}
   else if(response[0].identities[0].connection=="Admin-Username-Password-Authentication"){
 var datatosend='{\"client_id\": \"YoP9NqMrBM8vAN54ghQAHOh26x8vzY2g\",\"email\": \"'+email+'\",\"connection\": \"Admin-Username-Password-Authentication\"}';
@@ -458,12 +455,16 @@ $.ajax(settings).done(function (response) {
   $(".alert-success").slideDown();
   
 });
-	  
+	$.ajax(settings).fail(function (response) {
+  console.log(response);
+ });  
   }
+  else{$("#emailnotfound").slideDown();}
   });
   $.ajax(settings1).fail(function (response) {console.log(response);});
 });
- 
+  $.ajax(settings0).fail(function (response) {console.log(response);});
+
 }	  
   }
 	
@@ -506,4 +507,29 @@ var URL = window.location.protocol + "//" + window.location.host + window.locati
  /******** end logout ********/
  
 </script>
+<style>
+/* style loading ...   */
+.modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 ) 
+                url('http://test.enterpriseesolutions.com/public/ajax-loader.gif') 
+                50% 50% 
+                no-repeat;
+}
+
+body.loading {
+    overflow: hidden;   
+}
+
+
+body.loading .modal {
+    display: block;
+}
+</style>
 </html>
