@@ -16,7 +16,6 @@
 <html lang="en" >
 <style>.contentcontain{ border :5px solid  #006fb9;}</style>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">  
   <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
   <link rel="stylesheet" href="public/css/simstyle.css">
@@ -120,7 +119,6 @@ echo'
 	  <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
 	WRONG EMAIL OR PASSWORD.
 	</div>
-	
   <div class="form-group" style="margin-top: 30px;">
     <input  type="email"  ng-model="formParams.email" required ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" class="form-control" id="useremail" placeholder="Email Address">
   </div>
@@ -173,10 +171,6 @@ echo'
 	<div style="display:none;" id="Wmailrequired" class="alert alert-warning">
 	  <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
 	The email is required.
-	</div>
-	<div id="emailnotfound" style="display:none;margin-top: 10px;" class="alert alert-danger">
-	  <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
-	NON-EXISTENT EMAIL .
 	</div>
   <div class="form-group">
     <input type="email" ng-model="formParams.email" required ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" class="form-control" id="useremail2" placeholder="Email Address">
@@ -235,7 +229,7 @@ echo'
 		    <td><small class="help-block" style="padding-left:5%;padding-right:5%" ng-show="FormActivate.pin.$error.number">
                   Incorrect PIN format.
                 </small></td>
-            <td><small  style="padding-rigt:5%" ng-show="FormActivate.pin.$error.maxlength">
+            <td><small  ng-show="FormActivate.pin.$error.maxlength">
                   Max character length reached.
                 </small></td>
 				<td>
@@ -354,50 +348,49 @@ img.onclick = function(){
  
                         <div class="row">
                             <div class="col-sm-6 form-group"> <!---->
-                                <input  ng-model="formParams.first" required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="25" type="text" placeholder="First Name" id="firstname" class="form-control">
+                                <input  ng-model="formParams.first" name="first" required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="25" type="text" placeholder="First Name" id="firstname" class="form-control">
                             </div>
                             <div class="col-sm-6 form-group">
-                                <input ng-model="formParams.last" type="text" required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="25" placeholder="Last Name" id="lastname" class="form-control">
+                                <input ng-model="formParams.last" name="last" type="text" required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="25" placeholder="Last Name" id="lastname" class="form-control">
                             </div>
                         </div> 
                         <div class="row">
                             <div class="col-sm-4 form-group">
-                                <input ng-model="formParams.streetnum"  required type="number" ng-pattern="/^[0-9]*$/" placeholder="Street #" min="1" max="99999" id="address1" class="form-control">                         
+                                <input ng-model="formParams.streetnum" name="streetnum" required type="number" ng-pattern="/^[0-9]*$/" placeholder="Street #" ng-minlength="1" ng-maxlength="4" id="address1" class="form-control">                         
 						  </div>      
                             <div class="col-sm-8 form-group">
-                                <input ng-model="formParams.streetname" required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="35" id="address2" type="text" placeholder="Street Name" class="form-control">
+                                <input ng-model="formParams.streetname" name="streetname"  required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="35" id="address2" type="text" placeholder="Street Name" class="form-control">
                             </div>  
                         </div>
                         <div class="row">
                             <div class="col-sm-4 form-group">
-                                <input ng-model="formParams.unit" type="number"  ng-pattern="/^[0-9]*$/" placeholder="Unit #" min="1" max="99999" id="address3" class="form-control">
+                                <input ng-model="formParams.unit" type="number" name="unit" required ng-pattern="/^[0-9]*$/" placeholder="Unit #" ng-minlength="1" ng-maxlength="5" id="address3" class="form-control">
                             </div>  
                             <div class="col-sm-4 form-group">
-                                <input ng-model="formParams.box" type="number"  ng-pattern="/^[a-zA-Z0-9 ]*$/" ng-minlength="1" ng-maxlength="10" placeholder="PO BOX" class="form-control">
+                                <input ng-model="formParams.box" type="number" name="box"  required ng-pattern="/^[a-zA-Z0-9 ]*$/" ng-minlength="1" ng-maxlength="5" placeholder="PO BOX" class="form-control">
                             </div>  
                             <div class="col-sm-4 form-group">
-                                <input ng-model="formParams.postal" type="text" required ng-pattern="/^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/" ng-minlength="6" ng-maxlength="7" placeholder="Postal Code" class="form-control">
+                                <input ng-model="formParams.postal" type="text" name="postal" required ng-pattern="/^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/" ng-minlength="6" ng-maxlength="7" placeholder="Postal Code" class="form-control">
                             </div>      
                         </div>
                         <div class="row">
                             <div class="col-sm-6 form-group">
-                                <input ng-model="formParams.city" type="text" required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="2" ng-maxlength="25" placeholder="City" class="form-control">
+                                <input ng-model="formParams.city" type="text" name="city"  required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="2" ng-maxlength="25" placeholder="City" class="form-control">
                             </div>      
                             <div class="col-sm-6 form-group">
-                                <input ng-model="formParams.province" type="text" required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="1" ng-maxlength="2" placeholder="Province" class="form-control">
+                                <input ng-model="formParams.province" type="text" name="province"  required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="1" ng-maxlength="2" placeholder="Province" class="form-control">
                             </div>  
                         </div>
                             
                     <div class="form-group">
-                        <input type="email"  id="email"  required ng-model="formParams.email" placeholder="Email Address" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" class="form-control">
+                        <input type="email"  id="email"  required ng-model="formParams.email" name="email2" placeholder="Email Address" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" class="form-control">
                     </div>  
                      <div class="row" style="margin-bottom: 20px;">
                          <div class="col-sm-6 form-group" style="margin-top: 20px!important;">
-                             <input ng-model="formParams.password" ng-pattern="/^(?=.*\d)(?=.*[A-Z])/"   required id="password" type="password" ng-minlength="8" ng-maxlength="25" class="form-control ex-input" placeholder="Password" /></br>
-                             <input ng-model="formParams.confirm"  required id="confirm_password" type="password"  data-match="FormActivate.password" class="form-control ex-input" placeholder="Re-Type Password" />
+                             <input ng-model="formParams.password" ng-pattern="/^(?=.*\d)(?=.*[A-Z])/" name="password2"    required id="password" type="password" ng-minlength="8" ng-maxlength="25" class="form-control ex-input" placeholder="Password" /></br>
+                             <input ng-model="formParams.confirm"  required id="confirm_password" type="password"  name="confirm"  data-match="FormActivate.password" class="form-control ex-input" placeholder="Re-Type Password" />
                              <span id='message' style="font-size: 12px;float:right;"></span>
-<!--<button ng-click="sendWelcomeemail()">Send Welcome Mail</button>-->                                  
-					   </div>
+ 					   </div>
                          <div class="col-sm-6 form-group" >
                              <div class="wrapper" style="margin: 0px!important;">
                                 <div class="popover right show">
@@ -410,6 +403,166 @@ img.onclick = function(){
 					</div>						
             
 				</div>
+					<!-- Validations   class="alert alert-danger" -->
+					<div style="min-height:200px;padding:20px 20px 20px 20px;" class="row "  ng-show="!FormActivate.$valid">
+					<table  style="color:red;font-weight:bold"  >
+					 <tr>
+					 <td style="margin-right:20px"><small    ng-show="FormActivate.first.$error.pattern">
+						First Name should be letters only !  
+						</small></td>
+						<td style="margin-right:20px"><small    ng-show="FormActivate.first.$error.minlength">
+						First Name is too short !  
+						</small></td>
+						<td><small  ng-show="FormActivate.first.$error.maxlength">
+						First Name is too long !  
+						</small></td>
+						
+					</tr>
+					<tr ng-show="FormActivate.first.$valid" >
+					<td style="margin-right:20px"><small    ng-show="FormActivate.last.$error.pattern">
+						Last name should be letters only !  
+						</small></td>
+						<td style="margin-right:20px"><small   ng-show="FormActivate.last.$error.minlength">
+						Last name is too short !  
+						</small></td>
+						<td><small  ng-show="FormActivate.last.$error.maxlength">
+						Last name is too long !  
+						</small></td>
+						
+					</tr>
+
+					<tr ng-show="FormActivate.first.$valid && FormActivate.last.$valid" >
+					<td style="margin-right:20px"><small    ng-show="FormActivate.streetnum.$error.number">
+						Street number should be numbers only !  
+						</small></td>
+						<td style="margin-right:20px"><small   ng-show="FormActivate.streetnum.$error.required">
+						Street number is required !  
+						</small></td>
+						<td><small  ng-show="FormActivate.streetnum.$error.maxlength">
+						Street number is too long !  
+						</small></td>
+						
+					</tr>
+
+					<tr ng-show="FormActivate.first.$valid && FormActivate.last.$valid && FormActivate.streetnum.$valid " >
+					<td style="margin-right:20px"><small    ng-show="FormActivate.streetname.$error.pattern">
+						Street name should be Letters only !  
+						</small></td>
+						<td style="margin-right:20px"><small   ng-show="FormActivate.streetname.$error.minlength">
+						Street name is too short !  
+						</small></td>
+						<td><small  ng-show="FormActivate.streetname.$error.maxlength">
+						Street name is too long !  
+						</small></td>
+						
+					</tr>
+
+					<tr ng-show="FormActivate.first.$valid && FormActivate.last.$valid && FormActivate.streetnum.$valid && FormActivate.streetname.$valid" >
+					<td style="margin-right:20px"><small    ng-show="FormActivate.unit.$error.number">
+						Unit should be Numbers only !  
+						</small></td>
+						<td style="margin-right:20px"><small   ng-show="FormActivate.unit.$error.required">
+						Unit is required !  
+						</small></td>
+						<td><small  ng-show="FormActivate.unit.$error.maxlength">
+						Unit is too long !  
+						</small></td>
+						
+					</tr>	
+
+					<tr ng-show="FormActivate.first.$valid && FormActivate.last.$valid && FormActivate.streetnum.$valid && FormActivate.streetname.$valid && FormActivate.unit.$valid" >
+					<td style="margin-right:20px"><small    ng-show="FormActivate.box.$error.number">
+						Box should be numbers only !  
+						</small></td>
+						<td style="margin-right:20px"><small   ng-show="FormActivate.box.$error.required">
+						Box is required !  
+						</small></td>
+						<td><small  ng-show="FormActivate.box.$error.maxlength">
+						Box is too long !  
+						</small></td>
+						
+					</tr>
+
+					<tr ng-show="FormActivate.first.$valid && FormActivate.last.$valid && FormActivate.streetnum.$valid && FormActivate.streetname.$valid && FormActivate.unit.$valid && FormActivate.box.$valid " >
+					<td style="margin-right:20px"><small    ng-show="FormActivate.postal.$error.pattern">
+						Postal code format is incorrect !  
+						</small></td>
+						<td style="margin-right:20px"><small   ng-show="FormActivate.postal.$error.minlength">
+						Postal code is too short !  
+						</small></td>
+						<td><small  ng-show="FormActivate.postal.$error.maxlength">
+						Postal code is too long !  
+						</small></td>
+						
+					</tr>
+
+					<tr ng-show="FormActivate.first.$valid && FormActivate.last.$valid && FormActivate.streetnum.$valid && FormActivate.streetname.$valid && FormActivate.unit.$valid && FormActivate.box.$valid && FormActivate.postal.$valid " >
+					<td style="margin-right:20px"><small    ng-show="FormActivate.city.$error.pattern">
+						City should be letters only !  
+						</small></td>
+						<td style="margin-right:20px"><small   ng-show="FormActivate.city.$error.minlength">
+						City is too short !  
+						</small></td>
+						<td><small  ng-show="FormActivate.city.$error.maxlength">
+						City is too long !  
+						</small></td>
+						
+					</tr>
+
+					<tr ng-show="FormActivate.first.$valid && FormActivate.last.$valid && FormActivate.streetnum.$valid && FormActivate.streetname.$valid && FormActivate.unit.$valid && FormActivate.box.$valid && FormActivate.postal.$valid && FormActivate.city.$valid " >
+					<td style="margin-right:20px"><small    ng-show="FormActivate.province.$error.pattern">
+						Province should be letters only !  
+						</small></td>
+						<td style="margin-right:20px"><small   ng-show="FormActivate.province.$error.minlength">
+						Province is too short !  
+						</small></td>
+						<td><small  ng-show="FormActivate.province.$error.maxlength">
+						Province is too long !  
+						</small></td>
+						
+					</tr>
+
+					<tr ng-show="FormActivate.first.$valid && FormActivate.last.$valid && FormActivate.streetnum.$valid && FormActivate.streetname.$valid && FormActivate.unit.$valid && FormActivate.box.$valid && FormActivate.postal.$valid && FormActivate.city.$valid && FormActivate.province.$valid " >
+					<td style="margin-right:20px"><small    ng-show="FormActivate.email2.$error.email">
+						Email is incorrect !  
+						</small></td>
+						<td style="margin-right:20px"><small   ng-show="FormActivate.email2.$error.minlength">
+						Email  is too short !  
+						</small></td>
+						<td><small  ng-show="FormActivate.email2.$error.maxlength">
+						Email  is too long !  
+						</small></td>
+						
+					</tr>
+
+					<tr ng-show="FormActivate.first.$valid && FormActivate.last.$valid && FormActivate.streetnum.$valid && FormActivate.streetname.$valid && FormActivate.unit.$valid && FormActivate.box.$valid && FormActivate.postal.$valid && FormActivate.city.$valid && FormActivate.province.$valid && FormActivate.email2.$valid " >
+					<td style="margin-right:20px"><small    ng-show="FormActivate.password.$error.pattern">
+						Password format is incorrect !  
+						</small></td>
+						<td style="margin-right:20px"><small   ng-show="FormActivate.password.$error.minlength">
+						Password is too short !  
+						</small></td>
+						<td><small  ng-show="FormActivate.password.$error.maxlength">
+						Password is too long !  
+						</small></td>
+						
+					</tr>
+
+					<tr ng-show="FormActivate.first.$valid && FormActivate.last.$valid && FormActivate.streetnum.$valid && FormActivate.streetname.$valid && FormActivate.unit.$valid && FormActivate.box.$valid && FormActivate.postal.$valid && FormActivate.city.$valid && FormActivate.province.$valid && FormActivate.email2.$valid && FormActivate.password.$valid " >
+					<td style="margin-right:20px"><small    ng-show="FormActivate.confirm.$error.pattern">
+						Password confirmation format is incorrect !  
+						</small></td>
+						<td style="margin-right:20px"><small   ng-show="FormActivate.confirm.$error.minlength">
+						Password confirmation is too short !  
+						</small></td>
+						<td><small  ng-show="FormActivate.confirm.$error.maxlength">
+						Password confirmation is too long !  
+						</small></td>
+						
+					</tr>						
+					</table>
+					</div>
+				
 			</div>
 	
 <script>
@@ -1551,7 +1704,6 @@ Form : <p>@{{formParams}}</p>-->
  
 <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-animate.min.js'></script> 
-<!--<script  src="public/js/ui-bootstrap-2.5.0.min.js"></script>-->
 
 
  <script  src="public/js/index.js"></script>
