@@ -27,8 +27,9 @@
                     'Access-Control-Allow-Origin': '*'
                 },
   data: "{}"
-}).done(function( msg ) {
-  alert( "Data Saved: " + msg );
+}).done(function( output ) {
+ // alert( "Data Saved: " + msg );
+     document.location.href =(output.url);
 }).fail(function( msg ) {
   alert( "Template uploaded only in server " + msg );
 });    
