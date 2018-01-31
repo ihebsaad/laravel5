@@ -13,7 +13,6 @@
 
 <body>
 <button onclick="downloadtemplate();" id="btndownloadtemplate">Download csv template</button>
-<script  src="public/js/jquery-3.2.1.min.js" type="text/javascript"> </script>
 
 </body>
     
