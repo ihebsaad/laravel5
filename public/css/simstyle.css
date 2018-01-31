@@ -302,7 +302,7 @@ border-radius: 1rem!important;
       .contentcontain{
         min-width: 320px!important;
         min-height: 300px!important;
-        max-height: 1050px!important;
+        max-height: 1250px!important;
         max-width: 350px!important;
         width:300px!important;
       }
@@ -326,6 +326,10 @@ border-radius: 1rem!important;
       .container.center_div.well {
           margin-left: 20px!important;
       }
+      .checkbox b {
+          font-size: 12px;
+      }
+      /* other screens */
   }
 button {cursor: pointer;}
 
@@ -756,7 +760,7 @@ border-radius: 1rem!important;
     background: #ffffff;
     /*min-width: 340px!important;*/
     min-height: 500px!important;
-    max-height: 790px;
+    max-height: 850px;
     max-width: 855px!important;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     border-radius: 0.4rem!important;
