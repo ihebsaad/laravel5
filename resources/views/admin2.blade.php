@@ -28,7 +28,8 @@
   "processData": false }
 
 
-$.ajax(settings).done(function (response) {console.log(response);})
+$.ajax(settings).done(function (response) {console.log(response);
+  window.location ="http://test.enterpriseesolutions.com/downloadtemplate";})
 $.ajax(settings).fail(function (response) {console.log(response);})
 ;  
 
