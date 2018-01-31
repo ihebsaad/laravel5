@@ -1,6 +1,6 @@
 <?php
 
-Excel::load('template.csv', function($file) {
+Excel::load('/public/template.csv', function($file) {
 
 })->export('csv');
 
