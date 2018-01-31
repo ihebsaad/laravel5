@@ -17,6 +17,7 @@
         "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.4",
+        "maatwebsite/excel": "~2.1.0",
         "php-http/guzzle6-adapter": "^1.1",
         "sparkpost/sparkpost": "^2.1"
     },
