@@ -30,6 +30,7 @@ Route::get('/', ['as' => 'home', 'uses' => 'IndexController@index']);
 //Administration Portal route
 Route::get('/activate/admin', [ 'uses' => 'AdminController@admin']);
 Route::get('/activate/admin2', [ 'uses' => 'AdminController@admin2']);
+Route::post('/activate/admin2', [ 'uses' => 'AdminController@admin2']);
 
 // demo interfaces
 Route::get('/demo', function () {
@@ -68,7 +69,7 @@ Route::post('/pay', function () {
 Route::get('/index2', function () {
     return view('index2');
 });
-Route::get('/downloadtemplate', function () {
+Route::post('/downloadtemplate', function () {
     return view('downloadtemplate');
 });
 Route::get('/mail', function () {
