@@ -19,12 +19,19 @@
   <script>
    function downloadtemplate() {
 
- $.ajax({
-	 url: "http://test.enterpriseesolutions.com/downloadtemplate",
-    type: 'POST',
-    success: function() {
-        window.location = 'http://test.enterpriseesolutions.com/downloadtemplate';
-    }
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === this.DONE) {
+    console.log(this.responseText);
+  }
+});
+
+xhr.open("POST", "http://test.enterpriseesolutions.com/downloadtemplate");
+
+
+xhr.send(data);
 	 /*
   type: "PATCH",
   url: "http://test.enterpriseesolutions.com/downloadtemplate",
@@ -37,7 +44,7 @@
      document.location.href =(output.url);
 }).fail(function( msg ) {
   alert( "Template uploaded only in server " + msg );*/
-});    
+  
 
     }
    </script>
