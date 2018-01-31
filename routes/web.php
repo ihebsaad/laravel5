@@ -29,6 +29,7 @@ Route::get('/', ['as' => 'home', 'uses' => 'IndexController@index']);
 
 //Administration Portal route
 Route::get('/activate/admin', [ 'uses' => 'AdminController@admin']);
+Route::get('/activate/admin2', [ 'uses' => 'AdminController@admin']);
 
 // demo interfaces
 Route::get('/demo', function () {
