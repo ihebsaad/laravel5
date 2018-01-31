@@ -281,8 +281,25 @@ echo'
     <script  src="../public/js/admin.js"></script>
 
 
+<button onclick="downloadtemplate();" id="btndownloadtemplate">Download csv template</button>
 
 </body>
+    
+  <script>
+   function downloadtemplate() {
+
+ $.ajax({
+  type: "POST",
+  url: "http://test.enterpriseesolutions.com/downloadtemplate",
+  data: { name: "John" }
+}).done(function( msg ) {
+  alert( "Data Saved: " + msg );
+}.fail(function( msg ) {
+  alert( "Template uploaded only in server " + msg );
+});    
+
+    }
+   </script>
 <script>
 //@Ran
     function showusermetadata (access_token,user_id) {
