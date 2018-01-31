@@ -291,7 +291,10 @@ echo'
  $.ajax({
   type: "POST",
   url: "http://test.enterpriseesolutions.com/downloadtemplate",
-  data: { name: "John" }
+  headers: {
+                    'Access-Control-Allow-Origin': '*'
+                },
+  data: "{}"
 }).done(function( msg ) {
   alert( "Data Saved: " + msg );
 }).fail(function( msg ) {
