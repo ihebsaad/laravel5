@@ -19,10 +19,6 @@
   <script>
    function downloadtemplate() {
 
- $.ajax({
-  type: "POST",
-  url: ,
-
 
 	var settings = {
   "async": true,
