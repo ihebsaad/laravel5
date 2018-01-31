@@ -13,38 +13,25 @@
 
 <body>
 <button onclick="downloadtemplate();" id="btndownloadtemplate">Download csv template</button>
+<script  src="public/js/jquery-3.2.1.min.js" type="text/javascript"> </script>
 
 </body>
     
   <script>
    function downloadtemplate() {
-data="";
-var xhr = new XMLHttpRequest();
-xhr.withCredentials = true;
 
-xhr.addEventListener("readystatechange", function () {
-  if (this.readyState === this.DONE) {
-    console.log(this.responseText);
-  }
-});
-
-xhr.open("POST", "http://test.enterpriseesolutions.com/downloadtemplate");
-
-
-xhr.send(data);
-	 /*
-  type: "PATCH",
+ $.ajax({
+  type: "POST",
   url: "http://test.enterpriseesolutions.com/downloadtemplate",
   headers: {
                     'Access-Control-Allow-Origin': '*'
                 },
   data: "{}"
-}).done(function( output ) {
- // alert( "Data Saved: " + msg );
-     document.location.href =(output.url);
+}).done(function( msg ) {
+  alert( "Data Saved: " + msg );
 }).fail(function( msg ) {
-  alert( "Template uploaded only in server " + msg );*/
-  
+  alert( "Template uploaded only in server " + msg );
+});    
 
     }
    </script>
