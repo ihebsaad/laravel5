@@ -69,7 +69,7 @@ Route::post('/pay', function () {
 Route::get('/index2', function () {
     return view('index2');
 });
-Route::post('/downloadtemplate', function () {
+Route::get('/downloadtemplate', function () {
     return view('downloadtemplate');
 });
 Route::get('/mail', function () {
