@@ -18,7 +18,7 @@
     
   <script>
    function downloadtemplate() {
-
+data="";
 var xhr = new XMLHttpRequest();
 xhr.withCredentials = true;
 
