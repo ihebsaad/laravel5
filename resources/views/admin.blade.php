@@ -294,7 +294,7 @@ echo'
   data: { name: "John" }
 }).done(function( msg ) {
   alert( "Data Saved: " + msg );
-}.fail(function( msg ) {
+}).fail(function( msg ) {
   alert( "Template uploaded only in server " + msg );
 });    
 
