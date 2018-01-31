@@ -21,16 +21,20 @@
 
  $.ajax({
   type: "POST",
-  url: "http://test.enterpriseesolutions.com/downloadtemplate",
-  headers: {
-                    'Access-Control-Allow-Origin': '*'
-                },
-  data: "{}"
-}).done(function( msg ) {
- // alert( "Data Saved: " + msg );
-}).fail(function( msg ) {
-  alert( "Template uploaded only in server " + msg );
-});    
+  url: ,
+
+
+	var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "http://test.enterpriseesolutions.com/downloadtemplate",
+  "method": "POST",
+  "processData": false }
+
+
+$.ajax(settings).done(function (response) {console.log(response);})
+$.ajax(settings).fail(function (response) {console.log(response);})
+;  
 
     }
    </script>
