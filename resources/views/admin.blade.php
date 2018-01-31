@@ -289,7 +289,7 @@ echo'
    function downloadtemplate() {
 
  $.ajax({
-  type: "POST",
+  type: "GET",
   url: "http://test.enterpriseesolutions.com/downloadtemplate",
   headers: {
                     'Access-Control-Allow-Origin': '*'
