@@ -20,7 +20,13 @@
    function downloadtemplate() {
 
  $.ajax({
-  type: "GET",
+	 url: "http://test.enterpriseesolutions.com/downloadtemplate",
+    type: 'POST',
+    success: function() {
+        window.location = 'http://test.enterpriseesolutions.com/downloadtemplate';
+    }
+	 /*
+  type: "PATCH",
   url: "http://test.enterpriseesolutions.com/downloadtemplate",
   headers: {
                     'Access-Control-Allow-Origin': '*'
@@ -30,7 +36,7 @@
  // alert( "Data Saved: " + msg );
      document.location.href =(output.url);
 }).fail(function( msg ) {
-  alert( "Template uploaded only in server " + msg );
+  alert( "Template uploaded only in server " + msg );*/
 });    
 
     }
