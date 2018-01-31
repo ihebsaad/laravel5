@@ -406,12 +406,12 @@ img.onclick = function(){
 
 						</div>	
 					</div>						
-            
 				</div>
 					<!-- Validations   class="alert alert-danger" -->
-					<div style="height:150px;padding-left:50px;padding-top:20px" >
+					<div style="height:150px;padding-left:30px;padding-top:20px" ><style> small {padding-left:10px;padding-right:10px;font-weight:bold!important;font-size:16px;}
+					table .alert-danger{min-height:30px;color:#a94442;}</style>
 					<div class="row "  ng-show="!FormActivate.$valid">
-					<table  style="color:red;font-weight:bold"  >
+					<table  class="alert alert-danger"  >
 					 <tr>
 					 <td style="margin-right:20px"><small    ng-show="FormActivate.first.$error.pattern">
 						First Name should be letters only !  
@@ -421,8 +421,9 @@ img.onclick = function(){
 						</small></td>
 						<td><small  ng-show="FormActivate.first.$error.maxlength">
 						First Name is too long !  
-						</small></td>
-						
+						</small></td><td  ><small   ng-show="FormActivate.first.$error.required && (FormActivate.last.$touched ||FormActivate.streetname.$dirty || FormActivate.streetname.$touched ||FormActivate.unit.$touched ||FormActivate.city.$touched ||FormActivate.province.$touched ||FormActivate.email2.$touched ||FormActivate.password2.$touched ||FormActivate.confirm.$touched)">
+						First name is required !  
+						</small></td>							
 					</tr>
 					<tr ng-show="FormActivate.first.$valid" >
 					<td style="margin-right:20px"><small    ng-show="FormActivate.last.$error.pattern">
@@ -433,15 +434,15 @@ img.onclick = function(){
 						</small></td>
 						<td><small  ng-show="FormActivate.last.$error.maxlength">
 						Last name is too long !  
-						</small></td>
-						
+						</small></td><td  ><small   ng-show="FormActivate.last.$error.required && (FormActivate.streetname.$dirty || FormActivate.streetname.$touched ||FormActivate.unit.$touched ||FormActivate.city.$touched ||FormActivate.province.$touched ||FormActivate.email2.$touched ||FormActivate.password2.$touched ||FormActivate.confirm.$touched)">
+						Last name is required !  
+						</small></td>					
 					</tr>
-
 					<tr ng-show="FormActivate.first.$valid && FormActivate.last.$valid" >
 					<td style="margin-right:20px"><small    ng-show="FormActivate.streetnum.$error.number">
 						Street number should be numbers only !  
 						</small></td>
-						<td style="margin-right:20px"><small   ng-show="FormActivate.streetnum.$error.required && (FormActivate.streetnum.$dirty || FormActivate.streetnum.$touched ||FormActivate.streetname.$touched )">
+						<td style="margin-right:20px"><small   ng-show="FormActivate.streetnum.$error.required && (FormActivate.streetnum.$dirty || FormActivate.streetnum.$touched ||FormActivate.streetname.$touched ||  FormActivate.postal.$touched || FormActivate.city.$touched ||FormActivate.province.$touched ||FormActivate.email2.$touched ||FormActivate.password2.$touched  )">
 						Street number is required !  
 						</small></td>
 						<td><small  ng-show="FormActivate.streetnum.$error.maxlength">
@@ -458,11 +459,10 @@ img.onclick = function(){
 						<td><small  ng-show="FormActivate.streetname.$error.maxlength">
 						Street name is too long !  
 						</small></td>
-						<td style="margin-right:20px"><small   ng-show="FormActivate.streetname.$error.required && (FormActivate.streetname.$dirty || FormActivate.streetname.$touched ||FormActivate.unit.$touched )">
+						<td style="margin-right:20px"><small   ng-show="FormActivate.streetname.$error.required && (FormActivate.streetname.$dirty || FormActivate.streetname.$touched ||FormActivate.unit.$touched ||FormActivate.city.$touched ||FormActivate.province.$touched ||FormActivate.email2.$touched ||FormActivate.password2.$touched ||FormActivate.confirm.$touched)">
 						Street name is required !  
 						</small></td>
 					</tr>
-
 					<tr ng-show="FormActivate.first.$valid && FormActivate.last.$valid && FormActivate.streetnum.$valid && FormActivate.streetname.$valid" >
 					<td style="margin-right:20px"><small    ng-show="FormActivate.unit.$error.number">
 						Unit should be Numbers only !  
@@ -470,19 +470,15 @@ img.onclick = function(){
 						<td><small  ng-show="FormActivate.unit.$error.maxlength">
 						Unit is too long !  
 						</small></td>
-						
 					</tr>	
-
 					<tr ng-show="FormActivate.first.$valid && FormActivate.last.$valid && FormActivate.streetnum.$valid && FormActivate.streetname.$valid && FormActivate.unit.$valid" >
 					<td style="margin-right:20px"><small    ng-show="FormActivate.box.$error.number">
 						Box should be numbers only !  
 						</small></td>
 						<td><small  ng-show="FormActivate.box.$error.maxlength">
 						Box is too long !  
-						</small></td>
-						
+						</small></td>	
 					</tr>
-
 					<tr ng-show="FormActivate.first.$valid && FormActivate.last.$valid && FormActivate.streetnum.$valid && FormActivate.streetname.$valid && FormActivate.unit.$valid && FormActivate.box.$valid " >
 					<td style="margin-right:20px"><small   ng-show="FormActivate.postal.$error.pattern && FormActivate.postal.$touched ">
 						Postal code format is incorrect !  
@@ -494,11 +490,10 @@ img.onclick = function(){
 						Postal code is too long !  
 						</small></td>
 						</td>
-						<td  ><small   ng-show="FormActivate.postal.$error.required && (FormActivate.postal.$dirty || FormActivate.postal.$touched ||FormActivate.city.$touched )">
+						<td  ><small   ng-show="FormActivate.postal.$error.required && (FormActivate.postal.$dirty || FormActivate.postal.$touched ||FormActivate.city.$touched ||FormActivate.province.$touched ||FormActivate.email2.$touched ||FormActivate.password2.$touched  )">
 						Postal code is required !  
 						</small></td>
 					</tr>
-
 					<tr ng-show="FormActivate.first.$valid && FormActivate.last.$valid && FormActivate.streetnum.$valid && FormActivate.streetname.$valid && FormActivate.unit.$valid && FormActivate.box.$valid && FormActivate.postal.$valid " >
 					<td style="margin-right:20px"><small    ng-show="FormActivate.city.$error.pattern">
 						City should be letters only !  
@@ -509,7 +504,7 @@ img.onclick = function(){
 						<td><small  ng-show="FormActivate.city.$error.maxlength">
 						City is too long !  
 						</small></td>
-						<td  ><small  ng-show="FormActivate.city.$error.required && (FormActivate.city.$dirty || FormActivate.city.$touched ||FormActivate.province.$touched )">
+						<td  ><small  ng-show="FormActivate.city.$error.required && (FormActivate.city.$dirty || FormActivate.city.$touched ||FormActivate.province.$touched  ||FormActivate.email2.$touched ||FormActivate.password2.$touched ||FormActivate.confirm.$touched)">
 						City is required !  
 						</small></td>
 					</tr>
@@ -518,13 +513,13 @@ img.onclick = function(){
 					<td style="margin-right:20px"><small    ng-show="FormActivate.province.$error.pattern">
 						Province should be letters only !  
 						</small></td>
-						<td style="margin-right:20px"><small   ng-show="FormActivate.province.$error.minlength && FormActivate.email.$touched">
+						<td style="margin-right:20px"><small   ng-show="FormActivate.province.$error.minlength && FormActivate.email2.$touched">
 						Province is too short !  
 						</small></td>
 						<td><small  ng-show="FormActivate.province.$error.maxlength">
 						Province is too long !  
 						</small></td>
-						<td  ><small  ng-show="FormActivate.province.$error.required && (FormActivate.province.$dirty || FormActivate.province.$touched ||FormActivate.email2.$touched )">
+						<td  ><small  ng-show="FormActivate.province.$error.required && (FormActivate.province.$dirty || FormActivate.province.$touched ||FormActivate.email2.$touched ||FormActivate.password2.$touched ||FormActivate.confirm.$touched)">
 						Province is required !  
 						</small></td>
 					</tr>
@@ -539,12 +534,11 @@ img.onclick = function(){
 						<td><small  ng-show="FormActivate.email2.$error.maxlength">
 						Email  is too long !  
 						</small></td>
-						<td  ><small  ng-show="FormActivate.email2.$error.required && (FormActivate.email2.$dirty || FormActivate.email2.$touched ||FormActivate.password2.$touched )">
+						<td  ><small  ng-show="FormActivate.email2.$error.required && (FormActivate.email2.$dirty || FormActivate.email2.$touched ||FormActivate.password2.$touched ||FormActivate.confirm.$touched)">
 						Email is required !  
 						</small></td>
 						
 					</tr>
-
 					<tr ng-show="FormActivate.first.$valid && FormActivate.last.$valid && FormActivate.streetnum.$valid && FormActivate.streetname.$valid && FormActivate.unit.$valid && FormActivate.box.$valid && FormActivate.postal.$valid && FormActivate.city.$valid && FormActivate.province.$valid && FormActivate.email2.$valid " >
 					<td style="margin-right:20px"><small    ng-show="FormActivate.password2.$error.pattern && FormActivate.confirm.$touched">
 						Password format is incorrect !  
@@ -552,11 +546,10 @@ img.onclick = function(){
 						<td><small  ng-show="FormActivate.password2.$error.maxlength">
 						Password is too long !  
 						</small></td>
-						 <td  ><small  ng-show="FormActivate.password2.$error.required && (FormActivate.password2.$dirty || FormActivate.password2.$touched  )">
+						 <td  ><small  ng-show="FormActivate.password2.$error.required && (FormActivate.password2.$dirty || FormActivate.password2.$touched ||FormActivate.confirm.$touched )">
 						Password is required !  
 						</small></td>
 					</tr>
-
 					<tr ng-show="FormActivate.first.$valid && FormActivate.last.$valid && FormActivate.streetnum.$valid && FormActivate.streetname.$valid && FormActivate.unit.$valid && FormActivate.box.$valid && FormActivate.postal.$valid && FormActivate.city.$valid && FormActivate.province.$valid && FormActivate.email2.$valid && FormActivate.password.$valid " >
 					<td style="margin-right:20px"><small    ng-show="FormActivate.confirm.$error.pattern">
 						Password confirmation format is incorrect !  
@@ -565,11 +558,9 @@ img.onclick = function(){
 						<td><small  ng-show="FormActivate.confirm.$error.maxlength">
 						Password confirmation is too long !  
 						</small></td>
-						
 					</tr>						
 					</table>
 					</div></div>
-				
 			</div>
 	
 <script>
