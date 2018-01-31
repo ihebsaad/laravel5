@@ -22,6 +22,10 @@ class AdminController extends Controller
     return view('admin2');
       
   }
+public function upload()
+  {
+ $path = $request->file('uploadedfile')->store('avatars');
 
- 
+        echo $path;
+        return $path;
 }

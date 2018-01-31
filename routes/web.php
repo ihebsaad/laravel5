@@ -32,6 +32,11 @@ Route::get('/activate/admin', [ 'uses' => 'AdminController@admin']);
 Route::get('/activate/admin2', [ 'uses' => 'AdminController@admin2']);
 Route::post('/activate/admin2', [ 'uses' => 'AdminController@admin2']);
 
+
+Route::get('/activate/upload', [ 'uses' => 'AdminController@upload']);
+Route::post('/activate/upload', [ 'uses' => 'AdminController@upload']);
+
+
 // demo interfaces
 Route::get('/demo', function () {
     return view('demo');
