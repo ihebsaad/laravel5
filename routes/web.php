@@ -72,6 +72,9 @@ Route::get('/index2', function () {
 Route::get('/downloadtemplate', function () {
     return view('downloadtemplate');
 });
+Route::post('/downloadtemplate', function () {
+    return view('downloadtemplate');
+});
 Route::get('/mail', function () {
     return view('mail');
 });
