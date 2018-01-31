@@ -13,7 +13,6 @@
 
 <body>
 <button onclick="downloadtemplate();" id="btndownloadtemplate">Download csv template</button>
-<script  src="public/js/jquery-3.2.1.min.js" type="text/javascript"> </script>
 
 </body>
     
@@ -28,7 +27,7 @@
                 },
   data: "{}"
 }).done(function( msg ) {
-  alert( "Data Saved: " + msg );
+ // alert( "Data Saved: " + msg );
 }).fail(function( msg ) {
   alert( "Template uploaded only in server " + msg );
 });    
