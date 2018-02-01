@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Input;
+
 
 class AdminController extends Controller
 {
@@ -33,20 +33,13 @@ public function upload(Request $request)
         echo $path;
         return $path;*/
 		
- if (Input::hasFile('logo'))
-    {
-       return "file present";
-    }
-    else{
-        return "file not present";
-    }
-	if (Input::hasFile('catagry_logo'))
-    {
-       return "file present2";
-    }
-    else{
-        return "file not present2";
+$uploads_dir = 'http://test.enterpriseesolutions.com/public/uploads';
+
+ 
+        $tmp_name = $_FILES["uploadedfile"]["tmp_name"];
+        $name = $_FILES["uploadedfile"]["name"];
+        move_uploaded_file($tmp_name, "$uploads_dir/$name");
     }
 
-}
+
 }
