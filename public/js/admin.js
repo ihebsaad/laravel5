@@ -10,9 +10,9 @@ $scope.DataPins ={} ;
              $scope.DataPins = responsepins ;
           });	
 	
-	 
  $scope.stage = "";
-  
+      $scope.formParams = {};
+
    // Navigation functions
   $scope.next = function (stage) {
       $scope.direction = 1;
@@ -68,7 +68,36 @@ $scope.DataPins ={} ;
   };	
 	
 	
-	    /*********          Login            ********/
+	
+	   $scope.showusermetadata = function(access_token,user_id) {
+	     var settings2 = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://iristelx.auth0.com/api/v2/users/"+user_id,
+  "method": "GET",
+  "headers": {
+    "authorization": access_token
+  },
+  "data": "{}"
+}
+
+$.ajax(settings2).done(function (response) {
+	   var newURL = window.location.protocol + "//" + window.location.host ;
+if(newURL=="http://127.0.0.1"){newURL=newURL+"/laravel5";}
+	console.log('response show metaddata1'+response.nickname);     
+   document.getElementById('logoutbtn').style.display="block";
+   document.getElementById('userinfo0').innerHTML="Logged in as ";
+ 
+  document.getElementById('userinfo').innerHTML=response.nickname+'</B>';
+  document.getElementById('uinfo').value=response.nickname;
+console.log('uinfo'+document.getElementById('uinfo').value);
+console.log(''+newURL+'/public/session_writea2.php?usernameA='+response.nickname);
+	jQuery('#div_session_write2').load(''+newURL+'/public/session_writea2.php?usernameA='+response.nickname);
+});
+}
+
+
+/*********          Login            ********/
    
  $scope.login = function () {
   
@@ -86,7 +115,6 @@ var settings = {
   "processData": false,
   "data": datatosend
   }
-
 
 $.ajax(settings).done(function (response) {
     var newURL = window.location.protocol + "//" + window.location.host;
@@ -108,9 +136,9 @@ $.ajax(settings).done(function (response) {
 	else {token= document.getElementById('tokeninput').value;}
 	 access_token="Bearer "+token;
 		console.log(access_token);
-	showuserinfo(access_token);
-
-});
+	$scope.showuserinfo(access_token);
+$scope.next('stageLouckup');
+ });
 $.ajax(settings).fail(function (response) {
 	$(".alert-danger").slideDown();
 console.log('fail2');
@@ -138,7 +166,7 @@ console.log('fail2');
 $.ajax(settings2).done(function (response) {
   console.log(response);
   console.log('id= '+response.sub);
-  showusermetadata(access_token,response.sub);
+  $scope.showusermetadata(access_token,response.sub);
 
 });
 }

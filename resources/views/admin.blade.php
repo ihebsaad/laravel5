@@ -11,7 +11,7 @@
 <head>
   <meta charset="UTF-8">  
   <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
-  <!--<link rel="stylesheet" href="../public/css/style.css">-->
+ <link rel="stylesheet" href="../public/css/style.css"> 
    <script  src="../public/js/jquery-3.2.1.min.js" type="text/javascript"> </script>
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js'></script>
@@ -53,40 +53,22 @@ echo'
         </div>
 
 <main ng-app="formApp" ng-controller="formCtrl" ng-cloak>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">&nbsp;</div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-       </div>
-    </div>
+
     <form name="FormActivate" class="form-validation" role="form" novalidate>
       <div ng-switch on="stage" ng-class="{forward: direction, backward:!direction}">
-	  	
-		<!--   Stage 0     -->
-        <div class="animate-switch" ng-switch-when="stage0">
-         
-		 
-		    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 ">
-			<div class="row" style="margin-top: 20px;">
-			<!-- Buttons Next & Previous -->
-			<div class="col-sm-9 col-md-9 col-xs-9 col-lg-9 form-group">
-			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('')"><i class="icnleft"></i>  Back</button>  
-			</div>
-            <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3 form-group">
-				<button type="button" style="float:right" class="btn btn-primary btn btn-success btn-previous btn-md" id="stage1"  ng-click="next('stage1')">Next  <i class="icnright"></i></button>
-            </div>
-			</div>
-            </div>
-        </div> <!-- End Stage  -->
+	  	 
+	<?php if ($loggedin ) {$stageloockup=" ng-switch-default" ; $stagelogin=" ng-switch-when='stageLogin' ";}
+	else{
+		$stageloockup=" ng-switch-when='stageLogin'" ; $stagelogin="  ng-switch-default";
+	}
+	?>		
 		
-		<!--   Stage 1     -->
-		<div class="animate-switch" ng-switch-when="stage1">
-		<h1>Louckup</h1>
+<!--   Stage 1     -->
+
+<div class="animate-switch" ng-switch-when="stageLouckup">
+<h1>Louckup</h1>
 <div style="width:600px">		
 <label>Serach Pin: <input type="number" ng-change="init()" ng-model="search.pin" ></label> <button ng-click="loockup()"> loockup</button><br>
- 
 <div id="searcharea" style=" ">     
 <table id="searchObjResults" style="width:200px">
   <tr><th>PIN</th><th>SIM</th></tr>
@@ -104,83 +86,44 @@ echo'
 <tr><td>Status :</td><td  ><span   ng-if="data.enabled == 1">Enabled</span> <span   ng-if="data.enabled == 0">Disabled</span> </td></tr>
 </table>	
 </div>
-</div>	 
-		<!--<ul>
-<div ng-repeat="data in DataPins"   >
-         <li ng-bind="data.pin">  </li>
-         <li ng-bind="data.sim">  </li>
-     </div></ul>-->	
-			
+</div>	  		
 			<div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 ">
 			<div class="row" style="margin-top: 20px;">
 			<!-- Buttons Next & Previous -->
-			<div class="col-sm-9 col-md-9 col-xs-9 col-lg-9 form-group">
+			<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 form-group">
 			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('stage1')"><i class="icnleft"></i>  Back</button>  
 			</div>
-            <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3 form-group">
+			<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 form-group">
 				<button type="button" style="float:right" class="btn btn-primary btn btn-success btn-previous btn-md" id="stage2"  ng-click="next('stage2')">Next  <i class="icnright"></i></button>
             </div>
 			</div>
             </div>
-        </div> <!-- End Stage 1 -->
+        </div>
+</div> <!-- End Stage 1 -->
 
 		<!--   Stage 2     -->
 		<div class="animate-switch" ng-switch-when="stage2">
 				<h1>Stage 2</h1>
 
-   <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 ">
+		<div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 ">
 			<div class="row" style="margin-top: 20px;">
 			<!-- Buttons Next & Previous -->
-			<div class="col-sm-9 col-md-9 col-xs-9 col-lg-9 form-group">
+			<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 form-group">
 			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('stage2')"><i class="icnleft"></i>  Back</button>  
 			</div>
-            <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3 form-group">
+			<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 form-group">
 				<button type="button" style="float:right" class="btn btn-primary btn btn-success btn-previous btn-md" ng-click="next('stage3')">Next  <i class="icnright"></i></button>
             </div>
 			</div>
             </div>
         </div> <!-- End Stage  2-->
 		
-		<!--   Stage 3     -->
-		<div class="animate-switch" ng-switch-when="stage3">
-				<h1>Stage 3</h1>
-
-   <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 ">
-			<div class="row" style="margin-top: 20px;">
-			<!-- Buttons Next & Previous -->
-			<div class="col-sm-9 col-md-9 col-xs-9 col-lg-9 form-group">
-			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('stage2')"><i class="icnleft"></i>  Back</button>  
-			</div>
-            <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3 form-group">
-				<button type="button" style="float:right" class="btn btn-primary btn btn-success btn-previous btn-md"  ng-click="next('stage4')">Next  <i class="icnright"></i></button>
-            </div>
-			</div>
-            </div>
-        </div> <!-- End Stage  3-->
  
-		<!--   Stage 4     -->
-		<div class="animate-switch" ng-switch-when="stage4">
-		<h1>Stage 4</h1>
-
-		<div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 ">
-			<div class="row" style="margin-top: 20px;">
-			<!-- Buttons Next & Previous -->
-			<div class="col-sm-9 col-md-9 col-xs-9 col-lg-9 form-group">
-			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('stage3')"><i class="icnleft"></i>  Back</button>  
-			</div>
-            <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3 form-group">
-				<button type="button" style="float:right" class="btn btn-primary btn btn-success btn-previous btn-md" ng-click="" >Next  <i class="icnright"></i></button>
-            </div>
-			</div>
-            </div>
-        </div> <!-- End Stage  -->
-
  
 		
-      </div> <!-- End  ALL Stages  -->	
   
-<!--   Stage 4  : STAGE LOGIN   ------------------------------------------------------------>
-<div class="animate-switch"  ng-switch-default>
+<!--     : STAGE LOGIN   ------------------------------------------------------------>
+<div class="animate-switch"   ng-switch-default>
 <section class="jumbotron text-center">
 <div class="container">
 
@@ -204,12 +147,12 @@ echo'
     <input  type="password" class="form-control" id="userpassword" placeholder="Password">
   </div>
   <div class="row" style="margin-top: 20px;">
-  <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
+			<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 form-group">
      
             <a style="font-size: 16px;"  ng-click="next('stageForgotPassword')" href="#">Forgot Password?</a>
         </div>      
- <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
-            <button ng-model="test" type="button" onclick="login();" class="btn btn-success btn-round" style="float: right;margin-right: 0px;" >Login</button>
+			<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 form-group">
+            <button ng-model="test" type="button" ng-click="login();" class="btn btn-success btn-round" style="float: right;margin-right: 0px;" >Login</button>
         </div>  
     </div>
 </form>
@@ -271,9 +214,9 @@ echo'
 
 </div> <!-- End Stage  -->
 
-</div>
+</div> <!-- End all Stages  -->
   </form>
-
+ 
 	
   </div><!-- container -->
 </main>
@@ -305,34 +248,8 @@ echo'
    </script>
 <script>
 //@Ran
-    function showusermetadata (access_token,user_id) {
-	     var settings2 = {
-  "async": true,
-  "crossDomain": true,
-  "url": "https://iristelx.auth0.com/api/v2/users/"+user_id,
-  "method": "GET",
-  "headers": {
-    "authorization": access_token
-  },
-  "data": "{}"
-}
 
-$.ajax(settings2).done(function (response) {
-	   var newURL = window.location.protocol + "//" + window.location.host ;
-if(newURL=="http://127.0.0.1"){newURL=newURL+"/laravel5";}
-	console.log('response show metaddata1'+response.nickname);     
-   document.getElementById('logoutbtn').style.display="block";
-   document.getElementById('userinfo0').innerHTML="Logged in as ";
- 
-  document.getElementById('userinfo').innerHTML=response.nickname+'</B>';
-  document.getElementById('uinfo').value=response.nickname;
-console.log('uinfo'+document.getElementById('uinfo').value);
-console.log(''+newURL+'/public/session_writea2.php?usernameA='+response.nickname);
-	jQuery('#div_session_write2').load(''+newURL+'/public/session_writea2.php?usernameA='+response.nickname);
-});
-}
-    
-
+  
 
  
  /******** Reset password ********/
