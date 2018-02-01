@@ -46,7 +46,7 @@
             error: function(data){
                 console.log("error");
 				//alert(data);
-                console.log(data);
+                console.log('data='+data);
             },
         // Custom XMLHttpRequest
         xhr: function() {
