@@ -40,7 +40,7 @@ print_r($_FILES);
   $("form#data").submit(function(e) {
     e.preventDefault();    
     var formData = new FormData(this);
-
+formData.append('defect_type', 'type');
     $.ajax({
         url: "http://test.enterpriseesolutions.com/activate/upload/",
         type: 'POST',
