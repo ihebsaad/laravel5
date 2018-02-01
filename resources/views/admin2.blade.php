@@ -13,7 +13,7 @@
 
 <body>
 <button onclick="downloadtemplate();" id="btndownloadtemplate">Download csv template</button>
-<form enctype="multipart/form-data" id="upload_form" role="form" method="post">
+<form enctype="multipart/form-data" id="upload_form" action="/activate/upload/" role="form" method="post">
     <input  type="file" name="uploadedfile" class="form-control" id="uploadedfile"/>
 	 <div class="row" style="margin-left: 15px;">
     <input id="button1" type="button" value="Upload" />
