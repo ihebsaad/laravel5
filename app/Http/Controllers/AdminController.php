@@ -34,7 +34,7 @@ public function upload(Request $request)
  $path = $request->file('uploadedfile')->store('avatars');
 
         echo $path;
-        return $path;
+        return view('admin/'$path);
  
        
 }
