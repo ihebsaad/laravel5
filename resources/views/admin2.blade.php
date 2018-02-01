@@ -41,11 +41,11 @@ print_r($_FILES);
     e.preventDefault();    
     var formData = new FormData(this);
 formData.append('defect_type', 'type');
-console.log('formData'+formData);
+console.log('formData'+formData['name']);
     $.ajax({
         url: "http://test.enterpriseesolutions.com/activate/upload/",
         type: 'POST',
-        data: formData,
+        data: formData.serialize(),
         success: function (data) {
             alert(data)
         },
