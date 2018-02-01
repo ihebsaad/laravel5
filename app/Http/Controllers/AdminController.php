@@ -33,14 +33,13 @@ public function upload(Request $request)
         echo $path;
         return $path;*/
 		
-$uploads_dir = 'http://test.enterpriseesolutions.com/public/uploads';
-foreach ($_FILES["uploadedfile"]["error"] as $key => $error) {
-    if ($error == UPLOAD_ERR_OK) {
-        $tmp_name = $_FILES["uploadedfile"]["tmp_name"][$key];
-        $name = $_FILES["uploadedfile"]["name"][$key];
-        move_uploaded_file($tmp_name, "$uploads_dir/$name");
+ if (Input::hasFile('logo'))
+    {
+       return "file present";
     }
-}
+    else{
+        return "file not present";
+    }
 
 }
 }
