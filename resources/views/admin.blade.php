@@ -57,13 +57,95 @@ echo'
     <form name="FormActivate" class="form-validation" role="form" novalidate>
       <div ng-switch on="stage" ng-class="{forward: direction, backward:!direction}">
 	  	 
-	<?php if ($loggedin ) {$stageloockup=" ng-switch-default" ; $stagelogin=" ng-switch-when='stageLogin' ";}
-	else{
-		$stageloockup=" ng-switch-when='stageLogin'" ; $stagelogin="  ng-switch-default";
-	}
-	?>		
+	<?php if ($loggedin ) { $next1 ='stage2'; echo '
 		
 <!--   Stage 1     -->
+
+<div class="animate-switch"  ng-switch-default >
+<h1>Louckup</h1>
+<div style="width:600px">		
+<label>Serach Pin: <input type="number" ng-change="init()" ng-model="search.pin" ></label> <button ng-click="loockup()"> loockup</button><br>
+<div id="searcharea" style=" ">     
+<table id="searchObjResults" style="width:200px">
+  <tr><th>PIN</th><th>SIM</th></tr>
+  <tr ng-repeat="data in DataPins | filter : search | limitTo:5">
+    <td ng-bind="data.pin"> </td>
+    <td ng-bind="data.sim"></td>
+  </tr>
+</table> 
+</div></br>
+<div id="pinarea" style=" ;display:none">     
+<div ng-repeat="data in DataPins | filter : search | limitTo:1">
+<table>
+<tr><td>PIN : 	</td><td ng-bind="data.pin"></td></tr>
+<tr><td>SIM : 	</td><td ng-bind="data.sim"></td></tr>
+<tr><td>Status :</td><td  ><span   ng-if="data.enabled == 1">Enabled</span> <span   ng-if="data.enabled == 0">Disabled</span> </td></tr>
+</table>	
+</div>
+</div>	  		
+			<div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 ">
+			<div class="row" style="margin-top: 20px;">
+			<!-- Buttons Next & Previous -->
+			<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 form-group">
+ 			</div>
+			<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 form-group">
+				<button type="button" style="float:right" class="btn btn-primary btn btn-success btn-previous btn-md" id="stage2"  ng-click="next('.$next1.')">Next  <i class="icnright"></i></button>
+            </div>
+			</div>
+            </div>
+        </div>
+</div> <!-- End Stage 1 -->		
+		
+		
+	';}	
+	 
+	 	
+else{
+		$next2='stageForgotPassword'; $next1 ='stage2';
+	echo '
+	
+<!--     : STAGE LOGIN   ------------------------------------------------------------>
+<div class="animate-switch"   ng-switch-default>
+<section class="jumbotron text-center">
+<div class="container">
+
+<h1 class="jumbotron-heading">Admin Login</h1>
+</div>
+</section>
+<div class="inner-wrapper">
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4 center_div">
+	
+      <form name="login_form" id="login_form">
+	  <div style="display:none;" class="alert alert-danger">
+	  <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+	WRONG USERNAME OR PASSWORD.
+	</div>
+  <div class="form-group">
+    <input  type="email" ng-model="formParams.email" required ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" class="form-control" id="useremail" placeholder="Email Address">
+  </div>
+  <div class="form-group">
+    <input  type="password" class="form-control" id="userpassword" placeholder="Password">
+  </div>
+  <div class="row" style="margin-top: 20px;">
+			<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 form-group">
+     
+            <a style="font-size: 16px;"  ng-click="next('.$next2.')" href="#">Forgot Password?</a>
+        </div>      
+			<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 form-group">
+            <button ng-model="test" type="button" ng-click="login();" class="btn btn-success btn-round" style="float: right;margin-right: 0px;" >Login</button>
+        </div>  
+    </div>
+</form>
+    </div>
+  </div> 
+</div>
+</div>
+ </div> <!-- End Stage Login --> 
+
+
+	
 
 <div class="animate-switch" ng-switch-when="stageLouckup">
 <h1>Louckup</h1>
@@ -91,6 +173,48 @@ echo'
 			<div class="row" style="margin-top: 20px;">
 			<!-- Buttons Next & Previous -->
 			<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 form-group">
+			</div>
+			<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 form-group">
+				<button type="button" style="float:right" class="btn btn-primary btn btn-success btn-previous btn-md" id="stage2"  ng-click="next('.$next1.')">Next  <i class="icnright"></i></button>
+            </div>
+			</div>
+            </div>
+        </div>
+</div> <!-- End Stage 1 -->
+		
+		';
+		
+}
+	
+	?>		
+		
+<!--   Stage Loock Up     
+
+<div class="animate-switch" ng-switch-when="stageLouckup">
+<h1>Louckup</h1>
+<div style="width:600px">		
+<label>Serach Pin: <input type="number" ng-change="init()" ng-model="search.pin" ></label> <button ng-click="loockup()"> loockup</button><br>
+<div id="searcharea" style=" ">     
+<table id="searchObjResults" style="width:200px">
+  <tr><th>PIN</th><th>SIM</th></tr>
+  <tr ng-repeat="data in DataPins | filter : search | limitTo:5">
+    <td ng-bind="data.pin"> </td>
+    <td ng-bind="data.sim"></td>
+  </tr>
+</table> 
+</div></br>
+<div id="pinarea" style=" ;display:none">     
+<div ng-repeat="data in DataPins | filter : search | limitTo:1">
+<table>
+<tr><td>PIN : 	</td><td ng-bind="data.pin"></td></tr>
+<tr><td>SIM : 	</td><td ng-bind="data.sim"></td></tr>
+<tr><td>Status :</td><td  ><span   ng-if="data.enabled == 1">Enabled</span> <span   ng-if="data.enabled == 0">Disabled</span> </td></tr>
+</table>	
+</div>
+</div>	  		
+			<div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 ">
+			<div class="row" style="margin-top: 20px;">
+ 			<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 form-group">
 			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('stage1')"><i class="icnleft"></i>  Back</button>  
 			</div>
 			<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 form-group">
@@ -99,7 +223,7 @@ echo'
 			</div>
             </div>
         </div>
-</div> <!-- End Stage 1 -->
+</div> <!-- End Stage Loock Up -->
 
 		<!--   Stage 2     -->
 		<div class="animate-switch" ng-switch-when="stage2">
@@ -121,46 +245,7 @@ echo'
  
  
 		
-  
-<!--     : STAGE LOGIN   ------------------------------------------------------------>
-<div class="animate-switch"   ng-switch-default>
-<section class="jumbotron text-center">
-<div class="container">
-
-<h1 class="jumbotron-heading">Admin Login</h1>
-</div>
-</section>
-<div class="inner-wrapper">
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4 col-sm-offset-4 center_div">
-	
-      <form name="login_form" id='login_form'>
-	  <div style="display:none;" class="alert alert-danger">
-	  <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
-	WRONG USERNAME OR PASSWORD.
-	</div>
-  <div class="form-group">
-    <input  type="email" ng-model="formParams.email" required ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" class="form-control" id="useremail" placeholder="Email Address">
-  </div>
-  <div class="form-group">
-    <input  type="password" class="form-control" id="userpassword" placeholder="Password">
-  </div>
-  <div class="row" style="margin-top: 20px;">
-			<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 form-group">
-     
-            <a style="font-size: 16px;"  ng-click="next('stageForgotPassword')" href="#">Forgot Password?</a>
-        </div>      
-			<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 form-group">
-            <button ng-model="test" type="button" ng-click="login();" class="btn btn-success btn-round" style="float: right;margin-right: 0px;" >Login</button>
-        </div>  
-    </div>
-</form>
-    </div>
-  </div> 
-</div>
-</div>
- </div> <!-- End Stage  --> 
+   
 
 <!--   Stage Forgot password    ------------------------------------------------------------>
 <div class="animate-switch" ng-switch-when="stageForgotPassword">
