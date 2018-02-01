@@ -30,7 +30,7 @@ print_r($_FILES);
     <input type="text" name="first" value="Bob" />
     <input type="text" name="middle" value="James" />
     <input type="text" name="last" value="Smith" />
-    <input name="image" type="file" />
+    <input name="uploadedfile" id="uploadedfile" type="file" />
     <button>Submit</button>
 </form>
 
