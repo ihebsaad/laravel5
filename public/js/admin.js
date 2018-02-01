@@ -138,6 +138,7 @@ $.ajax(settings).done(function (response) {
 		console.log(access_token);
 	$scope.showuserinfo(access_token);
 $scope.next('stageLouckup');
+$scope.$apply();
  });
 $.ajax(settings).fail(function (response) {
 	$(".alert-danger").slideDown();
