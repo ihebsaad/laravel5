@@ -36,7 +36,7 @@ console.log(new FormData($("#upload_form")[0]));
 
         // Tell jQuery not to process data or worry about content-type
         // You *must* include these options!
-       dataType:'json',
+      
       async:false,
        processData: false,
       contentType: false,
