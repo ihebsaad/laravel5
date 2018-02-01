@@ -50,7 +50,7 @@
                 console.log('data='+data);
 			//	 var parsedData = JSON.parse(data.responseText);
 		console.log('parsedData1'+data.responseText);
-		console.log('parsedData2'+data.description);
+		//console.log('parsedData2'+data.description);
 
             },
         // Custom XMLHttpRequest
