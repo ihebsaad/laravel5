@@ -31,11 +31,11 @@ public function upload(Request $request)
 	//  if ($request->hasFile('uploadedfile')) {
    // return view('admin');
    $file = $request->file('uploadedfile');
- $path =$file->store('avatars');
+ //$path =$file->store('avatars');
  //$path = $request->file('uploadedfile')->store('avatars');
 
-        echo $path;
-        return ('succeed'.$path);
+        echo $file ;
+        return ('succeed'.$file );
  
        
 /*}
