@@ -54,7 +54,7 @@ print_r($_FILES);
 		 success:function(data){
  //alert(data);
                 console.log("success");
-               // console.log(data);
+                console.log(data);
             },
             error: function(data){
                 console.log("error");
