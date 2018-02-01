@@ -25,20 +25,26 @@ class AdminController extends Controller
     return view('admin2');
       
   }
+//public function upload(ImagesRequest $request,PhotoGestion $photogestion)
 public function upload(Request $request)
-/*public function upload(Request $request)*/
   {
- /*$path = $request->file('uploadedfile')->store('avatars');
+	  if ($request->hasFile('photo')) {
+    return view('admin2');
+}
+else{ return view('admin');}
+/* $path = $request->file('uploadedfile')->store('avatars');
 
         echo $path;
-        return $path;*/
+        return $path;
 		
-$uploads_dir = 'http://test.enterpriseesolutions.com/public/uploads';
+$uploads_dir = 'http://test.enterpriseesolutions.com/public/uploads';*/
 
  
-        $tmp_name = $_FILES["uploadedfile"]["tmp_name"];
+       /* $tmp_name = $_FILES["uploadedfile"]["tmp_name"];
         $name = $_FILES["uploadedfile"]["name"];
-        move_uploaded_file($tmp_name, "$uploads_dir/$name");
+        move_uploaded_file($tmp_name, "$uploads_dir/$name");*/
+		
+		
     }
 
 

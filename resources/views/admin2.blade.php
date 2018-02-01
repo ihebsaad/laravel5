@@ -20,17 +20,18 @@
 	<progress value="2" max="100" id="progress1"></progress>
 	</div>
 </form>
+
 </body>
 
   <script>
   $('#button1').on('click', function() {
-console.log(new FormData($("#upload_form")[0]).serialize());
+console.log(new FormData($("#upload_form")[0]));
     $.ajax({
           url: 'http://test.enterpriseesolutions.com/activate/upload/',
         type: 'POST',
 
         // Form data
-  data:new FormData($("#upload_form")[0]).serialize(),
+  data:new FormData($("#upload_form")[0]),
        /// data: new FormData($('#formupload1')),
 
         // Tell jQuery not to process data or worry about content-type
