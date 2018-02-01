@@ -17,8 +17,8 @@
     <input id="uploadedfile" type="file" />
 	 <div class="row" style="margin-left: 15px;">
     <input id="button1" type="button" value="Upload" />
-	<progress value="2" max="100" id="progress1"></progress><img id="plus1" onclick="show();" src="/img/add.png" style="width: 20px;margin-left: 20px;    margin-bottom: 10px;" />
-</div>
+	<progress value="2" max="100" id="progress1"></progress>
+	</div>
 </form>
 </body>
     
@@ -26,9 +26,7 @@
   $('#button1').on('click', function() {
 
     $.ajax({
-        // Your server script to process the upload
-		//idi=document.getElementById('').value;
-        url: '/documents/upload/'+idi,
+          url: 'http://test.enterpriseesolutions.com/activate/upload/',
         type: 'POST',
 
         // Form data
@@ -48,7 +46,7 @@
             error: function(data){
                 console.log("error");
 				//alert(data);
-               // console.log(data);
+                console.log(data);
             },
         // Custom XMLHttpRequest
         xhr: function() {
