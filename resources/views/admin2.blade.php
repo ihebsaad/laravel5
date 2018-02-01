@@ -13,15 +13,15 @@
 
 <body>
 <button onclick="downloadtemplate();" id="btndownloadtemplate">Download csv template</button>
-<form enctype="multipart/form-data" action="/upload/image" id="fdownloadcsv" method="post">
-    <input id="uploadedfile" type="file" />
+<form enctype="multipart/form-data" action="/activate/upload" id="fdownloadcsv" method="post">
+    <input id="uploadedfile" name="uploadedfile" type="file" />
 	 <div class="row" style="margin-left: 15px;">
     <input id="button1" type="button" value="Upload" />
 	<progress value="2" max="100" id="progress1"></progress>
 	</div>
 </form>
 </body>
-    
+
   <script>
   $('#button1').on('click', function() {
 
