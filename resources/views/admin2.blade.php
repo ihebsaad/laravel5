@@ -50,7 +50,21 @@ print_r($_FILES);
         },
         cache: false,
         contentType: false,
-        processData: false
+        processData: false,
+		 success:function(data){
+ //alert(data);
+                console.log("success");
+               // console.log(data);
+            },
+            error: function(data){
+                console.log("error");
+				//alert(data);
+                console.log('data='+data);
+			//	 var parsedData = JSON.parse(data.responseText);
+		console.log('parsedData1'+data.responseText);
+		//console.log('parsedData2'+data.description);
+
+            }
     });
 });
  /* $('#button1').on('click', function() {
