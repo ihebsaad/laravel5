@@ -29,9 +29,9 @@ class AdminController extends Controller
 public function upload(Request $request)
   {
 	  if ($request->hasFile('uploadedfile')) {
-    return view('admin2');
+    return view('admin');
 }
-else{ return view('admin');}
+else{ return view('admin2');}
 /* $path = $request->file('uploadedfile')->store('avatars');
 
         echo $path;

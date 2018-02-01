@@ -13,18 +13,47 @@
 
 <body>
 <button onclick="downloadtemplate();" id="btndownloadtemplate">Download csv template</button>
-<form enctype="multipart/form-data" id="upload_form" action="/activate/upload/" role="form" method="post">
+<!--<form enctype="multipart/form-data" id="upload_form" action="/activate/upload/" role="form" method="post">
     <input  type="file" name="uploadedfile" class="form-control" id="uploadedfile"/>
 	 <div class="row" style="margin-left: 15px;">
     <input id="button1" type="button" value="Upload" />
 	<progress value="2" max="100" id="progress1"></progress>
 	</div>
+</form>-->
+<?php
+
+print_r($_POST);
+print_r($_FILES);
+?>
+
+<form id="data" method="post" enctype="multipart/form-data">
+    <input type="text" name="first" value="Bob" />
+    <input type="text" name="middle" value="James" />
+    <input type="text" name="last" value="Smith" />
+    <input name="image" type="file" />
+    <button>Submit</button>
 </form>
 
 </body>
 
   <script>
-  $('#button1').on('click', function() {
+  $("form#data").submit(function(e) {
+    e.preventDefault();    
+    var formData = new FormData(this);
+
+    $.ajax({
+        url: "http://test.enterpriseesolutions.com/activate/upload/",
+        type: 'POST',
+        data: formData,
+        success: function (data) {
+            alert(data)
+        },
+        cache: false,
+        contentType: false,
+        processData: false
+    });
+});
+ /* $('#button1').on('click', function() {
 console.log(new FormData($("#upload_form")[0]));
     $.ajax({
           url: 'http://test.enterpriseesolutions.com/activate/upload/',
@@ -71,7 +100,7 @@ console.log(new FormData($("#upload_form")[0]));
             return myXhr;
         },
     });
-});
+});*/
 
    function downloadtemplate() {
 
