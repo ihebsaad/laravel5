@@ -28,7 +28,8 @@ class AdminController extends Controller
 //public function upload(ImagesRequest $request,PhotoGestion $photogestion)
 public function upload(Request $request)
   {
-	 if ($request->hasFile('uploadedfile')) {
+	  return(dd(request()->all()));
+/*	 if ($request->hasFile('uploadedfile')) {
    // return view('admin');
    $file = $request->file('uploadedfile');
  //$path =$file->store('avatars');
@@ -39,7 +40,7 @@ public function upload(Request $request)
  
        
 }
-else{ return ('failed');}
+else{ return ('failed');}*/
 /* $path = $request->file('uploadedfile')->store('avatars');
 
         echo $path;

@@ -27,7 +27,7 @@ print_r($_FILES);
 ?>
 
 <form id="data" method="post" enctype="multipart/form-data">
-    <input type="text" name="first" value="Bob" />
+    <input type="text" id="first" name="first" value="Bob" />
     <input type="text" name="middle" value="James" />
     <input type="text" name="last" value="Smith" />
     <input name="uploadedfile" id="uploadedfile" type="file" />
