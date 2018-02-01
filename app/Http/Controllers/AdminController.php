@@ -29,7 +29,7 @@ class AdminController extends Controller
 public function upload(Request $request)
   {
 	   echo $request->defect_type;
-	  return( $request->defect_type);
+	  return( 'requested'.$request->defect_type);
 /*	 if ($request->hasFile('uploadedfile')) {
    // return view('admin');
    $file = $request->file('uploadedfile');
