@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use Illuminate\Support\Facades\Input;
 
 class AdminController extends Controller
 {
@@ -26,10 +26,20 @@ class AdminController extends Controller
       
   }
 public function upload(Request $request)
+/*public function upload(Request $request)*/
   {
- $path = $request->file('uploadedfile')->store('avatars');
+ /*$path = $request->file('uploadedfile')->store('avatars');
 
         echo $path;
-        return $path;
+        return $path;*/
+		
+ if (Input::hasFile('logo'))
+    {
+       return "file present";
+    }
+    else{
+        return "file not present";
+    }
+
 }
 }

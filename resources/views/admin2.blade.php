@@ -13,15 +13,15 @@
 
 <body>
 <button onclick="downloadtemplate();" id="btndownloadtemplate">Download csv template</button>
-<form enctype="multipart/form-data" action="/upload/image" id="fdownloadcsv" method="post">
-    <input id="uploadedfile" type="file" />
+<form enctype="multipart/form-data" id="upload_form" role="form" method="post">
+    <input  type="file" name="logo" class="form-control" id="catagry_logo"/>
 	 <div class="row" style="margin-left: 15px;">
     <input id="button1" type="button" value="Upload" />
 	<progress value="2" max="100" id="progress1"></progress>
 	</div>
 </form>
 </body>
-    
+
   <script>
   $('#button1').on('click', function() {
 
@@ -30,14 +30,15 @@
         type: 'POST',
 
         // Form data
-  data: new FormData($('#fdownloadcsv')),
+  data:new FormData($("#upload_form")[0]),
        /// data: new FormData($('#formupload1')),
 
         // Tell jQuery not to process data or worry about content-type
         // You *must* include these options!
-        cache: false,
-        contentType: false,
-        processData: false,
+       dataType:'json',
+      async:false,
+       processData: false,
+      contentType: false,
  success:function(data){
  //alert(data);
                 console.log("success");
@@ -47,6 +48,10 @@
                 console.log("error");
 				//alert(data);
                 console.log('data='+data);
+			//	 var parsedData = JSON.parse(data.responseText);
+		console.log('parsedData1'+data.responseText);
+		console.log('parsedData2'+data.description);
+
             },
         // Custom XMLHttpRequest
         xhr: function() {
