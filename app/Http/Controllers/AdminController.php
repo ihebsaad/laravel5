@@ -34,11 +34,11 @@ public function upload(Request $request)
  $path = $request->file('uploadedfile')->store('avatars');
 
         echo $path;
-        return view($path);
+        return ('succeed'.$path);
  
        
 }
-else{ return view('admin');}
+else{ return ('failed');}
 /* $path = $request->file('uploadedfile')->store('avatars');
 
         echo $path;
