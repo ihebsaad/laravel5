@@ -40,6 +40,13 @@ public function upload(Request $request)
     else{
         return "file not present";
     }
+	if (Input::hasFile('catagry_logo'))
+    {
+       return "file present2";
+    }
+    else{
+        return "file not present2";
+    }
 
 }
 }
