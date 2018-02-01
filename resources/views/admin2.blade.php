@@ -45,7 +45,7 @@ console.log('formData'+formData['name']);
     $.ajax({
         url:  window.location.pathname,
         type: 'POST',
-        data: formData.serialize(),
+        data: formData,
         success: function (data) {
             alert(data)
         },
