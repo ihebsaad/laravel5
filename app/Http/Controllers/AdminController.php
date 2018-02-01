@@ -28,7 +28,7 @@ class AdminController extends Controller
 //public function upload(ImagesRequest $request,PhotoGestion $photogestion)
 public function upload(Request $request)
   {
-	 print_r($_FILES);
+	return print_r($request);
 /*	 if ($request->hasFile('uploadedfile')) {
    // return view('admin');
    $file = $request->file('uploadedfile');

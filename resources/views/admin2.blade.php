@@ -43,7 +43,7 @@ print_r($_FILES);
 formData.append('defect_type', 'type');
 console.log('formData'+formData['name']);
     $.ajax({
-        url:  window.location.pathname,
+        url: "http://test.enterpriseesolutions.com/activate/upload/",
         type: 'POST',
         data: formData,
         success: function (data) {
