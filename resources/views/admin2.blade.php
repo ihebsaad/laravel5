@@ -51,7 +51,7 @@ form.addEventListener('submit', function(ev) {
 
   var oOutput = document.querySelector("div"),
       oData = new FormData(form);
-
+console.log('data to send'+JSON.stringify(oData));
   oData.append("CustomField", "Données supplémentaires");
 
   var oReq = new XMLHttpRequest();
