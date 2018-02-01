@@ -48,6 +48,10 @@
                 console.log("error");
 				//alert(data);
                 console.log('data='+data);
+				 var parsedData = JSON.parse(data.responseText);
+		console.log('parsedData1'+parsedData);
+		console.log('parsedData2'+parsedData.description);
+
             },
         // Custom XMLHttpRequest
         xhr: function() {
