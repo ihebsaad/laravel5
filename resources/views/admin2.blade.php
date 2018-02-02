@@ -48,7 +48,7 @@ print_r($_FILES);
     form_data.append('file', file_data);
     alert(form_data);                             
     $.ajax({
-                url: 'http://test.enterpriseesolutions.com/upload.php', // point to server-side PHP script 
+                url: 'http://test.enterpriseesolutions.com/public/upload.php', // point to server-side PHP script 
                 dataType: 'text',  // what to expect back from the PHP script, if anything
                 cache: false,
                 contentType: false,
