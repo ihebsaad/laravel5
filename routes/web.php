@@ -93,6 +93,30 @@ Route::get('/emails/email1', function () {
 Route::get('/emails/email2', function () {
     return view('/emails/email2');
 });
+
+/*
+Route::get('read-excel',function(){
+    
+        $fileD = fopen('expertphp-product.csv',"r");
+        $column=fgetcsv($fileD);
+        while(!feof($fileD)){
+         $rowData[]=fgetcsv($fileD);
+        }
+        foreach ($rowData as $key => $value) {
+            
+            $inserted_data=array('sim'=>$value[0],
+                                 'pin'=>$value[1],
+                                 'enabled'=>$value[2]
+                            );
+            
+             Sim::create($inserted_data);
+        }
+        print_r($rowData);
+});
+
+*/
+
+
 Route::get('/welcomeemail', function () {
 	
   Mail::send('emails.email1', [], function ($message) {

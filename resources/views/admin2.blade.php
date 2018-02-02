@@ -33,19 +33,34 @@ print_r($_FILES);
     <input name="uploadedfile" id="uploadedfile" type="file" />
     <button>Submit</button>
 </form>-->
-<form enctype="multipart/form-data" method="post" name="fileinfo">
-  <label>Votre adresse électronique :</label>
-  <input type="email" autocomplete="on" autofocus name="userid" placeholder="email" required size="32" maxlength="64" /><br />
-  <label>Étiquette du fichier personnalisé :</label>
-  <input type="text" name="filelabel" size="12" maxlength="32" /><br />
-  <label>Fichier à mettre de côté :</label>
-  <input type="file" name="file" required />
-  <input type="submit" value="Mettez le fichier de côté." />
-</form>
+ <input id="sortpicture" type="file" name="sortpic" />
+<button id="upload">Upload</button>
+<!-- <form enctype="multipart/form-data" method="post" name="fileinfo">
+ 
+</form>-->
 <div></div>
 </body>
 
   <script>
+  $('#upload').on('click', function() {
+    var file_data = $('#sortpicture').prop('files')[0];   
+    var form_data = new FormData();                  
+    form_data.append('file', file_data);
+    alert(form_data);                             
+    $.ajax({
+                url: 'upload.php', // point to server-side PHP script 
+                dataType: 'text',  // what to expect back from the PHP script, if anything
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: form_data,                         
+                type: 'post',
+                success: function(php_script_response){
+                    alert(php_script_response); // display response from the PHP script, if any
+                }
+     });
+});
+
   var form = document.forms.namedItem("fileinfo");
 form.addEventListener('submit', function(ev) {
 
