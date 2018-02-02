@@ -36,7 +36,7 @@
                 success: function(response){
                     alert('uploaded'); // display response from the PHP script, if any
 					console.log(response);
-					console.log(JSON.stringify(response));
+					console.log(response.prototype.toString.call([]));
                 },fail: function(error){
                     alert(error); // display response from the PHP script, if any
                 },
