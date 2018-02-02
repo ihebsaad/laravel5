@@ -5,9 +5,7 @@
     }
     else {
         move_uploaded_file($_FILES['file']['tmp_name'], 'uploads/' . $_FILES['file']['name']);
-    $result='uploaded';
-   return $result;
-
+    
     
         $fileD = fopen('http://test.enterpriseesolutions.com/public/uploads/' . $_FILES['file']['name'],"r");
         $column=fgetcsv($fileD);
