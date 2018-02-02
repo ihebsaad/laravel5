@@ -24,7 +24,6 @@
              //Sim::create($inserted_data);
         }
         print_r($rowData);
-});*/
-   }
+}
 
 ?>
