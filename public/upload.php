@@ -5,9 +5,26 @@
     }
     else {
         move_uploaded_file($_FILES['file']['tmp_name'], 'uploads/' . $_FILES['file']['name']);
+     $csvFile='http://test.enterpriseesolutions.com/public/uploads/' . $_FILES['file']['name'];
+	 //detect delimeter
+	 
+	 $delimiters = array(
+        ';' => 0,
+        ',' => 0,
+        "\t" => 0,
+        "|" => 0
+    );
+
+    $handle = fopen($csvFile, "r");
+    $firstLine = fgets($handle);
+    fclose($handle); 
+    foreach ($delimiters as $delimiter => &$count) {
+        $count = count(str_getcsv($firstLine, $delimiter));
+    }
+
+    echo'delimeter ' array_search(max($delimiters), $delimiters);
     
-    
-        $fileD = fopen('http://test.enterpriseesolutions.com/public/uploads/' . $_FILES['file']['name'],"r");
+        $fileD = fopen($csvFile,"r");
         $column=fgetcsv($fileD);
         while(!feof($fileD)){
          $rowData[]=fgetcsv($fileD,',','"');
