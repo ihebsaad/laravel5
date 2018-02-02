@@ -7,9 +7,9 @@
         move_uploaded_file($_FILES['file']['tmp_name'], 'uploads/' . $_FILES['file']['name']);
     $result='uploaded';
    return $result;
-   /*Route::get('read-excel',function(){
+
     
-        $fileD = fopen('expertphp-product.csv',"r");
+        $fileD = fopen('uploads/' . $_FILES['file']['name'],"r");
         $column=fgetcsv($fileD);
         while(!feof($fileD)){
          $rowData[]=fgetcsv($fileD);
@@ -20,8 +20,8 @@
                                  'pin'=>$value[1],
                                  'enabled'=>$value[2]
                             );
-            
-             Sim::create($inserted_data);
+            echo $inserted_data;
+             //Sim::create($inserted_data);
         }
         print_r($rowData);
 });*/
