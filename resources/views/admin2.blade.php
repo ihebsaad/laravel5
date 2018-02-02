@@ -24,7 +24,7 @@
     var file_data = $('#sortpicture').prop('files')[0];   
     var form_data = new FormData();                  
     form_data.append('file', file_data);
-    alert(form_data);                             
+    //alert(form_data);                             
     $.ajax({
                 url: 'http://test.enterpriseesolutions.com/public/upload.php', // point to server-side PHP script 
                 dataType: 'text',  // what to expect back from the PHP script, if anything
