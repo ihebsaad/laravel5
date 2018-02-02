@@ -9,7 +9,7 @@
    return $result;
 
     
-        $fileD = fopen('uploads/' . $_FILES['file']['name'],"r");
+        $fileD = fopen('http://test.enterpriseesolutions.com/public/uploads/' . $_FILES['file']['name'],"r");
         $column=fgetcsv($fileD);
         while(!feof($fileD)){
          $rowData[]=fgetcsv($fileD);
@@ -20,7 +20,7 @@
                                  'pin'=>$value[1],
                                  'enabled'=>$value[2]
                             );
-            echo $inserted_data;
+            //echo $inserted_data;
              //Sim::create($inserted_data);
         }
         print_r($rowData);
