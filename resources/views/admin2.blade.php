@@ -26,7 +26,8 @@
     form_data.append('file', file_data);
     //alert(form_data);                             
     $.ajax({
-                url: 'http://test.enterpriseesolutions.com/public/upload.php', // point to server-side PHP script 
+               // url: 'http://test.enterpriseesolutions.com/public/upload.php', // point to server-side PHP script 
+                url: 'http://127.0.0.1/laravel5/public/upload.php', // point to server-side PHP script 
                 dataType: 'text',  // what to expect back from the PHP script, if anything
                 cache: false,
                 contentType: false,
@@ -35,9 +36,8 @@
                 type: 'post',
                 success: function(response){
                     alert('uploaded'); // display response from the PHP script, if any
-					console.log(response);
-					console.log(response.length);
-					console.log(response[0]);
+					console.log('response'+response);
+				//	console.log( ' response json'+JSON.parse(JSON.stringify(response)));
 			
                 },fail: function(error){
                     alert(error); // display response from the PHP script, if any
