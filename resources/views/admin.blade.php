@@ -65,7 +65,7 @@ echo'
 <h1>Louckup</h1>
 <div style="width:600px">		
 <label>Serach Pin: <input type="number" ng-change="init()" ng-model="search.pin" ></label> <button ng-click="loockup()"> loockup</button><br>
-<div id="searcharea" style=" ">     
+<div id="searcharea" style="min-height:200px ">     
 <table id="searchObjResults" style="width:200px">
   <tr><th>PIN</th><th>SIM</th></tr>
   <tr ng-repeat="data in DataPins | filter : search | limitTo:5">
@@ -80,6 +80,12 @@ echo'
 <tr><td>PIN : 	</td><td ng-bind="data.pin"></td></tr>
 <tr><td>SIM : 	</td><td ng-bind="data.sim"></td></tr>
 <tr><td>Status :</td><td  ><span   ng-if="data.enabled == 1">Enabled</span> <span   ng-if="data.enabled == 0">Disabled</span> </td></tr>
+<tr ng-if="data.enabled == 0"><td > Enable</td><td>	
+ 
+  <a href="http://test.enterpriseesolutions.com/activate/admin/enable/{{data.id}}">enable serveur</a>
+  <a href="http://127.0.0.1/laravel5/activate/admin/enable/{{data.id}}">enable local</a>
+
+</td></tr>
 </table>	
 </div>
 </div>	  		
@@ -151,7 +157,7 @@ else{
 <h1>Louckup</h1>
 <div style="width:600px">		
 <label>Serach Pin: <input type="number" ng-change="init()" ng-model="search.pin" ></label> <button ng-click="loockup()"> loockup</button><br>
-<div id="searcharea" style=" ">     
+<div id="searcharea" style="min-height:200px ">     
 <table id="searchObjResults" style="width:200px">
   <tr><th>PIN</th><th>SIM</th></tr>
   <tr ng-repeat="data in DataPins | filter : search | limitTo:5">
@@ -166,6 +172,12 @@ else{
 <tr><td>PIN : 	</td><td ng-bind="data.pin"></td></tr>
 <tr><td>SIM : 	</td><td ng-bind="data.sim"></td></tr>
 <tr><td>Status :</td><td  ><span   ng-if="data.enabled == 1">Enabled</span> <span   ng-if="data.enabled == 0">Disabled</span> </td></tr>
+<tr ng-if="data.enabled == 0"><td > Enable</td><td>	
+ 
+  <a href="http://test.enterpriseesolutions.com/activate/admin/enable/{{data.id}}">enable serveur</a>
+  <a href="http://127.0.0.1/laravel5/activate/admin/enable/{{data.id}}">enable local</a>
+
+</td></tr>
 </table>	
 </div>
 </div>	  		
