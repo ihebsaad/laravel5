@@ -5,32 +5,37 @@
     }
     else {
         move_uploaded_file($_FILES['file']['tmp_name'], 'uploads/' . $_FILES['file']['name']);
-     $csvFile='http://test.enterpriseesolutions.com/public/uploads/' . $_FILES['file']['name'];
-	 //detect delimeter
-	 
-	 $delimiters = array(
-        ';' => 0,
-        ',' => 0,
-        "\t" => 0,
-        "|" => 0
-    );
-
-    $handle = fopen($csvFile, "r");
-    $firstLine = fgets($handle);
-    fclose($handle); 
-    foreach ($delimiters as $delimiter => &$count) {
-        $count = count(str_getcsv($firstLine, $delimiter));
+    $csvfile='http://test.enterpriseesolutions.com/public/uploads/'. $_FILES['file']['name'];
+    //detect delimeter
+	 $delimiter = false;
+    $line = '';
+    if($f = fopen($csvfile, 'r')) {
+        $line = fgets($f); 
+		$sameline=$line;// read until first newline
+        fclose($f);
+    }
+    if(strpos($line, ';') !== FALSE && strpos($line, ',') === FALSE) {
+        $delimiter = ';';
+    } else if(strpos($line, ',') !== FALSE && strpos($line, ';') === FALSE) {
+        $delimiter = ',';
+    } else {
+        die('Unable to find the CSV delimiter character. Make sure you use "," or ";" as delimiter and try again.');
     }
 
-    echo'delimeter ' array_search(max($delimiters), $delimiters);
-    
-        $fileD = fopen($csvFile,"r");
+
+if ($delimiter != ","){echo 'Incorrect delimeter!'; return false;}
+//detect enclosure
+$enclosure=substr_count($sameline,'"');
+
+if ($enclosure < 14){echo 'Incorrect enclosure!'; return false;}
+     
+	 $fileD = fopen($csvfile,"r");
         $column=fgetcsv($fileD);
         while(!feof($fileD)){
          $rowData[]=fgetcsv($fileD,',','"');
 		  print_r( ($rowData));
         } 
-		$i=0;
+		$i=0;$details="";
         foreach ($rowData as $key => $value) {
           
             $i=$i+1;
@@ -47,16 +52,17 @@
 			  $ch=substr($ch,strlen($pin)+2);
 			  $status=substr($ch,0,stripos($ch,'"',0));
 			  echo ('status='.$status);
-           /* $inserted_data=array('sim'=>$value[0],
-                                 'pin'=>$value[1],
-                                 'enabled'=>$value[2]
-                            );*/
-            //echo $inserted_data;
-             //Sim::create($inserted_data);
+			  if ( (strlen($sim)==0) && (strlen($pin)>0) ){$details=$details. ' Line '.$i.' is incorrect.';}
+			  //Case pin exist $ sim not exist
+			  if ( ( (strlen($sim)>0)) && ($pin=='"'))
+				  $details=$details. ' line'.$i.'SIM without PIN' ;
+			  //Case empty line
+			  if ((strlen($sim)==strlen($pin)) && (strlen($sim)  ==strlen($status)) )
+				 $details=$details. ' line '.$i.'empty.';
+			  if($status==""){$status=0;}
+          
         }
-  
-      // print_r( ($rowData));
-       // echo 'rowdata json ='.json_encode( ($rowData));
+  echo ('details: '.$details);
 }
 
 ?>
