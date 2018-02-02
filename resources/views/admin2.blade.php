@@ -33,10 +33,10 @@
                 processData: false,
                 data: form_data,                         
                 type: 'post',
-                success: function(php_script_response){
+                success: function(response){
                     alert('uploaded'); // display response from the PHP script, if any
-					console.log(php_script_response);
-					console.log(php_script_response.result);
+					console.log(response);
+					console.log(JSON.stringify(response));
                 },fail: function(error){
                     alert(error); // display response from the PHP script, if any
                 },
