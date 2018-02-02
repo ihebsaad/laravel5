@@ -16,7 +16,7 @@
 
 <input id="sortpicture" type="file" name="sortpic" />
 <button id="upload">Upload</button>
-
+<progress value="2" max="100" id="progress1"></progress>
 </body>
 
   <script>
@@ -35,7 +35,25 @@
                 type: 'post',
                 success: function(php_script_response){
                     alert(php_script_response); // display response from the PHP script, if any
-                }
+                },fail: function(error){
+                    alert(error); // display response from the PHP script, if any
+                },
+        // Custom XMLHttpRequest
+        xhr: function() {
+            var myXhr = $.ajaxSettings.xhr();
+            if (myXhr.upload) {
+                // For handling the progress of the upload
+                myXhr.upload.addEventListener('progress', function(e) {
+                    if (e.lengthComputable) {
+                        $('#progress1').attr({
+                            value: e.loaded,
+                            max: e.total,
+                        });
+                    }
+                } , false);
+            }
+            return myXhr;
+        }
      });
 });
 
