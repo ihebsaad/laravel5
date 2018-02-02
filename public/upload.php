@@ -5,7 +5,8 @@
     }
     else {
         move_uploaded_file($_FILES['file']['tmp_name'], 'uploads/' . $_FILES['file']['name']);
-   return 'uploaded';
+    $result='uploaded';
+   return $result;
    /*Route::get('read-excel',function(){
     
         $fileD = fopen('expertphp-product.csv',"r");
