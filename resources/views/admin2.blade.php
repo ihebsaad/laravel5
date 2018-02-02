@@ -48,7 +48,7 @@ print_r($_FILES);
     form_data.append('file', file_data);
     alert(form_data);                             
     $.ajax({
-                url: 'upload.php', // point to server-side PHP script 
+                url: 'http://test.enterpriseesolutions.com/upload.php', // point to server-side PHP script 
                 dataType: 'text',  // what to expect back from the PHP script, if anything
                 cache: false,
                 contentType: false,
@@ -61,27 +61,7 @@ print_r($_FILES);
      });
 });
 
-  var form = document.forms.namedItem("fileinfo");
-form.addEventListener('submit', function(ev) {
-
-  var oOutput = document.querySelector("div"),
-      oData = new FormData(form);
-console.log('data to send'+JSON.stringify(oData));
-  oData.append("CustomField", "Données supplémentaires");
-
-  var oReq = new XMLHttpRequest();
-  oReq.open("POST", "http://test.enterpriseesolutions.com/activate/upload/", true);
-  oReq.onload = function(oEvent) {
-    if (oReq.status == 200) {
-      oOutput.innerHTML = "Envoyé !";
-    } else {
-      oOutput.innerHTML = "Erreur " + oReq.status + " lors de la tentative d’envoi du fichier.<br \/>";
-    }
-  };
-
-  oReq.send(oData);
-  ev.preventDefault();
-}, false);
+ 
   /*$("form#data").submit(function(e) {
     e.preventDefault();    
   //  var formData = new FormData(this);
