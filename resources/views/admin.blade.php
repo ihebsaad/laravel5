@@ -84,7 +84,7 @@ echo'
  
   <a href="http://test.enterpriseesolutions.com/activate/admin/enable/{{data.id}}">enable serveur</a>
   <a href="http://127.0.0.1/laravel5/activate/admin/enable/{{data.id}}">enable local</a>
-  <a onclick="enable();" href="#">enable Ajax Server</a>
+  <a ng-click="enable(data.enabled);" href="#">enable Ajax Server</a>
 
 </td></tr>
 </table>	
@@ -177,7 +177,7 @@ else{
  
   <a href="http://test.enterpriseesolutions.com/activate/admin/enable/{{data.id}}">enable serveur</a>
   <a href="http://127.0.0.1/laravel5/activate/admin/enable/{{data.id}}">enable local</a>
-  <a onclick="enable();" href="#">enable Ajax Server</a>
+  <a ng-click="enable(data.enabled);" href="#">enable Ajax Server</a>
 
 </td></tr>
 </table>	
@@ -349,34 +349,7 @@ else{
 //@Ran
 
   
- function enable(){
-	// var id =document.getElementById('idpin').value;
-	  var id =2 ;
-	//  var url = window.location.href+'/enable/2' ;
-	  // alert(id);
- 	  
-	 var setting = {
-  "async": true,
-  "crossDomain": true,
-  "url": "http://test.enterpriseesolutions.com/activate/admin/enable/"+id,
-  "method": "GET",
-  "headers": {
-     'Access-Control-Allow-Origin': '*'
-  },
-  "processData": false 
- 
-  }
-  
-   
-$.ajax(setting).done(function (response) {
-	alert('done' + response);
-});
 
-$.ajax(setting).fail(function (response) {
-	alert('fail'+ response);
-});
-	 
- }
  
  /******** Reset password ********/
  
