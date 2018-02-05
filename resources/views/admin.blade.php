@@ -354,23 +354,20 @@ else{
 	  var id =2 ;
 	//  var url = window.location.href+'/enable/2' ;
 	  // alert(id);
-	  var  datas='{\"id\":\"'+id+'\"}' ;
-	  
+ 	  
 	 var setting = {
   "async": true,
   "crossDomain": true,
-  "url": "http://test.enterpriseesolutions.com/activate/admin/enable",
-  "method": "POST",
+  "url": "http://test.enterpriseesolutions.com/activate/admin/enable/"+id,
+  "method": "GET",
   "headers": {
      'Access-Control-Allow-Origin': '*'
   },
-  "processData": false ,
-   "data": '{\"id\":\"'+id+'\"}'
-
+  "processData": false 
+ 
   }
   
-  console.log('DATA :'+datas) ;
-  
+   
 $.ajax(setting).done(function (response) {
 	alert('done' + response);
 });
