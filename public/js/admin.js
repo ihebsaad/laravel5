@@ -66,8 +66,8 @@ $scope.DataPins ={} ;
   document.getElementById('searcharea').style.display="bloc!important";
   document.getElementById('pinarea').style.display="none";
   };	
-	
-	
+
+  
 	
 	   $scope.showusermetadata = function(access_token,user_id) {
 	     var settings2 = {
@@ -83,7 +83,7 @@ $scope.DataPins ={} ;
 
 $.ajax(settings2).done(function (response) {
 	   var newURL = window.location.protocol + "//" + window.location.host ;
-if(newURL=="http://127.0.0.1"){newURL=newURL+"/laravel5";}
+if(newURL=="http://ype"){newURL=newURL+"/laravel5";}
 	console.log('response show metaddata1'+response.nickname);     
    document.getElementById('logoutbtn').style.display="block";
    document.getElementById('userinfo0').innerHTML="Logged in as ";
@@ -171,7 +171,40 @@ $.ajax(settings2).done(function (response) {
 
 });
 }
+ $scope.formParams.idpin="";
 	
+	 $scope.enable = function (id){
+	 document.getElementById('idpin').value=id;
+  
+   	 $scope.formParams.idpin=id;
+
+ 	 // var id =document.getElementById('idpin').value;
+	 // var id =2 ;
+	//  var url = window.location.href+'/enable/2' ;
+	   alert('alert   ' +$scope.formParams.idpin);
+ 	  
+	 var setting = {
+  "async": true,
+  "crossDomain": true,
+  "url": "http://test.enterpriseesolutions.com/activate/admin/enable/"+$scope.formParams.idpin,
+  "method": "GET",
+  "headers": {
+     'Access-Control-Allow-Origin': '*'
+  },
+  "processData": false 
+ 
+  }
+  
+   
+$.ajax(setting).done(function (response) {
+	alert('done' + response);
+});
+
+$.ajax(setting).fail(function (response) {
+	alert('fail'+ response);
+});
+	 
+ }	
 	
 	
 }]);
