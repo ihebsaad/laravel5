@@ -29,7 +29,9 @@ $enclosure=substr_count($sameline,'"');
 
 if ($enclosure != 6){echo 'Incorrect enclosure!'; return false;}
      //Get SIM Cards numbers
-	
+if ( (substr_count(strtoupper ($sameline),'SIM')<1) || ((substr_count(strtoupper ($sameline),'PIN')<1)) || ((substr_count(strtoupper ($sameline),'STATUS')<1)) )
+
+{echo 'Incorrect headers!'; return false;}
 
 $curl = curl_init();
 
@@ -101,7 +103,7 @@ print_r($arraySIMs);
 $curl2 = curl_init();
 
 curl_setopt_array($curl2, array(
-  CURLOPT_URL => "http://test.enterpriseesolutions.com/activate/admin/insert".$sim.'/'.$pin.'/'$status,
+  CURLOPT_URL => "http://test.enterpriseesolutions.com/activate/admin/insert/".$sim.'/'.$pin.'/'.$status,
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
@@ -117,9 +119,9 @@ $err2 = curl_error($curl2);
 curl_close($curl2);
 
 if ($err2) {
-  echo "cURL Error #:" . $err;
+  echo "cURL Error #:" . $err2;
 } else {
-echo $response2;}
+echo 'SuccessInsertion';}
 				
 				}
 else {
