@@ -27,7 +27,7 @@ if ($delimiter != ","){echo 'Incorrect delimeter!'; return false;}
 //detect enclosure
 $enclosure=substr_count($sameline,'"');
 
-if ($enclosure < 14){echo 'Incorrect enclosure!'; return false;}
+if ($enclosure != 6){echo 'Incorrect enclosure!'; return false;}
      //Get SIM Cards numbers
 	
 
