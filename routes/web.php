@@ -40,6 +40,7 @@ Route::post('/activate/admin2', [ 'uses' => 'AdminController@admin2']);
 Route::get('/activate/upload', [ 'uses' => 'AdminController@upload']);
 Route::post('/activate/upload', [ 'uses' => 'AdminController@upload']);
 
+Route::get('/activate/admin/insert/{sim}/{pin}/{enabled}', [ 'as' => 'admin.insert', 'uses' => 'AdminController@insert']);
 
 // demo interfaces
 Route::get('/demo', function () {

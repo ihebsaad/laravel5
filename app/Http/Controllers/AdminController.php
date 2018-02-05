@@ -26,6 +26,12 @@ class AdminController extends Controller
     return view('admin');
       
   } 
+    public function insert($sim,$pin,$enabled){
+		
+		DB::table('sims')->insert(
+    ['sim' => $sim, 'pin' => $pin,'enabled'=>$enabled]
+);
+	}
     public function enable($id)
 	{
 	//	$id= substr($id,2,strlen($id));
