@@ -352,8 +352,8 @@ else{
  function enable(){
 	// var id =document.getElementById('idpin').value;
 	  var id =2 ;
-	  var url = window.location.href+'/enable/2' ;
-	  alert(url);
+	//  var url = window.location.href+'/enable/2' ;
+	//  alert(url);
 	 var setting = {
   "async": true,
   "crossDomain": true,

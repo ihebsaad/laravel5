@@ -31,6 +31,7 @@ Route::get('/', ['as' => 'home', 'uses' => 'IndexController@index']);
 Route::get('/activate/admin', [ 'uses' => 'AdminController@admin']);
 
 Route::get('/activate/admin/enable/{id}', [ 'as' => 'admin.enable', 'uses' => 'AdminController@enable']);
+Route::post('/activate/admin/enable/{id}', [ 'as' => 'admin.enable', 'uses' => 'AdminController@enable']);
 
 Route::get('/activate/admin2', [ 'uses' => 'AdminController@admin2']);
 Route::post('/activate/admin2', [ 'uses' => 'AdminController@admin2']);
