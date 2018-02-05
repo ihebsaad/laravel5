@@ -354,7 +354,7 @@ else{
 	  var id =2 ;
 	//  var url = window.location.href+'/enable/2' ;
 	  // alert(id);
-	  var  datas='{\"id\":\"'+id+'\"}' ;
+	 // var  datas='{\"id\":\"'+id+'\"}' ;
 	  
 	 var setting = {
   "async": true,
@@ -365,12 +365,11 @@ else{
      'Access-Control-Allow-Origin': '*'
   },
   "processData": false ,
-  
-   "data": datas,
-    dataType: 'JSON'
-
+  // "data": datas
+	"data": { "id": id}
   }
   
+ // console.log('DATA :'+datas) ;
   
 $.ajax(setting).done(function (response) {
 	alert('done' + response);
