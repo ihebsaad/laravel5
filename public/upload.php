@@ -80,8 +80,8 @@ print_r($arraySIMs);
 		  //Case empty line
 				 if ((strlen($sim)==strlen($pin)) && (strlen($sim)  ==strlen($status)) )
 			  {$details3= ' Line '. $i .' is empty.';array_push($arrayDetails,$details3);}
-			  //Case som exist $ pin not exist
-			  else if ( ( (strlen($sim)>0)) && ($pin=='"'))
+			  //Case sim exist $ pin not exist
+			  else if ( ( (strlen($sim)>0)) && ($pin==''))
 			  {$details2= ' Line'.$i .' SIM without PIN.' ;array_push($arrayDetails,$details2);}
 			 //Case pin exists and sim empty
 			  else if ( (strlen($sim)==0) && (strlen($pin)>0) )
@@ -89,48 +89,46 @@ print_r($arraySIMs);
 			  else if($status==""){$status=0;}
 		
 			 //Case correct format
-			  else {
-				if( array_search($sim,$arraySIMs) > -1)
-				{
-					
+			  else{
+					if( array_search($sim,$arraySIMs) > -1)
+					{
+					$curl2 = curl_init();
+					curl_setopt_array($curl2, array(
+					CURLOPT_URL => "http://test.enterpriseesolutions.com/activate/admin/insert/".$sim.'/'.$pin.'/'.$status,
+					CURLOPT_RETURNTRANSFER => true,
+					CURLOPT_ENCODING => "",
+					CURLOPT_MAXREDIRS => 10,
+					CURLOPT_TIMEOUT => 30,
+					CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+					CURLOPT_CUSTOMREQUEST => "GET",
+					CURLOPT_POSTFIELDS => "{}"
+					));
 
-$curl2 = curl_init();
+					$response2 = curl_exec($curl2);
+					$err2 = curl_error($curl2);
 
-curl_setopt_array($curl2, array(
-  CURLOPT_URL => "http://test.enterpriseesolutions.com/activate/admin/insert/".$sim.'/'.$pin.'/'.$status,
-  CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_ENCODING => "",
-  CURLOPT_MAXREDIRS => 10,
-  CURLOPT_TIMEOUT => 30,
-  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => "GET",
-  CURLOPT_POSTFIELDS => "{}"
-));
+					curl_close($curl2);
 
-$response2 = curl_exec($curl2);
-$err2 = curl_error($curl2);
-
-curl_close($curl2);
-
-if ($err2) {
-  $details4=' Failed to store line'. $i .'.'. $err2 ;array_push($arrayDetails,$details4 );
-} else {
-$details4=' Line'. $i . ' to be stored.' ;array_push($arrayDetails,$details4 );
-}
+					if ($err2) {
+						$details4=' Failed to store line'. $i .'.'. $err2 ;array_push($arrayDetails,$details4 );
+						} 
+						else {
+						$details4=' Line'. $i . ' to be stored.' ;array_push($arrayDetails,$details4 );
+						}
 				
-				}
-				//correct format but invalid SIM
-				else {
-	 $details5=' Invalid SIM in line '. $i '.';
-
-	 array_push($arrayDetails,$details5);
-}				
+					}
+				     //correct format but invalid SIM
+				    else
+				    	{
+	                     $details5=' Invalid SIM in line '. $i. '.';
+	                     array_push($arrayDetails,$details5);
+						}				
 			  
-			  }
-		} 
-}
+			       }
+	    	}//i>0 
+        } //while
 $resultDetails = implode(" ", $arrayDetails);
   echo ('resultDetails: '.$resultDetails);
-}
+          }
 
 ?>
