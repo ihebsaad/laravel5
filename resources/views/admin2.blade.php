@@ -24,9 +24,18 @@
     var file_data = $('#sortpicture').prop('files')[0];   
     var form_data = new FormData();                  
     form_data.append('file', file_data);
+	var newURL = window.location.protocol + "//" + window.location.host;
+    if(newURL=="http://127.0.0.1"){
+		url="http://127.0.0.1/laravel5/public/upload.php";		
+	}
+	else{
+		url="http://test.enterpriseesolutions.com/public/upload.php";
+}
+
     //alert(form_data);                             
     $.ajax({
-                url: 'http://test.enterpriseesolutions.com/public/upload.php', // point to server-side PHP script 
+               // url: 'http://test.enterpriseesolutions.com/public/upload.php', // point to server-side PHP script 
+               url: url, // point to server-side PHP script 
                 dataType: 'text',  // what to expect back from the PHP script, if anything
                 cache: false,
                 contentType: false,
@@ -35,9 +44,9 @@
                 type: 'post',
                 success: function(response){
                     alert('uploaded'); // display response from the PHP script, if any
-					console.log(response);
-					console.log(response.length);
-					console.log(response[0]);
+					console.log('response'+response);
+					if (response.indexOf('Incorrect delimeter!') > -1){alert('Incorrect delimeter!');}
+				//	console.log( ' response json'+JSON.parse(JSON.stringify(response)));
 			
                 },fail: function(error){
                     alert(error); // display response from the PHP script, if any
