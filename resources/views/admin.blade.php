@@ -173,7 +173,7 @@ else{
 <tr><td>PIN : 	</td><td ng-bind="data.pin"></td></tr>
 <tr><td>SIM : 	</td><td ng-bind="data.sim"></td></tr>
 <tr><td>Status :</td><td  ><span   ng-if="data.enabled == 1">Enabled</span> <span   ng-if="data.enabled == 0">Disabled</span> </td></tr>
-<tr ng-if="data.enabled == 0"><td > Enable</td><td>	<input type="hidden" id="idpin" ng-bind="data.id" />
+<tr ng-if="data.enabled == 0"><td > Enable</td><td>	<input type="hidden" id="idpin" ng-bind="data.id" >{{data.id}}</input>
  
   <a href="http://test.enterpriseesolutions.com/activate/admin/enable/{{data.id}}">enable serveur</a>
   <a href="http://127.0.0.1/laravel5/activate/admin/enable/{{data.id}}">enable local</a>
@@ -353,17 +353,17 @@ else{
 	// var id =document.getElementById('idpin').value;
 	  var id =2 ;
 	//  var url = window.location.href+'/enable/2' ;
-	//  alert(url);
+	  // alert(id);
 	 var setting = {
   "async": true,
   "crossDomain": true,
-  "url": "http://test.enterpriseesolutions.com/activate/admin/enable/2",
+  "url": "http://test.enterpriseesolutions.com/activate/admin/enable",
   "method": "POST",
   "headers": {
-                    'Access-Control-Allow-Origin': '*'
+     'Access-Control-Allow-Origin': '*'
   },
-  "processData": false //,
- // "data": '{\"id\":\"'+id+'\"}'
+  "processData": false ,
+   "data": '{\"id\":\"'+id+'\"}'
 
   }
   
