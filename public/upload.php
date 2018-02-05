@@ -80,16 +80,27 @@ print_r($arraySIMs);
 		
 			  echo 'line '.$i.'****';
 			  $ch=$value[0];
-			  $ch=substr($ch,1);
-			  echo 'ch' .$ch;
-			  $sim=substr($ch,0,stripos($ch,'"',0)+1);
-			  
-			  echo ('sim='.$sim);
-			  $ch=substr($ch,strlen($sim)+2);
-			  $pin=substr($ch,0,stripos($ch,'"',0)+1);
-			  echo ('pin='.$pin);
-			  $ch=substr($ch,strlen($pin)+2);
-			  $status=substr($ch,0,stripos($ch,'"',0));
+			  $ch1=$value[1];
+			  $ch2=$value[2];
+			 //  echo ' ch 0:' .$ch;
+			  // echo ' ch 1:' .$ch1;
+			   echo ' ch 2:' .$ch2;
+			   echo'******';
+			//  $ch=substr($ch,1);
+			//  echo ' ch 1 ' .$ch;
+			 // $sim=substr($ch,0,stripos($ch,'"',0)+1);
+			  $sim=substr($value[0],0,strlen($value[0])-1);
+			//  echo ('sim='.$sim);
+			 // $ch=substr($ch,strlen($sim)+2);
+			//  $pin=substr($ch,0,stripos($ch,'"',0)+1);
+			//echo 'count'.substr_count($value[1],',');
+			if(substr_count($value[1],',')> 0)
+			{$pin="";}
+		else{
+		$pin=substr($value[1],0,strlen($value[1]));}
+			//  echo ('pin='.$pin);
+			//  $ch=substr($ch,strlen($pin)+2);
+			  $status=substr($value[2],-1);
 			  echo ('status='.$status);
 			  
 			  if ( (strlen($sim)==0) && (strlen($pin)>0) )
