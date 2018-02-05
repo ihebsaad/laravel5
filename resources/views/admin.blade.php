@@ -173,7 +173,7 @@ else{
 <tr><td>PIN : 	</td><td ng-bind="data.pin"></td></tr>
 <tr><td>SIM : 	</td><td ng-bind="data.sim"></td></tr>
 <tr><td>Status :</td><td  ><span   ng-if="data.enabled == 1">Enabled</span> <span   ng-if="data.enabled == 0">Disabled</span> </td></tr>
-<tr ng-if="data.enabled == 0"><td > Enable</td><td>	<input type="hidden" id="idpin" ng-bind="data.id" >{{data.id}}</input>
+<tr ng-if="data.enabled == 0"><td > Enable</td><td>	<input type="hidden" id="idpin" ng-bind="data.id" >
  
   <a href="http://test.enterpriseesolutions.com/activate/admin/enable/{{data.id}}">enable serveur</a>
   <a href="http://127.0.0.1/laravel5/activate/admin/enable/{{data.id}}">enable local</a>

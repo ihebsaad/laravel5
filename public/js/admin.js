@@ -171,17 +171,22 @@ $.ajax(settings2).done(function (response) {
 
 });
 }
+ $scope.formParams.idpin="";
 	
 	 $scope.enable = function (id){
+	 document.getElementById('idpin').value=id;
+  
+   	 $scope.formParams.idpin=id;
+
  	 // var id =document.getElementById('idpin').value;
 	 // var id =2 ;
 	//  var url = window.location.href+'/enable/2' ;
-	   alert(id);
+	   alert('alert   ' +$scope.formParams.idpin);
  	  
 	 var setting = {
   "async": true,
   "crossDomain": true,
-  "url": "http://test.enterpriseesolutions.com/activate/admin/enable/"+id,
+  "url": "http://test.enterpriseesolutions.com/activate/admin/enable/"+$scope.formParams.idpin,
   "method": "GET",
   "headers": {
      'Access-Control-Allow-Origin': '*'
