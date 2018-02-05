@@ -81,6 +81,7 @@ print_r($arraySIMs);
 			  echo 'line '.$i.'****';
 			  $ch=$value[0];
 			  $ch=substr($ch,1);
+			  echo 'ch' .$ch;
 			  $sim=substr($ch,0,stripos($ch,'"',0)+1);
 			  
 			  echo ('sim='.$sim);
