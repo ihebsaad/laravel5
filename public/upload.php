@@ -54,16 +54,16 @@ curl_close($curl);
 if ($err) {
   echo "cURL Error #:" . $err;
 } else {
-  echo $response;
+ // echo $response;
   $obj = json_decode($response);
   $arraySIMs = array();
 
 foreach($obj->simCards as $sim){
-	echo $sim->iccid;
+	//echo $sim->iccid;
 	array_push($arraySIMs,$sim->iccid);
 }
-echo 'array result';
-print_r($arraySIMs);
+/*echo 'array result';
+print_r($arraySIMs);*/
 
 }
 
@@ -82,10 +82,10 @@ print_r($arraySIMs);
 			  {$details3= ' Line '. $i .' is empty.';array_push($arrayDetails,$details3);}
 			  //Case sim exist $ pin not exist
 			  else if ( ( (strlen($sim)>0)) && ($pin==''))
-			  {$details2= ' Line'.$i .' SIM without PIN.' ;array_push($arrayDetails,$details2);}
+			  {$details2= ' Line '.$i .': SIM without PIN.' ;array_push($arrayDetails,$details2);}
 			 //Case pin exists and sim empty
 			  else if ( (strlen($sim)==0) && (strlen($pin)>0) )
-			  {$details1= ' Line '. $i .' is incorrect.';array_push($arrayDetails,$details1);}
+			  {$details1= ' Line '. $i .': non-existent SIM.';array_push($arrayDetails,$details1);}
 			  else if($status==""){$status=0;}
 		
 			 //Case correct format

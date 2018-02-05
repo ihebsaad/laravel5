@@ -46,7 +46,18 @@
                     alert('uploaded'); // display response from the PHP script, if any
 					console.log(response);
 					if (response.indexOf('Incorrect delimeter!') > -1){alert('Incorrect delimeter!');}
-					if (response.indexOf('Incorrect headers!') > -1){alert('Incorrect headers!');}
+					else if (response.indexOf('Incorrect headers!') > -1){alert('Incorrect headers!');}
+				   else if ( ((response.indexOf('Incorrect delimeter!') > -1)) 
+					   || ((response.indexOf('Failed') > -1))
+				       || ((response.indexOf('empty') > -1)) 
+					   || ((response.indexOf('non-existent') > -1)) 
+				       || ((response.indexOf('without') > -1))      )
+				   {
+					alert('Completed with errors');
+				    }
+				   else{
+					alert('Completed successfully');
+				}
 				//	console.log( ' response json'+JSON.parse(JSON.stringify(response)));
 			
                 },fail: function(error){
