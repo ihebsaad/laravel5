@@ -44,8 +44,9 @@
                 type: 'post',
                 success: function(response){
                     alert('uploaded'); // display response from the PHP script, if any
-					console.log('response'+response);
+					console.log(response);
 					if (response.indexOf('Incorrect delimeter!') > -1){alert('Incorrect delimeter!');}
+					if (response.indexOf('Incorrect headers!') > -1){alert('Incorrect headers!');}
 				//	console.log( ' response json'+JSON.parse(JSON.stringify(response)));
 			
                 },fail: function(error){
