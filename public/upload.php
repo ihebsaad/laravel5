@@ -67,69 +67,74 @@ print_r($arraySIMs);
 
 
 
-	 $fileD = fopen($csvfile,"r");
-        $column=fgetcsv($fileD);
-        while(!feof($fileD)){
-         $rowData[]=fgetcsv($fileD,',','"');
-		//  print_r( ($rowData));
-        } 
-		$i=0;$arrayDetails = array();
-        foreach ($rowData as $key => $value) {
-          
+	$fileD = fopen($csvfile,"r");
+      		$i=0;$arrayDetails = array();
+        while (($line = fgetcsv($fileD)) !== FALSE) { 
             $i=$i+1;
+			 if ($i>1){
+		// foreach ($line as $value) {
+			$sim=$line[0];
+			$pin=$line[1];
+			$status=$line[2];
 		
-			  echo 'line '.$i.'****';
-			  $ch=$value[0];
-			  $ch1=$value[1];
-			  $ch2=$value[2];
-			 //  echo ' ch 0:' .$ch;
-			  // echo ' ch 1:' .$ch1;
-			   echo ' ch 2:' .$ch2;
-			   echo'******';
-			//  $ch=substr($ch,1);
-			//  echo ' ch 1 ' .$ch;
-			 // $sim=substr($ch,0,stripos($ch,'"',0)+1);
-			  $sim=substr($value[0],0,strlen($value[0])-1);
-			//  echo ('sim='.$sim);
-			 // $ch=substr($ch,strlen($sim)+2);
-			//  $pin=substr($ch,0,stripos($ch,'"',0)+1);
-			//echo 'count'.substr_count($value[1],',');
-			if(substr_count($value[1],',')> 0)
-			{$pin="";}
-		else{
-		$pin=substr($value[1],0,strlen($value[1]));}
-			//  echo ('pin='.$pin);
-			//  $ch=substr($ch,strlen($pin)+2);
-			  $status=substr($value[2],-1);
+			  echo ('sim='.$sim);
+			  echo ('pin='.$pin);
 			  echo ('status='.$status);
+			 
 			  
 			  if ( (strlen($sim)==0) && (strlen($pin)>0) )
-			  {$i1=$i+1;$details1= ' Line '. $i1 .' is incorrect.';array_push($arrayDetails,$details1);}
+			  {$i1=$i+1;$details1= ' Line '. $i .' is incorrect.';array_push($arrayDetails,$details1);}
 			  //Case pin exist $ sim not exist
 			  else if ( ( (strlen($sim)>0)) && ($pin=='"'))
-			  {  $i2=$i+1;$details2= ' Line'.$i2 .' SIM without PIN.' ;array_push($arrayDetails,$details2);}
+			  {  $i2=$i+1;$details2= ' Line'.$i .' SIM without PIN.' ;array_push($arrayDetails,$details2);}
 			  //Case empty line
 			  else if ((strlen($sim)==strlen($pin)) && (strlen($sim)  ==strlen($status)) )
-			  {$i3=$i+1;$details3= ' Line '. $i3 .' is empty.';array_push($arrayDetails,$details3);}
+			  {$i3=$i+1;$details3= ' Line '. $i .' is empty.';array_push($arrayDetails,$details3);}
 			  else if($status==""){$status=0;}
 			  else {
 				if( array_search($sim,$arraySIMs) > -1)
 				{
-					$i4=$i+1;$details4=' Line'. $i4 . ' to be stored.' ;array_push($arrayDetails,$details4 );
+					$i4=$i+1;$details4=' Line'. $i . ' to be stored.' ;array_push($arrayDetails,$details4 );
+				
+					
+
+$curl2 = curl_init();
+
+curl_setopt_array($curl2, array(
+  CURLOPT_URL => "http://test.enterpriseesolutions.com/activate/admin/insert".$sim.'/'.$pin.'/'$status,
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_POSTFIELDS => "{}"
+));
+
+$response2 = curl_exec($curl2);
+$err2 = curl_error($curl2);
+
+curl_close($curl2);
+
+if ($err2) {
+  echo "cURL Error #:" . $err;
+} else {
+echo $response2;}
+				
 				}
 else {
 	$i5=$i+1;
-	 $details5=' SIM in line '. $i5 .' is not valid. ';
+	 $details5=' SIM in line '. $i .' is not valid. ';
 
 	 array_push($arrayDetails,$details5);
 }				
 			  
 			  }
-          
-        }
+         
+      //  }
 
-  $resultDetails = implode(" ", $arrayDetails);
+		} 
+}}
+$resultDetails = implode(" ", $arrayDetails);
   echo ('resultDetails: '.$resultDetails);
-}
-
 ?>
