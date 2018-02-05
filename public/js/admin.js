@@ -187,7 +187,7 @@ $.ajax(settings2).done(function (response) {
 	 var setting = {
   "async": true,
   "crossDomain": true,
-  "url": "http://test.enterpriseesolutions.com/activate/admin/enable/"+$id,
+  "url": "http://test.enterpriseesolutions.com/activate/admin/enable/"+id,
   "method": "GET",
   "headers": {
      'Access-Control-Allow-Origin': '*'
