@@ -348,7 +348,6 @@ else{
 <script>
 //@Ran
 
-  
  function enable(){
 	// var id =document.getElementById('idpin').value;
 	  var id =2 ;
@@ -357,13 +356,13 @@ else{
 	 var setting = {
   "async": true,
   "crossDomain": true,
-  "url": "http://test.enterpriseesolutions.com/activate/admin/enable",
+  "url": "http://test.enterpriseesolutions.com/activate/admin/enable/2",
   "method": "POST",
   "headers": {
      'Access-Control-Allow-Origin': '*'
   },
-  "processData": false ,
-   "data": '{\"id\":\"'+id+'\"}'
+  "processData": false //,
+  // "data": '{\"id\":\"'+id+'\"}'
 
   }
   
