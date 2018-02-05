@@ -74,27 +74,24 @@ print_r($arraySIMs);
         while (($line = fgetcsv($fileD)) !== FALSE) { 
             $i=$i+1;
 			 if ($i>1){
-		// foreach ($line as $value) {
 			$sim=$line[0];
 			$pin=$line[1];
 			$status=$line[2];
-		
-				 
-			  
-			  if ( (strlen($sim)==0) && (strlen($pin)>0) )
-			  {$details1= ' Line '. $i .' is incorrect.';array_push($arrayDetails,$details1);}
-			  //Case pin exist $ sim not exist
+		  //Case empty line
+				 if ((strlen($sim)==strlen($pin)) && (strlen($sim)  ==strlen($status)) )
+			  {$details3= ' Line '. $i .' is empty.';array_push($arrayDetails,$details3);}
+			  //Case som exist $ pin not exist
 			  else if ( ( (strlen($sim)>0)) && ($pin=='"'))
 			  {$details2= ' Line'.$i .' SIM without PIN.' ;array_push($arrayDetails,$details2);}
-			  //Case empty line
-			  else if ((strlen($sim)==strlen($pin)) && (strlen($sim)  ==strlen($status)) )
-			  {$details3= ' Line '. $i .' is empty.';array_push($arrayDetails,$details3);}
+			 //Case pin exists and sim empty
+			  else if ( (strlen($sim)==0) && (strlen($pin)>0) )
+			  {$details1= ' Line '. $i .' is incorrect.';array_push($arrayDetails,$details1);}
 			  else if($status==""){$status=0;}
+		
+			 //Case correct format
 			  else {
 				if( array_search($sim,$arraySIMs) > -1)
 				{
-					
-				
 					
 
 $curl2 = curl_init();
@@ -122,18 +119,18 @@ $details4=' Line'. $i . ' to be stored.' ;array_push($arrayDetails,$details4 );
 }
 				
 				}
-else {
-	 $details5=' SIM in line '. $i .' is not valid. ';
+				//correct format but invalid SIM
+				else {
+	 $details5=' Invalid SIM in line '. $i '.';
 
 	 array_push($arrayDetails,$details5);
 }				
 			  
 			  }
-         
-      //  }
-
 		} 
-}}
+}
 $resultDetails = implode(" ", $arrayDetails);
   echo ('resultDetails: '.$resultDetails);
+}
+
 ?>
