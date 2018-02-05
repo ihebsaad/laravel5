@@ -348,23 +348,29 @@ else{
 <script>
 //@Ran
 
+  
  function enable(){
 	// var id =document.getElementById('idpin').value;
 	  var id =2 ;
 	//  var url = window.location.href+'/enable/2' ;
 	  // alert(id);
+	  var  datas='{\"id\":\"'+id+'\"}' ;
+	  
 	 var setting = {
   "async": true,
   "crossDomain": true,
-  "url": "http://test.enterpriseesolutions.com/activate/admin/enable/2",
+  "url": "http://test.enterpriseesolutions.com/activate/admin/enable",
   "method": "POST",
   "headers": {
      'Access-Control-Allow-Origin': '*'
   },
-  "processData": false //,
-  // "data": '{\"id\":\"'+id+'\"}'
+  "processData": false ,
+  
+   "data": datas,
+    dataType: 'JSON'
 
   }
+  
   
 $.ajax(setting).done(function (response) {
 	alert('done' + response);
