@@ -79,24 +79,21 @@ print_r($arraySIMs);
 			$pin=$line[1];
 			$status=$line[2];
 		
-			  echo ('sim='.$sim);
-			  echo ('pin='.$pin);
-			  echo ('status='.$status);
-			 
+				 
 			  
 			  if ( (strlen($sim)==0) && (strlen($pin)>0) )
-			  {$i1=$i+1;$details1= ' Line '. $i .' is incorrect.';array_push($arrayDetails,$details1);}
+			  {$details1= ' Line '. $i .' is incorrect.';array_push($arrayDetails,$details1);}
 			  //Case pin exist $ sim not exist
 			  else if ( ( (strlen($sim)>0)) && ($pin=='"'))
-			  {  $i2=$i+1;$details2= ' Line'.$i .' SIM without PIN.' ;array_push($arrayDetails,$details2);}
+			  {$details2= ' Line'.$i .' SIM without PIN.' ;array_push($arrayDetails,$details2);}
 			  //Case empty line
 			  else if ((strlen($sim)==strlen($pin)) && (strlen($sim)  ==strlen($status)) )
-			  {$i3=$i+1;$details3= ' Line '. $i .' is empty.';array_push($arrayDetails,$details3);}
+			  {$details3= ' Line '. $i .' is empty.';array_push($arrayDetails,$details3);}
 			  else if($status==""){$status=0;}
 			  else {
 				if( array_search($sim,$arraySIMs) > -1)
 				{
-					$i4=$i+1;$details4=' Line'. $i . ' to be stored.' ;array_push($arrayDetails,$details4 );
+					
 				
 					
 
@@ -119,13 +116,13 @@ $err2 = curl_error($curl2);
 curl_close($curl2);
 
 if ($err2) {
-  echo "cURL Error #:" . $err2;
+  $details4=' Failed to store line'. $i .'.'. $err2 ;array_push($arrayDetails,$details4 );
 } else {
-echo 'SuccessInsertion';}
+$details4=' Line'. $i . ' to be stored.' ;array_push($arrayDetails,$details4 );
+}
 				
 				}
 else {
-	$i5=$i+1;
 	 $details5=' SIM in line '. $i .' is not valid. ';
 
 	 array_push($arrayDetails,$details5);
