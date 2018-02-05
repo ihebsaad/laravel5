@@ -355,7 +355,7 @@ else{
 	 var setting = {
   "async": true,
   "crossDomain": true,
-  "url": "test.enterpriseesolutions.com/activate/admin/enable/2",
+  "url": "http://test.enterpriseesolutions.com/activate/admin/enable/2",
   "method": "POST",
   "headers": {
                     'Access-Control-Allow-Origin': '*'
