@@ -110,10 +110,12 @@ print_r($arraySIMs);
 					curl_close($curl2);
 
 					if ($err2) {
+						echo('error'.$err2);
 						$details4=' Failed to store line'. $i .'.'. $err2 ;array_push($arrayDetails,$details4 );
 						} 
 						else {
-						$details4=' Line'. $i . ' to be stored.' ;array_push($arrayDetails,$details4 );
+							echo 'response'.$response2;
+						$details4=' Line'. $i . 'stored.' ;array_push($arrayDetails,$details4 );
 						}
 				
 					}
