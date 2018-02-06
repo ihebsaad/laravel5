@@ -40,6 +40,7 @@ DB::table('sims')->where('enabled', '=', 0)
                  ->where('sim', '>=', $start)
                  ->delete();
 	}
+	
     public function enable($id)
 	{
 	//	$id= substr($id,2,strlen($id));
@@ -50,7 +51,19 @@ DB::table('sims')->where('enabled', '=', 0)
         return redirect()->back();
 		
 	} 		
-			
+		
+    public function disable($id)
+	{
+	//	$id= substr($id,2,strlen($id));
+	DB::table('sims')
+            ->where('id', $id)
+            ->update(['enabled' => 0]);
+		
+        return redirect()->back();
+		
+	} 
+
+	
   public function admin2()
   {
    

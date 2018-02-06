@@ -28,20 +28,23 @@ Route::get('/', ['as' => 'home', 'uses' => 'IndexController@index']);
 
 
 //Administration Portal route
-Route::get('/activate/admin', [ 'uses' => 'AdminController@admin']);
+Route::get('/admin', [ 'uses' => 'AdminController@admin']);
 
-Route::get('/activate/admin/enable/{id}', [ 'as' => 'admin.enable', 'uses' => 'AdminController@enable']);
-Route::post('/activate/admin/enable/{id}', [ 'as' => 'admin.enable', 'uses' => 'AdminController@enable']);
+Route::get('/admin/enable/{id}', [ 'as' => 'admin.enable', 'uses' => 'AdminController@enable']);
+Route::post('/admin/enable/{id}', [ 'as' => 'admin.enable', 'uses' => 'AdminController@enable']);
 
-Route::get('/activate/admin2', [ 'uses' => 'AdminController@admin2']);
-Route::post('/activate/admin2', [ 'uses' => 'AdminController@admin2']);
+Route::get('/admin/disable/{id}', [ 'as' => 'admin.disable', 'uses' => 'AdminController@disable']);
+Route::post('/admin/disable/{id}', [ 'as' => 'admin.disable', 'uses' => 'AdminController@disable']);
+
+Route::get('/admin2', [ 'uses' => 'AdminController@admin2']);
+Route::post('/admin2', [ 'uses' => 'AdminController@admin2']);
 
 
-Route::get('/activate/upload', [ 'uses' => 'AdminController@upload']);
-Route::post('/activate/upload', [ 'uses' => 'AdminController@upload']);
+Route::get('/upload', [ 'uses' => 'AdminController@upload']);
+Route::post('/upload', [ 'uses' => 'AdminController@upload']);
 
-Route::get('/activate/admin/insert/{sim}/{pin}/{enabled}', [ 'as' => 'admin.insert', 'uses' => 'AdminController@insert']);
-Route::get('/activate/admin/delete/{start}/{end}', [ 'as' => 'admin.delete', 'uses' => 'AdminController@delete']);
+Route::get('/admin/insert/{sim}/{pin}/{enabled}', [ 'as' => 'admin.insert', 'uses' => 'AdminController@insert']);
+Route::get('/admin/delete/{start}/{end}', [ 'as' => 'admin.delete', 'uses' => 'AdminController@delete']);
 
 // demo interfaces
 Route::get('/demo', function () {

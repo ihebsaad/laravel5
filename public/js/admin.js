@@ -5,13 +5,13 @@ angular.module('formApp', [
 ]).
 controller('formCtrl', ['$scope', '$http', function($scope, $http) {
 	
-$scope.DataPins ={} ;
+//$scope.DataPins ={} ;
     $http.get('https://enterpriseesolutions.com/pins.php').success(function (responsepins) {
              $scope.DataPins = responsepins ;
           });	
 	
  $scope.stage = "";
-      $scope.formParams = {};
+    // $scope.formParams = {};
 
    // Navigation functions
   $scope.next = function (stage) {
@@ -63,13 +63,13 @@ $scope.DataPins ={} ;
 
   };	
 	  $scope.init = function () {
-  document.getElementById('searcharea').style.display="block!important";
+  document.getElementById('searcharea').style.display="block";
   document.getElementById('pinarea').style.display="none";
   };	
 
   
 	
-	   $scope.showusermetadata = function(access_token,user_id) {
+$scope.showusermetadata = function(access_token,user_id) {
 	     var settings2 = {
   "async": true,
   "crossDomain": true,
@@ -172,22 +172,14 @@ $.ajax(settings2).done(function (response) {
 });
 }
  
- $scope.formParams.idpin="";
-	
-	 $scope.enable = function (id){
-	// document.getElementById('idpin').value=id;
-  
- //  	 $scope.formParams.idpin=id;
+//$scope.formParams.idpin="";
 
- 	 // var id =document.getElementById('idpin').value;
-	 // var id =2 ;
-	//  var url = window.location.href+'/enable/2' ;
-
-	
+$scope.enable = function (id){
+ 
 	 var setting = {
   "async": true,
   "crossDomain": true,
-  "url": "http://test.enterpriseesolutions.com/activate/admin/enable/"+id,
+  "url": "http://test.enterpriseesolutions.com/admin/enable/"+id,
   "method": "GET",
   "headers": {
      'Access-Control-Allow-Origin': '*'
@@ -198,14 +190,46 @@ $.ajax(settings2).done(function (response) {
   
    
 $.ajax(setting).done(function (response) {
-	alert('done' + response);
+	console.log('done enable  ' + response);
+		//refresh pins list 
+	  $http.get('https://enterpriseesolutions.com/pins.php').success(function (responsepins) {
+             $scope.DataPins = responsepins ;
+          });	
 });
 
 $.ajax(setting).fail(function (response) {
-	alert('fail'+ response);
+	console.log('fail enable  '+ response);
 });
 	 
  }	
  
+ $scope.disable = function (id){
+ 
+	 var setting = {
+  "async": true,
+  "crossDomain": true,
+  "url": "http://test.enterpriseesolutions.com/admin/disable/"+id,
+  "method": "GET",
+  "headers": {
+     'Access-Control-Allow-Origin': '*'
+  },
+  "processData": false 
+ 
+  }
+  
+   
+$.ajax(setting).done(function (response) {
+	alert('done disable  ' + response);
+	//refresh pins list 
+	 $http.get('https://enterpriseesolutions.com/pins.php').success(function (responsepins) {
+             $scope.DataPins = responsepins ;
+          });	
+});
+
+$.ajax(setting).fail(function (response) {
+	console.log('fail disable '+ response);
+});
+	 
+ }
 	
 }]);
