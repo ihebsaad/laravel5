@@ -141,7 +141,7 @@ $.ajax(settings).done(function (response) {
 //$scope.$apply();
  document.getElementById('logindiv').style.display="none";
  document.getElementById('admindiv').style.display="block";
-
+$scope.$apply();
  });
 $.ajax(settings).fail(function (response) {
 	$(".alert-danger").slideDown();
