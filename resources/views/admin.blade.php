@@ -90,7 +90,15 @@
  
                         </div>
                     </div>
-
+ 				  <div class="row">
+					<div class="col-sm-4 col-sm-offset-4 center_div">
+	
+ 					<div style="display:none;" class="alert alert-danger">
+					<button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+						WRONG USERNAME OR PASSWORD.
+					</div>
+					</div>
+					</div>
  <?php if ( !$loggedin ) { echo'
 					<div class="row" style="max-height:400px!important"  id="logindiv">
                         <div class="col-sm-6 col-sm-offset-3 form-box">
@@ -102,28 +110,28 @@
  
                             </div>
                             <div class="form-bottom">
-			                    <form role="form" action="" method="post" class="login-form">
-			                    	<div class="form-group">
+
+							<div class="form-group">
 			                    		<label class="sr-only" for="form-username">Username</label>
-			                        	<input type="text" id="useremail" name="form-username" placeholder="username" class="form-username form-control" >
+			                        	<input type="text" ng-model="formParams.email" id="useremail" name="form-username" placeholder="username" class="form-username form-control" required ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" >
 			                        </div>
 			                        <div class="form-group">
 			                        	<label class="sr-only" for="form-password">Password</label>
-			                        	<input type="password" name="form-password" placeholder="password" class="form-password form-control" id="userpassword">
+			                        	<input ng-model="formParams.pasword" type="password" name="form-password" placeholder="password" class="form-password form-control" id="userpassword"   required ng-minlength="4">
 			                        </div>
                                     <div class="row">
                                         <div class="col-sm-6 ">
                                             <a href="#">Password Reset</a>
                                         </div>
                                         <div class="col-sm-3 col-sm-offset-3">
-			                                 <button type="submit" class="btn" ng-click="login();">Login</button>
+			                                 <button ng-disabled=" FormActivate.$invalid" type="submit" class="btn" ng-click="login();">Login</button>
                                         </div>
                                     </div>
-			                    </form>
-		                    </div>
+
+									</div>
                         </div>
 					</div> ' 	;} ?>
- 				
+
                  <div id="admindiv" class="row" style='<?php echo $style; ?>'>
                         <div class="col-sm-6 col-sm-offset-3 form-box">
                         	<div class="form-top">

@@ -141,7 +141,16 @@ $.ajax(settings).done(function (response) {
 //$scope.$apply();
  document.getElementById('logindiv').style.display="none";
  document.getElementById('admindiv').style.display="block";
+ 
+  $("#admindiv").animate({height: "100px"});
+   $("#admindiv").animate({height: "100px"});
+   $("#admindiv").animate({height: "555px"});
+   $("#admindiv").animate({height: "532"});
+   
+ 
 $scope.$apply();
+
+
  });
 $.ajax(settings).fail(function (response) {
 	$(".alert-danger").slideDown();
