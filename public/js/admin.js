@@ -140,7 +140,7 @@ $.ajax(settings).done(function (response) {
 //$scope.next('stageLouckup');
 //$scope.$apply();
  document.getElementById('logindiv').style.display="none";
- document.getElementById('logindiv').style.display="block";
+ document.getElementById('admindiv').style.display="block";
 
  });
 $.ajax(settings).fail(function (response) {
