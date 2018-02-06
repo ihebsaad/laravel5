@@ -219,7 +219,7 @@ $.ajax(setting).fail(function (response) {
   
    
 $.ajax(setting).done(function (response) {
-	alert('done disable  ' + response);
+
 	//refresh pins list 
 	 $http.get('https://enterpriseesolutions.com/pins.php').success(function (responsepins) {
              $scope.DataPins = responsepins ;
