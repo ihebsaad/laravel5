@@ -51,7 +51,7 @@ print_r($arr1);
 foreach ($arr1 as $key => $value){
    echo (' plan: '.$value);
    for ($i=$start; $i<$end;$i++) {
-   echo ' SIM= '.$i;
+   echo ' SIM= '.str_pad($i, strlen($start), "0", STR_PAD_LEFT);
 }
 }
 	/*$table1 = DB::table('SIM_PLANS')->firstOrNew(['name' => Input::get('name')]); // your data
