@@ -18,12 +18,12 @@ class CreateSIMSPLANSTable extends Migration
                 $table->integer('plan_id')->unsigned();
                 $table->integer('sim_id')->unsigned();
                 $table->foreign('sim_id')->references('id')->on('sims')
-                    ->onDelete('restrict')
-                    ->onUpdate('restrict');
+                    ->onDelete('cascade')
+                    ->onUpdate('cascade');
 
                 $table->foreign('plan_id')->references('id')->on('plans')
-                    ->onDelete('restrict')
-                    ->onUpdate('restrict');
+                    ->onDelete('cascade')
+                    ->onUpdate('cascade');
             });
     }
 
