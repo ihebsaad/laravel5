@@ -41,6 +41,7 @@ Route::get('/activate/upload', [ 'uses' => 'AdminController@upload']);
 Route::post('/activate/upload', [ 'uses' => 'AdminController@upload']);
 
 Route::get('/activate/admin/insert/{sim}/{pin}/{enabled}', [ 'as' => 'admin.insert', 'uses' => 'AdminController@insert']);
+Route::get('/activate/admin/delete/{start}/{end}', [ 'as' => 'admin.delete', 'uses' => 'AdminController@delete']);
 
 // demo interfaces
 Route::get('/demo', function () {

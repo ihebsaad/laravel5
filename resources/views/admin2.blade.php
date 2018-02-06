@@ -16,10 +16,63 @@
 
 <input id="sortpicture" type="file" name="sortpic" />
 <button id="upload">Upload</button>
-<progress value="2" max="100" id="progress1"></progress>
+<!--<progress value="2" max="100" id="progress1"></progress>-->
+
+<div id="delete_sims" class="tab-pane active in">
+                                            <div class="row" style="margin-top: 20px;">
+                                                <div class="form-group col-xs-12">
+                                                    <p>To delete SIMs, please enter the range of SIMs you wish to delete:</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-4 form-group">
+                                                    <input ng-model="formParams.startsim" type="number" name="startsim" ng-pattern="/^[0-9]*$/" placeholder="Start SIM #" ng-minlength="1" id="startsim" class="form-control">
+                                                </div>  
+                                                <div class="col-sm-4 form-group">
+                                                    <input ng-model="formParams.endsim" type="number" name="endsim" ng-pattern="/^[0-9]*$/" placeholder="End SIM #" ng-minlength="1" id="endsim" class="form-control">
+                                                </div>  
+                                                <div class="col-sm-4 form-group">
+                                                    <button type="button" onclick="deleteRange();" class="btn btn-primary " style="height:35px!important;float: right!important;line-height:0px!important;">Delete</button>
+                                                </div>      
+                                            </div>
+                                        </div>
+
+
+
 </body>
 
   <script>
+  function deleteRange(){
+	  start=document.getElementById('startsim').value;
+	  end=document.getElementById('endsim').value;
+	  console.log("http://test.enterpriseesolutions.com/activate/admin/delete/"+start+'/'+end);
+	  if (end < start){
+		  alert('Incorrect range!');		  
+	  }
+	  else{
+		   	 	 var setting = {
+  "async": true,
+  "crossDomain": true,
+  "url": "http://test.enterpriseesolutions.com/activate/admin/delete/"+start+'/'+end,
+  "method": "GET",
+  "headers": {
+     'Access-Control-Allow-Origin': '*'
+  },
+  "processData": false 
+ 
+  }
+  
+   
+$.ajax(setting).done(function (response) {
+	alert('done' + response);
+});
+
+$.ajax(setting).fail(function (response) {
+	alert('fail'+ response);
+});
+	  }
+	  
+  }
   $('#upload').on('click', function() {
     var file_data = $('#sortpicture').prop('files')[0];   
     var form_data = new FormData();                  
@@ -44,13 +97,25 @@
                 type: 'post',
                 success: function(response){
                     alert('uploaded'); // display response from the PHP script, if any
-					console.log('response'+response);
+					console.log(response);
 					if (response.indexOf('Incorrect delimeter!') > -1){alert('Incorrect delimeter!');}
+					else if (response.indexOf('Incorrect headers!') > -1){alert('Incorrect headers!');}
+				   else if ( ((response.indexOf('Incorrect delimeter!') > -1)) 
+					   || ((response.indexOf('Failed') > -1))
+				       || ((response.indexOf('empty') > -1)) 
+					   || ((response.indexOf('non-existent') > -1)) 
+				       || ((response.indexOf('without') > -1))      )
+				   {
+					alert('Completed with errors');
+				    }
+				   else{
+					alert('Completed successfully');
+				}
 				//	console.log( ' response json'+JSON.parse(JSON.stringify(response)));
 			
                 },fail: function(error){
                     alert(error); // display response from the PHP script, if any
-                },
+                }/*,
         // Custom XMLHttpRequest
         xhr: function() {
             var myXhr = $.ajaxSettings.xhr();
@@ -66,7 +131,7 @@
                 } , false);
             }
             return myXhr;
-        }
+        }*/
      });
 });
 

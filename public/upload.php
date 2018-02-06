@@ -29,7 +29,9 @@ $enclosure=substr_count($sameline,'"');
 
 if ($enclosure != 6){echo 'Incorrect enclosure!'; return false;}
      //Get SIM Cards numbers
-	
+if ( (substr_count(strtoupper ($sameline),'SIM')<1) || ((substr_count(strtoupper ($sameline),'PIN')<1)) || ((substr_count(strtoupper ($sameline),'STATUS')<1)) )
+
+{echo 'Incorrect headers!'; return false;}
 
 $curl = curl_init();
 
@@ -52,16 +54,16 @@ curl_close($curl);
 if ($err) {
   echo "cURL Error #:" . $err;
 } else {
-  echo $response;
+ // echo $response;
   $obj = json_decode($response);
   $arraySIMs = array();
 
 foreach($obj->simCards as $sim){
-	echo $sim->iccid;
+	//echo $sim->iccid;
 	array_push($arraySIMs,$sim->iccid);
 }
-echo 'array result';
-print_r($arraySIMs);
+/*echo 'array result';
+print_r($arraySIMs);*/
 
 }
 
@@ -72,69 +74,71 @@ print_r($arraySIMs);
         while (($line = fgetcsv($fileD)) !== FALSE) { 
             $i=$i+1;
 			 if ($i>1){
-		// foreach ($line as $value) {
 			$sim=$line[0];
 			$pin=$line[1];
 			$status=$line[2];
-		
-			  echo ('sim='.$sim);
-			  echo ('pin='.$pin);
-			  echo ('status='.$status);
-			 
-			  
-			  if ( (strlen($sim)==0) && (strlen($pin)>0) )
-			  {$i1=$i+1;$details1= ' Line '. $i .' is incorrect.';array_push($arrayDetails,$details1);}
-			  //Case pin exist $ sim not exist
-			  else if ( ( (strlen($sim)>0)) && ($pin=='"'))
-			  {  $i2=$i+1;$details2= ' Line'.$i .' SIM without PIN.' ;array_push($arrayDetails,$details2);}
-			  //Case empty line
-			  else if ((strlen($sim)==strlen($pin)) && (strlen($sim)  ==strlen($status)) )
-			  {$i3=$i+1;$details3= ' Line '. $i .' is empty.';array_push($arrayDetails,$details3);}
+		  //Case empty line
+				 if ((strlen($sim)==strlen($pin)) && (strlen($sim)  ==strlen($status)) )
+			  {$details3= ' Line '. $i .' is empty.';array_push($arrayDetails,$details3);}
+			  //Case sim exist $ pin not exist
+			  else if ( ( (strlen($sim)>0)) && ($pin==''))
+			  {$details2= ' Line '.$i .': SIM without PIN.' ;array_push($arrayDetails,$details2);}
+			 //Case pin exists and sim empty
+			  else if ( (strlen($sim)==0) && (strlen($pin)>0) )
+			  {$details1= ' Line '. $i .': non-existent SIM.';array_push($arrayDetails,$details1);}
 			  else if($status==""){$status=0;}
-			  else {
-				if( array_search($sim,$arraySIMs) > -1)
-				{
-					$i4=$i+1;$details4=' Line'. $i . ' to be stored.' ;array_push($arrayDetails,$details4 );
+		
+			 //Case correct format
+			  else{
+					if( array_search($sim,$arraySIMs) > -1)
+					{
+					$curl2 = curl_init();
+					curl_setopt_array($curl2, array(
+					CURLOPT_URL => "http://test.enterpriseesolutions.com/activate/admin/insert/".$sim.'/'.$pin.'/'.$status,
+					CURLOPT_RETURNTRANSFER => true,
+					CURLOPT_ENCODING => "",
+					CURLOPT_MAXREDIRS => 10,
+					CURLOPT_TIMEOUT => 30,
+					CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+					CURLOPT_CUSTOMREQUEST => "GET",
+					CURLOPT_POSTFIELDS => "{}"
+					));
+
+					$response2 = curl_exec($curl2);
+					$err2 = curl_error($curl2);
+
+					curl_close($curl2);
+
+					if ($err2) {
+						echo('error'.$err2);
+						$details4=' Failed to store line'. $i .'.'. $err2 ;array_push($arrayDetails,$details4 );
+						} 
+						else {
+							   if (  substr_count($response2,'QueryException') > 0)
+							    {
+								   $details4=' Failed to store line'. $i .'.'. $err2 ;array_push($arrayDetails,$details4 );
+						
+							    }
+							   else
+							    {
+									
+									$details4=' Line'. $i . 'stored.' ;array_push($arrayDetails,$details4 );
+							    }
+						}
 				
-					
-
-$curl2 = curl_init();
-
-curl_setopt_array($curl2, array(
-  CURLOPT_URL => "http://test.enterpriseesolutions.com/activate/admin/insert".$sim.'/'.$pin.'/'$status,
-  CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_ENCODING => "",
-  CURLOPT_MAXREDIRS => 10,
-  CURLOPT_TIMEOUT => 30,
-  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => "GET",
-  CURLOPT_POSTFIELDS => "{}"
-));
-
-$response2 = curl_exec($curl2);
-$err2 = curl_error($curl2);
-
-curl_close($curl2);
-
-if ($err2) {
-  echo "cURL Error #:" . $err;
-} else {
-echo $response2;}
-				
-				}
-else {
-	$i5=$i+1;
-	 $details5=' SIM in line '. $i .' is not valid. ';
-
-	 array_push($arrayDetails,$details5);
-}				
+					}
+				     //correct format but invalid SIM
+				    else
+				    	{
+	                     $details5=' Invalid SIM in line '. $i. '.';
+	                     array_push($arrayDetails,$details5);
+						}				
 			  
-			  }
-         
-      //  }
-
-		} 
-}}
+			       }
+	    	}//i>0 
+        } //while
 $resultDetails = implode(" ", $arrayDetails);
   echo ('resultDetails: '.$resultDetails);
+          }
+
 ?>
