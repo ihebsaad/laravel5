@@ -11,8 +11,8 @@
 <head>
   <meta charset="UTF-8">  
   <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
- <link rel="stylesheet" href="../public/css/style.css"> 
-   <script  src="../public/js/jquery-3.2.1.min.js" type="text/javascript"> </script>
+ <link rel="stylesheet" href="public/css/style.css"> 
+   <script  src="public/js/jquery-3.2.1.min.js" type="text/javascript"> </script>
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-animate.min.js'></script>
@@ -79,11 +79,12 @@ echo'
 <table>
 <tr><td>PIN : 	</td><td ng-bind="data.pin"></td></tr>
 <tr><td>SIM : 	</td><td ng-bind="data.sim"></td></tr>
-<tr><td>Status :</td><td  ><span   ng-if="data.enabled == 1">Enabled</span> <span   ng-if="data.enabled == 0">Disabled</span> </td></tr>
+<tr><td>Status :</td><td  ><span   ng-if="data.enabled == 1">  <a ng-click="disable(data.id);" href="#">disable Ajax Server</a>
+</span> <span   ng-if="data.enabled == 0">Disabled</span> </td></tr>
 <tr ng-if="data.enabled == 0"><td > Enable</td><td>	<input type="hidden" id="idpin" ng-bind="data.id" />
  
-  <a href="http://test.enterpriseesolutions.com/activate/admin/enable/{{data.id}}">enable serveur</a>
-  <a href="http://127.0.0.1/laravel5/activate/admin/enable/{{data.id}}">enable local</a>
+  <a href="http://test.enterpriseesolutions.com/admin/enable/{{data.id}}">enable serveur</a>
+  <a href="http://127.0.0.1/laravel5/admin/enable/{{data.id}}">enable local</a>
   <a ng-click="enable(data.id);" href="#">enable Ajax Server</a>
 
 </td></tr>
@@ -175,8 +176,8 @@ else{
 <tr><td>Status :</td><td  ><span   ng-if="data.enabled == 1">Enabled</span> <span   ng-if="data.enabled == 0">Disabled</span> </td></tr>
 <tr ng-if="data.enabled == 0"><td > Enable</td><td>	<input type="hidden" id="idpin" ng-bind="data.id" >{{data.id}}</input>
  
-  <a href="http://test.enterpriseesolutions.com/activate/admin/enable/{{data.id}}">enable serveur</a>
-  <a href="http://127.0.0.1/laravel5/activate/admin/enable/{{data.id}}">enable local</a>
+  <a href="http://test.enterpriseesolutions.com/admin/enable/{{data.id}}">enable serveur</a>
+  <a href="http://127.0.0.1/laravel5/admin/enable/{{data.id}}">enable local</a>
   <a ng-click="enable(data.id);" href="#">enable Ajax Server</a>
 
 </td></tr>
@@ -320,7 +321,7 @@ else{
   </div><!-- container -->
 </main>
 
-    <script  src="../public/js/admin.js"></script>
+    <script  src="public/js/admin.js"></script>
 
 
 <button onclick="downloadtemplate();" id="btndownloadtemplate">Download csv template</button>
@@ -358,7 +359,7 @@ else{
 	 var setting = {
   "async": true,
   "crossDomain": true,
-  "url": "http://test.enterpriseesolutions.com/activate/admin/enable/"+id,
+  "url": "http://test.enterpriseesolutions.com/admin/enable/"+id,
   "method": "GET",
   "headers": {
      'Access-Control-Allow-Origin': '*'
