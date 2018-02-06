@@ -38,10 +38,73 @@
                                         </div>
 
 
-
+<div class="row">
+                                                <div class="col-sm-8 form-group">
+                                                    <div class=" scroller  " style="height: 200px; overflow-y: scroll; padding-top: 20px; border: 2px solid LightGray;border-radius: 1rem; width: 100%!important;">
+                                                        <ul class="radionc">
+                                                            <li>
+                                                                <input type="checkbox" value="ICENP_PIA15" name="radio1" id="radio1">
+                                                                <label for="radio1">Talk, Text, Surf $49</label>
+                                                            </li>
+                                                            <li>
+                                                                <input type="checkbox" value="ICENP_PIA25" name="radio2" id="radio2">
+                                                                <label for="radio2">Talk, Text, Surf $59</label>
+                                                            </li>
+                                                            <li>
+                                                                <input type="checkbox" value="ICENP_PIA35" name="radio3" id="radio3">
+                                                                <label for="radio3">Talk, Text, Surf $69</label>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div> 
+                                                <div class="col-sm-4 form-group">
+                                                    <button type="button" onclick="assignRange();" class="btn btn-primary " style="height:35px!important;float: right!important;line-height:0px!important;">Assign</button>
+                                                </div> 
+                                                
+                                            </div>
 </body>
 
   <script>
+   function assignRange(){
+	  start=document.getElementById('startsim').value;
+	  end=document.getElementById('endsim').value;
+	    if (end < start){
+		  alert('Incorrect range!');		  
+	  }
+   else{
+	   var plans = [];
+	   if (document.getElementById('radio1').checked){plans.push(document.getElementById('radio1').value);}
+	   if (document.getElementById('radio2').checked){plans.push(document.getElementById('radio2').value);}
+	   if (document.getElementById('radio3').checked){plans.push(document.getElementById('radio3').value);}
+	
+	 if (plans.length==0){console.log('delete');}
+	 else{
+		 selectedplans=plans.toString();
+		 console.log('insert or update');
+		 	 	 var setting = {
+  "async": true,
+  "crossDomain": true,
+  "url": "http://test.enterpriseesolutions.com/admin/insertOrUpdate/"+start+'/'+end+'/'+selectedplans,
+  "method": "GET",
+  "headers": {
+     'Access-Control-Allow-Origin': '*'
+  },
+  "processData": false 
+ 
+  }
+  
+   
+$.ajax(setting).done(function (response) {
+	alert('done' + response);
+});
+
+$.ajax(setting).fail(function (response) {
+	alert('fail'+ response);
+});
+	 }
+
+	 
+   }}
   function deleteRange(){
 	  start=document.getElementById('startsim').value;
 	  end=document.getElementById('endsim').value;
