@@ -137,8 +137,11 @@ $.ajax(settings).done(function (response) {
 	 access_token="Bearer "+token;
 		console.log(access_token);
 	$scope.showuserinfo(access_token);
-$scope.next('stageLouckup');
-$scope.$apply();
+//$scope.next('stageLouckup');
+//$scope.$apply();
+ document.getElementById('logindiv').style.display="none";
+ document.getElementById('logindiv').style.display="block";
+
  });
 $.ajax(settings).fail(function (response) {
 	$(".alert-danger").slideDown();

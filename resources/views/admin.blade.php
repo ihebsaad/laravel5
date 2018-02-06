@@ -1,4 +1,11 @@
-<!DOCTYPE html>
+<?php session_start(); ?>
+ <?php
+ \Log::info('Visit Iristel Administration Portal');
+  if (isset ($_SESSION['access_tokenA']))
+ {echo ' <input type="hidden" id="tokeninput" value="'.$_SESSION["access_tokenA"].'" />';}
+ else{echo ' <input type="hidden" id="tokeninput" />';}
+?>
+
 <html lang="en">
 
     <head>
@@ -30,9 +37,40 @@
     </head>
 
 <body  ng-app="formApp" ng-controller="formCtrl" ng-cloak >
-<!--<main >-->
- <form name="FormActivate" class="form-validation" role="form" novalidate>
-      <div ng-switch on="stage" ng-class="{forward: direction, backward:!direction}">
+ <input type="hidden" name="uinfo" id="uinfo" />
+   <div id='div_session_write' style="display:none;"> </div>
+   <div id='div_session_write2' style="display:none;"> </div>
+       <div id="navbar-collapse" class="collapse navbar-collapse">
+       <?php
+
+  if (isset ($_SESSION['access_tokenA']))
+ {$style='display:block;';
+  $loggedin=true;
+
+  }else{
+ $style='display:none';
+ 
+ $loggedin=false;}
+ if (isset ($_SESSION['usernameA']))
+ {
+
+   $value1='Logged in as ';
+   $value2=$_SESSION['usernameA'];
+
+ }else{
+ $value1='';$value2='';
+ }
+ echo '
+<ul class="nav navbar-nav navbar-right" id="logoutbtn" style="'.$style.'">
+<li><div class="row"><style> .logout a:hover{background-color:#049afe!important;}</style>
+<div class="col-sm-10"><br><B style="font-size:12px;margin-top:20px;  " ><span id="userinfo0" style="font-size:16px;">'.$value1.'</span><span style="font-size:16px;color:#049afe" id="userinfo">'.$value2.'</span></B> </div>
+<div class="logout col-sm-2"><a style="background-color:#006fb9;margin-top:10px" href="#" class="btn btn-info " onclick="logout();"> <span   class="glyphicon glyphicon-log-out"></span> Log out</a></div></div></li>
+
+</ul>';
+?>
+        </div>
+  <form name="FormActivate" class="form-validation" role="form" novalidate>
+    <!--  <div ng-switch on="stage" ng-class="{forward: direction, backward:!direction}">-->
 	  	
         <!-- Top content -->
         <div class="top-content">
@@ -53,54 +91,46 @@
                         </div>
                     </div>
 
-			    <!--<div class="animate-switch" ng-switch-default>-->
-
-					<div class="row" style="max-height:400px!important">
+ <?php if ( !$loggedin ) { echo'
+					<div class="row" style="max-height:400px!important"  id="logindiv">
                         <div class="col-sm-6 col-sm-offset-3 form-box">
                         	<div class="form-top">
                         		<div class="form-top-left">
                         			<h3><strong>Admin</strong> Login </h3>
                             		<p>Enter your username and password to log on</p>
                         		</div>
-                        		<!--<div class="form-top-right">
-                        			<i class="fa fa-key"></i>
-                        		</div>-->
+ 
                             </div>
                             <div class="form-bottom">
 			                    <form role="form" action="" method="post" class="login-form">
 			                    	<div class="form-group">
 			                    		<label class="sr-only" for="form-username">Username</label>
-			                        	<input type="text" name="form-username" placeholder="username" class="form-username form-control" id="form-username">
+			                        	<input type="text" id="useremail" name="form-username" placeholder="username" class="form-username form-control" >
 			                        </div>
 			                        <div class="form-group">
 			                        	<label class="sr-only" for="form-password">Password</label>
-			                        	<input type="password" name="form-password" placeholder="password" class="form-password form-control" id="form-password">
+			                        	<input type="password" name="form-password" placeholder="password" class="form-password form-control" id="userpassword">
 			                        </div>
                                     <div class="row">
                                         <div class="col-sm-6 ">
                                             <a href="#">Password Reset</a>
                                         </div>
                                         <div class="col-sm-3 col-sm-offset-3">
-			                                 <button type="submit" class="btn" ng-click="next('stageAdmin')">Login</button>
+			                                 <button type="submit" class="btn" ng-click="login();">Login</button>
                                         </div>
                                     </div>
 			                    </form>
 		                    </div>
                         </div>
-                    </div>
-				<!--</div> <!-- End Stage Login -->
-				
-			    <!--<div class="animate-switch" ng-switch-when="stageAdmin">-->
-				
-                <div class="row">
+					</div> ' 	;} ?>
+ 				
+                 <div id="divadmin" class="row" style='<?php echo $style; ?>'>
                         <div class="col-sm-6 col-sm-offset-3 form-box">
                         	<div class="form-top">
                         		<div class=" ">
                         			<h3 style="color:white;"><center><strong>Administration</strong></center></h3>
                         		</div>
-                        		<!--<div class="form-top-right">
-                        			<i class="fa fa-key"></i>
-                        		</div>-->
+ 
                             </div>
                             <div class="form-bottom" id="admins">
 			                    <!-- Nav tabs 
@@ -315,8 +345,7 @@
                                 </div>
 		                    </div>
                         </div>
-					<!--</div><!--End Stage Admin -->	
-						
+ 						
 						
 						
 						
@@ -337,6 +366,122 @@
         <script src="public/assets/js/jquery.backstretch.min.js"></script>
         <script src="public/assets/js/scripts.js"></script>
         <script type="text/javascript">
+		 /******** Reset password ********/
+ 
+ function resetpassword(){
+	  document.getElementById("Ssent").style.display="none";
+	  document.getElementById("Wmailrequired").style.display="none";
+	  document.getElementById("emailnotfound").style.display="none";
+	  email= document.getElementById('useremail2').value;
+if(email==""){$("#Wmailrequired").slideDown();}
+else{
+	var settings0 = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://iristelx.auth0.com/oauth/token",
+  "method": "POST",
+  "headers": {
+    "content-type": "application/json"
+  },
+  "processData": false,
+  "data": '{\"grant_type\":\"client_credentials\",\"client_id\": \"YoP9NqMrBM8vAN54ghQAHOh26x8vzY2g\",\"client_secret\": \"cpmLerk2uWdI2rA1hf9qMVpENpc-7kxf-4kVeM1HMeQq8JJpb54MNgsdUdVA9p19\",\"audience\": \"https://iristelx.auth0.com/api/v2/\"}'
+
+  }
+
+
+$.ajax(settings0).done(function (response) {
+	
+  var  token=response.access_token;
+
+   var  access_token="Bearer "+token;
+   	var settings1 = {
+  "async": true,
+  "crossDomain": true,
+  "url": 'https://iristelx.auth0.com/api/v2/users?q="'+email+'"',
+  "method": "GET",
+  "headers": {
+    "content-type": "application/json",
+	 "authorization": access_token
+  },
+  "processData": false,
+  "data": ''
+
+  }
+  $.ajax(settings1).done(function (response) {
+  if(response.length==0){$("#emailnotfound").slideDown();}
+  else if(response[0].identities[0].connection=="Admin-Username-Password-Authentication"){
+var datatosend='{\"client_id\": \"YoP9NqMrBM8vAN54ghQAHOh26x8vzY2g\",\"email\": \"'+email+'\",\"connection\": \"Admin-Username-Password-Authentication\"}';
+
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://iristelx.auth0.com/dbconnections/change_password",
+  "method": "POST",
+  "headers": {
+    "content-type": "application/json"
+  },
+  "processData": false,
+  "data": datatosend
+  }
+
+
+$.ajax(settings).done(function (response) {
+  
+  $(".alert-success").slideDown();
+  
+});
+	$.ajax(settings).fail(function (response) {
+  console.log(response);
+ });  
+  }
+  else{$("#emailnotfound").slideDown();}
+  });
+  $.ajax(settings1).fail(function (response) {console.log(response);});
+});
+  $.ajax(settings0).fail(function (response) {console.log(response);});
+
+}	  
+  }
+	
+  /******** end Reset password ********/
+ var $body = $("body");
+
+$(document).on({
+    ajaxStart: function() { console.log('start');$body.addClass("loading");    },
+     ajaxStop: function() { $body.removeClass("loading"); }    
+}); 
+
+/******** logout ********/
+
+  function logout() {
+
+var URL = window.location.protocol + "//" + window.location.host + window.location.pathname;
+ 
+  var newURL = window.location.protocol + "//" + window.location.host;
+ if(newURL=="http://127.0.0.1"){newURL=newURL+"/laravel5";}
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('GET',''+newURL+'/public/session_destroyA.php', true);
+   console.log(''+newURL+'/public/session_destroyA.php');
+    xmlhttp.onreadystatechange=function(){
+       if (xmlhttp.readyState == 4){
+          if(xmlhttp.status == 200){
+			  if (newURL=='http://127.0.0.1/laravel5/activate/admin'){
+				   window.location.replace(newURL);
+			  }
+			  else{
+				   window.location.replace(URL);
+			  }     
+         }
+       }
+    };
+    xmlhttp.send(null);
+		  
+  }
+  
+
+ /******** end logout ********/
+ 
+		
              $('#simpin_tabs').on('click', 'a[data-toggle="tab"]', function(e) {
               e.preventDefault();
 
@@ -407,7 +552,7 @@
         <!--[if lt IE 10]>
             <script src="assets/js/placeholder.js"></script>
         <![endif]-->
-	</div>	<!--All stages-->	
+	<!--</div>	<!--All stages-->	
 </form>		
 </main>
 </body>
