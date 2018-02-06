@@ -43,9 +43,8 @@ DB::table('sims')->where('enabled', '=', 0)
 		 public function deleterange($start,$end){
 		echo('start'.$start);
 		echo('end'.$end);
-DB::table('SIM_PLANS')->where('enabled', '=', 0)
-                 ->where('sim', '<=',$end)
-                 ->where('sim', '>=', $start)
+DB::table('SIM_PLANS')->where('SIM', '<=',$end)
+                 ->where('SIM', '>=', $start)
                  ->delete();
 	}
 		 public function insertOrUpdate($start,$end,$selectedplans){
