@@ -35,12 +35,12 @@ class AdminController extends Controller
 	 public function delete($start,$end){
 		echo('start'.$start);
 		echo('end'.$end);
-/*DB::table('sims')->where('enabled', '=', 0)
+DB::table('sims')->where('enabled', '=', 0)
                 ->orWhere(function ($query) {
                 $query->where('sim', '>', $start)
                       ->where('sim', '<', $end);
                 })
-                 ->delete();*/
+                 ->delete();
 	}
     public function enable($id)
 	{
