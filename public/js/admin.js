@@ -63,7 +63,7 @@ $scope.DataPins ={} ;
 
   };	
 	  $scope.init = function () {
-  document.getElementById('searcharea').style.display="bloc!important";
+  document.getElementById('searcharea').style.display="block!important";
   document.getElementById('pinarea').style.display="none";
   };	
 
