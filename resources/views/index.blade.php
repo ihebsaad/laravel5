@@ -1535,7 +1535,7 @@ $(function () {
    
    
 <!--   Stage Billing     ------------------------------------------------------- --> 
-<div class="animate-switch" ng-switch-when="stageBilling">
+<div class="animate-switch" ng-switch-when="stageBilling" id="billings">
 <div class="container-triangle"></div>
 <div class="contentcontain" style="height:800px"> 
 <div class="container center_div">
