@@ -53,7 +53,7 @@
 		   	 	 var setting = {
   "async": true,
   "crossDomain": true,
-  "url": "http://test.enterpriseesolutions.com/activate/admin/delete?start="+start+'/end='+end,
+  "url": "http://test.enterpriseesolutions.com/activate/admin/delete/"+start+'/'+end,
   "method": "GET",
   "headers": {
      'Access-Control-Allow-Origin': '*'
