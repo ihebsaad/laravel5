@@ -45,6 +45,7 @@
   function deleteRange(){
 	  start=document.getElementById('startsim').value;
 	  end=document.getElementById('endsim').value;
+	  console.log("http://test.enterpriseesolutions.com/activate/admin/delete/"+start+'/'+end);
 	  if (end < start){
 		  alert('Incorrect range!');		  
 	  }
@@ -56,7 +57,7 @@
                 processData: false,                         
                 type: 'GET',
                 success: function(response){
-                    alert('uploaded'); // display response from the PHP script, if any
+                    alert('deleted'); // display response from the PHP script, if any
 					console.log(response);
 					
                 },fail: function(error){
