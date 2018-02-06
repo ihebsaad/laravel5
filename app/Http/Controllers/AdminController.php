@@ -32,6 +32,10 @@ class AdminController extends Controller
     ['sim' => $sim, 'pin' => $pin,'enabled'=>$enabled]
 );
 	}
+	 public function delete($start,$end){
+		
+
+	}
     public function enable($id)
 	{
 	//	$id= substr($id,2,strlen($id));
