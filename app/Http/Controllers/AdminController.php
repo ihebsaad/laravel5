@@ -40,6 +40,11 @@ DB::table('sims')->where('enabled', '=', 0)
                  ->where('sim', '>=', $start)
                  ->delete();
 	}
+		 public function insertOrUpdate($start,$end){
+	$table1 = App\SIM_PLANS::firstOrNew(['name' => Input::get('name')]); // your data
+// make your affectation to the $table1
+$table1 ->save();
+	}
 	
     public function enable($id)
 	{
@@ -50,7 +55,8 @@ DB::table('sims')->where('enabled', '=', 0)
 		
         return redirect()->back();
 		
-	} 		
+	}
+	
 		
     public function disable($id)
 	{

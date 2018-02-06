@@ -72,8 +72,17 @@
 		  alert('Incorrect range!');		  
 	  }
    else{
-	   
-	   
+	   var plans = [];
+	   if (document.getElementById('radio1').checked){plans.push(document.getElementById('radio1').value;)}
+	   if (document.getElementById('radio2').checked){plans.push(document.getElementById('radio2').value;)}
+	   if (document.getElementById('radio3').checked){plans.push(document.getElementById('radio3').value;)}
+	 
+	 if (plans.length==0){console.log('delete');}
+	 else{
+		 console.log('insert or update');
+	 }
+
+	 
    }}
   function deleteRange(){
 	  start=document.getElementById('startsim').value;
