@@ -63,7 +63,7 @@
  echo '
 <ul class="nav navbar-nav navbar-right" id="logoutbtn" style="margin-right:150px;'.$style.'">
 <li><div class="row"><style> .logout a:hover{background-color:#049afe!important;}</style>
-<div class="col-sm-10" style="padding-top:15px"><B style="font-size:12px;margin-top:20px;  " ><span id="userinfo0" style="font-size:16px;">'.$value1.'</span><span style="font-size:16px;color:#049afe" id="userinfo">'.$value2.'</span></B> </div>
+<div class="col-sm-10" style="padding-top:15px"><B style="font-size:12px;margin-top:20px;  " ><span id="userinfo0" style="font-size:16px;color:white;text-shadow:1px 1px black">'.$value1.'</span><span style="font-size:16px;color:#049afe;text-shadow:1px 1px black" id="userinfo">'.$value2.'</span></B> </div>
 <div class="logout col-sm-2"><a style="background-color:#006fb9;margin-top:10px" href="#" class="btn btn-info " onclick="logout();"> <span   class="glyphicon glyphicon-log-out"></span> Log out</a></div></div></li>
 
 </ul>';
