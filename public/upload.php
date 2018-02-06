@@ -94,7 +94,7 @@ print_r($arraySIMs);*/
 					{
 					$curl2 = curl_init();
 					curl_setopt_array($curl2, array(
-					CURLOPT_URL => "http://test.enterpriseesolutions.com/activate/admin/insert/".$sim.'/'.$pin.'/'.$status,
+					CURLOPT_URL => "http://test.enterpriseesolutions.com/admin/insert/".$sim.'/'.$pin.'/'.$status,
 					CURLOPT_RETURNTRANSFER => true,
 					CURLOPT_ENCODING => "",
 					CURLOPT_MAXREDIRS => 10,

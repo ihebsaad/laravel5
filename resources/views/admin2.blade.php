@@ -45,15 +45,14 @@
   function deleteRange(){
 	  start=document.getElementById('startsim').value;
 	  end=document.getElementById('endsim').value;
-	  console.log("http://test.enterpriseesolutions.com/activate/admin/delete/"+start+'/'+end);
-	  if (end < start){
+	    if (end < start){
 		  alert('Incorrect range!');		  
 	  }
 	  else{
 		   	 	 var setting = {
   "async": true,
   "crossDomain": true,
-  "url": "http://test.enterpriseesolutions.com/activate/admin/delete/"+start+'/'+end,
+  "url": "http://test.enterpriseesolutions.com/admin/delete/"+start+'/'+end,
   "method": "GET",
   "headers": {
      'Access-Control-Allow-Origin': '*'
