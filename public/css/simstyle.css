@@ -351,6 +351,12 @@ border-radius: 1rem!important;
       #planname , #planprice, #taxes , #taxesprice {
         font-size: 14px!important;
       }
+      #total , #totalprice{
+        font-size: 16px!important;
+      }
+      #logoutbtn {
+        display: block!important;
+      }
   }
 button {cursor: pointer;}
 
