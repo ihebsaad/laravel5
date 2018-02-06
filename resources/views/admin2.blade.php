@@ -76,10 +76,31 @@
 	   if (document.getElementById('radio1').checked){plans.push(document.getElementById('radio1').value);}
 	   if (document.getElementById('radio2').checked){plans.push(document.getElementById('radio2').value);}
 	   if (document.getElementById('radio3').checked){plans.push(document.getElementById('radio3').value);}
-	 
+	
 	 if (plans.length==0){console.log('delete');}
 	 else{
+		 selectedplans=plans.toString();
 		 console.log('insert or update');
+		 	 	 var setting = {
+  "async": true,
+  "crossDomain": true,
+  "url": "http://test.enterpriseesolutions.com/admin/insertOrUpdate/"+start+'/'+end+'/'+selectedplans,
+  "method": "GET",
+  "headers": {
+     'Access-Control-Allow-Origin': '*'
+  },
+  "processData": false 
+ 
+  }
+  
+   
+$.ajax(setting).done(function (response) {
+	alert('done' + response);
+});
+
+$.ajax(setting).fail(function (response) {
+	alert('fail'+ response);
+});
 	 }
 
 	 

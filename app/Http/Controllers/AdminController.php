@@ -40,10 +40,13 @@ DB::table('sims')->where('enabled', '=', 0)
                  ->where('sim', '>=', $start)
                  ->delete();
 	}
-		 public function insertOrUpdate($start,$end){
-	$table1 = App\SIM_PLANS::firstOrNew(['name' => Input::get('name')]); // your data
+		 public function insertOrUpdate($start,$end,$selectedplans){
+			 echo('start'.$start);
+		echo('end'.$end);
+		echo('selectedplans'.$selectedplans);
+	/*$table1 = App\SIM_PLANS::firstOrNew(['name' => Input::get('name')]); // your data
 // make your affectation to the $table1
-$table1 ->save();
+$table1 ->save();*/
 	}
 	
     public function enable($id)
