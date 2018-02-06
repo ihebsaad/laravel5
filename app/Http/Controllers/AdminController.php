@@ -47,7 +47,7 @@ DB::table('sims')->where('enabled', '=', 0)
 
 
 $arr1 = str_split($selectedplans);
-print_r($selectedplans);
+print_r($arr1);
 
 	/*$table1 = App\SIM_PLANS::firstOrNew(['name' => Input::get('name')]); // your data
 // make your affectation to the $table1
