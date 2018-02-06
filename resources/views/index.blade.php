@@ -1535,7 +1535,7 @@ $(function () {
    
    
 <!--   Stage Billing     ------------------------------------------------------- --> 
-<div class="animate-switch" ng-switch-when="stageBilling">
+<div class="animate-switch" ng-switch-when="stageBilling" id="billings">
 <div class="container-triangle"></div>
 <div class="contentcontain" style="height:800px"> 
 <div class="container center_div">
@@ -1569,7 +1569,7 @@ $(function () {
                     &nbsp;
                 </div>
                 <div class="col-sm-6 col-md-6 col-lg-6">
-                    <span style="font-size:15px;color:grey;float:right"id="taxes"   >Taxes ( <label  style="font-wight:normal;" ng-bind="formParams.tax">  </label> %) </span> 
+                    <span style="font-size:15px;color:grey;float:right" id="taxes"   >Taxes ( <label  style="font-wight:normal;" ng-bind="formParams.tax">  </label> %) </span> 
 					 
                 </div>
                 <div class="col-sm-3 col-md-3 col-lg-3 " style="font-size:15px;color:grey;" >

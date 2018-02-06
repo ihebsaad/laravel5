@@ -334,12 +334,22 @@ border-radius: 1rem!important;
           width: 300;
           left: -30px!important;
       }
+      #plans .contentcontain {
+          height: 750px!important;
+      }
       /* # select stage */
       .scroller {
-          margin-left: 0px!important;
+          margin-left: 10px!important;
       }
       div#navigationbtn {
         margin-left: 0px!important;
+      }
+      /* billing container */
+      #billings .contentcontain {
+          height: 1110px!important;
+      }
+      #planname , #planprice, #taxes , #taxesprice {
+        font-size: 14px!important;
       }
   }
 button {cursor: pointer;}
