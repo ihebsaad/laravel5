@@ -51,11 +51,9 @@
 	  else{
 		   $.ajax({
                url: "http://test.enterpriseesolutions.com/activate/admin/delete/"+start+'/'+end, // point to server-side PHP script 
-                dataType: 'text',  // what to expect back from the PHP script, if anything
-                cache: false,
+                 cache: false,
                 contentType: false,
-                processData: false,
-                data: form_data,                         
+                processData: false,                         
                 type: 'GET',
                 success: function(response){
                     alert('uploaded'); // display response from the PHP script, if any
