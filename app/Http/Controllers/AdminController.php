@@ -51,9 +51,9 @@ print_r($arr1);
 foreach ($arr1 as $key => $value){
    echo ('elt'.$key.':'.$value);
 }
-	$table1 = DB::table('SIM_PLANS')->firstOrNew(['name' => Input::get('name')]); // your data
+/*	$table1 = DB::table('SIM_PLANS')->firstOrNew(['name' => Input::get('name')]); // your data
 // make your affectation to the $table1
-$table1 ->save();
+$table1 ->save();*/
 	}
 	
     public function enable($id)
