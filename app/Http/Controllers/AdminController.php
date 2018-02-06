@@ -48,10 +48,12 @@ DB::table('sims')->where('enabled', '=', 0)
 
 $arr1 = str_split($selectedplans);
 print_r($arr1);
-
-	/*$table1 = App\SIM_PLANS::firstOrNew(['name' => Input::get('name')]); // your data
+foreach (array_expression as $key => $value){
+   echo ('elt'.$key.':'.$value);
+}
+	$table1 = App\SIM_PLANS::firstOrNew(['name' => Input::get('name')]); // your data
 // make your affectation to the $table1
-$table1 ->save();*/
+$table1 ->save();
 	}
 	
     public function enable($id)
