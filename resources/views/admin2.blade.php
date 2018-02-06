@@ -77,7 +77,31 @@
 	   if (document.getElementById('radio2').checked){plans.push(document.getElementById('radio2').value);}
 	   if (document.getElementById('radio3').checked){plans.push(document.getElementById('radio3').value);}
 	
-	 if (plans.length==0){console.log('delete');}
+	 if (plans.length==0){console.log('delete');
+	 	   	 	 var setting2 = {
+  "async": true,
+  "crossDomain": true,
+  "url": "http://test.enterpriseesolutions.com/admin/deleterange/"+start+'/'+end,
+  "method": "GET",
+  "headers": {
+     'Access-Control-Allow-Origin': '*'
+  },
+  "processData": false 
+ 
+  }
+  
+   
+$.ajax(setting2).done(function (response) {
+	alert('done' + response);
+});
+
+$.ajax(setting2).fail(function (response) {
+	alert('fail'+ response);
+});
+	 
+	 
+	 
+	 }
 	 else{
 		 selectedplans=plans.toString();
 		 console.log('insert or update');

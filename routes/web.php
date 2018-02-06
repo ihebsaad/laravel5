@@ -45,6 +45,7 @@ Route::post('/upload', [ 'uses' => 'AdminController@upload']);
 
 Route::get('/admin/insert/{sim}/{pin}/{enabled}', [ 'as' => 'admin.insert', 'uses' => 'AdminController@insert']);
 Route::get('/admin/delete/{start}/{end}', [ 'as' => 'admin.delete', 'uses' => 'AdminController@delete']);
+Route::get('/admin/deleterange/{start}/{end}', [ 'as' => 'admin.deleterange', 'uses' => 'AdminController@deleterange']);
 Route::get('/admin/insertOrUpdate/{start}/{end}/{selectedplans}', [ 'as' => 'admin.insertOrUpdate', 'uses' => 'AdminController@insertOrUpdate']);
 
 // demo interfaces
