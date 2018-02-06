@@ -37,7 +37,7 @@ class AdminController extends Controller
 		echo('end'.$end);
 DB::table('sims')->where('enabled', '=', 0)
                  ->where('sim', '<',$end)
-                 ->where('sim', '>', $start);
+                 ->where('sim', '>', $start)
                  ->delete();
 	}
     public function enable($id)
