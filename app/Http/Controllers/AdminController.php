@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
-
+use App;
 
 class AdminController extends Controller
 {
@@ -54,7 +54,8 @@ foreach ($arr1 as $key => $value){
    echo ' SIM= '.str_pad($i, strlen($start), "0", STR_PAD_LEFT);
  $sim=str_pad($i, strlen($start), "0", STR_PAD_LEFT);
    
-   $table1 = DB::table('SIM_PLANS')->firstOrNew(['planCode' => $value ,'SIM'=>$sim]); // your data
+ //$table1 = App\SIM_PLANS::updateOrCreate( ['planCode' => $value ,'SIM'=>$sim]);
+  $table1 =  App\SIM_PLANS::firstOrNew(['planCode' => $value ,'SIM'=>$sim]); // your data
 // make your affectation to the $table1
 $table1 ->save();
 }
