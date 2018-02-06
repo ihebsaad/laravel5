@@ -52,11 +52,14 @@ foreach ($arr1 as $key => $value){
    echo (' plan: '.$value);
    for ($i=$start; $i <= $end;$i++) {
    echo ' SIM= '.str_pad($i, strlen($start), "0", STR_PAD_LEFT);
-}
-}
-	/*$table1 = DB::table('SIM_PLANS')->firstOrNew(['name' => Input::get('name')]); // your data
+ $sim=str_pad($i, strlen($start), "0", STR_PAD_LEFT);
+   
+   $table1 = DB::table('SIM_PLANS')->firstOrNew(['planCode' => $value ,'SIM'=>$sim]); // your data
 // make your affectation to the $table1
-$table1 ->save();*/
+$table1 ->save();
+}
+}
+	/**/
 	}
 	
     public function enable($id)
