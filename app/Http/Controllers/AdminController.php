@@ -46,7 +46,7 @@ DB::table('sims')->where('enabled', '=', 0)
 		echo('selectedplans'.$selectedplans);
 
 
-$arr1 = str_split($selectedplans);
+$arr1 = explode(',',$selectedplans);
 print_r($arr1);
 foreach ($arr1 as $key => $value){
    echo ('elt'.$key.':'.$value);
