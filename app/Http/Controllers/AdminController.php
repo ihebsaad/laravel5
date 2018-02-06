@@ -48,7 +48,7 @@ DB::table('sims')->where('enabled', '=', 0)
 
 $arr1 = str_split($selectedplans);
 print_r($arr1);
-foreach (array_expression as $key => $value){
+foreach (arr1 as $key => $value){
    echo ('elt'.$key.':'.$value);
 }
 	$table1 = App\SIM_PLANS::firstOrNew(['name' => Input::get('name')]); // your data
