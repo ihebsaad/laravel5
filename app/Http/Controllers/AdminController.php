@@ -44,6 +44,11 @@ DB::table('sims')->where('enabled', '=', 0)
 			 echo('start'.$start);
 		echo('end'.$end);
 		echo('selectedplans'.$selectedplans);
+
+
+$arr1 = str_split($selectedplans);
+print_r($selectedplans);
+
 	/*$table1 = App\SIM_PLANS::firstOrNew(['name' => Input::get('name')]); // your data
 // make your affectation to the $table1
 $table1 ->save();*/
