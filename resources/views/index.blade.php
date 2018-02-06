@@ -858,7 +858,7 @@ $('#password, #confirm_password').on('keyup', function () {
         </div>
     </div> <!--  end Row -->
 	
- 			<div class="row" style="margin-top: 20px;margin-left:30px;margin-right:30px;">
+ 			<div class="row" style="margin-top: 20px;margin-left:30px;margin-right:30px;" id="navigationbtn">
 
             <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
 			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('stagePlans')"><i class="icnleft"></i>  Back</button>  

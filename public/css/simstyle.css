@@ -334,6 +334,13 @@ border-radius: 1rem!important;
           width: 300;
           left: -30px!important;
       }
+      /* # select stage */
+      .scroller {
+          margin-left: 0px!important;
+      }
+      div#navigationbtn {
+        margin-left: 0px!important;
+      }
   }
 button {cursor: pointer;}
 
