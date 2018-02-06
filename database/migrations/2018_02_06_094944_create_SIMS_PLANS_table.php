@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSimPlansTable extends Migration
+class CreateSIMSPLANSTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,7 @@ class CreateSimPlansTable extends Migration
      */
     public function up()
     {
-        //
-        {
-            Schema::create('sim_plans', function(Blueprint $table) {
+        Schema::create('SIMS_PLANS', function(Blueprint $table) {
                 $table->increments('id');
                 $table->integer('plan_id')->unsigned();
                 $table->integer('sim_id')->unsigned();
@@ -27,7 +25,6 @@ class CreateSimPlansTable extends Migration
                     ->onDelete('restrict')
                     ->onUpdate('restrict');
             });
-        }
     }
 
     /**
@@ -36,13 +33,7 @@ class CreateSimPlansTable extends Migration
      * @return void
      */
     public function down()
-
-{
-Schema::table('sim_plans', function(Blueprint $table) {
-    $table->dropForeign('sim_plans_sim_id_foreign');
-    $table->dropForeign('sim_plans_plan_id_foreign');
-});
-
-Schema::drop('sim_plans');
-}
+    {
+        //
+    }
 }
