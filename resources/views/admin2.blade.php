@@ -50,20 +50,26 @@
 		  alert('Incorrect range!');		  
 	  }
 	  else{
-		   $.ajax({
-               url: "http://test.enterpriseesolutions.com/activate/admin/delete/"+start+'/'+end, // point to server-side PHP script 
-                 cache: false,
-                contentType: false,
-                processData: false,                         
-                type: 'GET',
-                success: function(response){
-                    alert('deleted'); // display response from the PHP script, if any
-					console.log(response);
-					
-                },fail: function(error){
-                    alert(error); // display response from the PHP script, if any
-                }
-     });
+		   	 	 var setting = {
+  "async": true,
+  "crossDomain": true,
+  "url": "http://test.enterpriseesolutions.com/activate/admin/delete/"+start+'/'+end,
+  "method": "GET",
+  "headers": {
+     'Access-Control-Allow-Origin': '*'
+  },
+  "processData": false 
+ 
+  }
+  
+   
+$.ajax(setting).done(function (response) {
+	alert('done' + response);
+});
+
+$.ajax(setting).fail(function (response) {
+	alert('fail'+ response);
+});
 	  }
 	  
   }
