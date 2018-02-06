@@ -329,7 +329,11 @@ border-radius: 1rem!important;
       .checkbox b {
           font-size: 12px;
       }
-      /* other screens */
+      /* plans select boxes */
+      div#planselect {
+          width: 300;
+          left: -30px!important;
+      }
   }
 button {cursor: pointer;}
 
