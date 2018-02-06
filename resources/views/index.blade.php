@@ -772,7 +772,7 @@ $('#password, #confirm_password').on('keyup', function () {
 
             <ol id="selectable" >
 	<div ng-repeat="data in myData.plans"   >
- 	<div class="col-md-4 col-sm-4 col-xs-4 col-lg-4 "  >
+ 	<div class="col-md-4 col-sm-4 col-xs-4 col-lg-4 " id="planselect" >
 		<center>
  			<li   ng-attr-id='@{{data.planCode}}' class="ui-state-default"  ng-click="setPlan(data.planCode,data.planType,data.recurringCharge)" style="margin-left:10%;width:80%; ;border: 1px solid #c5c5c5;color:#454545; ; background-color: rgb(246, 246, 246);">
 			<h5   ng-model="formParams.planType"  ng-bind="data.planType"></h5><p><B  ng-model="formParams.recurringCharge" ng-bind="data.recurringCharge"> </B> $ / mth</br><br><I  ng-bind="data.billingType"></I></p><input ng-model="formParams.plan" name="planCode"  type="hidden" ng-bind="data.planCode" /></input></li>
@@ -858,7 +858,7 @@ $('#password, #confirm_password').on('keyup', function () {
         </div>
     </div> <!--  end Row -->
 	
- 			<div class="row" style="margin-top: 20px;margin-left:30px;margin-right:30px;">
+ 			<div class="row" style="margin-top: 20px;margin-left:30px;margin-right:30px;" id="navigationbtn">
 
             <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
 			<button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('stagePlans')"><i class="icnleft"></i>  Back</button>  
@@ -1535,7 +1535,7 @@ $(function () {
    
    
 <!--   Stage Billing     ------------------------------------------------------- --> 
-<div class="animate-switch" ng-switch-when="stageBilling">
+<div class="animate-switch" ng-switch-when="stageBilling" id="billings">
 <div class="container-triangle"></div>
 <div class="contentcontain" style="height:800px"> 
 <div class="container center_div">
