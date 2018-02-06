@@ -49,9 +49,12 @@ DB::table('sims')->where('enabled', '=', 0)
 $arr1 = explode(',',$selectedplans);
 print_r($arr1);
 foreach ($arr1 as $key => $value){
-   echo ('elt'.$key.':'.$value);
+   echo (' plan: '.$value);
+   for ($i=$start; $i<$end;$i++) {
+   echo ' SIM= '.$i;
 }
-/*	$table1 = DB::table('SIM_PLANS')->firstOrNew(['name' => Input::get('name')]); // your data
+}
+	/*$table1 = DB::table('SIM_PLANS')->firstOrNew(['name' => Input::get('name')]); // your data
 // make your affectation to the $table1
 $table1 ->save();*/
 	}
