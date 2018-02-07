@@ -192,7 +192,7 @@
                                                       </div>
                                                 </div>
                                                 <div class="form-group col-xs-4">
-                                                    <button type="button" onclick="upload();" class="btn btn-primary "  style="height:40px!important;float: right!important;line-height:0px!important;" >Upload</button>
+                                                    <button type="button" ng-click="upload();" class="btn btn-primary "  style="height:40px!important;float: right!important;line-height:0px!important;" >Upload</button>
                                                 </div>
                                             </div>
                                         </div>
