@@ -22,7 +22,7 @@
         die('Unable to find the CSV delimiter character. Make sure you use "," or ";" as delimiter and try again.');
     }
 
-
+echo'headers'.$sameline;
 if ($delimiter != ","){echo 'Incorrect delimeter!'; return false;}
 //detect enclosure
 $enclosure=substr_count($sameline,'"');
