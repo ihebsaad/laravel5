@@ -30,7 +30,7 @@ $enclosure=substr_count($sameline,'"');
 if ($enclosure != 6){echo 'Incorrect enclosure!'; return false;}
      //Get SIM Cards numbers
 	 $sameline=preg_replace('/\s+/', '', $sameline);
-if ( (substr_count(strtoupper ($sameline),preg_replace('/\s+/', '', 'SIM'))<1) || ((substr_count(strtoupper ($sameline),preg_replace('/\s+/', '', 'PIN')))<1)) || ((substr_count(strtoupper ($sameline),preg_replace('/\s+/', '', 'STATUS' ))<1)) )
+if ( (substr_count(strtoupper ($sameline),preg_replace('/\s+/', '', 'SIM'))<1) || ((substr_count(strtoupper ($sameline),preg_replace('/\s+/', '', 'PIN')))<1) || ((substr_count(strtoupper ($sameline),preg_replace('/\s+/', '', 'STATUS' ))<1)) )
 
 {echo 'Incorrect headers!'; return false;}
 $pos1=strpos(strtoupper ($sameline),'SIM');
