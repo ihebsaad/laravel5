@@ -31,14 +31,14 @@ if ($enclosure != 6){echo 'Incorrect enclosure!'; return false;}
      //Get SIM Cards numbers
 if ( (substr_count(strtoupper ($sameline),'SIM')<1) || ((substr_count(strtoupper ($sameline),'PIN')<1)) || ((substr_count(strtoupper ($sameline),'STATUS')<1)) )
 
-{echo 'Incorrect headers!'; echo('here0'); return false;}
+{echo 'Incorrect headers!'; return false;}
 $pos1=strpos(strtoupper ($sameline),'SIM');
 $pos2=strpos(strtoupper ($sameline),'PIN');
 $pos3=strpos(strtoupper ($sameline),'STATUS');
 echo'pos=1'.$pos1;
 echo'pos=2'.$pos2;
 echo'pos=3'.$pos3;
-if (($pos2<$pos1) || ($pos2> $pos3) ){echo 'Incorrect headers!'; echo('here1');  return false;}
+if (($pos2<$pos1) || ($pos2> $pos3) ){echo 'Incorrect headers!';  return false;}
 
 $curl = curl_init();
 
@@ -78,7 +78,7 @@ foreach($obj->simCards as $sim){
 
 	$fileD = fopen($csvfile,"r");
       		$i=0;$arrayDetails = array();
-        while (($line = fgetcsv($fileD)) !== FALSE) { 
+        while ((($line = fgetcsv($fileD)) !== FALSE) && ( !feof($fileD))) { 
             $i=$i+1;
 			 if ($i>1){
 			$sim=$line[0];
