@@ -316,7 +316,7 @@ $.ajax(setting).fail(function (response) {
 
 	 
    }}
-   $scope.deleteRange = function (){
+  /* $scope.deleteRange = function (){
  
 	  start=document.getElementById('startsim').value;
 	  end=document.getElementById('endsim').value;
@@ -347,7 +347,7 @@ $.ajax(setting).fail(function (response) {
 	  }
 	  
   }
-     $scope.upload = function (){
+     */$scope.upload = function (){
 		 console.log('upload');
 		 /*
     var file_data = $('#sortpicture').prop('files')[0];   
