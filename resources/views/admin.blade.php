@@ -178,7 +178,7 @@
                                                     <p>To add/edit SIMs, please upload a csv: </p>
                                                 </div>
                                                 <div class="form-group col-xs-5">
-                                                    <a id="upload" ng-click="downloadtemplate" href="#">Download csv template</a>
+                                                    <a id="upload" ng-click="downloadtemplate()" href="#">Download csv template</a>
                                                 </div>
                                             </div>
                                             <div class="row">
