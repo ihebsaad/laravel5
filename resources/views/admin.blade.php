@@ -506,8 +506,8 @@ $.ajax(settings).fail(function (response) {console.log(response);})
 
     }
 	   function assignRange(){
-	  start=document.getElementById('startsim').value;
-	  end=document.getElementById('endsim').value;
+	  start=document.getElementById('pstartsim').value;
+	  end=document.getElementById('pendsim').value;
 	    if (end < start){
 		  alert('Incorrect range!');		  
 	  }
