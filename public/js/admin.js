@@ -348,6 +348,8 @@ $.ajax(setting).fail(function (response) {
 	  
   }
      $scope.upload = function (){
+		 console.log('upload');
+		 /*
     var file_data = $('#sortpicture').prop('files')[0];   
     var form_data = new FormData();                  
     form_data.append('file', file_data);
@@ -358,11 +360,9 @@ $.ajax(setting).fail(function (response) {
 	else{
 		url="http://test.enterpriseesolutions.com/public/upload.php";
 }
-
-    //alert(form_data);                             
+                           
     $.ajax({
-               // url: 'http://test.enterpriseesolutions.com/public/upload.php', // point to server-side PHP script 
-               url: url, // point to server-side PHP script 
+                url: url, // point to server-side PHP script 
                 dataType: 'text',  // what to expect back from the PHP script, if anything
                 cache: false,
                 contentType: false,
@@ -389,24 +389,9 @@ $.ajax(setting).fail(function (response) {
 			
                 },fail: function(error){
                     alert(error); // display response from the PHP script, if any
-                }/*,
-        // Custom XMLHttpRequest
-        xhr: function() {
-            var myXhr = $.ajaxSettings.xhr();
-            if (myXhr.upload) {
-                // For handling the progress of the upload
-                myXhr.upload.addEventListener('progress', function(e) {
-                    if (e.lengthComputable) {
-                        $('#progress1').attr({
-                            value: e.loaded,
-                            max: e.total,
-                        });
-                    }
-                } , false);
-            }
-            return myXhr;
-        }*/
+                }
      });
+	 */
 });
 
  
