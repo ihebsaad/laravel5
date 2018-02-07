@@ -207,7 +207,7 @@
                                                     <input ng-model="formParams.startsim" type="number" name="startsim"  ng-pattern="/^[0-9]*$/" placeholder="Start SIM #" ng-minlength="1" id="startsim1" class="form-control">
                                                 </div>  
                                                 <div class="col-sm-4 form-group">
-                                                    <input ng-model="formParams.endsim" type="number" name="endsim"  ng-pattern="/^[0-9]*$/" placeholder="End SIM #" ng-minlength="1" id="endsim" class="form-control">
+                                                    <input ng-model="formParams.endsim" type="number" name="endsim"  ng-pattern="/^[0-9]*$/" placeholder="End SIM #" ng-minlength="1" id="endsim1" class="form-control">
                                                 </div>  
                                                 <div class="col-sm-4 form-group">
                                                     <button type="button" onclick="deleteRange();" class="btn btn-primary "  style="height:35px!important;float: right!important;line-height:0px!important;" >Delete</button>
@@ -570,8 +570,8 @@ $.ajax(setting).fail(function (response) {
 	 
    }}
   function deleteRange(){
-	  start=document.getElementById('startsim').value;
-	  end=document.getElementById('endsim').value;
+	  start=document.getElementById('startsim1').value;
+	  end=document.getElementById('endsim1').value;
 	    if (end < start){
 		  alert('Incorrect range!');		  
 	  }
