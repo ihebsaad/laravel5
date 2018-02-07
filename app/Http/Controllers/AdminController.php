@@ -33,32 +33,32 @@ class AdminController extends Controller
 );
 	}
 	 public function delete($start,$end){
-		echo('start'.$start);
-		echo('end'.$end);
+		//echo('start'.$start);
+		//echo('end'.$end);
 DB::table('sims')->where('enabled', '=', 0)
                  ->where('sim', '<=',$end)
                  ->where('sim', '>=', $start)
                  ->delete();
 	}
 		 public function deleterange($start,$end){
-		echo('start'.$start);
-		echo('end'.$end);
+	//	echo('start'.$start);
+		//echo('end'.$end);
 DB::table('SIM_PLANS')->where('SIM', '<=',$end)
                  ->where('SIM', '>=', $start)
                  ->delete();
 	}
 		 public function insertOrUpdate($start,$end,$selectedplans){
-			 echo('start'.$start);
-		echo('end'.$end);
-		echo('selectedplans'.$selectedplans);
+			 //echo('start'.$start);
+		//echo('end'.$end);
+		//echo('selectedplans'.$selectedplans);
 
 
 $arr1 = explode(',',$selectedplans);
-print_r($arr1);
+//print_r($arr1);
 foreach ($arr1 as $key => $value){
-   echo (' plan: '.$value);
+  // echo (' plan: '.$value);
    for ($i=$start; $i <= $end;$i++) {
-   echo ' SIM= '.str_pad($i, strlen($start), "0", STR_PAD_LEFT);
+ //  echo ' SIM= '.str_pad($i, strlen($start), "0", STR_PAD_LEFT);
  $sim=str_pad($i, strlen($start), "0", STR_PAD_LEFT);
    
  //$table1 = App\SIM_PLANS::updateOrCreate( ['planCode' => $value ,'SIM'=>$sim]);
