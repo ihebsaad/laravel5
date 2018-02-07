@@ -252,6 +252,163 @@ $(document).on({
      ajaxStop: function() { $body.removeClass("loading"); }    
 }); 
 
+$scope.assignRange = function (){
+	  start=document.getElementById('startsim').value;
+	  end=document.getElementById('endsim').value;
+	    if (end < start){
+		  alert('Incorrect range!');		  
+	  }
+   else{
+	   var plans = [];
+	   if (document.getElementById('radio1').checked){plans.push(document.getElementById('radio1').value);}
+	   if (document.getElementById('radio2').checked){plans.push(document.getElementById('radio2').value);}
+	   if (document.getElementById('radio3').checked){plans.push(document.getElementById('radio3').value);}
+	
+	 if (plans.length==0){console.log('delete');
+	 	   	 	 var setting2 = {
+  "async": true,
+  "crossDomain": true,
+  "url": "http://test.enterpriseesolutions.com/admin/deleterange/"+start+'/'+end,
+  "method": "GET",
+  "headers": {
+     'Access-Control-Allow-Origin': '*'
+  },
+  "processData": false 
+ 
+  }
+  
+   
+$.ajax(setting2).done(function (response) {
+	alert('done' + response);
+});
 
+$.ajax(setting2).fail(function (response) {
+	alert('fail'+ response);
+});
+	 
+	 
+	 
+	 }
+	 else{
+		 selectedplans=plans.toString();
+		 console.log('insert or update');
+		 	 	 var setting = {
+  "async": true,
+  "crossDomain": true,
+  "url": "http://test.enterpriseesolutions.com/admin/insertOrUpdate/"+start+'/'+end+'/'+selectedplans,
+  "method": "GET",
+  "headers": {
+     'Access-Control-Allow-Origin': '*'
+  },
+  "processData": false 
+ 
+  }
+  
+   
+$.ajax(setting).done(function (response) {
+	alert('done' + response);
+});
+
+$.ajax(setting).fail(function (response) {
+	alert('fail'+ response);
+});
+	 }
+
+	 
+   }}
+   $scope.deleteRange = function (){
+ 
+	  start=document.getElementById('startsim').value;
+	  end=document.getElementById('endsim').value;
+	    if (end < start){
+		  alert('Incorrect range!');		  
+	  }
+	  else{
+		   	 	 var setting = {
+  "async": true,
+  "crossDomain": true,
+  "url": "http://test.enterpriseesolutions.com/admin/delete/"+start+'/'+end,
+  "method": "GET",
+  "headers": {
+     'Access-Control-Allow-Origin': '*'
+  },
+  "processData": false 
+ 
+  }
+  
+   
+$.ajax(setting).done(function (response) {
+	alert('done' + response);
+});
+
+$.ajax(setting).fail(function (response) {
+	alert('fail'+ response);
+});
+	  }
+	  
+  }
+     $scope.upload = function (){
+    var file_data = $('#sortpicture').prop('files')[0];   
+    var form_data = new FormData();                  
+    form_data.append('file', file_data);
+	var newURL = window.location.protocol + "//" + window.location.host;
+    if(newURL=="http://127.0.0.1"){
+		url="http://127.0.0.1/laravel5/public/upload.php";		
+	}
+	else{
+		url="http://test.enterpriseesolutions.com/public/upload.php";
+}
+
+    //alert(form_data);                             
+    $.ajax({
+               // url: 'http://test.enterpriseesolutions.com/public/upload.php', // point to server-side PHP script 
+               url: url, // point to server-side PHP script 
+                dataType: 'text',  // what to expect back from the PHP script, if anything
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: form_data,                         
+                type: 'post',
+                success: function(response){
+                    alert('uploaded'); // display response from the PHP script, if any
+					console.log(response);
+					if (response.indexOf('Incorrect delimeter!') > -1){alert('Incorrect delimeter!');}
+					else if (response.indexOf('Incorrect headers!') > -1){alert('Incorrect headers!');}
+				   else if ( ((response.indexOf('Incorrect delimeter!') > -1)) 
+					   || ((response.indexOf('Failed') > -1))
+				       || ((response.indexOf('empty') > -1)) 
+					   || ((response.indexOf('non-existent') > -1)) 
+				       || ((response.indexOf('without') > -1))      )
+				   {
+					alert('Completed with errors');
+				    }
+				   else{
+					alert('Completed successfully');
+				}
+				//	console.log( ' response json'+JSON.parse(JSON.stringify(response)));
+			
+                },fail: function(error){
+                    alert(error); // display response from the PHP script, if any
+                }/*,
+        // Custom XMLHttpRequest
+        xhr: function() {
+            var myXhr = $.ajaxSettings.xhr();
+            if (myXhr.upload) {
+                // For handling the progress of the upload
+                myXhr.upload.addEventListener('progress', function(e) {
+                    if (e.lengthComputable) {
+                        $('#progress1').attr({
+                            value: e.loaded,
+                            max: e.total,
+                        });
+                    }
+                } , false);
+            }
+            return myXhr;
+        }*/
+     });
+});
+
+ 
 	
 }]);
