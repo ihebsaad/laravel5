@@ -28,12 +28,10 @@
 </head>
 <body>
 
-<div class="navbar navbar-inverse bg-inverse" style="border-color: #fff!important;border-radius: 0px!important;margin-bottom: 0px!important;">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="background:white!important;  border-color: #fff!important;border-radius: 0px!important;margin-bottom: 0px!important;">
 
 
-<div class="container d-flex justify-content-between">
-<div class="row" style="width:100%;">
-<div class="col-md-3">
+<div class="container">
 <a href="#" class="navbar-brand" style=" padding-bottom: 0px; padding-top: 0px; ">
     <svg xmlns="http://www.w3.org/2000/svg" id="logo" viewBox="0 0 73.5 21.3" class="logo-small">
                         <style>.st-blue{fill:#006fba}.st1{fill:#a6a9ab}</style>
@@ -42,15 +40,13 @@
                     </svg>
     
   </a>
-  </div>
+  <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+  </button>
 <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
 <span class="navbar-toggler-icon"></span>
 </button>-->
-<div class="col-md-6">
-</div>
-<div class="col-md-3">
-
-       <div id="navbar-collapse" class="collapse navbar-collapse">
+<div class="navbar-collapse collapse" id="navbarResponsive" style="">
        <?php
 
   if (isset ($_SESSION['access_token']))
@@ -73,20 +69,14 @@ $lname=substr($_SESSION['username'],$pos+1);
  $value1='';$value2='';
  }
 echo'
-<ul class="nav navbar-nav navbar-right" id="logoutbtn" style="'.$style.'">
-<li><div class="row"><style> .logout a:hover{background-color:#049afe!important;}</style>
-<div class="col-sm-10"><br><B style="font-size:12px;margin-top:20px;  " ><span id="userinfo0" style="font-size:16px;">'.$value1.'</span><span style="font-size:16px;color:#049afe" id="userinfo">'.$value2.'</span></B> </div>
-<div class="logout col-sm-2"><a style="background-color:#006fb9;margin-top:10px" href="#" class="btn btn-info " onclick="logout();"> <span   class="glyphicon glyphicon-log-out"></span> Log out</a></div></div></li>
-
+<ul class="navbar-nav ml-auto" id="logoutbtn" style="'.$style.'">
+<li class="nav-item"><span id="userinfo0" style="font-size:16px;">'.$value1.'</span><span style="font-size:16px;color:#049afe" id="userinfo">'.$value2.'</span></li>
+<li class="nav-item"><a style="background-color:#006fb9;margin-top:10px" href="#" class="btn btn-info " onclick="logout();"> <span   class="glyphicon glyphicon-log-out"></span> Log out</a></li>
 </ul>';
 ?>
-        </div>
-        </div><!-- Col -->
-</div><!-- Row -->
 </div>
-
-
-</div> <!-- end NAV BAR -->
+</div>
+</nav> <!-- end NAV BAR -->
 <section class="jumbotron text-center">
 <div class="container">
 <h1 class="jumbotron-heading" id="pagetitle">Activate Your SIM</h1>
