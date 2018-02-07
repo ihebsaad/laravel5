@@ -210,7 +210,7 @@
                                                     <input ng-model="formParams.endsim" type="number" name="endsim"  ng-pattern="/^[0-9]*$/" placeholder="End SIM #" ng-minlength="1" id="endsim" class="form-control">
                                                 </div>  
                                                 <div class="col-sm-4 form-group">
-                                                    <button type="button" class="btn btn-primary "  style="height:35px!important;float: right!important;line-height:0px!important;" >Delete</button>
+                                                    <button type="button" onclick="deleteRange();" class="btn btn-primary "  style="height:35px!important;float: right!important;line-height:0px!important;" >Delete</button>
                                                 </div>      
                                             </div>
                                         </div>
@@ -249,7 +249,7 @@
                                                     </div>
                                                 </div> 
                                                 <div class="col-sm-4 form-group">
-                                                    <button type="button" class="btn btn-primary "  style="height:35px!important;float: right!important;line-height:0px!important;" >Assign</button>
+                                                    <button type="button" onclick="assignRange();" class="btn btn-primary "  style="height:35px!important;float: right!important;line-height:0px!important;" >Assign</button>
                                                 </div> 
                                                 
                                             </div>
