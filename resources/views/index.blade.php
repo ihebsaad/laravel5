@@ -71,7 +71,7 @@ $lname=substr($_SESSION['username'],$pos+1);
 echo'
 <ul class="navbar-nav ml-auto" id="logoutbtn" style="'.$style.'">
 <li class="nav-item"><span id="userinfo0" style="font-size:16px;">'.$value1.'</span><span style="font-size:16px;color:#049afe" id="userinfo">'.$value2.'</span></li>
-<li class="nav-item"><a style="background-color:#006fb9;margin-top:10px" href="#" class="btn btn-info " onclick="logout();"> <span   class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+<li class="nav-item"><div class="logout"><a style="background-color:#006fb9;margin-top:10px" href="#" class="btn btn-info " onclick="logout();"> <span   class="glyphicon glyphicon-log-out"></span> Log out</a></div></li>
 </ul>';
 ?>
 </div>
