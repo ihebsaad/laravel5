@@ -251,6 +251,24 @@ $(document).on({
     ajaxStart: function() { console.log('start');$body.addClass("loading");    },
      ajaxStop: function() { $body.removeClass("loading"); }    
 }); 
+
+$scope.downloadtemplate = function (){
  
+
+
+	var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "http://test.enterpriseesolutions.com/downloadtemplate",
+  "method": "POST",
+  "processData": false }
+
+
+$.ajax(settings).done(function (response) {console.log(response);
+  window.location ="http://test.enterpriseesolutions.com/downloadtemplate";})
+$.ajax(settings).fail(function (response) {console.log(response);})
+;  
+
+    }
 	
 }]);
