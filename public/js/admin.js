@@ -243,5 +243,14 @@ $.ajax(setting).fail(function (response) {
 });
 	 
  }
+ 
+ 
+  var $body = $("body");
+
+$(document).on({
+    ajaxStart: function() { console.log('start');$body.addClass("loading");    },
+     ajaxStop: function() { $body.removeClass("loading"); }    
+}); 
+ 
 	
 }]);

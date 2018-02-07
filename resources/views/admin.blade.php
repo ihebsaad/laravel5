@@ -561,7 +561,42 @@ var URL = window.location.protocol + "//" + window.location.host + window.locati
             <script src="assets/js/placeholder.js"></script>
         <![endif]-->
 	<!--</div>	<!--All stages-->	
-</form>		
+</form>	
+
 </main>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+ <span class="close">&times;</span> 
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
+</div>	
 </body>
+<style>
+
+/* style loading ...   */
+.modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 ) 
+                url('http://test.enterpriseesolutions.com/public/ajax-loader.gif') 
+                50% 50% 
+                no-repeat;
+}
+
+body.loading {
+    overflow: hidden;   
+}
+
+
+body.loading .modal {
+    display: block;
+}
+
+</style>
 </html>
