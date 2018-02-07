@@ -35,10 +35,9 @@ if ( (substr_count(strtoupper ($sameline),'SIM')<1) || ((substr_count(strtoupper
 $pos1=strpos(strtoupper ($sameline),'SIM');
 $pos2=strpos(strtoupper ($sameline),'PIN');
 $pos3=strpos(strtoupper ($sameline),'STATUS');
-echo 'pos1='.$pos1;
-echo 'pos2='.$pos2;
-echo 'pos3='.$pos3;
-/*
+
+if (($pos2<$pos1) || ($pos2> pos3) ){echo 'Incorrect headers!'; return false;}
+
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
@@ -145,6 +144,6 @@ foreach($obj->simCards as $sim){
         } //while
 $resultDetails = implode(" ", $arrayDetails);
   echo ('resultDetails: '.$resultDetails);
-        */  }
+         }
 
 ?>
