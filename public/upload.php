@@ -32,7 +32,13 @@ if ($enclosure != 6){echo 'Incorrect enclosure!'; return false;}
 if ( (substr_count(strtoupper ($sameline),'SIM')<1) || ((substr_count(strtoupper ($sameline),'PIN')<1)) || ((substr_count(strtoupper ($sameline),'STATUS')<1)) )
 
 {echo 'Incorrect headers!'; return false;}
-
+$pos1=strpos(strtoupper ($sameline),'SIM');
+$pos2=strpos(strtoupper ($sameline),'PIN');
+$pos3=strpos(strtoupper ($sameline),'STATUS');
+echo 'pos1='.$pos1;
+echo 'pos2='.$pos2;
+echo 'pos3='.$pos3;
+/*
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
@@ -62,8 +68,8 @@ foreach($obj->simCards as $sim){
 	//echo $sim->iccid;
 	array_push($arraySIMs,$sim->iccid);
 }
-/*echo 'array result';
-print_r($arraySIMs);*/
+//echo 'array result';
+//print_r($arraySIMs);
 
 }
 
@@ -139,6 +145,6 @@ print_r($arraySIMs);*/
         } //while
 $resultDetails = implode(" ", $arrayDetails);
   echo ('resultDetails: '.$resultDetails);
-          }
+        */  }
 
 ?>
