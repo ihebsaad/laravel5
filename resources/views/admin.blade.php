@@ -178,7 +178,7 @@
                                                     <p>To add/edit SIMs, please upload a csv: </p>
                                                 </div>
                                                 <div class="form-group col-xs-5">
-                                                    <a id="upload" ng-click="downloadtemplate()" href="#">Download csv template</a>
+                                                    <a id="upload"  href="javascript:downloadtemplate();">Download csv template</a>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -488,7 +488,23 @@ var URL = window.location.protocol + "//" + window.location.host + window.locati
   
 
  /******** end logout ********/
- 
+ function downloadtemplate() {
+
+
+	var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "http://test.enterpriseesolutions.com/downloadtemplate",
+  "method": "POST",
+  "processData": false }
+
+
+$.ajax(settings).done(function (response) {console.log(response);
+  window.location ="http://test.enterpriseesolutions.com/downloadtemplate";})
+$.ajax(settings).fail(function (response) {console.log(response);})
+;  
+
+    }
 		
              $('#simpin_tabs').on('click', 'a[data-toggle="tab"]', function(e) {
               e.preventDefault();
