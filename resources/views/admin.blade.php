@@ -186,7 +186,7 @@
                                                     <div class="input-group">
                                                       <input type="text" class="form-control fileuploader" style="height:40px!important;" readonly>
                                                         <div class="input-group-addon browse">
-                                                          <input type="file">
+                                                          <input type="file" id="sortpicture">
                                                           Browse
                                                         </div>
                                                       </div>
