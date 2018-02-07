@@ -508,7 +508,7 @@ $.ajax(settings).fail(function (response) {console.log(response);})
 	   function assignRange(){
 	  start=document.getElementById('pstartsim').value;
 	  end=document.getElementById('pendsim').value;
-	    if (end < start){
+	   if (parseInt(end) < parseInt(start)){
 		  alert('Incorrect range!');		  
 	  }
    else{
@@ -572,7 +572,7 @@ $.ajax(setting).fail(function (response) {
   function deleteRange(){
 	  start=document.getElementById('startsim1').value;
 	  end=document.getElementById('endsim1').value;
-	    if (end < start){
+	    if (parseInt(end) < parseInt(start)){
 		  alert('Incorrect range!');		  
 	  }
 	  else{
