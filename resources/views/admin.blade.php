@@ -234,15 +234,15 @@
                                                     <div class=" scroller  " style="height: 200px; overflow-y: scroll; padding-top: 20px; border: 2px solid LightGray;border-radius: 1rem; width: 100%!important;">
                                                         <ul class="radionc">
                                                             <li>
-                                                                <input type='radio' value='1' name='radio' id='radio1'/>
+                                                                <input type='checkbox' value='ICENP_PIA15' name='radio' id='radio1'/>
                                                                 <label for='radio1'>Talk, Text, Surf $49</label>
                                                             </li>
                                                             <li>
-                                                                <input type='radio' value='2' name='radio'  id='radio2'/>
+                                                                <input type='checkbox' value='ICENP_PIA25' name='radio'  id='radio2'/>
                                                                 <label for='radio2'>Talk, Text, Surf $59</label>
                                                             </li>
                                                             <li>
-                                                                <input type='radio' value='3' name='radio'  id='radio3'/>
+                                                                <input type='checkbox' value='ICENP_PIA35' name='radio'  id='radio3'/>
                                                                 <label for='radio3'>Talk, Text, Surf $69</label>
                                                             </li>
                                                         </ul>
