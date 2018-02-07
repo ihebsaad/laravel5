@@ -29,15 +29,13 @@ $enclosure=substr_count($sameline,'"');
 
 if ($enclosure != 6){echo 'Incorrect enclosure!'; return false;}
      //Get SIM Cards numbers
-if ( (substr_count(strtoupper ($sameline),'SIM')<1) || ((substr_count(strtoupper ($sameline),'PIN')<1)) || ((substr_count(strtoupper ($sameline),'STATUS')<1)) )
+	 $sameline=preg_replace('/\s+/', '', $sameline);
+if ( (substr_count(strtoupper ($sameline),preg_replace('/\s+/', '', 'SIM'))<1) || ((substr_count(strtoupper ($sameline),preg_replace('/\s+/', '', 'PIN')))<1)) || ((substr_count(strtoupper ($sameline),preg_replace('/\s+/', '', 'STATUS' ))<1)) )
 
 {echo 'Incorrect headers!'; return false;}
 $pos1=strpos(strtoupper ($sameline),'SIM');
 $pos2=strpos(strtoupper ($sameline),'PIN');
 $pos3=strpos(strtoupper ($sameline),'STATUS');
-echo'pos=1'.$pos1;
-echo'pos=2'.$pos2;
-echo'pos=3'.$pos3;
 if (($pos2<$pos1) || ($pos2> $pos3) ){echo 'Incorrect headers!';  return false;}
 
 $curl = curl_init();
