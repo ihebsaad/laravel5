@@ -92,7 +92,7 @@ foreach($obj->simCards as $sim){
 			  else if ( (strlen($sim)==0) && (strlen($pin)>0) )
 			  {$details1= ' Line '. $i .': non-existent SIM.';array_push($arrayDetails,$details1);}
 			  else if($status==""){$status=0;}
-			  else if(ctype_digit($line)){$details1= ' Line '. $i .': invalid format.';array_push($arrayDetails,$details1);}
+			  else if(!(ctype_digit($line))){$details1= ' Line '. $i .': invalid format.';array_push($arrayDetails,$details1);}
 		
 			 //Case correct format
 			  else{
