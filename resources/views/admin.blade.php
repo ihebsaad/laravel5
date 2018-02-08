@@ -234,7 +234,7 @@ Completed with errors.
                                                     <div class="input-group">
                                                       <input type="text" class="form-control fileuploader" style="height:40px!important;" readonly>
                                                         <div class="input-group-addon browse">
-                                                          <input type="file" id="sortpicture">
+                                                          <input type="file" id="sortpicture" accept=".csv">
                                                           Browse
                                                         </div>
                                                       </div>
@@ -672,6 +672,10 @@ $.ajax(setting).fail(function (response) {
  function upload() { 
 	 	  document.getElementById("uploadfail").style.display="none";
 		  document.getElementById("uploadsuccess").style.display="none";
+		  if( document.getElementById("sortpicture").files.length == 0 ){
+    console.log("no files selected");
+}
+else{
     var file_data = $('#sortpicture').prop('files')[0];   
     var form_data = new FormData();                  
     form_data.append('file', file_data);
@@ -720,6 +724,7 @@ $.ajax(setting).fail(function (response) {
                     alert(error); // display response from the PHP script, if any
                 }
      });
+}
 }
 
  
