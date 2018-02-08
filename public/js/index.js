@@ -916,6 +916,7 @@ $.ajax(settings).done(function (response) {
   document.getElementById('userinfo').innerHTML=fname+' '+lname ;
   document.getElementById('userinfo0').innerHTML="Logged in as ";
 
+  	console.log('url2'+''+newURL+'public/session_write2.php?username='+fname+'/'+lname);
   	 jQuery('#div_session_write2').load(''+newURL+'public/session_write2.php?username='+fname+'/'+lname);
     
 	//$scope.next('stagePlans'); 
