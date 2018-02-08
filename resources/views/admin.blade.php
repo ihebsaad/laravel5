@@ -556,7 +556,7 @@ $.ajax(settings).fail(function (response) {console.log(response);})
 		count=count+1;
 	
 	});
-    alert(count);
+  //  alert(count);
 	   var plans = [];
 	   for(i=0;i< count; i++){
 	   if (document.getElementById('radio'+i).checked){plans.push(document.getElementById('radio'+i).value);}
@@ -588,8 +588,8 @@ $.ajax(setting2).fail(function (response) {
 	 }
 	 else{
 		 selectedplans=plans.toString();
-		 console.log('insert or update');
-		 console.log(selectedplans);
+		// console.log('insert or update');
+		// console.log(selectedplans);
 		 	 	 var setting = {
   "async": true,
   "crossDomain": true,
