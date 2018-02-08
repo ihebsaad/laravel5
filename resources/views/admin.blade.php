@@ -678,7 +678,7 @@ $.ajax(setting).fail(function (response) {
 	 	  document.getElementById("uploadfail").style.display="none";
 		  document.getElementById("uploadsuccess").style.display="none";
 		  if( document.getElementById("sortpicture").files.length == 0 ){
-    console.log("no files selected");
+    $("#nofileselected").slideDown();
 }
 else{
     var file_data = $('#sortpicture').prop('files')[0];   
