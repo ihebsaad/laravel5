@@ -171,14 +171,15 @@ foreach($obj->plans as $plan){
                         		</div>
  
                             </div>
-							 <div style="display:none;" id="uploadsuccess" class="alert alert-success">
+	
+                            <div class="form-bottom" id="admins">
+													 <div style="display:none;" id="uploadsuccess" class="alert alert-success">
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
 Completed successfully.
   </div><div style="display:none;" id="uploadfail" class="alert alert-warning">
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
 Completed with errors.
   </div>
-                            <div class="form-bottom" id="admins">
 			                    <!-- Nav tabs 
                                     link: https://codepen.io/brylok/pen/zawdJ -->
                                 <ul class="nav nav-tabs tabs" id="simpin_tabs">
@@ -681,7 +682,11 @@ $.ajax(setting).fail(function (response) {
 					   || ((response.indexOf('Failed') > -1))
 				       || ((response.indexOf('empty') > -1)) 
 					   || ((response.indexOf('non-existent') > -1)) 
-				       || ((response.indexOf('without') > -1))      )
+				       || ((response.indexOf('without') > -1))     
+				       || ((response.indexOf('Invalid') > -1))     
+				       || ((response.indexOf('invalid') > -1))     
+
+					   )
 				   {
 					
 					$("#uploadfail").slideDown();
