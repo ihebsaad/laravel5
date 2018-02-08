@@ -12,6 +12,36 @@
 </head>
 
 <body>
+<?php
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => "https://gqnchpomjprsrfglg-mock.stoplight-proxy.io/plans",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_POSTFIELDS => "{}"
+));
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "cURL Error #:" . $err;
+} else {
+ // echo $response;
+  $obj = json_decode($response);
+  $arrayPlans = array();
+
+foreach($obj->Plan as $plan){
+	echo $plan->planCode;
+	array_push($arrayPlans,$plan->planCode);
+} ?>
 <button onclick="downloadtemplate();" id="btndownloadtemplate">Download csv template</button>
 
 <input id="sortpicture" type="file" name="sortpic" />
@@ -42,10 +72,13 @@
                                                 <div class="col-sm-8 form-group">
                                                     <div class=" scroller  " style="height: 200px; overflow-y: scroll; padding-top: 20px; border: 2px solid LightGray;border-radius: 1rem; width: 100%!important;">
                                                         <ul class="radionc">
+														<?php for ($i=0;)
                                                             <li>
                                                                 <input type="checkbox" value="ICENP_PIA15" name="radio1" id="radio1">
                                                                 <label for="radio1">Talk, Text, Surf $49</label>
                                                             </li>
+															
+															?>
                                                             <li>
                                                                 <input type="checkbox" value="ICENP_PIA25" name="radio2" id="radio2">
                                                                 <label for="radio2">Talk, Text, Surf $59</label>
