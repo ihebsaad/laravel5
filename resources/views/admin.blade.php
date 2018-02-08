@@ -172,8 +172,17 @@ foreach($obj->plans as $plan){
  
                             </div>
 	
-                            <div class="form-bottom" id="admins">
-													 <div style="display:none;" id="uploadsuccess" class="alert alert-success">
+                            <div class="form-bottom" id="admins">  
+	<div style="display:none;" id="operationsuccess" class="alert alert-success">
+	
+    <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+Operation completed successfully.
+  </div>
+  <div style="display:none;" id="incorrectrange" class="alert alert-danger">
+	
+    <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+Incorrect range!
+  </div><div style="display:none;" id="uploadsuccess" class="alert alert-success">
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
 Completed successfully.
   </div><div style="display:none;" id="uploadfail" class="alert alert-danger">
@@ -543,10 +552,15 @@ $.ajax(settings).fail(function (response) {console.log(response);})
 
     }
 	   function assignRange(){
+		  document.getElementById("incorrectrange").style.display="none";
+		  document.getElementById("operationsuccess").style.display="none";
+	 	   
 	  start=document.getElementById('pstartsim').value;
 	  end=document.getElementById('pendsim').value;
 	   if (parseInt(end) < parseInt(start)){
-		  alert('Incorrect range!');		  
+		 
+
+	$("#incorrectrange").slideDown();		  
 	  }
    else{
 	  /* var inputs = document.getElementById("formcheckbox").elements;
@@ -584,7 +598,7 @@ $.ajax(settings).fail(function (response) {console.log(response);})
   
    
 $.ajax(setting2).done(function (response) {
-	alert('done' + response);
+	$("#operationsuccess").slideDown();
 });
 
 $.ajax(setting2).fail(function (response) {
@@ -612,7 +626,7 @@ $.ajax(setting2).fail(function (response) {
   
    
 $.ajax(setting).done(function (response) {
-	alert('done' + response);
+		$("#operationsuccess").slideDown();
 });
 
 $.ajax(setting).fail(function (response) {
@@ -623,10 +637,13 @@ $.ajax(setting).fail(function (response) {
 	 
    }}
   function deleteRange(){
+	  document.getElementById("incorrectrange").style.display="none";
+	  document.getElementById("operationsuccess").style.display="none";
+	 	  
 	  start=document.getElementById('startsim1').value;
 	  end=document.getElementById('endsim1').value;
 	    if (parseInt(end) < parseInt(start)){
-		  alert('Incorrect range!');		  
+		$("#incorrectrange").slideDown();		  
 	  }
 	  else{
 		   	 	 var setting = {
@@ -643,7 +660,7 @@ $.ajax(setting).fail(function (response) {
   
    
 $.ajax(setting).done(function (response) {
-	alert('done' + response);
+		$("#operationsuccess").slideDown();
 });
 
 $.ajax(setting).fail(function (response) {
@@ -652,7 +669,9 @@ $.ajax(setting).fail(function (response) {
 	  }
 	  
   }
- function upload() {
+ function upload() { 
+	 	  document.getElementById("uploadfail").style.display="none";
+		  document.getElementById("uploadsuccess").style.display="none";
     var file_data = $('#sortpicture').prop('files')[0];   
     var form_data = new FormData();                  
     form_data.append('file', file_data);
