@@ -83,7 +83,7 @@ foreach($obj->simCards as $sim){
 			$pin=$line[1];
 			$status=$line[2];
 			 $remove = array('"',',');
-			 $removeenclosure= implode(str_replace('"',"",$line);)
+			 $removeenclosure= implode(str_replace('"',"",$line));
 			 echo 'removeenclosure='.$removeenclosure;
 			 $remove= implode(str_replace(',',"",$removeenclosure));
 			 	 echo 'remove='.$remove;
