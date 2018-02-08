@@ -558,10 +558,9 @@ $.ajax(settings).fail(function (response) {console.log(response);})
 	});
     alert(count);
 	   var plans = [];
-	   if (document.getElementById('radio0').checked){plans.push(document.getElementById('radio0').value);}
-	   if (document.getElementById('radio1').checked){plans.push(document.getElementById('radio1').value);}
-	   if (document.getElementById('radio2').checked){plans.push(document.getElementById('radio2').value);}
-	
+	   for(i=0;i< count; i++){
+	   if (document.getElementById('radio'+i).checked){plans.push(document.getElementById('radio'+i).value);}
+	    }
 	 if (plans.length==0){console.log('delete');
 	 	   	 	 var setting2 = {
   "async": true,
@@ -590,6 +589,7 @@ $.ajax(setting2).fail(function (response) {
 	 else{
 		 selectedplans=plans.toString();
 		 console.log('insert or update');
+		 console.log(selectedplans);
 		 	 	 var setting = {
   "async": true,
   "crossDomain": true,
