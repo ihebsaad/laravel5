@@ -555,7 +555,7 @@ $.ajax(settings).fail(function (response) {console.log(response);})
 	
 		count=count+1;
 	
-	}
+	});
     alert(count);
 	   var plans = [];
 	   if (document.getElementById('radio0').checked){plans.push(document.getElementById('radio0').value);}
