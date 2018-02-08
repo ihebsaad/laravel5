@@ -541,14 +541,21 @@ $.ajax(settings).fail(function (response) {console.log(response);})
 		  alert('Incorrect range!');		  
 	  }
    else{
-	   var inputs = document.getElementById("formcheckbox").elements;
+	  /* var inputs = document.getElementById("formcheckbox").elements;
     var count  = 0;
     for (var i = 0; i < inputs.length; i++) {
         if (inputs[i].type == 'checkbox' ) {
             count++;
         }
-    }
-    
+    }*/
+	count=0;
+   $('input[type=checkbox]').each(function() {
+	
+    selected.push($(this).attr('name'));
+	
+		count=count+1;
+	
+	}
     alert(count);
 	   var plans = [];
 	   if (document.getElementById('radio0').checked){plans.push(document.getElementById('radio0').value);}
