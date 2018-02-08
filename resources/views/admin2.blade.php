@@ -72,13 +72,14 @@ foreach($obj->Plan as $plan){
                                                 <div class="col-sm-8 form-group">
                                                     <div class=" scroller  " style="height: 200px; overflow-y: scroll; padding-top: 20px; border: 2px solid LightGray;border-radius: 1rem; width: 100%!important;">
                                                         <ul class="radionc">
-														<?php for ($i=0;)
+														<?php //for ($i=0;)
+															?>
                                                             <li>
                                                                 <input type="checkbox" value="ICENP_PIA15" name="radio1" id="radio1">
                                                                 <label for="radio1">Talk, Text, Surf $49</label>
                                                             </li>
 															
-															?>
+															
                                                             <li>
                                                                 <input type="checkbox" value="ICENP_PIA25" name="radio2" id="radio2">
                                                                 <label for="radio2">Talk, Text, Surf $59</label>
