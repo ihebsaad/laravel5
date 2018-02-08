@@ -5,10 +5,9 @@ angular.module('formApp', [
 ]).
 controller('formCtrl', ['$scope', '$http', function($scope, $http) {
 	
+ $scope.loggedin = false;
 //$scope.DataPins ={} ;
-    $http.get('https://enterpriseesolutions.com/pins.php').success(function (responsepins) {
-             $scope.DataPins = responsepins ;
-          });	
+  	
 	
  $scope.stage = "";
     // $scope.formParams = {};
@@ -58,8 +57,11 @@ controller('formCtrl', ['$scope', '$http', function($scope, $http) {
   }
  
 	  $scope.loockup = function () {
+	 if ($scope.loggedin) {
+	  
   document.getElementById('pinarea').style.display="block";
     document.getElementById('searcharea').style.display="none";
+ }else {alert('Please Login to do this action');}	
 
   };	
 	  $scope.init = function () {
@@ -142,13 +144,18 @@ $.ajax(settings).done(function (response) {
  document.getElementById('logindiv').style.display="none";
  document.getElementById('admindiv').style.display="block";
  
+   $http.get('https://enterpriseesolutions.com/pins.php').success(function (responsepins) {
+             $scope.DataPins = responsepins ;
+          });
+		  
   $("#admindiv").animate({height: "100px"});
    $("#admindiv").animate({height: "100px"});
    $("#admindiv").animate({height: "555px"});
    $("#admindiv").animate({height: "532"});
    
+   $scope.loggedin=true;
  
-$scope.$apply();
+   $scope.$apply();
 
 
  });
@@ -187,7 +194,7 @@ $.ajax(settings2).done(function (response) {
 //$scope.formParams.idpin="";
 
 $scope.enable = function (id){
- 
+ if ($scope.loggedin) {
 	 var setting = {
   "async": true,
   "crossDomain": true,
@@ -212,11 +219,13 @@ $.ajax(setting).done(function (response) {
 $.ajax(setting).fail(function (response) {
 	console.log('fail enable  '+ response);
 });
-	 
+	
+ }else {alert('Please Login to do this action');}	
  }	
  
  $scope.disable = function (id){
- 
+  if ($scope.loggedin) {
+
 	 var setting = {
   "async": true,
   "crossDomain": true,
@@ -241,7 +250,8 @@ $.ajax(setting).done(function (response) {
 $.ajax(setting).fail(function (response) {
 	console.log('fail disable '+ response);
 });
-	 
+	  }else {alert('Please Login to do this action');}	
+
  }
  
  
@@ -253,6 +263,8 @@ $(document).on({
 }); 
 
 $scope.assignRange = function (){
+	 if ($scope.loggedin) {
+
 	  start=document.getElementById('startsim').value;
 	  end=document.getElementById('endsim').value;
 	    if (end < start){
@@ -315,6 +327,11 @@ $.ajax(setting).fail(function (response) {
 	 }
 
 	 
-   }}
+	 //
+   }
+   	  }else {alert('Please Login to do this action');}	
+
+   
+   }// end function
   
 }]);
