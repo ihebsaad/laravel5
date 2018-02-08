@@ -356,8 +356,11 @@ border-radius: 1rem!important;
       }
       ul#logoutbtn {
         display: inline-block!important;
-        float: left!important;
-        font-size: 14px!important;
+        /*float: left!important;*/
+        font-size: 12px!important;
+        margin-top: -25px;
+        margin-right: -25px;
+        float:right!important;
       }
       ul#logoutbtn:before {
           content: '\A'!important;
