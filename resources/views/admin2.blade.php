@@ -37,10 +37,12 @@ if ($errp) {
  // echo $response;
   $obj = json_decode($responsep);
   $arrayPlans = array();
+  $arrayPlansDetails = array();
 
 foreach($obj->plans as $plan){
 	echo $plan->planCode;
 	array_push($arrayPlans,$plan->planCode);
+	array_push($arrayPlansDetails,$plan->planType.' '.$plan->recurringCharge.'$');
 }} ?>
 <button onclick="downloadtemplate();" id="btndownloadtemplate">Download csv template</button>
 
@@ -75,7 +77,7 @@ foreach($obj->plans as $plan){
 														<?php foreach ($arrayPlans as $key => $value){
  echo '  <li>
                                                                 <input type="checkbox" value="'.$value.'" name="radio'.$key.'" id="radio'.$key.'">
-                                                                <label for="radio1">'.$value.'</label>
+                                                                <label for="radio1">'.$arrayPlansDetails[$key].'</label>
                                                             </li>';
 }?>
                                                             
