@@ -268,7 +268,7 @@ foreach($obj->plans as $plan){
                                                             <?php foreach ($arrayPlans as $key => $value){
  echo '  <li>
                                                                 <input type="checkbox" value="'.$value.'" name="radio'.$key.'" id="radio'.$key.'">
-                                                                <label for="radio1">'.$arrayPlansDetails[$key].'</label>
+                                                                <label for="radio'.$key.'">'.$arrayPlansDetails[$key].'</label>
                                                             </li>';
 															}?>
 															</form>
