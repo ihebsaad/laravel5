@@ -40,7 +40,7 @@ if ($errp) {
   $arrayPlansDetails = array();
 
 foreach($obj->plans as $plan){
-	echo $plan->planCode;
+	//echo $plan->planCode;
 	array_push($arrayPlans,$plan->planCode);
 	array_push($arrayPlansDetails,$plan->planType.' '.$plan->recurringCharge.'$');
 }} ?>

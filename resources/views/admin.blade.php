@@ -35,7 +35,38 @@
         <![endif]-->
  
     </head>
+<?php
+$curlp = curl_init();
 
+curl_setopt_array($curlp, array(
+  CURLOPT_URL => "https://gqnchpomjprsrfglg-mock.stoplight-proxy.io/plans",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_POSTFIELDS => "{}"
+));
+
+$responsep = curl_exec($curlp);
+$errp = curl_error($curlp);
+
+curl_close($curlp);
+
+if ($errp) {
+  echo "cURL Error #:" . $errp;
+} else {
+ // echo $response;
+  $obj = json_decode($responsep);
+  $arrayPlans = array();
+  $arrayPlansDetails = array();
+
+foreach($obj->plans as $plan){
+	//echo $plan->planCode;
+	array_push($arrayPlans,$plan->planCode);
+	array_push($arrayPlansDetails,$plan->planType.' '.$plan->recurringCharge.'$');
+}} ?>
 <body  ng-app="formApp" ng-controller="formCtrl" ng-cloak >
  <input type="hidden" name="uinfo" id="uinfo" />
    <div id='div_session_write' style="display:none;"> </div>
@@ -233,18 +264,12 @@
                                                 <div  class="col-sm-8 form-group">
                                                     <div class=" scroller  " style="height: 200px; overflow-y: scroll; padding-top: 20px; border: 2px solid LightGray;border-radius: 1rem; width: 100%!important;">
                                                         <ul class="radionc">
-                                                            <li>
-                                                                <input type='checkbox' value='ICENP_PIA15' name='radio' id='radio1'/>
-                                                                <label for='radio1'>Talk, Text, Surf $49</label>
-                                                            </li>
-                                                            <li>
-                                                                <input type='checkbox' value='ICENP_PIA25' name='radio'  id='radio2'/>
-                                                                <label for='radio2'>Talk, Text, Surf $59</label>
-                                                            </li>
-                                                            <li>
-                                                                <input type='checkbox' value='ICENP_PIA35' name='radio'  id='radio3'/>
-                                                                <label for='radio3'>Talk, Text, Surf $69</label>
-                                                            </li>
+                                                            <?php foreach ($arrayPlans as $key => $value){
+ echo '  <li>
+                                                                <input type="checkbox" value="'.$value.'" name="radio'.$key.'" id="radio'.$key.'">
+                                                                <label for="radio1">'.$arrayPlansDetails[$key].'</label>
+                                                            </li>';
+															}?>
                                                         </ul>
                                                     </div>
                                                 </div> 
