@@ -264,12 +264,14 @@ foreach($obj->plans as $plan){
                                                 <div  class="col-sm-8 form-group">
                                                     <div class=" scroller  " style="height: 200px; overflow-y: scroll; padding-top: 20px; border: 2px solid LightGray;border-radius: 1rem; width: 100%!important;">
                                                         <ul class="radionc">
+														<form id="formcheckbox">
                                                             <?php foreach ($arrayPlans as $key => $value){
  echo '  <li>
-                                                                <input type="checkbox" value="'.$value.'" name="radio'.$key.'" id="radio'.$key.'">
+                                                                <input type="checkbox" value="'.$value.'" name="radio" id="radio'.$key.'">
                                                                 <label for="radio1">'.$arrayPlansDetails[$key].'</label>
                                                             </li>';
 															}?>
+															</form>
                                                         </ul>
                                                     </div>
                                                 </div> 
@@ -537,10 +539,19 @@ $.ajax(settings).fail(function (response) {console.log(response);})
 		  alert('Incorrect range!');		  
 	  }
    else{
+	   var inputs = document.getElementById("formcheckbox").elements;
+    var count  = 0;
+    for (var i = 0; i < inputs.length; i++) {
+        if (inputs[i].type == 'checkbox' ) {
+            count++;
+        }
+    }
+    
+    alert(count);
 	   var plans = [];
+	   if (document.getElementById('radio0').checked){plans.push(document.getElementById('radio0').value);}
 	   if (document.getElementById('radio1').checked){plans.push(document.getElementById('radio1').value);}
 	   if (document.getElementById('radio2').checked){plans.push(document.getElementById('radio2').value);}
-	   if (document.getElementById('radio3').checked){plans.push(document.getElementById('radio3').value);}
 	
 	 if (plans.length==0){console.log('delete');
 	 	   	 	 var setting2 = {
