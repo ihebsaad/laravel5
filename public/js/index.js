@@ -95,8 +95,12 @@ $.ajax(settings2).done(function (response) {
   document.getElementById('userinfo').innerHTML=response.user_metadata['firstName']+' '+response.user_metadata['lastName']+'</B>';
   document.getElementById('uinfo').value=response.user_metadata['firstName']+' '+response.user_metadata['lastName'];
 console.log('uinfo'+document.getElementById('uinfo').value);
-	jQuery('#div_session_write2').load(''+newURL+'public/session_write2.php?username='+response.user_metadata['firstName']+'/'+response.user_metadata['lastName']);
+//response.user_metadata['firstName']=response.user_metadata['firstName'].replace(" ", "%20");
+//response.user_metadata['lastName']=response.user_metadata['lastName'].replace(" ", "%20");
+	console.log('url'+''+newURL+'public/session_write2.php?username='+response.user_metadata['firstName']+'/'+response.user_metadata['lastName']);
 
+	jQuery('#div_session_write2').load(''+newURL+'public/session_write2.php?username='+response.user_metadata['firstName']+'/'+response.user_metadata['lastName']);
+	
 
 });
 }
@@ -912,6 +916,7 @@ $.ajax(settings).done(function (response) {
   document.getElementById('userinfo').innerHTML=fname+' '+lname ;
   document.getElementById('userinfo0').innerHTML="Logged in as ";
 
+  	console.log('url2'+''+newURL+'public/session_write2.php?username='+fname+'/'+lname);
   	 jQuery('#div_session_write2').load(''+newURL+'public/session_write2.php?username='+fname+'/'+lname);
     
 	//$scope.next('stagePlans'); 
