@@ -176,7 +176,7 @@ foreach($obj->plans as $plan){
 													 <div style="display:none;" id="uploadsuccess" class="alert alert-success">
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
 Completed successfully.
-  </div><div style="display:none;" id="uploadfail" class="alert alert-warning">
+  </div><div style="display:none;" id="uploadfail" class="alert alert-danger">
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
 Completed with errors.
   </div>

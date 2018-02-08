@@ -83,7 +83,7 @@ foreach($obj->simCards as $sim){
 			$pin=$line[1];
 			$status=$line[2];
 			 $remove = array('"',',');
-			 echo('line='.$line);
+			 //echo('line='.$line);
 			 $remove= implode(str_replace('"',"",$line));
 			
 		  //Case empty line
@@ -122,7 +122,7 @@ foreach($obj->simCards as $sim){
 					curl_close($curl2);
 
 					if ($err2) {
-						echo('error'.$err2);
+						//echo('error'.$err2);
 						$details4=' Failed to store line'. $i .'.'. $err2 ;array_push($arrayDetails,$details4 );
 						} 
 						else {
