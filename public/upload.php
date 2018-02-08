@@ -96,7 +96,7 @@ foreach($obj->simCards as $sim){
 			  else if($status==""){$status=0;}
 			 
               
-			//  else if(!(ctype_digit($lineremove))){$details1= ' Line '. $i .': invalid format.';array_push($arrayDetails,$details1);}
+			  else if(!(ctype_digit($lineremove))){$details1= ' Line '. $i .': invalid format.';array_push($arrayDetails,$details1);}
 		
 			 //Case correct format
 			  else{
