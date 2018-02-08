@@ -72,7 +72,7 @@ foreach($obj->plans as $plan){
                                                 <div class="col-sm-8 form-group">
                                                     <div class=" scroller  " style="height: 200px; overflow-y: scroll; padding-top: 20px; border: 2px solid LightGray;border-radius: 1rem; width: 100%!important;">
                                                         <ul class="radionc">
-														<?php foreach (arrayPlans as $key => $value){
+														<?php foreach ($arrayPlans as $key => $value){
  echo '  <li>
                                                                 <input type="checkbox" value="'.$value.'" name="radio'.$key.'" id="radio'.$key.'">
                                                                 <label for="radio1">'.$value.'</label>
