@@ -97,7 +97,7 @@ $.ajax(settings2).done(function (response) {
 console.log('uinfo'+document.getElementById('uinfo').value);
 //response.user_metadata['firstName']=response.user_metadata['firstName'].replace(" ", "%20");
 //response.user_metadata['lastName']=response.user_metadata['lastName'].replace(" ", "%20");
-	console.log(''+newURL+'public/session_write2.php?username='+response.user_metadata['firstName']+'/'+response.user_metadata['lastName']);
+	console.log('url'+''+newURL+'public/session_write2.php?username='+response.user_metadata['firstName']+'/'+response.user_metadata['lastName']);
 
 	jQuery('#div_session_write2').load(''+newURL+'public/session_write2.php?username='+response.user_metadata['firstName']+'/'+response.user_metadata['lastName']);
 	
