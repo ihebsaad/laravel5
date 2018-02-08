@@ -551,7 +551,7 @@ $.ajax(settings).fail(function (response) {console.log(response);})
 	count=0;
    $('input[type=checkbox]').each(function() {
 	
-    selected.push($(this).attr('name'));
+    //selected.push($(this).attr('name'));
 	
 		count=count+1;
 	
