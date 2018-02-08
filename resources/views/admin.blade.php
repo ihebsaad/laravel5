@@ -189,6 +189,10 @@ Completed successfully.
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
 Completed with errors.
   </div>
+  <div style="display:none;" id="nofileselected" class="alert alert-danger">
+    <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+No files selected.
+  </div>
 			                    <!-- Nav tabs 
                                     link: https://codepen.io/brylok/pen/zawdJ -->
                                 <ul class="nav nav-tabs tabs" id="simpin_tabs">
@@ -670,6 +674,7 @@ $.ajax(setting).fail(function (response) {
 	  
   }
  function upload() { 
+	 	  document.getElementById("nofileselected").style.display="none";
 	 	  document.getElementById("uploadfail").style.display="none";
 		  document.getElementById("uploadsuccess").style.display="none";
 		  if( document.getElementById("sortpicture").files.length == 0 ){
