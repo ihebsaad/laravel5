@@ -65,6 +65,8 @@ controller('formCtrl', ['$scope', '$http', function($scope, $http) {
 
   };	
 	  $scope.init = function () {
+		  
+
   document.getElementById('searcharea').style.display="block";
   document.getElementById('pinarea').style.display="none";
   };	
