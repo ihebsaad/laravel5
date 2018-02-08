@@ -13,9 +13,9 @@
 
 <body>
 <?php
-$curl = curl_init();
+$curlp = curl_init();
 
-curl_setopt_array($curl, array(
+curl_setopt_array($curlp, array(
   CURLOPT_URL => "https://gqnchpomjprsrfglg-mock.stoplight-proxy.io/plans",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
@@ -26,22 +26,22 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS => "{}"
 ));
 
-$response = curl_exec($curl);
-$err = curl_error($curl);
+$responsep = curl_exec($curlp);
+$errp = curl_error($curlp);
 
-curl_close($curl);
+curl_close($curlp);
 
-if ($err) {
-  echo "cURL Error #:" . $err;
+if ($errp) {
+  echo "cURL Error #:" . $errp;
 } else {
  // echo $response;
-  $obj = json_decode($response);
+  $obj = json_decode($responsep);
   $arrayPlans = array();
 
 foreach($obj->Plan as $plan){
 	echo $plan->planCode;
 	array_push($arrayPlans,$plan->planCode);
-} ?>
+}} ?>
 <button onclick="downloadtemplate();" id="btndownloadtemplate">Download csv template</button>
 
 <input id="sortpicture" type="file" name="sortpic" />
@@ -72,8 +72,7 @@ foreach($obj->Plan as $plan){
                                                 <div class="col-sm-8 form-group">
                                                     <div class=" scroller  " style="height: 200px; overflow-y: scroll; padding-top: 20px; border: 2px solid LightGray;border-radius: 1rem; width: 100%!important;">
                                                         <ul class="radionc">
-														<?php //for ($i=0;)
-															?>
+														
                                                             <li>
                                                                 <input type="checkbox" value="ICENP_PIA15" name="radio1" id="radio1">
                                                                 <label for="radio1">Talk, Text, Surf $49</label>
