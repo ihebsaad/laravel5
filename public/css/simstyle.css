@@ -366,6 +366,9 @@ border-radius: 1rem!important;
           content: '\A'!important;
           white-space: pre!important;
       }
+      #logo {
+          margin-left: 0px!important;
+      }
   }
 button {cursor: pointer;}
 
