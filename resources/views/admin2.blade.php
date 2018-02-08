@@ -38,7 +38,7 @@ if ($errp) {
   $obj = json_decode($responsep);
   $arrayPlans = array();
 
-foreach($obj->Plan as $plan){
+foreach($obj->plans as $plan){
 	echo $plan->planCode;
 	array_push($arrayPlans,$plan->planCode);
 }} ?>
