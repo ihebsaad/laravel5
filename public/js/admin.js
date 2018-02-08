@@ -5,7 +5,8 @@ angular.module('formApp', [
 ]).
 controller('formCtrl', ['$scope', '$http', function($scope, $http) {
 	
- $scope.loggedin = false;
+	if (document.getElementById('tokeninput').value == "")
+	{ $scope.loggedin = false;}else {$scope.loggedin=true;}
 //$scope.DataPins ={} ;
   	
 	
