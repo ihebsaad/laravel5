@@ -193,6 +193,14 @@ Completed with errors.
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
 No files selected.
   </div>
+  <div style="display:none;" id="startrange" class="alert alert-warning">
+    <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+Please enter a start SIM number.
+  </div>
+    <div style="display:none;" id="endrange" class="alert alert-warning">
+    <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+Please enter an end SIM number.
+  </div>
 			                    <!-- Nav tabs 
                                     link: https://codepen.io/brylok/pen/zawdJ -->
                                 <ul class="nav nav-tabs tabs" id="simpin_tabs">
@@ -558,10 +566,14 @@ $.ajax(settings).fail(function (response) {console.log(response);})
 	   function assignRange(){
 		  document.getElementById("incorrectrange").style.display="none";
 		  document.getElementById("operationsuccess").style.display="none";
-	 	   
+	 	   	  document.getElementById("startrange").style.display="none";
+			   document.getElementById("endrange").style.display="none";
 	  start=document.getElementById('pstartsim').value;
 	  end=document.getElementById('pendsim').value;
-	   if (parseInt(end) < parseInt(start)){
+	  
+	  if (start==""){	$("#startrange").slideDown();	}
+	  else if (end==""){	$("#endrange").slideDown();	}
+	   else if (parseInt(end) < parseInt(start)){
 		 
 
 	$("#incorrectrange").slideDown();		  
@@ -643,10 +655,14 @@ $.ajax(setting).fail(function (response) {
   function deleteRange(){
 	  document.getElementById("incorrectrange").style.display="none";
 	  document.getElementById("operationsuccess").style.display="none";
+	  document.getElementById("startrange").style.display="none";
+	  document.getElementById("endrange").style.display="none";
 	 	  
 	  start=document.getElementById('startsim1').value;
 	  end=document.getElementById('endsim1').value;
-	    if (parseInt(end) < parseInt(start)){
+	  if (start==""){	$("#startrange").slideDown();	}
+	  else if (end==""){	$("#endrange").slideDown();	}
+	   else if (parseInt(end) < parseInt(start)){
 		$("#incorrectrange").slideDown();		  
 	  }
 	  else{
