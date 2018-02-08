@@ -83,7 +83,10 @@ foreach($obj->simCards as $sim){
 			$pin=$line[1];
 			$status=$line[2];
 			 $remove = array('"',',');
-			 $lineremove=str_replace($remove,"",$line);
+			 $removeenclosure=str_replace('"',"",$line);
+			 echo 'removeenclosure='.$removeenclosure;
+			 $remove=str_replace(',',"",$removeenclosure);
+			 	 echo 'remove='.$remove;
 		  //Case empty line
 				 if ((strlen($sim)==strlen($pin)) && (strlen($sim)  ==strlen($status)) )
 			  {$details3= ' Line '. $i .' is empty.';array_push($arrayDetails,$details3);}
@@ -96,7 +99,7 @@ foreach($obj->simCards as $sim){
 			  else if($status==""){$status=0;}
 			 
               
-			  else if(!(ctype_digit($line))){$details1=$lineremove. ' Line '. $i .': invalid format.';array_push($arrayDetails,$details1);}
+			  else if(!(ctype_digit($remove))){$details1= ' Line '. $i .': invalid format.';array_push($arrayDetails,$details1);}
 		
 			 //Case correct format
 			  else{
