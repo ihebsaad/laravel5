@@ -89,6 +89,7 @@ $.ajax(settings2).done(function (response) {
 	console.log('response show metaddata1'+response.nickname);   
 	console.log('response show metaddata2'+response.user_metadata['firstName']);   
    document.getElementById('logoutbtn').style.display="block";
+   document.getElementById('logoutb').style.display="block";
    document.getElementById('userinfo0').innerHTML="Logged in as ";
  
   document.getElementById('userinfo').innerHTML=response.user_metadata['firstName']+' '+response.user_metadata['lastName']+'</B>';
@@ -907,8 +908,10 @@ $.ajax(settings).done(function (response) {
 	
 	//$scope.showuserinfo2(access_token);
 	 document.getElementById('logoutbtn').style.display="block";
+   document.getElementById('logoutb').style.display="block";
   document.getElementById('userinfo').innerHTML=fname+' '+lname ;
   document.getElementById('userinfo0').innerHTML="Logged in as ";
+
   	 jQuery('#div_session_write2').load(''+newURL+'public/session_write2.php?username='+fname+'/'+lname);
     
 	//$scope.next('stagePlans'); 
