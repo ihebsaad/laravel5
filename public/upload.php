@@ -83,9 +83,9 @@ foreach($obj->simCards as $sim){
 			$pin=$line[1];
 			$status=$line[2];
 			 $remove = array('"',',');
-			 $removeenclosure=str_replace('"',"",$line);
+			 $removeenclosure= implode(str_replace('"',"",$line);)
 			 echo 'removeenclosure='.$removeenclosure;
-			 $remove=str_replace(',',"",$removeenclosure);
+			 $remove= implode(str_replace(',',"",$removeenclosure));
 			 	 echo 'remove='.$remove;
 		  //Case empty line
 				 if ((strlen($sim)==strlen($pin)) && (strlen($sim)  ==strlen($status)) )
