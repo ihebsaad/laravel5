@@ -30,10 +30,9 @@
 
 <div class="navbar navbar-inverse bg-inverse" style="border-color: #fff!important;border-radius: 0px!important;margin-bottom: 0px!important;">
 
-
 <div class="container d-flex justify-content-between">
-<div class="row" style="width:100%;">
-<div class="col-md-3">
+
+
 <a href="#" class="navbar-brand" style=" padding-bottom: 0px; padding-top: 0px; ">
     <svg xmlns="http://www.w3.org/2000/svg" id="logo" viewBox="0 0 73.5 21.3" class="logo-small">
                         <style>.st-blue{fill:#006fba}.st1{fill:#a6a9ab}</style>
@@ -42,16 +41,10 @@
                     </svg>
     
   </a>
-  </div>
 <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
 <span class="navbar-toggler-icon"></span>
 </button>-->
-<div class="col-md-6">
-</div>
-<div class="col-md-3">
-
-       <div id="navbar-collapse" class="collapse navbar-collapse">
-       <?php
+<?php
 
   if (isset ($_SESSION['access_token']))
  {$style='display:block;';
@@ -80,9 +73,6 @@ echo'
 
 </ul>';
 ?>
-        </div>
-        </div><!-- Col -->
-</div><!-- Row -->
 </div>
 
 
