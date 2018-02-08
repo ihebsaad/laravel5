@@ -221,9 +221,8 @@ img { max-width: 100%; }
             .form-top {
                 background: #464646;
             }
-           /* a, a:hover, a:focus {
-            color: #a5a8ab; 
-            font-weight: bold;}*/
+          a, a:hover, a:focus {
+             font-weight: bold;} 
             a:hover, a:focus {
             color: #464646!important; }
             button.btn {
