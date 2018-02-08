@@ -221,9 +221,9 @@ img { max-width: 100%; }
             .form-top {
                 background: #464646;
             }
-            a, a:hover, a:focus {
+           /* a, a:hover, a:focus {
             color: #a5a8ab; 
-            font-weight: bold;}
+            font-weight: bold;}*/
             a:hover, a:focus {
             color: #464646!important; }
             button.btn {
@@ -264,7 +264,6 @@ img { max-width: 100%; }
                 list-style: none;
                 margin-left: 0px!important;
                 -webkit-padding-start: 0px!important;
-                
             }
             .radionc input {
                 visibility:hidden;
@@ -274,7 +273,8 @@ img { max-width: 100%; }
                 padding: 10px;
             }
             .radionc input:checked + label {
-                background: #a5a8ab;
+              /*  background: #a5a8ab;*/
+                background: #006fb9;
                 color: white;
                 border-radius: 1rem;
             }
