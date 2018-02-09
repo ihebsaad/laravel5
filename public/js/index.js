@@ -554,8 +554,9 @@ $scope.Finish = function() {
 
  if($scope.formParams.customer=="new"){
 	$scope.loginsignup( document.getElementById('accountId').value );
+	console.log('account id'+document.getElementById('accountId').value );
 //redirect	
-window.location.href = "https://www.icewireless.com/login";
+//window.location.href = "https://www.icewireless.com/login";
 
 	 
  }
