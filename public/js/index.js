@@ -99,8 +99,13 @@ console.log('uinfo'+document.getElementById('uinfo').value);
 //response.user_metadata['lastName']=response.user_metadata['lastName'].replace(" ", "%20");
 	console.log('url'+''+newURL+'public/session_write2.php?username='+response.user_metadata['firstName']+'/'+response.user_metadata['lastName']);
 
-	jQuery('#div_session_write2').load(''+newURL+'public/session_write2.php?username='+response.user_metadata['firstName']+'/'+response.user_metadata['lastName']);
-	
+	jQuery('#div_session_write2').load(''+newURL+'public/session_write2.php?username='+response.user_metadata['firstName']+'/'+response.user_metadata['lastName']
+	  , function( response, status, xhr ) {
+  if ( status == "error" ) {
+    var msg = "Sorry but there was an error: ";
+    console.log( msg + xhr.status + " " + xhr.statusText );
+  }
+});
 
 });
 }
@@ -917,8 +922,13 @@ $.ajax(settings).done(function (response) {
   document.getElementById('userinfo0').innerHTML="Logged in as ";
 
   	console.log('url2'+''+newURL+'public/session_write2.php?username='+fname+'/'+lname);
-  	 jQuery('#div_session_write2').load(''+newURL+'public/session_write2.php?username='+fname+'/'+lname);
-    
+  	 jQuery('#div_session_write2').load(''+newURL+'public/session_write2.php?username='+fname+'/'+lname,
+    , function( response, status, xhr ) {
+  if ( status == "error" ) {
+    var msg = "Sorry but there was an error: ";
+    console.log( msg + xhr.status + " " + xhr.statusText );
+  }
+});
 	//$scope.next('stagePlans'); 
 	//$scope.$apply();
 	//////////
