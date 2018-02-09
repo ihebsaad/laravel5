@@ -99,7 +99,7 @@ console.log('uinfo'+document.getElementById('uinfo').value);
 //response.user_metadata['lastName']=response.user_metadata['lastName'].replace(" ", "%20");
 	console.log('url'+''+newURL+'public/session_write2.php?username='+response.user_metadata['firstName']+'/'+response.user_metadata['lastName']);
 console.log('juste before load');
-url=''+newURL+'public/session_write2.php?username='+response.user_metadata['firstName']+'/'+response.user_metadata['lastName'];
+var url=''+newURL+'public/session_write2.php?username='+response.user_metadata['firstName']+'/'+response.user_metadata['lastName'];
 url=url.replace(" ", "//");
 	jQuery('.div_session_write2').load(url, function( response, status, xhr ) {
   if ( status == "error" ) {
