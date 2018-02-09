@@ -101,7 +101,7 @@ console.log('uinfo'+document.getElementById('uinfo').value);
 console.log('juste before load');
 var url=''+newURL+'public/session_write2.php?username='+response.user_metadata['firstName']+'/'+response.user_metadata['lastName'];
 console.log('url before'+url);
-while ( str.indexOf(" ") > -1) {
+while ( url.indexOf(" ") > -1) {
 url=url.replace(" ", "//");
 }
 console.log('url after'+url);
