@@ -333,12 +333,12 @@ $.ajax(settings).done(function (response) {
   var  token=response.access_token;
 
    var  access_token="Bearer "+token;
-   console.log('before load');
+   //console.log('before load');
   	 jQuery('#div_session_write').load(''+newURL+'public/session_write.php?access_token='+token);
- console.log('after load');	
+ //console.log('after load');	
 	document.getElementById('tokeninput').value = token;
 	//show user info
-	 console.log('after save');
+	// console.log('after save');
 	if (document.getElementById('tokeninput').value == null){
 	token= document.getElementById('div_session_write').innerHTML.substr(26);
 	
@@ -554,9 +554,9 @@ $scope.Finish = function() {
 
  if($scope.formParams.customer=="new"){
 	$scope.loginsignup( document.getElementById('accountId').value );
-	console.log('account id'+document.getElementById('accountId').value );
+	//console.log('account id'+document.getElementById('accountId').value );
 //redirect	
-//window.location.href = "https://www.icewireless.com/login";
+window.location.href = "https://www.icewireless.com/login";
 
 	 
  }
@@ -908,7 +908,7 @@ $.ajax(settings).done(function (response) {
   var  token=response.access_token;
 
    var  access_token="Bearer "+token;
-   console.log('before load');
+   //console.log('before load');
   	 jQuery('#div_session_write').load(''+newURL+'public/session_write.php?access_token='+token);
 
 	document.getElementById('tokeninput').value = token;
@@ -928,11 +928,11 @@ $.ajax(settings).done(function (response) {
   document.getElementById('userinfo0').innerHTML="Logged in as ";
 
 var url=''+newURL+'public/session_write2.php?username='+fname+'/'+lname;
-console.log('url before loop'+url);
+//console.log('url before loop'+url);
 while ( url.indexOf(" ") > -1) {
 url=url.replace(" ", "//");
 }  	
-console.log('url after loop'+url);
+//console.log('url after loop'+url);
 	jQuery('.div_session_write2').load(url    , function( response, status, xhr ) {
   if ( status == "error" ) {
     var msg = "Sorry but there was an error: ";
