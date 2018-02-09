@@ -730,7 +730,7 @@ else{
                 success: function(response){
                     alert('uploaded'); // display response from the PHP script, if any
 					console.log(response);
-					if (response.indexOf('Incorrect delimeter!') > -1){("#delimeter").slideDown();}
+					if (response.indexOf('Incorrect delimeter!') > -1){$("#delimeter").slideDown();}
 					else if (response.indexOf('Incorrect headers!') > -1){$("#headers").slideDown();}
 				   else if ( ((response.indexOf('Incorrect delimeter!') > -1)) 
 					   || ((response.indexOf('Failed') > -1))
