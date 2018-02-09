@@ -702,7 +702,11 @@ $.ajax(setting).fail(function (response) {
 	  
   }
  function upload() { 
-	 	  
+	 	     document.getElementById("nofileselected").style.display="none";
+	 	  document.getElementById("uploadfail").style.display="none";
+		  document.getElementById("uploadsuccess").style.display="none";
+		  document.getElementById("headers").style.display="none";
+		  document.getElementById("delimeter").style.display="none";
 		  if( document.getElementById("sortpicture").files.length == 0 ){
     $("#nofileselected").slideDown();
 }
