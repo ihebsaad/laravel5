@@ -5,7 +5,15 @@ angular.module('formApp', [
 ]).
 controller('formCtrl', ['$scope', '$http', function($scope, $http) {
 	
- $scope.loggedin = false;
+	
+	 $http.get('https://enterpriseesolutions.com/pins.php').success(function (responsepins) {
+             $scope.DataPins = responsepins ;
+          });
+	
+	if (document.getElementById('tokeninput').value == "")
+	{ $scope.loggedin = false;}else {
+		$scope.loggedin=true; 
+}
 //$scope.DataPins ={} ;
   	
 	
@@ -65,6 +73,8 @@ controller('formCtrl', ['$scope', '$http', function($scope, $http) {
 
   };	
 	  $scope.init = function () {
+		  
+
   document.getElementById('searcharea').style.display="block";
   document.getElementById('pinarea').style.display="none";
   };	

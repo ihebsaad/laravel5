@@ -238,7 +238,7 @@ Please enter an end SIM number.
                                                     <p>To add/edit SIMs, please upload a csv: </p>
                                                 </div>
                                                 <div class="form-group col-xs-5">
-                                                    <a id="upload"  href="javascript:downloadtemplate();">Download csv template</a>
+                                                    <a id="upload"  ng-disabled="FormActivate.$invalid" href="javascript:downloadtemplate();">Download csv template</a>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -246,7 +246,7 @@ Please enter an end SIM number.
                                                     <div class="input-group">
                                                       <input type="text" class="form-control fileuploader" style="height:40px!important;" readonly>
                                                         <div class="input-group-addon browse">
-                                                          <input type="file" id="sortpicture" accept=".csv">
+                                                          <input type="file" id="sortpicture" required accept=".csv">
                                                           Browse
                                                         </div>
                                                       </div>
@@ -324,10 +324,10 @@ Please enter an end SIM number.
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-6 form-group">
-                                                    <input ng-change="init()" ng-model="search.pin" type="number" name="startsim"  ng-pattern="/^[0-9]*$/" placeholder="PIN #" ng-minlength="1" id="startsim0" class="form-control">
+                                                    <input ng-change="init()" onchange="checkpin();" onmouseout="checkpin();"  ng-model="search.pin" type="number" name="startsim"  ng-pattern="/^[0-9]*$/" placeholder="PIN #" ng-minlength="3" id="startsim0" class="form-control">
                                                 </div>   
                                                 <div class="col-sm-4 form-group righ">
-                                                    <button ng-click="loockup()" type="button" class="btn btn-primary "  style="height:35px!important;float: right!important;line-height:0px!important;" >Lookup</button>
+                                                    <button id="loockupbtn" ng-click="loockup()" disabled  type="button" class="btn btn-primary "  style="height:35px!important;float: right!important;line-height:0px!important;" >Lookup</button>
                                                 </div>      
                                             </div>
 												<div id="searcharea" style="dispaly:block ">     
@@ -432,8 +432,12 @@ Please enter an end SIM number.
         <script src="public/assets/js/jquery.backstretch.min.js"></script>
         <script src="public/assets/js/scripts.js"></script>
         <script type="text/javascript">
-		 /******** Reset password ********/
- 
+ function checkpin()
+ {
+	 	 if (document.getElementById('startsim0').value>999){document.getElementById('loockupbtn').disabled=false;}else {document.getElementById('loockupbtn').disabled=true;}
+ }
+ 		 /******** Reset password ********/
+
  function resetpassword(){
 	  document.getElementById("Ssent").style.display="none";
 	  document.getElementById("Wmailrequired").style.display="none";
