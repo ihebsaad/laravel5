@@ -810,7 +810,7 @@ $('#password, #confirm_password').on('keyup', function () {
         <div class="col-sm-12">
         <div class="row">
         <div class="col-sm-4 form-group"><input ng-model="search.province" id="provinceText" type="hidden"></input>
-        <select   ng-model="formParams.province2" class="form-control" id="sel1" ng-click="province();" ng-change="province();">
+        <select   data-tap-disabled="true" ng-model="formParams.province2" class="form-control" id="sel1" ng-click="province();" ng-change="province();">
     <option value="" disabled="" selected="">Province</option>
         <option value="0">Alberta</option><option value="1">British Columbia</option>
     <option value="2">Manitoba</option><option value="3">New Brunswick</option>
@@ -821,12 +821,12 @@ $('#password, #confirm_password').on('keyup', function () {
          </select>
         </div>
         <div class="col-sm-4 form-group"><input ng-model="search.city" id="cityText" type="hidden"></input>
-        <select   ng-model="formParams.city2" class="form-control" id="sel2" ng-click="city()"  ng-change="city();">
+        <select data-tap-disabled="true"  ng-model="formParams.city2" class="form-control" id="sel2" ng-click="city()"  ng-change="city();">
             <option value="" disabled selected>City</option>
         </select>
         </div>
         <div class="col-sm-4 form-group"><input ng-model="search.areaCode" id="areaText" type="hidden"></input>
-        <select ng-model="formParams.areaCode" class="form-control" id="sel3"  ng-click="area();"  ng-change="area();">
+        <select data-tap-disabled="true" ng-model="formParams.areaCode" class="form-control" id="sel3"  ng-click="area();"  ng-change="area();">
             <option  value="" disabled selected>Area code</option>
         </select> 
         </div>
