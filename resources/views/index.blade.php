@@ -104,7 +104,8 @@ echo'
 
   <div class="row">
     <div class="col-sm-4 col-sm-offset-4" id="loginform">
-  
+  <div  class='div_session_write2' style="display:none;"> </div>
+   
       <form name="login_form" id='login_form'>
     <div style="display:none;margin-top: 10px;" class="alert alert-danger">
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
@@ -759,7 +760,7 @@ $('#password, #confirm_password').on('keyup', function () {
   <div class="contentcontain">
    <div class="row"  >
    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 " style="width:100%"> 
-   <div id='div_session_write2' style="display:none;"> </div>
+   <div id='div_session_write2' class='div_session_write2' style="display:none;"> </div>
             <ol id="selectable" >
   <div ng-repeat="data in myData.plans"   >
   <div class="col-md-4 col-sm-4 col-xs-4 col-lg-4 " id="planselect" >
