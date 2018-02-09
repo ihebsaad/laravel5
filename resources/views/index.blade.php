@@ -88,7 +88,7 @@ echo'
 <main ng-app="formApp" ng-controller="formCtrl" ng-cloak>
   <div class="container">
    <div id='div_session_write' style="display:none;"> </div>
-   <div id='div_session_write2' style="display:none;"> </div>
+
    <div id='div_session_write3' style="display:none;"> </div>
 
     <form name="FormActivate" class="form-validation" role="form" novalidate>
@@ -759,7 +759,7 @@ $('#password, #confirm_password').on('keyup', function () {
   <div class="contentcontain">
    <div class="row"  >
    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 " style="width:100%"> 
-
+   <div id='div_session_write2' style="display:none;"> </div>
             <ol id="selectable" >
   <div ng-repeat="data in myData.plans"   >
   <div class="col-md-4 col-sm-4 col-xs-4 col-lg-4 " id="planselect" >
