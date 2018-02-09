@@ -401,7 +401,7 @@ img.onclick = function(){
           <div style="height:150px;padding-left:30px;padding-top:20px" ><style> small {padding-left:10px;padding-right:10px;font-weight:bold!important;font-size:16px;}
           table .alert-danger{min-height:30px;color:#a94442;}</style>
           <div class="row "  ng-show="!FormActivate.$valid">
-          <table  class="alert alert-danger"  >
+          <table  class="alert alert-danger" id="alertadd" >
            <tr>
            <td style="margin-right:20px"><small    ng-show="FormActivate.first.$error.pattern">
             First Name should be letters only !  
