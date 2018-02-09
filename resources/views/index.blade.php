@@ -1525,7 +1525,7 @@ $(function () {
 <!--   Stage Billing     ------------------------------------------------------- --> 
 <div class="animate-switch" ng-switch-when="stageBilling" id="billings">
 <div class="container-triangle"></div>
-<div class="contentcontain" style="height:900px" id="containerbilling"> 
+<div class="contentcontain" style="height:850px" id="containerbilling"> 
 <div class="container center_div">
 <div style="display:none;margin-top: 10px;" class="alert alert-danger" id="failpay">
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
@@ -1703,11 +1703,11 @@ $(function () {
             <td style="margin-right:20px"></td>
             <td></td><td  ></td>             
           </tr>
+		  </table>
 		</div>
 		</div>
 
   </div> 
-            <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 ">
       <div class="row" style="margin-top: 20px;margin-left:30px;margin-right:30px;">
       <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 form-group">
       <button type="button" class="btn btn-success btn-previous btn-md" ng-click="back('stagePhone')"><i class="icnleft"></i>  Back</button>  
@@ -1716,7 +1716,6 @@ $(function () {
         <button style="float:right" type="button" style="float:right" class="btn btn-primary btn btn-success btn-previous btn-md" id="next5" ng-disabled="FormActivate.$pristine || FormActivate.$invalid"  ng-click="PaymentProcess()">Finish  </i></button>
             </div>
       </div>
-            </div>
           </div>
 </div><!--   End Stage  --> 
 
