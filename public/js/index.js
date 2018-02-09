@@ -1226,7 +1226,9 @@ $('#failsignup').css('display', 'none');
 
 	}
    $scope.search.province=Text;
-    $('#divnumbers').css('display', 'none');
+   // $('#divnumbers').css('display', 'none');
+	  document.getElementById('divnumbers').style.display="none";
+
 $scope.formParams.phonenumber="";
   document.getElementById('next4').disabled=true;
 
@@ -1246,7 +1248,8 @@ $scope.formParams.phonenumber="";
 
 	}
 	   $scope.search.city=Text;
-   $('#divnumbers').css('display', 'none');
+  // $('#divnumbers').css('display', 'none');
+  document.getElementById('divnumbers').style.display="none";
 
  $scope.formParams.phonenumber="";
    document.getElementById('next4').disabled=true;
@@ -1266,7 +1269,8 @@ $scope.formParams.phonenumber="";
 	}
 	   $scope.search.areaCode=Text;
 
-   $('#divnumbers').css('display', 'block');
+  // $('#divnumbers').css('display', 'block');
+  document.getElementById('divnumbers').style.display="block";
 $scope.formParams.phonenumber="";
   document.getElementById('next4').disabled=true;
 
