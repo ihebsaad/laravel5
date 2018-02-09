@@ -358,7 +358,7 @@ border-radius: 1rem!important;
         display: inline-block!important;
         /*float: left!important;*/
         font-size: 12px!important;
-        margin-top: -25px;
+        margin-top: -20px;
         margin-right: -25px;
         float:right!important;
       }
@@ -369,7 +369,7 @@ border-radius: 1rem!important;
       #logo {
           margin-left: 0px!important;
       }
-      .alert {
+      table#alertadd {
         margin-top: 120px!important;
       }
       input#email {
