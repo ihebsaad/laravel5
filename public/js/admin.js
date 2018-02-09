@@ -6,14 +6,13 @@ angular.module('formApp', [
 controller('formCtrl', ['$scope', '$http', function($scope, $http) {
 	
   $http.get('https://enterpriseesolutions.com/pins.php').success(function (responsepins) {
-             $scope.DataPins = responsepins ;
+             $scope.DataPins = responsepins ;}
+			 
 	if (document.getElementById('tokeninput').value == "")
 	{ $scope.loggedin = false;}else {$scope.loggedin=true;
- 
           });
-}
+
 //$scope.DataPins ={} ;
-  	
 	
  $scope.stage = "";
     // $scope.formParams = {};
