@@ -1528,7 +1528,7 @@ $(function () {
 <div class="animate-switch" ng-switch-when="stageBilling" id="billings">
 <div class="container-triangle"></div>
 <div class="contentcontain" style="height:800px"> 
-<div class="container center_div">
+<div class="container center_div" id="containerbilling">
 <div style="display:none;margin-top: 10px;" class="alert alert-danger" id="failpay">
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
   PAYMENT DECLINES, PLEASE CHECK YOUR INFORMATION AND RETRY.
