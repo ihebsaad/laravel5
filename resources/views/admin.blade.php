@@ -189,6 +189,14 @@ Completed successfully.
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
 Completed with errors.
   </div>
+  <div style="display:none;" id="headers" class="alert alert-danger">
+    <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+Incorrect headers!
+  </div>
+  <div style="display:none;" id="delimeter" class="alert alert-danger">
+    <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+Incorrect delimeter!
+  </div>
   <div style="display:none;" id="nofileselected" class="alert alert-danger">
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
 No files selected.
@@ -722,8 +730,8 @@ else{
                 success: function(response){
                     alert('uploaded'); // display response from the PHP script, if any
 					console.log(response);
-					if (response.indexOf('Incorrect delimeter!') > -1){alert('Incorrect delimeter!');}
-					else if (response.indexOf('Incorrect headers!') > -1){alert('Incorrect headers!');}
+					if (response.indexOf('Incorrect delimeter!') > -1){("#delimeter").slideDown();}
+					else if (response.indexOf('Incorrect headers!') > -1){$("#headers").slideDown();}
 				   else if ( ((response.indexOf('Incorrect delimeter!') > -1)) 
 					   || ((response.indexOf('Failed') > -1))
 				       || ((response.indexOf('empty') > -1)) 
@@ -740,6 +748,7 @@ else{
 				   else{
 				//	alert('Completed successfully');
 					$("#uploadsuccess").slideDown();
+					
 				}
 				//	console.log( ' response json'+JSON.parse(JSON.stringify(response)));
 			
@@ -809,6 +818,8 @@ else{
 			   document.getElementById("nofileselected").style.display="none";
 	 	  document.getElementById("uploadfail").style.display="none";
 		  document.getElementById("uploadsuccess").style.display="none";
+		  document.getElementById("headers").style.display="none";
+		  document.getElementById("delimeter").style.display="none";
             });
 
 
