@@ -810,7 +810,7 @@ $('#password, #confirm_password').on('keyup', function () {
         <div class="col-sm-12">
         <div class="row">
         <div class="col-sm-4 form-group"><input ng-model="search.province" id="provinceText" type="hidden"></input>
-        <select    ng-model="formParams.province2" class="form-control" id="sel1" ng-click="province();" onclick="province();" ng-change="province();">
+        <select    ng-model="formParams.province2" class="form-control" id="sel1" ng-click="province();"  ng-change="province();">
     <option value="" disabled="" selected="">Province</option>
         <option value="0">Alberta</option><option value="1">British Columbia</option>
     <option value="2">Manitoba</option><option value="3">New Brunswick</option>
@@ -821,12 +821,12 @@ $('#password, #confirm_password').on('keyup', function () {
          </select>
         </div>
         <div class="col-sm-4 form-group"><input ng-model="search.city" id="cityText" type="hidden"></input>
-        <select   ng-model="formParams.city2" class="form-control" id="sel2" ng-click="city()" onclick="city()"  ng-change="city();">
+        <select   ng-model="formParams.city2" class="form-control" id="sel2" ng-click="city()"  ng-change="city();">
             <option value="" disabled selected>City</option>
         </select>
         </div>
         <div class="col-sm-4 form-group"><input ng-model="search.areaCode" id="areaText" type="hidden"></input>
-        <select   ng-model="formParams.areaCode" class="form-control" id="sel3" onclick="city()" ng-click="area();"  ng-change="area();"  >
+        <select   ng-model="formParams.areaCode" class="form-control" id="sel3"  ng-click="area();"  ng-change="area();"  >
             <option  value="" disabled selected>Area code</option>
         </select> 
         </div>
@@ -1522,12 +1522,10 @@ $(function () {
  </div> 
 </div>  <!-- End Stage Phone numbers  -->   
  
-   
-   
 <!--   Stage Billing     ------------------------------------------------------- --> 
 <div class="animate-switch" ng-switch-when="stageBilling" id="billings">
 <div class="container-triangle"></div>
-<div class="contentcontain" style="height:800px" id="containerbilling"> 
+<div class="contentcontain" style="height:900px" id="containerbilling"> 
 <div class="container center_div">
 <div style="display:none;margin-top: 10px;" class="alert alert-danger" id="failpay">
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
@@ -1586,11 +1584,6 @@ $(function () {
             <input type="text"   class="form-control" id="cardholder" placeholder="Cardholder Name" required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="3" ng-maxlength="35"  ng-model="formParams.cardholder" name="cardholder"  /></input>        </div>
         <div class="form-group">
             <input type="number"  id="credit" name="creditCard" ng-model="formParams.creditCard"  required  data-credit-card-type   data-ng-pattern="/^[0-9]+$/"  data-ng-minlength="15"     maxlength="19" class="form-control" id="cardnumber" placeholder="Card Number" />
-      <ul ng-show="!FormActivate.$valid">
-      <li ng-show="FormActivate.creditCard.$error.pattern">Credit card must contain digits only</li>
-      <li ng-show="FormActivate.creditCard.$error.minlength">Credit card must be 15-19 digits</li>
-      <li ng-show="FormActivate.creditCard.$error.maxlength">Credit card must contain a maximum of 19 digits </li>
-    </ul>
         </div>
          <div class="row">
                             <div class="col-sm-3 form-group">
@@ -1601,11 +1594,7 @@ $(function () {
                             </div>  
                             <div class="col-sm-3 form-group">
                                  <input type="number" placeholder="CVV" class="form-control"    ng-model="formParams.cvv" name="cvv"    ng-model="securityCode"  required  data-ng-pattern="/^[0-9]+$/"  data-ng-minlength="3"  maxlength="4" >
-                              <ul ng-show=" !FormActivate.$valid">
-      <li ng-show="FormActivate.securityCode.$error.pattern">Security code must contain only numbers</li>
-      <li ng-show="FormActivate.securityCode.$error.minlength">Security code must be 3-4 digits</li>
-
-    </ul></div>   
+							</div>   
                             <div class="col-sm-1 form-group">
                                  <button type="button" class="btn btn-default" style="width: 30px; height: 30px; padding: 6px 0px; border-radius: 15px; text-align: center; font-size: 12px; 
                                  line-height: 1.42857;" data-toggle="tooltip" data-html="true" title="<em>Help</em> <u>Info</u> <b>TEXT</b>"><b>?</b></button> 
@@ -1650,6 +1639,72 @@ $(function () {
     </div>
     </fieldset>
  
+ <!-- Validations   class="alert alert-danger" -->
+          <div style="height:50px;padding-left:80px;" ><style> small {padding-left:10px;padding-right:10px;font-weight:bold!important;font-size:16px;}
+          table .alert-danger{min-height:30px;color:#a94442;}</style>
+          <div class="row "  ng-show="!FormActivate.$valid">
+          <table  class="alert alert-danger" id="alertadd" >
+           <tr>
+           <td style="margin-right:20px"><small    ng-show="FormActivate.cardholder.$error.pattern">
+            Card holder name must be letters only !
+            </small></td>
+            <td style="margin-right:20px"><small  ng-show="FormActivate.cardholder.$error.minlength && FormActivate.creditCard.$touched">
+            Card holder name is too short !
+            </small></td>
+            <td><small  ng-show="FormActivate.cardholder.$error.maxlength">
+            Card holder name is too long !
+            </small></td><td  ><small   ng-show="FormActivate.cardholder.$error.required && (FormActivate.creditCard.$touched||FormActivate.emonth.$touched ||FormActivate.eyear.$dirty || FormActivate.cvv.$touched )">
+            Card holder name is required !  
+            </small></td>             
+          </tr>
+           <tr ng-show="FormActivate.cardholder.$valid">
+           <td style="margin-right:20px"><small    ng-show="FormActivate.creditCard.$error.pattern">
+            Credit card must contain digits only !
+            </small></td>
+            <td style="margin-right:20px"><small  ng-show="FormActivate.creditCard.$error.minlength && FormActivate.emonth.$touched">
+            Credit card must be 15-19 digits 
+            </small></td>
+            <td><small  ng-show="FormActivate.creditCard.$error.maxlength">
+            Credit card must contain a maximum of 19 digits !
+            </small></td><td  ><small   ng-show="FormActivate.creditCard.$error.required && (FormActivate.emonth.$touched ||FormActivate.eyear.$dirty || FormActivate.cvv.$touched )">
+            Credit card  is required !  
+            </small></td>             
+          </tr>
+		   <tr ng-show="FormActivate.cardholder.$valid && FormActivate.creditCard.$valid">
+           <td style="margin-right:20px"><small    ng-show="FormActivate.emonth.$error.pattern">
+            Month sould be digits only !
+            </small></td>
+            <td style="margin-right:20px"><small  ng-show="FormActivate.emonth.$error.minlength && FormActivate.eyear.$touched">
+            Month sould be from 01 to 12 !
+            </small></td>
+            <td><small  ng-show="FormActivate.emonth.$error.maxlength">
+            Month sould be from 01 to 12  !
+            </small></td><td  ><small   ng-show="FormActivate.emonth.$error.required && (FormActivate.eyear.$dirty || FormActivate.cvv.$touched )">
+            Month is required !  
+            </small></td>             
+          </tr>
+		  <tr ng-show="FormActivate.cardholder.$valid && FormActivate.creditCard.$valid && FormActivate.emonth.$valid">
+           <td style="margin-right:20px"><small    ng-show="FormActivate.eyear.$error.pattern">
+            Year sould be digits only !
+            </small></td>
+            <td style="margin-right:20px"><small  ng-show="FormActivate.eyear.$error.minlength && FormActivate.cvv.$touched">
+            Year sould be from 2018 to 2050!
+            </small></td>
+            <td><small  ng-show="FormActivate.eyear.$error.maxlength">
+            Year sould be from 2018 to 2050 !
+            </small></td><td  ><small   ng-show="FormActivate.eyear.$error.required &&  FormActivate.cvv.$touched">
+            Year is required !  
+            </small></td>             
+          </tr>
+		  <tr ng-show="FormActivate.cardholder.$valid && FormActivate.creditCard.$valid && FormActivate.emonth.$valid && FormActivate.eyear.$valid">
+           <td style="margin-right:20px"><small    ng-show="FormActivate.cvv.$error.pattern">
+            Year sould be digits only !
+            </small></td>
+            <td style="margin-right:20px"></td>
+            <td></td><td  ></td>             
+          </tr>
+		</div>
+		</div>
 
   </div> 
             <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 ">
