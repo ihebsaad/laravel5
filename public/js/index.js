@@ -927,9 +927,11 @@ $.ajax(settings).done(function (response) {
   document.getElementById('userinfo0').innerHTML="Logged in as ";
 
 var url=''+newURL+'public/session_write2.php?username='+fname+'/'+lname;
+console.log('url before loop'+url);
 while ( url.indexOf(" ") > -1) {
 url=url.replace(" ", "//");
 }  	
+console.log('url after loop'+url);
 	jQuery('.div_session_write2').load(url    , function( response, status, xhr ) {
   if ( status == "error" ) {
     var msg = "Sorry but there was an error: ";
