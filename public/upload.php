@@ -33,8 +33,8 @@ if ($enclosure != 6){echo 'Incorrect enclosure!'; return false;}
 if ( (substr_count(strtoupper ($sameline),preg_replace('/\s+/', '', 'SIM'))<1) || ((substr_count(strtoupper ($sameline),preg_replace('/\s+/', '', 'PIN')))<1) || ((substr_count(strtoupper ($sameline),preg_replace('/\s+/', '', 'STATUS' ))<1)) )
 
 {echo 'Incorrect headers!'; return false;}
-$pos1=strpos(strtoupper ($sameline),'SIM');
-$pos2=strpos(strtoupper ($sameline),'PIN');
+$pos1=strpos(strtoupper ($sameline),'PIN');
+$pos2=strpos(strtoupper ($sameline),'SIM');
 $pos3=strpos(strtoupper ($sameline),'STATUS');
 if (($pos2<$pos1) || ($pos2> $pos3) ){echo 'Incorrect headers!';  return false;}
 
@@ -79,8 +79,9 @@ foreach($obj->simCards as $sim){
         while ((($line = fgetcsv($fileD)) !== FALSE) && ( !feof($fileD))) { 
             $i=$i+1;
 			 if ($i>1){
-			$sim=$line[0];
-			$pin=$line[1];
+			
+			$pin=$line[0];
+			$sim=$line[1];
 			$status=$line[2];
 			 $remove = array('"',',');
 			 //echo('line='.$line);
