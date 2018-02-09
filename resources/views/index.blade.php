@@ -56,6 +56,7 @@
  $loggedin=false;}
  if (isset ($_SESSION['username']))
  {
+	 $_SESSION['username']=str_replace("//"," ",$_SESSION['username']);
    $pos = strpos($_SESSION['username'], '/');
 $fname=substr($_SESSION['username'],0,$pos);
 $lname=substr($_SESSION['username'],$pos+1);
