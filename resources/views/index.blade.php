@@ -27,7 +27,7 @@
 
 </head>
 <body>
-
+ <input type="hidden" name="uinfo" id="uinfo" />
 <div class="navbar navbar-inverse bg-inverse" style="border-color: #fff!important;border-radius: 0px!important;margin-bottom: 0px!important;">
 
 <div class="container d-flex justify-content-between">
@@ -1741,7 +1741,7 @@ $(function () {
 <!-- FORMPARAMS display
 Form : <p>@{{formParams}}</p>-->
   </div>
-  <input type="hidden" name="uinfo" id="uinfo" />
+  <!--<input type="hidden" name="uinfo" id="uinfo" />-->
     <input type="hidden" name="accountId" id="accountId" />
   
  
