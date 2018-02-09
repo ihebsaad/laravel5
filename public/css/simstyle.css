@@ -346,7 +346,7 @@ border-radius: 1rem!important;
       }
       /* billing container */
       #billings .contentcontain {
-          height: 1150px!important;
+          height: 1110px!important;
       }
       #planname , #planprice, #taxes , #taxesprice {
         font-size: 14px!important;
@@ -357,8 +357,8 @@ border-radius: 1rem!important;
       ul#logoutbtn {
         display: inline-block!important;
         /*float: left!important;*/
-        font-size: 12px!important;
-        margin-top: -30px;
+        font-size: 10px!important;
+        margin-top: -15px;
         margin-right: -25px;
         float:right!important;
       }

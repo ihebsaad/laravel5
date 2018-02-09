@@ -1001,6 +1001,7 @@ var res = $.ajax(settings).done(function (response) {
   {
     //alert ( "Transaction Fail !");
     $("#failpay").slideDown();
+    $("#billings .contentcontain").height("1150px");
   }
   else{
 	  if($scope.formParams.customer=="new"){
