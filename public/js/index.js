@@ -97,14 +97,13 @@ $.ajax(settings2).done(function (response) {
 console.log('uinfo'+document.getElementById('uinfo').value);
 //response.user_metadata['firstName']=response.user_metadata['firstName'].replace(" ", "%20");
 //response.user_metadata['lastName']=response.user_metadata['lastName'].replace(" ", "%20");
-	console.log('url'+''+newURL+'public/session_write2.php?username='+response.user_metadata['firstName']+'/'+response.user_metadata['lastName']);
-console.log('juste before load');
+
 var url=''+newURL+'public/session_write2.php?username='+response.user_metadata['firstName']+'/'+response.user_metadata['lastName'];
-console.log('url before'+url);
+
 while ( url.indexOf(" ") > -1) {
 url=url.replace(" ", "//");
 }
-console.log('url after'+url);
+
 	jQuery('.div_session_write2').load(url, function( response, status, xhr ) {
   if ( status == "error" ) {
     var msg = "Sorry but there was an error: ";
@@ -927,9 +926,11 @@ $.ajax(settings).done(function (response) {
   document.getElementById('userinfo').innerHTML=fname+' '+lname ;
   document.getElementById('userinfo0').innerHTML="Logged in as ";
 
-  	console.log('url2'+''+newURL+'public/session_write2.php?username='+fname+'/'+lname);
-  	 jQuery('.div_session_write2').load(''+newURL+'public/session_write2.php?username='+fname+'/'+lname
-    , function( response, status, xhr ) {
+var url=''+newURL+'public/session_write2.php?username='+fname+'/'+lname;
+while ( url.indexOf(" ") > -1) {
+url=url.replace(" ", "//");
+}  	
+	jQuery('.div_session_write2').load(url    , function( response, status, xhr ) {
   if ( status == "error" ) {
     var msg = "Sorry but there was an error: ";
     console.log( msg + xhr.status + " " + xhr.statusText );
