@@ -826,7 +826,7 @@ $('#password, #confirm_password').on('keyup', function () {
         </select>
         </div>
         <div class="col-sm-4 form-group"><input ng-model="search.areaCode" id="areaText" type="hidden"></input>
-        <select data-tap-disabled="true" ng-model="formParams.areaCode" class="form-control" id="sel3"  ng-click="area();"  ng-change="area();">
+        <select data-tap-disabled="true" ng-model="formParams.areaCode" class="form-control" id="sel3"  ng-click="area();"  ng-change="area();" ng-mouseleave="area();">
             <option  value="" disabled selected>Area code</option>
         </select> 
         </div>
