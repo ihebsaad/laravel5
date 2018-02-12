@@ -81,7 +81,7 @@ foreach($obj->simCards as $sim){
 			
 			//echo('cond1'.(($line = fgetcsv($fileD)) !== FALSE));
 		//	echo('cond2'.( !feof($fileD)));
-			//	 if ($i>1){
+			 if ($i>1){
         while ((($line = fgetcsv($fileD)) !== FALSE) && ( !feof($fileD))) { 
            echo('i'.$i.'*** line '.$line[0].'**'.$line[1]);
 		
@@ -161,7 +161,7 @@ foreach($obj->simCards as $sim){
 			 $i=$i+1;
         } //while
 		
-		//}//i>0 
+		}//i>1 
 $resultDetails = implode(" ", $arrayDetails);
   echo ('resultDetails: '.$resultDetails);
          }
