@@ -67,7 +67,7 @@ foreach($obj->simCards as $sim){
 	array_push($arraySIMs,$sim->iccid);
 }
 //echo 'array result';
-//print_r($arraySIMs);
+print_r($arraySIMs);
 
 }
 
