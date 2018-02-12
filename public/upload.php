@@ -79,11 +79,12 @@ foreach($obj->simCards as $sim){
 			echo('i'.$i);
 			echo('$line'.$line);
 			
-			echo('cond1'.(($line = fgetcsv($fileD)) !== FALSE));
-			echo('cond2'.( !feof($fileD)));
+			//echo('cond1'.(($line = fgetcsv($fileD)) !== FALSE));
+		//	echo('cond2'.( !feof($fileD)));
+				 if ($i>1){
         while ((($line = fgetcsv($fileD)) !== FALSE) && ( !feof($fileD))) { 
            
-			 if ($i>1){
+		
 				echo('after loop');
 			$pin=$line[0];
 			$sim=$line[1];
@@ -156,9 +157,11 @@ foreach($obj->simCards as $sim){
 						}				
 			  
 			       }
-	    	}//i>0 
-			 $i=$i+1;
+	    	
+			
         } //while
+		 $i=$i+1;
+		}//i>0 
 $resultDetails = implode(" ", $arrayDetails);
   echo ('resultDetails: '.$resultDetails);
          }
