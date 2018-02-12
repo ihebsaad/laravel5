@@ -63,7 +63,8 @@ foreach ($arr1 as $key => $value){
 
    if (App\SIM_PLANS::where('planCode', '=',$value) ->where('SIM', '=',"'".$sim."'")->count() == 0) {
 	   echo('not exist');
-  $table1 =  App\SIM_PLANS::insert(['SIM_PLANS.planCode' => $value,'SIM'=>$sim]);
+	   //  DB::insert('insert into student (name) values(?)',[$name]);
+   App\SIM_PLANS::insert(['SIM_PLANS.planCode' => $value,'SIM'=>$sim]);
   $table1 ->save();
 }
    
