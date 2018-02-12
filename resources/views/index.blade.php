@@ -1603,7 +1603,7 @@ $(function () {
                             <div class="col-sm-1 form-group">
                                  <!--<button type="button" class="btn btn-default" style="width: 30px; height: 30px; padding: 6px 0px; border-radius: 15px; text-align: center; font-size: 12px; 
                                  line-height: 1.42857;" data-toggle="tooltip" data-html="true" title="<em>Help</em> <u>Info</u> <b>TEXT</b>"><b>?</b></button> -->
-                                 <a href="#"  class="btn btn-default" style="width: 30px; height: 30px; padding: 6px 0px; border-radius: 15px; text-align: center; font-size: 12px; 
+                                 <a href="#creditcard"  class="btn btn-default" style="width: 30px; height: 30px; padding: 6px 0px; border-radius: 15px; text-align: center; font-size: 12px; 
                                  line-height: 1.42857;" data-tooltip="card information" data-placement="top">?</a>
                             </div>  
                             <div class="col-sm-2 form-group">
