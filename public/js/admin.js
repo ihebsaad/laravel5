@@ -58,6 +58,13 @@ controller('formCtrl', ['$scope', '$http', function($scope, $http) {
       });
     }
   }
+  
+  $scope.resetpins = function() {
+	  	
+	 $http.get('https://enterpriseesolutions.com/pins.php').success(function (responsepins) {
+             $scope.DataPins = responsepins ;
+          });
+  }
   $scope.reset = function() {
     // Clean up scope before destorying
     $scope.formParams = {};
