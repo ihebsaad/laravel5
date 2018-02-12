@@ -76,7 +76,9 @@ foreach($obj->simCards as $sim){
 
 	$fileD = fopen($csvfile,"r");
       		$i=0;$arrayDetails = array();
+			echo('i'.$i);
 			echo('$line'.$line);
+			
 			echo('cond1'.(($line = fgetcsv($fileD)) !== FALSE));
 			echo('cond2'.( !feof($fileD)));
         while ((($line = fgetcsv($fileD)) !== FALSE) && ( !feof($fileD))) { 
