@@ -732,7 +732,7 @@ else{
                 data: form_data,                         
                 type: 'post',
                 success: function(response){
-                    alert('uploaded'); // display response from the PHP script, if any
+                   // alert('uploaded'); // display response from the PHP script, if any
 					console.log(response);
 					if (response.indexOf('Incorrect delimiter!') > -1){$("#delimeter").slideDown();}
 					else if (response.indexOf('Incorrect headers!') > -1){$("#headers").slideDown();}

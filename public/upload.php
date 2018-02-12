@@ -85,7 +85,7 @@ foreach($obj->simCards as $sim){
         while ((($line = fgetcsv($fileD)) !== FALSE) ) { 
            
 		 if ($i>1){
-				echo('i'.$i.'*** line '.$line[0].'**'.$line[1]);
+				//echo('i'.$i.'*** line '.$line[0].'**'.$line[1]);
 			$pin=$line[0];
 			$sim=$line[1];
 			//echo('pin'.$pin);
@@ -95,7 +95,7 @@ foreach($obj->simCards as $sim){
 			 //echo('line='.$line);
 			 $remove= implode(str_replace('"',"",$line));
 			 $remove2= implode(str_replace(' ',"",$line));
-			echo 'length='.strlen($remove2);
+			//echo 'length='.strlen($remove2);
 		  //Case empty line
 				 if ((strlen($sim)==strlen($pin)) && (strlen($sim)  ==strlen($status)) )
 			  {$details3= ' Line '. $i .' is empty.';array_push($arrayDetails,$details3);}
