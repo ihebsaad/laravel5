@@ -98,7 +98,7 @@ foreach($obj->simCards as $sim){
 			//echo 'length='.strlen($remove2);
 		  //Case empty line
 				 if ((strlen($sim)==strlen($pin)) && (strlen($sim)  ==strlen($status)) )
-			  {$details3= ' Line '. $i .' is empty.';array_push($arrayDetails,$details3);}
+			  {$details3= ' Line '. $i .' : empty.';array_push($arrayDetails,$details3);}
 			  //Case sim exist $ pin not exist
 			  else if ( ( (strlen($sim)>0)) && ($pin==''))
 			  {$details2= ' Line '.$i .': SIM without PIN.' ;array_push($arrayDetails,$details2);}
@@ -138,13 +138,13 @@ foreach($obj->simCards as $sim){
 						else {
 							   if (  substr_count($response2,'QueryException') > 0)
 							    {
-								   $details4=' Failed to store line'. $i .'.'. $err2 ;array_push($arrayDetails,$details4 );
+								   $details4=' Line '. $i .' : not stored.'. $err2 ;array_push($arrayDetails,$details4 );
 						
 							    }
 							   else
 							    {
 									
-									$details4=' Line'. $i . 'stored.' ;array_push($arrayDetails,$details4 );
+									$details4=' Line '. $i . ' : stored.' ;array_push($arrayDetails,$details4 );
 							    }
 						}
 				
@@ -152,7 +152,7 @@ foreach($obj->simCards as $sim){
 				     //correct format but invalid SIM
 				    else
 				    	{
-	                     $details5=' Invalid SIM in line '. $i. '.';
+	                     $details5=' Line '. $i. 'Invalid SIM .';
 	                     array_push($arrayDetails,$details5);
 						}				
 			  
