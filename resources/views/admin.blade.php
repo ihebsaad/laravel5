@@ -212,7 +212,7 @@ Please enter an end SIM number.
                                 <ul class="nav nav-tabs tabs" id="simpin_tabs">
                                     <!--top level tabs-->
                                   <li><a style="color:white!important" href="#sims" data-toggle="tab">SIMs</a></li>
-                                  <li><a  style="color:white!important" href="#pins" data-toggle="tab">PINs</a></li>
+                                  <li><a  style="color:white!important" href="#pins" ng-click="resetpins()" data-toggle="tab">PINs</a></li>
                                 </ul>
 
                                 <!--top level tab content-->
