@@ -65,7 +65,7 @@ foreach ($arr1 as $key => $value){
 	   echo('not exist');
 	   //  DB::insert('insert into student (name) values(?)',[$name]);
    App\SIM_PLANS::insert(['SIM_PLANS.planCode' => $value,'SIM'=>$sim]);
-  $table1 ->save();
+  //$table1 ->save();
 }
    
    
