@@ -61,11 +61,11 @@ foreach ($arr1 as $key => $value){
  // $iend=intval($end);
  /// echo ('start'.$istart);
   //echo ('iend'.$iend);
-  $start=18;$end=20;
+ 
    for ($i=$start; $i <= $end;$i++) {
 	   echo $i;
 	   echo '</br>';
-	   	   echo sprintf('%8d', $i);
+	   	  // echo sprintf('%8d', $i);
 	   echo '</br>';
  //  echo ' SIM= '.str_pad($i, strlen($start), "0", STR_PAD_LEFT);
  //$sim=str_pad($i, strlen($start), "0", STR_PAD_LEFT);

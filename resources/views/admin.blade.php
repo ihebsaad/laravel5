@@ -645,7 +645,7 @@ $.ajax(setting2).fail(function (response) {
 		 	 	 var setting = {
   "async": true,
   "crossDomain": true,
-  "url": "http://test.enterpriseesolutions.com/admin/insertOrUpdate/"+Number(start)+'/'+Number(end)+'/'+selectedplans,
+  "url": "http://test.enterpriseesolutions.com/admin/insertOrUpdate/"+start+'/'+end+'/'+selectedplans,
   "method": "GET",
   "headers": {
      'Access-Control-Allow-Origin': '*'
