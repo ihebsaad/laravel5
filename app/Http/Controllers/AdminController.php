@@ -64,6 +64,7 @@ foreach ($arr1 as $key => $value){
   
    for ($i=$istart; $i <= $iend;$i++) {
 	   echo $i;
+	   echo '</br>';
  //  echo ' SIM= '.str_pad($i, strlen($start), "0", STR_PAD_LEFT);
  //$sim=str_pad($i, strlen($start), "0", STR_PAD_LEFT);
    
