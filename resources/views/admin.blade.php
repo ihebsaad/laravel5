@@ -638,13 +638,14 @@ $.ajax(setting2).fail(function (response) {
 	 
 	 }
 	 else{
+		 
 		 selectedplans=plans.toString();
 		// console.log('insert or update');
 		// console.log(selectedplans);
 		 	 	 var setting = {
   "async": true,
   "crossDomain": true,
-  "url": "http://test.enterpriseesolutions.com/admin/insertOrUpdate/"+start+'/'+end+'/'+selectedplans,
+  "url": "http://test.enterpriseesolutions.com/admin/insertOrUpdate/"+Number(start)+'/'+Number(end)+'/'+selectedplans,
   "method": "GET",
   "headers": {
      'Access-Control-Allow-Origin': '*'
