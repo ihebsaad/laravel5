@@ -71,8 +71,6 @@ foreach($obj->plans as $plan){
  <input type="hidden" name="uinfo" id="uinfo" />
    <div id='div_session_write' style="display:none;"> </div>
    <div id='div_session_write2' style="display:none;"> </div>
-<div class="navbar">
-  <div class="container d-flex justify-content-between">
        <?php
 
   if (isset ($_SESSION['access_tokenA']))
@@ -100,8 +98,6 @@ echo'
 
 </ul>';
 ?>
-</div>
-</div>
   <form name="FormActivate" class="form-validation" role="form" novalidate>
     <!--  <div ng-switch on="stage" ng-class="{forward: direction, backward:!direction}">-->
 	  	
