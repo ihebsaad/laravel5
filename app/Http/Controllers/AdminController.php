@@ -58,12 +58,15 @@ $arr1 = explode(',',$selectedplans);
 foreach ($arr1 as $key => $value){
   echo (' plan: '.$value);
  // $istart=intval($start);
- // $iend=intval($end);
+ //$iend=intval($end);
  /// echo ('start'.$istart);
   //echo ('iend'.$iend);
+ echo ('s'.number_format($start, 50, '', ''));	   echo '</br>';
+
+ number_format($end, 50, '', '');
  
-   for ($i=$start; $i <= $end;$i++) {
-	   echo $i;
+  /* for ($i=$start; $i <= $end;$i++) {*/
+	 //  echo $i;
 	   echo '</br>';
 	   	  // echo sprintf('%8d', $i);
 	   echo '</br>';
@@ -74,7 +77,7 @@ foreach ($arr1 as $key => $value){
  // $table1 =  App\SIM_PLANS::firstOrNew(['planCode' => $value ,'SIM'=>$i]); // your data
 // make your affectation to the $table1
 //$table1 ->save();
-}
+/*}*/
 }
 	/**/
 	}
