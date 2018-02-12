@@ -740,7 +740,9 @@ else{
 					var res = response.split(".");
 					for (var i in res) {
 
-  document.getElementById('showdetails').innerHTML="<p>"+res[i]+"</p>";
+ // document.getElementById('showdetails').innerHTML="<p>"+res[i]+"</p>";
+
+  document.getElementById('showdetails').appendChild("<p>"+res[i]+"</p>");
 }
 					if (response.indexOf('Incorrect delimiter!') > -1){$("#delimeter").slideDown();}
 					else if (response.indexOf('Incorrect headers!') > -1){$("#headers").slideDown();}
