@@ -100,10 +100,10 @@ foreach($obj->simCards as $sim){
 			  {$details3= ' Line '. $i .' : empty.';array_push($arrayDetails,$details3);}
 			  //Case sim exist $ pin not exist
 			  else if ( ( (strlen($sim)>0)) && ($pin==''))
-			  {$details2= ' Line '.$i .': SIM without PIN.' ;array_push($arrayDetails,$details2);}
+			  {$details2= ' Line '.$i .' : SIM without PIN.' ;array_push($arrayDetails,$details2);}
 			 //Case pin exists and sim empty
 			  else if ( (strlen($sim)==0) && (strlen($pin)>0) )
-			  {$details1= ' Line '. $i .': non-existent SIM.';array_push($arrayDetails,$details1);}
+			  {$details1= ' Line '. $i .' : non-existent SIM.';array_push($arrayDetails,$details1);}
 			  else if($status==""){$status=0;}
 			 
               
@@ -151,7 +151,7 @@ foreach($obj->simCards as $sim){
 				     //correct format but invalid SIM
 				    else
 				    	{
-	                     $details5=' Line '. $i. 'Invalid SIM .';
+	                     $details5=' Line '. $i. ' : Invalid SIM .';
 	                     array_push($arrayDetails,$details5);
 						}				
 			  
