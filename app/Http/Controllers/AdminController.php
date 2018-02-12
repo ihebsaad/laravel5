@@ -63,9 +63,9 @@ foreach ($arr1 as $key => $value){
  //$sim=str_pad($i, strlen($start), "0", STR_PAD_LEFT);
    
  //$table1 = App\SIM_PLANS::updateOrCreate( ['planCode' => $value ,'SIM'=>$sim]);
-  $table1 =  App\SIM_PLANS::firstOrNew(['planCode' => $value ,'SIM'=>$i]); // your data
+ // $table1 =  App\SIM_PLANS::firstOrNew(['planCode' => $value ,'SIM'=>$i]); // your data
 // make your affectation to the $table1
-$table1 ->save();
+//$table1 ->save();
 }
 }
 	/**/
