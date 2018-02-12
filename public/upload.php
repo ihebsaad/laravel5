@@ -83,7 +83,7 @@ foreach($obj->simCards as $sim){
 		//	echo('cond2'.( !feof($fileD)));
 			//	 if ($i>1){
         while ((($line = fgetcsv($fileD)) !== FALSE) && ( !feof($fileD))) { 
-           echo('i'.$i.'*** line '.$line.'**');
+           echo('i'.$i.'*** line '.$line[0].'**'.$line[1]);
 		
 				//echo('after loop');
 			$pin=$line[0];
