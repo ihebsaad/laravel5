@@ -263,6 +263,9 @@ Please enter an end SIM number.
                                                     <button type="button" onclick="upload();" class="btn btn-primary "  style="height:40px!important;float: right!important;line-height:0px!important;" >Upload</button>
                                                 </div>
                                             </div>
+											<div class="row" id="showdetails" style="background-color:white;">
+											
+                                            </div>
                                         </div>
                                         <div id="delete_sims" class="tab-pane">
                                             <div class="row" style="margin-top: 20px;">
@@ -734,6 +737,10 @@ else{
                 success: function(response){
                    // alert('uploaded'); // display response from the PHP script, if any
 					console.log(response);
+					var res = response.split(".");
+					for (var i in res) {
+  alert(res[i]);
+}
 					if (response.indexOf('Incorrect delimiter!') > -1){$("#delimeter").slideDown();}
 					else if (response.indexOf('Incorrect headers!') > -1){$("#headers").slideDown();}
 				   else if ( ((response.indexOf('Incorrect delimiter!') > -1)) 
