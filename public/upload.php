@@ -22,7 +22,6 @@
         die('Unable to find the CSV delimiter character. Make sure you use "," or ";" as delimiter and try again.');
     }
 
-echo'headers'.$sameline;
 if ($delimiter != ","){echo 'Incorrect delimiter!'; return false;}
 //detect enclosure
 $enclosure=substr_count($sameline,'"');
@@ -163,7 +162,7 @@ foreach($obj->simCards as $sim){
 		
 		
 $resultDetails = implode(" ", $arrayDetails);
-  echo ('resultDetails: '.$resultDetails);
+  echo ($resultDetails);
          }
 
 ?>
