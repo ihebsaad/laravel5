@@ -97,13 +97,13 @@ foreach($obj->simCards as $sim){
 			//echo 'length='.strlen($remove2);
 		  //Case empty line
 				 if ((strlen($sim)==strlen($pin)) && (strlen($sim)  ==strlen($status)) )
-			  {$details3= ' Line '. $i .' : empty.';array_push($arrayDetails,$details3);}
+			  {$details3= ' Line '. $i .' : Empty.';array_push($arrayDetails,$details3);}
 			  //Case sim exist $ pin not exist
 			  else if ( ( (strlen($sim)>0)) && ($pin==''))
 			  {$details2= ' Line '.$i .' : SIM without PIN.' ;array_push($arrayDetails,$details2);}
 			 //Case pin exists and sim empty
 			  else if ( (strlen($sim)==0) && (strlen($pin)>0) )
-			  {$details1= ' Line '. $i .' : non-existent SIM.';array_push($arrayDetails,$details1);}
+			  {$details1= ' Line '. $i .' : Non-existent SIM.';array_push($arrayDetails,$details1);}
 			  else if($status==""){$status=0;}
 			 
               

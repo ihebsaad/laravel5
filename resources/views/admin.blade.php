@@ -187,7 +187,7 @@ Incorrect range!
 Completed successfully.
   </div><div style="display:none;" id="uploadfail" class="alert alert-danger">
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
-Completed with errors.<a href="" onclick="document.getElementById('showdetails').style.display='block';">Show details.</a>
+Completed with errors. <a href="" style="font-size: 14px;" onclick="document.getElementById('showdetails').style.display='block';">Show details.</a>
   </div>
   <div style="display:none;" id="headers" class="alert alert-danger">
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
@@ -705,6 +705,7 @@ $.ajax(setting).fail(function (response) {
 	  
   }
  function upload() { 
+	 	     document.getElementById("showdetails").style.display="none";
 	 	     document.getElementById("nofileselected").style.display="none";
 	 	  document.getElementById("uploadfail").style.display="none";
 		  document.getElementById("uploadsuccess").style.display="none";
@@ -740,7 +741,7 @@ else{
 					var res = response.split(".");
 					for (var i in res) {
 
-  document.getElementById('showdetails').innerHTML=document.getElementById('showdetails').innerHTML+"<p>"+res[i]+"</p>";
+  document.getElementById('showdetails').innerHTML=document.getElementById('showdetails').innerHTML+"<p style='font-size:18px;'>"+res[i]+"</p>";
 
   
 }
@@ -748,8 +749,8 @@ else{
 					else if (response.indexOf('Incorrect headers!') > -1){$("#headers").slideDown();}
 				   else if ( ((response.indexOf('Incorrect delimiter!') > -1)) 
 					   || ((response.indexOf('Failed') > -1))
-				       || ((response.indexOf('empty') > -1)) 
-					   || ((response.indexOf('non-existent') > -1)) 
+				       || ((response.indexOf('Empty') > -1)) 
+					   || ((response.indexOf('Non-existent') > -1)) 
 				       || ((response.indexOf('without') > -1))     
 				       || ((response.indexOf('Invalid') > -1))     
 				       || ((response.indexOf('invalid') > -1))     
