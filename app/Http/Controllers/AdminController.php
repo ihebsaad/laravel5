@@ -58,6 +58,7 @@ $arr1 = explode(',',$selectedplans);
 foreach ($arr1 as $key => $value){
   echo (' plan: '.$value);
    for ($i=$start; $i <= $end;$i++) {
+	   echo $i;
  //  echo ' SIM= '.str_pad($i, strlen($start), "0", STR_PAD_LEFT);
  //$sim=str_pad($i, strlen($start), "0", STR_PAD_LEFT);
    
