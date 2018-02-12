@@ -48,33 +48,23 @@ DB::table('SIM_PLANS')->where('SIM', '<=',$end)
                  ->delete();
 	}
 		 public function insertOrUpdate($start,$end,$selectedplans){
-			 echo('start'.$start);
-		echo('end'.$end);
-		echo('selectedplans'.$selectedplans);
+			 //echo('start'.$start);
+		//echo('end'.$end);
+		//echo('selectedplans'.$selectedplans);
 
 
 $arr1 = explode(',',$selectedplans);
-print_r($arr1);
+//print_r($arr1);
 foreach ($arr1 as $key => $value){
-   echo (' plan: '.$value);
+  // echo (' plan: '.$value);
    for ($i=$start; $i <= $end;$i++) {
-   echo ' SIM= '.str_pad($i, strlen($start), "0", STR_PAD_LEFT);
+ //  echo ' SIM= '.str_pad($i, strlen($start), "0", STR_PAD_LEFT);
  $sim=str_pad($i, strlen($start), "0", STR_PAD_LEFT);
-
-   if (App\SIM_PLANS::where('planCode', '=',$value) ->where('SIM', '=',"'".$sim."'")->count() == 0) {
-	   echo('not exist');
-	   //  DB::insert('insert into student (name) values(?)',[$name]);
-   App\SIM_PLANS::insert(['SIM_PLANS.planCode' => $value,'SIM'=>$sim]);
-  //$table1 ->save();
-}
-   
-   
    
  //$table1 = App\SIM_PLANS::updateOrCreate( ['planCode' => $value ,'SIM'=>$sim]);
- /*$table1 =  App\SIM_PLANS::insert(['SIM_PLANS.planCode' => $value,'SIM'=>$sim]); // your data*/
- //$table1 =  App\SIM_PLANS::firstOrNew(['SIM_PLANS.planCode' => $value,'SIM'=>$sim]); // your data
- // make your affectation to the $table1
-/*$table1 ->save();*/
+  $table1 =  App\SIM_PLANS::firstOrNew(['planCode' => $value ,'SIM'=>$sim]); // your data
+// make your affectation to the $table1
+$table1 ->save();
 }
 }
 	/**/
