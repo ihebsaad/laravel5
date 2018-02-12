@@ -6,7 +6,7 @@
     else {
         move_uploaded_file($_FILES['file']['tmp_name'], 'uploads/' . $_FILES['file']['name']);
     $csvfile='http://test.enterpriseesolutions.com/public/uploads/'. $_FILES['file']['name'];
-    //detect delimeter
+    //detect delimiter
 	 $delimiter = false;
     $line = '';
     if($f = fopen($csvfile, 'r')) {
@@ -23,7 +23,7 @@
     }
 
 echo'headers'.$sameline;
-if ($delimiter != ","){echo 'Incorrect delimeter!'; return false;}
+if ($delimiter != ","){echo 'Incorrect delimiter!'; return false;}
 //detect enclosure
 $enclosure=substr_count($sameline,'"');
 

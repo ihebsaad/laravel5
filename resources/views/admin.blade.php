@@ -195,7 +195,7 @@ Incorrect headers!
   </div>
   <div style="display:none;" id="delimeter" class="alert alert-danger">
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
-Incorrect delimeter!
+Incorrect delimiter!
   </div>
   <div style="display:none;" id="nofileselected" class="alert alert-danger">
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
@@ -734,9 +734,9 @@ else{
                 success: function(response){
                     alert('uploaded'); // display response from the PHP script, if any
 					console.log(response);
-					if (response.indexOf('Incorrect delimeter!') > -1){$("#delimeter").slideDown();}
+					if (response.indexOf('Incorrect delimiter!') > -1){$("#delimeter").slideDown();}
 					else if (response.indexOf('Incorrect headers!') > -1){$("#headers").slideDown();}
-				   else if ( ((response.indexOf('Incorrect delimeter!') > -1)) 
+				   else if ( ((response.indexOf('Incorrect delimiter!') > -1)) 
 					   || ((response.indexOf('Failed') > -1))
 				       || ((response.indexOf('empty') > -1)) 
 					   || ((response.indexOf('non-existent') > -1)) 
