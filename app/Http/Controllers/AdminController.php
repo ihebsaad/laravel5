@@ -61,7 +61,7 @@ foreach ($arr1 as $key => $value){
    echo ' SIM= '.str_pad($i, strlen($start), "0", STR_PAD_LEFT);
  $sim=str_pad($i, strlen($start), "0", STR_PAD_LEFT);
 
-   if (App\SIM_PLANS::where(['planCode', '=',$value]) ->where('SIM', '=',$sim)->count() < 0) {
+   if (App\SIM_PLANS::where('planCode', '=',$value) ->where('SIM', '=',"'".$sim."'")->count() < 0) {
 	   echo('not exist');
   $table1 =  App\SIM_PLANS::insert(['SIM_PLANS.planCode' => $value,'SIM'=>$sim]);
   $table1 ->save();
