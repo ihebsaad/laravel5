@@ -56,14 +56,14 @@ DB::table('SIM_PLANS')->where('SIM', '<=',$end)
 $arr1 = explode(',',$selectedplans);
 //print_r($arr1);
 foreach ($arr1 as $key => $value){
-  echo (' plan: '.$value);
+ // echo (' plan: '.$value);
  // $istart=intval($start);
  //$iend=intval($end);
  /// echo ('start'.$istart);
   //echo ('iend'.$iend);
- echo ('s'.number_format($start, 50, '', ''));	   echo '</br>';
+ echo ('start : </br>'.number_format($start, 2, '', ''));	   echo '</br>';
 
- number_format($end, 50, '', '');
+ //number_format($end, 2, '', '');
  
   /* for ($i=$start; $i <= $end;$i++) {*/
 	 //  echo $i;
