@@ -48,8 +48,8 @@ DB::table('SIM_PLANS')->where('SIM', '<=',$end)
                  ->delete();
 	}
 		 public function insertOrUpdate($start,$end,$selectedplans){
-			 //echo('start'.$start);
-		//echo('end'.$end);
+			 echo('start'.$start);
+		echo('end'.$end);
 		//echo('selectedplans'.$selectedplans);
 
 
@@ -61,7 +61,7 @@ foreach ($arr1 as $key => $value){
  // $iend=intval($end);
  /// echo ('start'.$istart);
   //echo ('iend'.$iend);
-  
+  $start=18;$end=20;
    for ($i=$start; $i <= $end;$i++) {
 	   echo $i;
 	   echo '</br>';
