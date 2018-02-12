@@ -82,6 +82,8 @@ foreach($obj->simCards as $sim){
 			
 			$pin=$line[0];
 			$sim=$line[1];
+			echo('pin'.$pin);
+			echo('sim'.$sim);
 			$status=$line[2];
 			 $remove = array('"',',');
 			 //echo('line='.$line);
