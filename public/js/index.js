@@ -1022,7 +1022,9 @@ var res = $.ajax(settings).done(function (response) {
     //alert ( "Transaction Fail !");
     $("#failpay").slideDown();
     //$("#containerbilling").css("height", "1170px!important");
-    $("#containerbilling").css("cssText", "height: 1200px !important;");
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+      $("#containerbilling").css("cssText", "height: 1200px !important;");
+    }
   }
   else{
 	  if($scope.formParams.customer=="new"){

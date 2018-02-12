@@ -1645,10 +1645,10 @@ $(function () {
     </fieldset>
  
  <!-- Validations   class="alert alert-danger" -->
-          <div style="height:50px;padding-left:80px;" ><style> small {padding-left:10px;padding-right:10px;font-weight:bold!important;font-size:16px;}
+          <div style="height:50px;margin-left:15px;" ><style> small {padding-left:10px;padding-right:10px;font-weight:bold!important;font-size:16px;}
           table .alert-danger{min-height:30px;color:#a94442;}</style>
           <div class="row "  ng-show="!FormActivate.$valid">
-          <table  class="alert alert-danger" id="alertadd" >
+          <table  class="alert alert-danger" id="alertbilling" >
            <tr>
            <td style="margin-right:20px"><small    ng-show="FormActivate.cardholder.$error.pattern">
             Card holder name must be letters only !
