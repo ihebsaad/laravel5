@@ -231,10 +231,10 @@ echo'
         <td>
         <!--<span id="pinmessage" class="help-block" style=" ;color:red"  >
                   </span>-->
-        <div id="pinmessage" style="display:none;min-width:250px;margin-left:50px;" class="alert alert-danger">
+        <div id="pinmessage" style="display:none;min-width:250px;" class="alert alert-danger">
         Incorrect Pin !
         </div>
-        <div id="pinmessage2" style="display:none;min-width:250px;;margin-left:50px;" class="alert alert-danger">
+        <div id="pinmessage2" style="display:none;min-width:250px;" class="alert alert-danger">
         Pin Already Activated !
         </div>        
           </td>
