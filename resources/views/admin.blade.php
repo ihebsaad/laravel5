@@ -748,7 +748,7 @@ else{
 					if (response.indexOf('Incorrect delimiter!') > -1){$("#delimeter").slideDown();}
 					else if (response.indexOf('Incorrect headers!') > -1){$("#headers").slideDown();}
 				   else if ( ((response.indexOf('Incorrect delimiter!') > -1)) 
-					   || ((response.indexOf('Failed') > -1))
+					   || ((response.indexOf('Not stored') > -1))
 				       || ((response.indexOf('Empty') > -1)) 
 					   || ((response.indexOf('Non-existent') > -1)) 
 				       || ((response.indexOf('without') > -1))     

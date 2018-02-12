@@ -67,7 +67,7 @@ foreach($obj->simCards as $sim){
 	array_push($arraySIMs,$sim->iccid);
 }
 //echo 'array result';
-print_r($arraySIMs);
+//print_r($arraySIMs);
 
 }
 
@@ -132,12 +132,12 @@ print_r($arraySIMs);
 
 					if ($err2) {
 						//echo('error'.$err2);
-						$details4=' Failed to store line'. $i .'.'. $err2 ;array_push($arrayDetails,$details4 );
+						$details4=' Line '. $i .' : Not stored.'. $err2 ;array_push($arrayDetails,$details4 );
 						} 
 						else {
 							   if (  substr_count($response2,'QueryException') > 0)
 							    {
-								   $details4=' Line '. $i .' : not stored.'. $err2 ;array_push($arrayDetails,$details4 );
+								   $details4=' Line '. $i .' : Not stored.'. $err2 ;array_push($arrayDetails,$details4 );
 						
 							    }
 							   else
