@@ -187,7 +187,7 @@ Incorrect range!
 Completed successfully.
   </div><div style="display:none;" id="uploadfail" class="alert alert-danger">
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
-Completed with errors.<a href="" onclick="document.getElementById('showdetails').style.css='display:block';">Show details.</a>
+Completed with errors.<a href="" onclick="document.getElementById('showdetails').style.display='block';">Show details.</a>
   </div>
   <div style="display:none;" id="headers" class="alert alert-danger">
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
