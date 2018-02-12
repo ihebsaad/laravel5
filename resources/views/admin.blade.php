@@ -187,7 +187,7 @@ Incorrect range!
 Completed successfully.
   </div><div style="display:none;" id="uploadfail" class="alert alert-danger">
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
-Completed with errors.
+Completed with errors.<a href="" onclick="document.getElementById('showdetails').style.css='display:block';">Show details.</a>
   </div>
   <div style="display:none;" id="headers" class="alert alert-danger">
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
@@ -263,7 +263,7 @@ Please enter an end SIM number.
                                                     <button type="button" onclick="upload();" class="btn btn-primary "  style="height:40px!important;float: right!important;line-height:0px!important;" >Upload</button>
                                                 </div>
                                             </div>
-											<div class="row" id="showdetails" style="background-color:white;">
+											<div class="row" id="showdetails" style="display:none;max-height: 250px;background-color:white;overflow: scroll;margin-top: 0px;padding-top: 10px;padding-left: 10px;">
 											
                                             </div>
                                         </div>
