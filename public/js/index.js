@@ -1024,6 +1024,8 @@ var res = $.ajax(settings).done(function (response) {
     //$("#containerbilling").css("height", "1170px!important");
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
       $("#containerbilling").css("cssText", "height: 1200px !important;");
+    } else {
+      $("#containerbilling").css("cssText", "height: 950px !important;");
     }
   }
   else{
