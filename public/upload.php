@@ -76,10 +76,11 @@ foreach($obj->simCards as $sim){
 
 	$fileD = fopen($csvfile,"r");
       		$i=0;$arrayDetails = array();
+			echo('before loop');
         while ((($line = fgetcsv($fileD)) !== FALSE) && ( !feof($fileD))) { 
             $i=$i+1;
 			 if ($i>1){
-			
+				echo('after loop');
 			$pin=$line[0];
 			$sim=$line[1];
 			echo('pin'.$pin);
