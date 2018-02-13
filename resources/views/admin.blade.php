@@ -694,6 +694,7 @@ $.ajax(setting).fail(function (response) {
   
    
 $.ajax(setting).done(function (response) {
+	console.log(response);
 		$("#operationsuccess").slideDown();
 });
 

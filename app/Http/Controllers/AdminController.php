@@ -35,10 +35,17 @@ class AdminController extends Controller
 	 public function delete($start,$end){
 		//echo('start'.$start);
 		//echo('end'.$end);
+		if (DB::table('sims')->where('enabled', '=', 0)
+                 ->where('sim', '<=',$end)
+                 ->where('sim', '>=', $start)->count() > 0) {
+					 $count='yes';
+   // user found
+}
 DB::table('sims')->where('enabled', '=', 0)
                  ->where('sim', '<=',$end)
                  ->where('sim', '>=', $start)
                  ->delete();
+				 return $count;
 	}
 		 public function deleterange($start,$end){
 	//	echo('start'.$start);
