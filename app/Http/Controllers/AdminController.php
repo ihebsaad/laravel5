@@ -54,9 +54,8 @@ DB::table('SIM_PLANS')->where('SIM', '<=',$end)
 
 echo 'Start int : ';
  $start=intval($start);
-//printf ("%.0f",$start );
-printf ("%32d",$start );
-
+ printf ("%.0f",$start );
+ 
 $arr1 = explode(',',$selectedplans);
 //print_r($arr1);
 foreach ($arr1 as $key => $value){
