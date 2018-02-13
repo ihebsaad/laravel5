@@ -242,7 +242,7 @@ Please enter an end SIM number.
                                     <div id="pins" class="tab-pane">
                                         <ul class="nav nav-tabs" id="pins_tabs">
                                             <li><a href="#lookup" data-toggle="tab">Lookup PIN</a></li>
-                                            <!-- <li><a href="#enable_disable" data-toggle="tab">Enable / Disable PIN</a></li> -->
+                                            <li><a href="#enable_disable" data-toggle="tab">Enable / Disable PIN</a></li>
                                         </ul>
                                     </div>                 
                                  </div>                        
