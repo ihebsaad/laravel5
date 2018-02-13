@@ -370,75 +370,48 @@ var parsedData = JSON.parse(response.responseText);
  
  /******** Reset password ********/
   $scope.resetpassword = function() {
-
-	  document.getElementById("Ssent").style.display="none";
-	  document.getElementById("Wmailrequired").style.display="none";
-	  document.getElementById("emailnotfound").style.display="none";
+if ( document.getElementById("Ssent-me") != null ){document.getElementById("Ssent").style.display="none";}
+if ( document.getElementById("Wmailrequired") != null ){document.getElementById("Wmailrequired").style.display="none";}
+if ( document.getElementById("emailnotfound") != null ){document.getElementById("emailnotfound").style.display="none";}
+	  
+	 
 	 var email= $scope.formParams.email;
 if(email==""){$("#Wmailrequired").slideDown();}
 else{
 	
-	var settings0 = {
-  "async": true,
-  "crossDomain": true,
-  "url": "https://iristelx.auth0.com/oauth/token",
-  "method": "POST",
-  "headers": {
-    "content-type": "application/json"
-  },
-  "processData": false,
-  "data": '{\"grant_type\":\"client_credentials\",\"client_id\": \"PBbe88ULTLh0kycpE0Db7g4AWjO21hYG\",\"client_secret\": \"b0As5Ty-RwfckGI6-08qNcmbJu3wP1qTE-QA9Kp7ER4PyZHPiSLVvf4auhHiXp1w\",\"audience\": \"https://iristelx.auth0.com/api/v2/\"}'
-
-  }
+	var settings0 = { "async": true,"crossDomain": true,"url": "https://iristelx.auth0.com/oauth/token",  "method": "POST", "headers": {  "content-type": "application/json" },  "processData": false,
+  "data": '{\"grant_type\":\"client_credentials\",\"client_id\": \"PBbe88ULTLh0kycpE0Db7g4AWjO21hYG\",\"client_secret\": \"b0As5Ty-RwfckGI6-08qNcmbJu3wP1qTE-QA9Kp7ER4PyZHPiSLVvf4auhHiXp1w\",\"audience\": \"https://iristelx.auth0.com/api/v2/\"}' }
 
 
 $.ajax(settings0).done(function (response) {
-	
-  var  token=response.access_token;
-
-   var  access_token="Bearer "+token;
-   	var settings1 = {
-  "async": true,
-  "crossDomain": true,
-  "url": 'https://iristelx.auth0.com/api/v2/users?q="'+email+'"',
-  "method": "GET",
-  "headers": {
-    "content-type": "application/json",
-	 "authorization": access_token
-  },
-  "processData": false,
-  "data": ''
-
-  }
+	console.log('done token'+response);
+  var  token=response.access_token;   var  access_token="Bearer "+token;
+   	var settings1 = { "async": true,"crossDomain": true,"url": 'https://iristelx.auth0.com/api/v2/users?q="'+email+'"',"method": "GET","headers": {"content-type": "application/json","authorization": access_token }, "processData": false, "data": ''}
   $.ajax(settings1).done(function (response) {
-  //console.log(response[0].identities[0].connection);
-  if(response.length==0){$("#emailnotfound").slideDown();}
+	  	console.log('success q email'+response);
+	  	console.log('connection '+response[0].identities[0].connection);
+  if(response[0].identities[0].connection== null){$("#emailnotfound").slideDown();}
   else if(response[0].identities[0].connection=="Username-Password-Authentication"){
 	  	var datatosend='{\"client_id\": \"PBbe88ULTLh0kycpE0Db7g4AWjO21hYG\",\"email\": \"'+email+'\",\"connection\": \"Username-Password-Authentication\"}';
 
-var settings = {
-  "async": true,
-  "crossDomain": true,
-  "url": "https://iristelx.auth0.com/dbconnections/change_password",
-  "method": "POST",
-  "headers": {
-    "content-type": "application/json"
-  },
-  "processData": false,
-  "data": datatosend
-  }
+var settings = {"async": true,"crossDomain": true,"url": "https://iristelx.auth0.com/dbconnections/change_password",  "method": "POST", "headers": {"content-type": "application/json" },"processData": false,"data": datatosend }
 
 
 $.ajax(settings).done(function (response) {
-  
+  console.log('success change password'+response);
   $(".alert-success").slideDown();
+  });
+  $.ajax(settings).fail(function (response) {
+  console.log('fail change password'+response);
+
   
 });
 	  
   }
   });
-  $.ajax(settings1).fail(function (response) {console.log(response);});
+  $.ajax(settings1).fail(function (response) {console.log('fail q email '+response);});
 });
+$.ajax(settings0).fail(function (response) {console.log('fail token '+response);});
 	
 		
 	
