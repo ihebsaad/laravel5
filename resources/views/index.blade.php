@@ -164,6 +164,10 @@ echo'
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
   We've just sent you an email to reset your password.
   </div>
+     <div style="display:none;" id="emailnotfound" class="alert alert-danger">
+    <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+  Email not found.
+  </div>
   <div style="display:none;" id="Wmailrequired" class="alert alert-warning">
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
   The email is required.
