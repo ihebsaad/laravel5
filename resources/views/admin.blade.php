@@ -171,7 +171,17 @@ foreach($obj->plans as $plan){
                             </div>
 	
                             <div class="form-bottom" id="admins">  
-	<div style="display:none;" id="operationsuccess" class="alert alert-success">
+	<div style="display:none;" id="operationfail" class="alert alert-danger">
+	
+    <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+There is no enabled SIM in this range!
+  </div>
+  <div style="display:none;" id="operationsuccess1" class="alert alert-success">
+	
+    <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+Operation completed successfully. One SIM was deleted
+  </div>
+  <div style="display:none;" id="operationsuccessn" class="alert alert-success">
 	
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
 Operation completed successfully.
@@ -695,7 +705,12 @@ $.ajax(setting).fail(function (response) {
    
 $.ajax(setting).done(function (response) {
 	console.log(response);
-		$("#operationsuccess").slideDown();
+	if (response==0){ $("#operationfail").slideDown();}
+	else if (response==1){$("#operationsuccess1").slideDown();}
+	else{
+		document.getElementById("operationsuccessn").innerHTML=document.getElementById("operationsuccessn").innerHTML+" "+response+" SIMs were deleted.";
+		$("#operationsuccessn").slideDown();}
+		
 });
 
 $.ajax(setting).fail(function (response) {
@@ -856,7 +871,9 @@ if ( document.getElementById("uploadsuccess") != null ){document.getElementById(
 if ( document.getElementById("headers") != null ){document.getElementById("headers").style.display="none";}
 if ( document.getElementById("delimeter") != null ){document.getElementById("delimeter").style.display="none";}
 if ( document.getElementById("incorrectrange") != null ){ document.getElementById("incorrectrange").style.display="none";}
-if ( document.getElementById("operationsuccess") != null ){ document.getElementById("operationsuccess").style.display="none";}
+if ( document.getElementById("operationsuccessn") != null ){ document.getElementById("operationsuccessn").style.display="none";}
+if ( document.getElementById("operationfail") != null ){ document.getElementById("operationfail").style.display="none";}
+if ( document.getElementById("operationsuccess1") != null ){ document.getElementById("operationsuccess1").style.display="none";}
 if ( document.getElementById("startrange") != null ){ document.getElementById("startrange").style.display="none";}
 if ( document.getElementById("endrange") != null ){ document.getElementById("endrange").style.display="none";}
 if ( document.getElementById("showdetails") != null ){document.getElementById("showdetails").style.display="none";}
