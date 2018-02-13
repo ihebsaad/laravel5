@@ -420,7 +420,7 @@ Please enter an end SIM number.
                                                     </select>
                                                 </div>  
                                                 <div class="col-sm-2 form-group">
-                                                    <button type="button" class="btn btn-primary "  style="height:35px!important;float: right!important;line-height:0px!important;" >GO</button>
+                                                    <button onclick="enableDisable();"type="button" class="btn btn-primary "  style="height:35px!important;float: right!important;line-height:0px!important;" >GO</button>
                                                 </div>      
                                             </div>
                                         </div>
@@ -676,6 +676,14 @@ $.ajax(setting).fail(function (response) {
 
 	 
    }}
+  function enableDisable(){
+	  
+	  pin=document.getElementById('pinnum').value;
+	  var e = document.getElementById("endis");
+var endis = e.options[e.selectedIndex].value;
+console.log('pin'+pin);
+console.log('endis'+endis);
+  }
   function deleteRange(){
 	  if ( document.getElementById("incorrectrange") != null ){document.getElementById("incorrectrange").style.display="none";}
 	  if ( document.getElementById("operationsuccess1") != null ){document.getElementById("operationsuccess1").style.display="none";}
