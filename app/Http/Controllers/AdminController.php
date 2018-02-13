@@ -34,12 +34,29 @@ class AdminController extends Controller
 	}
 	 public function delete($start,$end){
 		//echo('start'.$start);
-		//echo('end'.$end);
+		//echo('end'.$end); 
+		$count=DB::table('sims')->where('enabled', '=', 0)
+                 ->where('sim', '<=',$end)
+                 ->where('sim', '>=', $start)->count();
+
 DB::table('sims')->where('enabled', '=', 0)
                  ->where('sim', '<=',$end)
                  ->where('sim', '>=', $start)
                  ->delete();
+				 return $count;
 	}
+		 public function enabledisable($pin,$endis){
+			 if ($endis=="enable"){ $enabled=1;}
+			 if ($endis=="disable"){ $enabled=0;}
+			 $count=DB::table('sims')->where('pin', '=', $pin)
+                 ->count();
+				 if ($count>0){
+			DB::table('sims')
+            ->where('pin', $pin)
+            ->update(['enabled' => $enabled]); 
+				 }
+				 return $count;
+		 }
 		 public function deleterange($start,$end){
 	//	echo('start'.$start);
 		//echo('end'.$end);

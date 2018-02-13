@@ -122,15 +122,7 @@ foreach($obj->plans as $plan){
 
                         </div>
                     </div>
- 				  <div class="row">
-					<div class="col-sm-4 col-sm-offset-4 center_div">
-	
- 					<div style="display:none;" class="alert alert-danger">
-					<button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
-						WRONG USERNAME OR PASSWORD.
-					</div>
-					</div>
-					</div>
+ 				 
  <?php if ( !$loggedin ) { echo'
 					<div class="row" style="max-height:400px!important"  id="logindiv">
                         <div class="col-sm-6 col-sm-offset-3 form-box">
@@ -142,7 +134,12 @@ foreach($obj->plans as $plan){
  
                             </div>
                             <div class="form-bottom">
-
+ 	
+ 					<div style="display:none;" id="wrongLogin" class="alert alert-danger">
+					<button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+						WRONG USERNAME OR PASSWORD.
+					</div>
+					
 							<div class="form-group">
 			                    		<label class="sr-only" for="form-username">Username</label>
 			                        	<input type="text" ng-model="formParams.email" id="useremail" name="form-username" placeholder="username" class="form-username form-control" required ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" >
@@ -174,7 +171,32 @@ foreach($obj->plans as $plan){
                             </div>
 	
                             <div class="form-bottom" id="admins">  
-	<div style="display:none;" id="operationsuccess" class="alert alert-success">
+							<div style="display:none;" id="pinnotfound" class="alert alert-danger">
+	
+    <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+PIN not found !
+  </div>
+  <div style="display:none;" id="pindisabled" class="alert alert-success">
+	
+    <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+PIN disabled successfully.
+  </div>
+  <div style="display:none;" id="pinenabled" class="alert alert-success">
+	
+    <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+PIN enabled successfully.
+  </div>
+	<div style="display:none;" id="operationfail" class="alert alert-danger">
+	
+    <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+There is no enabled SIM in this range !
+  </div>
+  <div style="display:none;" id="operationsuccess1" class="alert alert-success">
+	
+    <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+Operation completed successfully. One SIM was deleted.
+  </div>
+  <div style="display:none;" id="operationsuccessn" class="alert alert-success">
 	
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
 Operation completed successfully.
@@ -182,21 +204,21 @@ Operation completed successfully.
   <div style="display:none;" id="incorrectrange" class="alert alert-danger">
 	
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
-Incorrect range!
+Incorrect range !
   </div><div style="display:none;" id="uploadsuccess" class="alert alert-success">
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
-Completed successfully.
+Completed successfully. <a href="" style="font-size: 14px;" onclick="document.getElementById('showdetails').style.display='block';">Show details.</a>
   </div><div style="display:none;" id="uploadfail" class="alert alert-danger">
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
 Completed with errors. <a href="" style="font-size: 14px;" onclick="document.getElementById('showdetails').style.display='block';">Show details.</a>
   </div>
   <div style="display:none;" id="headers" class="alert alert-danger">
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
-Incorrect headers!
+Incorrect headers !
   </div>
   <div style="display:none;" id="delimeter" class="alert alert-danger">
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
-Incorrect delimiter!
+Incorrect delimiter !
   </div>
   <div style="display:none;" id="nofileselected" class="alert alert-danger">
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
@@ -214,8 +236,8 @@ Please enter an end SIM number.
                                     link: https://codepen.io/brylok/pen/zawdJ -->
                                 <ul class="nav nav-tabs tabs" id="simpin_tabs">
                                     <!--top level tabs-->
-                                  <li><a style="color:white!important" href="#sims" data-toggle="tab">SIMs</a></li>
-                                  <li><a  style="color:white!important" href="#pins" ng-click="resetpins()" data-toggle="tab">PINs</a></li>
+                                  <li><a onclick="removeAlertes();" style="color:white!important" href="#sims" data-toggle="tab">SIMs</a></li>
+                                  <li><a onclick="removeAlertes();" style="color:white!important" href="#pins" ng-click="resetpins()" data-toggle="tab">PINs</a></li>
                                 </ul>
 
                                 <!--top level tab content-->
@@ -225,9 +247,9 @@ Please enter an end SIM number.
                                     <!--sims tab menu-->
                                     <div id="sims" class="tab-pane">
                                         <ul class="nav nav-tabs" id="sims_tabs">
-                                            <li><a href="#add_edit" data-toggle="tab">Add/Edit SIMs</a></li>
-                                            <li><a href="#delete_sims" data-toggle="tab">Delete SIMs</a></li>
-                                            <li><a href="#assign_plans" data-toggle="tab">Assign Plans</a></li>
+                                            <li><a id="tab1" onclick="removeAlertes();" href="#add_edit" data-toggle="tab">Add/Edit SIMs</a></li>
+                                            <li><a id="tab2" onclick="removeAlertes();" href="#delete_sims" data-toggle="tab">Delete SIMs</a></li>
+                                            <li><a id="tab3" onclick="removeAlertes();" href="#assign_plans" data-toggle="tab">Assign Plans</a></li>
                                         </ul>
                                     </div>
                                     
@@ -235,7 +257,7 @@ Please enter an end SIM number.
                                     <div id="pins" class="tab-pane">
                                         <ul class="nav nav-tabs" id="pins_tabs">
                                             <li><a href="#lookup" data-toggle="tab">Lookup PIN</a></li>
-                                            <!-- <li><a href="#enable_disable" data-toggle="tab">Enable / Disable PIN</a></li> -->
+                                            <li><a href="#enable_disable" data-toggle="tab">Enable / Disable PIN</a></li>
                                         </ul>
                                     </div>                 
                                  </div>                        
@@ -303,7 +325,7 @@ Please enter an end SIM number.
                                             </div>
                                             <div class="row">
                                                 <div  class="col-sm-8 form-group">
-                                                    <div class=" scroller  " style="height: 200px; overflow-y: scroll; padding-top: 20px; border: 2px solid LightGray;border-radius: 1rem; width: 100%!important;">
+                                                    <div class=" scroller  " style="height: 200px; overflow-y: scroll;overflow-x: hidden;  padding-top: 20px; border: 2px solid LightGray;border-radius: 1rem; width: 100%!important;">
 	<form id="formcheckbox">                                                       
 													   <ul class="radionc">
 													
@@ -396,7 +418,7 @@ Please enter an end SIM number.
                                             </div>
                                         </div>
 										
-                                        <!--<div id="enable_disable" class="tab-pane">
+                                        <div id="enable_disable" class="tab-pane">
                                             <div class="row" style="margin-top: 20px;">
                                                 <div class="form-group col-xs-12">
                                                     <p>Enter the PIN # you wish to enable/disable below:</p>
@@ -413,10 +435,10 @@ Please enter an end SIM number.
                                                     </select>
                                                 </div>  
                                                 <div class="col-sm-2 form-group">
-                                                    <button type="button" class="btn btn-primary "  style="height:35px!important;float: right!important;line-height:0px!important;" >GO</button>
+                                                    <button onclick="enableDisable();"type="button" class="btn btn-primary "  style="height:35px!important;float: right!important;line-height:0px!important;" >GO</button>
                                                 </div>      
                                             </div>
-                                        </div>-->
+                                        </div>
                                     </div>
 
 
@@ -580,16 +602,16 @@ $.ajax(settings).fail(function (response) {console.log(response);})
 
     }
 	   function assignRange(){
-		  document.getElementById("incorrectrange").style.display="none";
-		  document.getElementById("operationsuccess").style.display="none";
-	 	   	  document.getElementById("startrange").style.display="none";
-			   document.getElementById("endrange").style.display="none";
+		if ( document.getElementById("incorrectrange") != null ){  document.getElementById("incorrectrange").style.display="none";}
+		if ( document.getElementById("operationsuccess") != null ){  document.getElementById("operationsuccess").style.display="none";}
+	 if ( document.getElementById("startrange") != null ){	   	  document.getElementById("startrange").style.display="none";}
+	if ( document.getElementById("endrange") != null ){		   document.getElementById("endrange").style.display="none";}
 	  start=document.getElementById('pstartsim').value;
 	  end=document.getElementById('pendsim').value;
 	  
 	  if (start==""){	$("#startrange").slideDown();	}
 	  else if (end==""){	$("#endrange").slideDown();	}
-	   else if (parseInt(end) < parseInt(start)){
+	   else if (parseInt(end) <= parseInt(start)){
 		 
 
 	$("#incorrectrange").slideDown();		  
@@ -669,17 +691,58 @@ $.ajax(setting).fail(function (response) {
 
 	 
    }}
+  function enableDisable(){
+	  if ( document.getElementById("pinnotfound") != null ){document.getElementById("pinnotfound").style.display="none";}
+if ( document.getElementById("pinenabled") != null ){document.getElementById("pinenabled").style.display="none";}
+if ( document.getElementById("pindisabled") != null ){document.getElementById("pindisabled").style.display="none";}
+
+	  pin=document.getElementById('pinnum').value;
+	  var e = document.getElementById("endis");
+var endis = e.options[e.selectedIndex].value;
+console.log('pin'+pin);
+console.log('endis'+endis);
+		   	 	 var setting = {
+  "async": true,
+  "crossDomain": true,
+  "url": "http://test.enterpriseesolutions.com/admin/enabledisable/"+pin+'/'+endis,
+  "method": "GET",
+  "headers": {
+     'Access-Control-Allow-Origin': '*'
+  },
+  "processData": false 
+ 
+  }
+  
+   
+$.ajax(setting).done(function (response) {
+	console.log(response);
+	if(response==0){  $("#pinnotfound").slideDown();}
+	else{ if (endis=="enable"){
+		$("#pinenabled").slideDown();
+	}
+	else{
+		$("#pindisabled").slideDown();
+	}
+	}	
+});
+
+$.ajax(setting).fail(function (response) {
+	alert('fail'+ response);
+});
+  }
   function deleteRange(){
-	  document.getElementById("incorrectrange").style.display="none";
-	  document.getElementById("operationsuccess").style.display="none";
-	  document.getElementById("startrange").style.display="none";
-	  document.getElementById("endrange").style.display="none";
+	  if ( document.getElementById("incorrectrange") != null ){document.getElementById("incorrectrange").style.display="none";}
+	  if ( document.getElementById("operationsuccess1") != null ){document.getElementById("operationsuccess1").style.display="none";}
+	  if ( document.getElementById("operationsuccessn") != null ){document.getElementById("operationsuccessn").style.display="none";}
+	  if ( document.getElementById("operationfail") != null ){document.getElementById("operationfail").style.display="none";}
+	  if ( document.getElementById("startrange") != null ){document.getElementById("startrange").style.display="none";}
+	  if ( document.getElementById("endrange") != null ){document.getElementById("endrange").style.display="none";}
 	 	  
 	  start=document.getElementById('startsim1').value;
 	  end=document.getElementById('endsim1').value;
 	  if (start==""){	$("#startrange").slideDown();	}
 	  else if (end==""){	$("#endrange").slideDown();	}
-	   else if (parseInt(end) < parseInt(start)){
+	   else if (parseInt(end) <= parseInt(start)){
 		$("#incorrectrange").slideDown();		  
 	  }
 	  else{
@@ -697,7 +760,13 @@ $.ajax(setting).fail(function (response) {
   
    
 $.ajax(setting).done(function (response) {
-		$("#operationsuccess").slideDown();
+	console.log(response);
+	if (response==0){ $("#operationfail").slideDown();}
+	else if (response==1){$("#operationsuccess1").slideDown();}
+	else{
+		document.getElementById("operationsuccessn").innerHTML="Operation completed successfully.  "+response+" SIMs were deleted.";
+		$("#operationsuccessn").slideDown();}
+		
 });
 
 $.ajax(setting).fail(function (response) {
@@ -707,13 +776,13 @@ $.ajax(setting).fail(function (response) {
 	  
   }
  function upload() { 
-	 	     document.getElementById("showdetails").style.display="none";
-	 	     document.getElementById("nofileselected").style.display="none";
-	 	  document.getElementById("uploadfail").style.display="none";
-		  document.getElementById("uploadsuccess").style.display="none";
-		  document.getElementById("headers").style.display="none";
-		  document.getElementById("delimeter").style.display="none";
-		  if( document.getElementById("sortpicture").files.length == 0 ){
+	 	  if ( document.getElementById("delimeter") != null ){ document.getElementById("showdetails").style.display="none";}
+          if ( document.getElementById("delimeter") != null ){document.getElementById("nofileselected").style.display="none";}
+	 	  if ( document.getElementById("delimeter") != null ){document.getElementById("uploadfail").style.display="none";}
+		  if ( document.getElementById("delimeter") != null ){document.getElementById("uploadsuccess").style.display="none";}
+		  if ( document.getElementById("delimeter") != null ){document.getElementById("headers").style.display="none";}
+		  if ( document.getElementById("delimeter") != null ){document.getElementById("delimeter").style.display="none";}
+		  if ( document.getElementById("sortpicture").files.length == 0 ){
     $("#nofileselected").slideDown();
 }
 else{
@@ -751,8 +820,7 @@ else{
 					else if (response.indexOf('Incorrect headers!') > -1){$("#headers").slideDown();}
 				   else if ( ((response.indexOf('Incorrect delimiter!') > -1)) 
 					   || ((response.indexOf('Not stored') > -1))
-				       || ((response.indexOf('Empty') > -1)) 
-					   || ((response.indexOf('Non-existent') > -1)) 
+				       || ((response.indexOf('Non-existent') > -1)) 
 				       || ((response.indexOf('without') > -1))     
 				       || ((response.indexOf('Invalid') > -1))     
 				       || ((response.indexOf('invalid') > -1))     
@@ -832,12 +900,16 @@ else{
                var file = $(this).val();
                var filename = file.split(/[\\\/]/).pop();
                $(".fileuploader").val(filename);
-			   document.getElementById("nofileselected").style.display="none";
-	 	  document.getElementById("uploadfail").style.display="none";
-		  document.getElementById("uploadsuccess").style.display="none";
-		  document.getElementById("headers").style.display="none";
-		  document.getElementById("delimeter").style.display="none";
-            });
+if ( document.getElementById("nofileselected") != null ){document.getElementById("nofileselected").style.display="none";}
+if ( document.getElementById("uploadfail") != null ){document.getElementById("uploadfail").style.display="none";}
+if ( document.getElementById("uploadsuccess") != null ){document.getElementById("uploadsuccess").style.display="none";}
+if ( document.getElementById("headers") != null ){document.getElementById("headers").style.display="none";}
+if ( document.getElementById("delimeter") != null ){document.getElementById("delimeter").style.display="none";}
+ 
+
+
+
+ });
 
 
 
@@ -847,7 +919,24 @@ else{
                   $('a[href="#add_edit"]').trigger('click');
 
              });
-			
+function removeAlertes(){
+	
+if ( document.getElementById("nofileselected") != null ){document.getElementById("nofileselected").style.display="none";}
+if ( document.getElementById("uploadfail") != null ){document.getElementById("uploadfail").style.display="none";}
+if ( document.getElementById("uploadsuccess") != null ){document.getElementById("uploadsuccess").style.display="none";}
+if ( document.getElementById("headers") != null ){document.getElementById("headers").style.display="none";}
+if ( document.getElementById("delimeter") != null ){document.getElementById("delimeter").style.display="none";}
+if ( document.getElementById("incorrectrange") != null ){ document.getElementById("incorrectrange").style.display="none";}
+if ( document.getElementById("operationsuccessn") != null ){ document.getElementById("operationsuccessn").style.display="none";}
+if ( document.getElementById("operationfail") != null ){ document.getElementById("operationfail").style.display="none";}
+if ( document.getElementById("operationsuccess1") != null ){ document.getElementById("operationsuccess1").style.display="none";}
+if ( document.getElementById("startrange") != null ){ document.getElementById("startrange").style.display="none";}
+if ( document.getElementById("endrange") != null ){ document.getElementById("endrange").style.display="none";}
+if ( document.getElementById("showdetails") != null ){document.getElementById("showdetails").style.display="none";}
+if ( document.getElementById("wrongLogin") != null ){document.getElementById("wrongLogin").style.display="none";}
+	 
+}
+		
         </script>
         
         <!--[if lt IE 10]>
