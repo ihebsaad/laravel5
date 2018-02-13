@@ -71,33 +71,8 @@ foreach($obj->plans as $plan){
  <input type="hidden" name="uinfo" id="uinfo" />
    <div id='div_session_write' style="display:none;"> </div>
    <div id='div_session_write2' style="display:none;"> </div>
-       <?php
 
-  if (isset ($_SESSION['access_tokenA']))
- {$style='display:block;';
-  $loggedin=true;
-
-  }else{
- $style='display:none';
- 
- $loggedin=false;}
- if (isset ($_SESSION['usernameA']))
- {
-
-   $value1='Logged in as ';
-   $value2=$_SESSION['usernameA'];
-
- }else{
- $value1='';$value2='';
- }
-echo'
-<ul class="nav navbar-nav navbar-right" id="logoutbtn" style="float: right!important;  margin-right: 300px; '.$style.'">
-<li><div class="row"><style> .logout a:hover{background-color:#049afe!important;}</style>
-<div class="col-sm-10"><br><B style="font-size:12px;margin-top:20px;  " ><span id="userinfo0" style="font-size:16px;">'.$value1.'</span><span style="font-size:16px;color:#049afe" id="userinfo">'.$value2.'</span></B> </div>
-<div class="logout col-sm-2" ><a id="logoutb" style="background-color:#006fb9;margin-top:10px;width:100px!important;'.$style.'" href="#" class="btn btn-info " onclick="logout();"> <span   class="glyphicon glyphicon-log-out"></span> Log out</a></div></div></li>
-
-</ul>';
-?>
+     
   <form name="FormActivate" class="form-validation" role="form" novalidate>
     <!--  <div ng-switch on="stage" ng-class="{forward: direction, backward:!direction}">-->
 	  	
@@ -116,7 +91,33 @@ echo'
                                                 </svg>
                                 
                               </a>
- 
+                                <?php
+                                  if (isset ($_SESSION['access_tokenA']))
+                                 {$style='display:block;';
+                                  $loggedin=true;
+
+                                  }else{
+                                 $style='display:none';
+                                 
+                                 $loggedin=false;}
+                                 if (isset ($_SESSION['usernameA']))
+                                 {
+
+                                   $value1='Logged in as ';
+                                   $value2=$_SESSION['usernameA'];
+
+                                 }else{
+                                 $value1='';$value2='';
+                                 }
+                                echo'
+                                <ul class="nav navbar-nav navbar-right" id="logoutbtn" style="float: right!important;  margin-right: 300px; '.$style.'">
+                                <li><div class="row"><style> .logout a:hover{background-color:#049afe!important;}</style>
+                                <div class="col-sm-10"><br><B style="font-size:12px;margin-top:20px;  " ><span id="userinfo0" style="font-size:16px;">'.$value1.'</span><span style="font-size:16px;color:#049afe" id="userinfo">'.$value2.'</span></B> </div>
+                                <div class="logout col-sm-2" ><a id="logoutb" style="background-color:#006fb9;margin-top:10px;width:100px!important;" href="#" class="btn btn-info " onclick="logout();"> <span   class="glyphicon glyphicon-log-out"></span> Log out</a></div></div></li>
+
+                                </ul>';
+                                ?>
+
                         </div>
                     </div>
  				  <div class="row">
