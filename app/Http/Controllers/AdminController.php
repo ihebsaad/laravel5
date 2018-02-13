@@ -56,7 +56,13 @@ DB::table('SIM_PLANS')->where('SIM', '<=',$end)
  //$start=intval($start);
 // echo 'Start 1' .$start .'</br>';
 // printf ("%.0f",$start );
-  sprintf('%d',intval($start)) ;
+ini_set('precision', 32);
+
+//  sprintf('%d',intval($start)) ;
+echo 'Gmp : '.gmp_intval($start);
+
+//echo 'Gmp : '.  sprintf('%d',  gmp_intval($start));
+  
 $arr1 = explode(',',$selectedplans);
 //print_r($arr1);
 foreach ($arr1 as $key => $value){
