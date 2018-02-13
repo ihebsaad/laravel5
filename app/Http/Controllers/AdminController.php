@@ -52,11 +52,11 @@ DB::table('SIM_PLANS')->where('SIM', '<=',$end)
 	 //	echo('end'.$end);
 		//echo('selectedplans'.$selectedplans);
 
-echo 'Start int : ';
- $start=intval($start);
- echo 'Start 1' .$start .'</br>';
- printf ("%.0f",$start );
- 
+ echo 'Start int : </br>';
+ //$start=intval($start);
+// echo 'Start 1' .$start .'</br>';
+// printf ("%.0f",$start );
+  sprintf('%d'$start) ;
 $arr1 = explode(',',$selectedplans);
 //print_r($arr1);
 foreach ($arr1 as $key => $value){
