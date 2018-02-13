@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use App;
+use Litipk\BigNumbers\Decimal;
 
 class AdminController extends Controller
 {
@@ -71,13 +72,8 @@ DB::table('SIM_PLANS')->where('SIM', '<=',$end)
 
  echo 'Start int : </br>';
  //$start=intval($start);
-// echo 'Start 1' .$start .'</br>';
-// printf ("%.0f",$start );
-ini_set('precision', 32);
-
-//  sprintf('%d',intval($start)) ;
-echo 'Gmp : '.gmp_intval($start);
-
+  $nb= Decimal::fromString($start);
+ echo 'NB : '. $nb; 
 //echo 'Gmp : '.  sprintf('%d',  gmp_intval($start));
   
 $arr1 = explode(',',$selectedplans);
