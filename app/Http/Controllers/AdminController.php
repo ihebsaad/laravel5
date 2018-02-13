@@ -59,26 +59,28 @@ DB::table('sims')->where('enabled', '=', 0)
 				 return $count;
 		 }
 		 public function deleterange($start,$end){
-	//	echo('start'.$start);
-		//echo('end'.$end);
-DB::table('SIM_PLANS')->where('SIM', '<=',$end)
+  DB::table('SIM_PLANS')->where('SIM', '<=',$end)
                  ->where('SIM', '>=', $start)
                  ->delete();
 	}
-		 public function insertOrUpdate($start,$end,$selectedplans){
-			 echo('start string'.$start).'</br>';
-	 //	echo('end'.$end);
-		//echo('selectedplans'.$selectedplans);
-
- echo 'Start int : </br>';
- //$start=intval($start);
-  $nb= Decimal::fromString($start);
- echo 'NB : '. $nb; 
-//echo 'Gmp : '.  sprintf('%d',  gmp_intval($start));
+ public function insertOrUpdate($start,$end,$selectedplans){
+  echo('start string'.$start).'</br>';
+  
+  // convert String to long number
+  $startI= Decimal::fromString($start);
+  $endI= Decimal::fromString($end);
   
 $arr1 = explode(',',$selectedplans);
 //print_r($arr1);
 foreach ($arr1 as $key => $value){
+		
+	   for ($i=$startI; $i <= $endI;$i++) {
+$table1 = App\SIM_PLANS::updateOrCreate( ['planCode' => $value ,'SIM'=>$sim]);
+ $table1 ->save();
+}
+	
+	
+	}
  // echo (' plan: '.$value);
  // $istart=intval($start);
  //$iend=intval($end);
@@ -90,9 +92,8 @@ foreach ($arr1 as $key => $value){
  
   /* for ($i=$start; $i <= $end;$i++) {*/
 	 //  echo $i;
-	   echo '</br>';
 	   	  // echo sprintf('%8d', $i);
-	   echo '</br>';
+	
  //  echo ' SIM= '.str_pad($i, strlen($start), "0", STR_PAD_LEFT);
  //$sim=str_pad($i, strlen($start), "0", STR_PAD_LEFT);
    
@@ -101,7 +102,7 @@ foreach ($arr1 as $key => $value){
 // make your affectation to the $table1
 //$table1 ->save();
 /*}*/
-}
+
 	/**/
 	}
 	
