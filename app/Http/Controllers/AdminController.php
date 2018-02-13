@@ -48,11 +48,14 @@ DB::table('SIM_PLANS')->where('SIM', '<=',$end)
                  ->delete();
 	}
 		 public function insertOrUpdate($start,$end,$selectedplans){
-			 echo('start'.$start);
-		echo('end'.$end);
+			 echo('start'.$start).'</br>';
+	 //	echo('end'.$end);
 		//echo('selectedplans'.$selectedplans);
 
-echo 'Start : '.intval($start);
+echo 'Start : '
+$start=intval($start);
+printf ("%.0f",$start );
+
 $arr1 = explode(',',$selectedplans);
 //print_r($arr1);
 foreach ($arr1 as $key => $value){
