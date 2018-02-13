@@ -59,8 +59,9 @@ DB::table('SIM_PLANS')->where('SIM', '<=',$end)
 ini_set('precision', 32);
 
 //  sprintf('%d',intval($start)) ;
+echo 'Gmp : '.gmp_intval($start);
 
-  sprintf('%d',  gmp_intval($start));
+//echo 'Gmp : '.  sprintf('%d',  gmp_intval($start));
   
 $arr1 = explode(',',$selectedplans);
 //print_r($arr1);
