@@ -182,7 +182,7 @@ Operation completed successfully.
 Incorrect range!
   </div><div style="display:none;" id="uploadsuccess" class="alert alert-success">
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
-Completed successfully.
+Completed successfully.<a href="" style="font-size: 14px;" onclick="document.getElementById('showdetails').style.display='block';">Show details.</a>
   </div><div style="display:none;" id="uploadfail" class="alert alert-danger">
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
 Completed with errors. <a href="" style="font-size: 14px;" onclick="document.getElementById('showdetails').style.display='block';">Show details.</a>
