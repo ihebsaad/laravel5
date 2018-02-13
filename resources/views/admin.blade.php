@@ -683,6 +683,27 @@ $.ajax(setting).fail(function (response) {
 var endis = e.options[e.selectedIndex].value;
 console.log('pin'+pin);
 console.log('endis'+endis);
+		   	 	 var setting = {
+  "async": true,
+  "crossDomain": true,
+  "url": "http://test.enterpriseesolutions.com/admin/enabledisable/"+pin+'/'+endis,
+  "method": "GET",
+  "headers": {
+     'Access-Control-Allow-Origin': '*'
+  },
+  "processData": false 
+ 
+  }
+  
+   
+$.ajax(setting).done(function (response) {
+	console.log('done'+response);
+		
+});
+
+$.ajax(setting).fail(function (response) {
+	alert('fail'+ response);
+});
   }
   function deleteRange(){
 	  if ( document.getElementById("incorrectrange") != null ){document.getElementById("incorrectrange").style.display="none";}
