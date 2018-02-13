@@ -52,7 +52,7 @@ DB::table('SIM_PLANS')->where('SIM', '<=',$end)
 		echo('end'.$end);
 		//echo('selectedplans'.$selectedplans);
 
-
+echo 'Start : '.intval($start);
 $arr1 = explode(',',$selectedplans);
 //print_r($arr1);
 foreach ($arr1 as $key => $value){
@@ -61,7 +61,7 @@ foreach ($arr1 as $key => $value){
  //$iend=intval($end);
  /// echo ('start'.$istart);
   //echo ('iend'.$iend);
- echo ('start : </br>'.number_format($start, 2, '', ''));	   echo '</br>';
+// echo ('start : </br>'.number_format($start, 2, '', ''));	   echo '</br>';
 
  //number_format($end, 2, '', '');
  
