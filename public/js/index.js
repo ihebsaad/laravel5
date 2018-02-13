@@ -370,10 +370,11 @@ var parsedData = JSON.parse(response.responseText);
  
  /******** Reset password ********/
   $scope.resetpassword = function() {
-
-	  document.getElementById("Ssent").style.display="none";
-	  document.getElementById("Wmailrequired").style.display="none";
-	  document.getElementById("emailnotfound").style.display="none";
+if ( document.getElementById("Ssent-me") != null ){document.getElementById("Ssent").style.display="none";}
+if ( document.getElementById("Wmailrequired") != null ){document.getElementById("Wmailrequired").style.display="none";}
+if ( document.getElementById("emailnotfound") != null ){document.getElementById("emailnotfound").style.display="none";}
+	  
+	 
 	 var email= $scope.formParams.email;
 if(email==""){$("#Wmailrequired").slideDown();}
 else{
