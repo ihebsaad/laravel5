@@ -92,7 +92,7 @@ foreach($obj->plans as $plan){
                                 
                               </a>
                         </div>
-                        <div class="col-sm-4 col-sm-offset-2 ">
+                        <div class="col-md-auto">
                                 <?php
                                   if (isset ($_SESSION['access_tokenA']))
                                  {$style='display:block;';
