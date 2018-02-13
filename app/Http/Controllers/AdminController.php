@@ -35,13 +35,10 @@ class AdminController extends Controller
 	 public function delete($start,$end){
 		//echo('start'.$start);
 		//echo('end'.$end); 
-		$count="empty";
-		if (DB::table('sims')->where('enabled', '=', 0)
+		$count=DB::table('sims')->where('enabled', '=', 0)
                  ->where('sim', '<=',$end)
-                 ->where('sim', '>=', $start)->count() > 0) {
-					 $count='exist';
-   // user found
-}
+                 ->where('sim', '>=', $start)->count();
+
 DB::table('sims')->where('enabled', '=', 0)
                  ->where('sim', '<=',$end)
                  ->where('sim', '>=', $start)
