@@ -189,7 +189,7 @@ Operation completed successfully.
   <div style="display:none;" id="incorrectrange" class="alert alert-danger">
 	
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
-Incorrect range!
+Incorrect range !
   </div><div style="display:none;" id="uploadsuccess" class="alert alert-success">
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
 Completed successfully. <a href="" style="font-size: 14px;" onclick="document.getElementById('showdetails').style.display='block';">Show details.</a>
@@ -199,11 +199,11 @@ Completed with errors. <a href="" style="font-size: 14px;" onclick="document.get
   </div>
   <div style="display:none;" id="headers" class="alert alert-danger">
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
-Incorrect headers!
+Incorrect headers !
   </div>
   <div style="display:none;" id="delimeter" class="alert alert-danger">
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
-Incorrect delimiter!
+Incorrect delimiter !
   </div>
   <div style="display:none;" id="nofileselected" class="alert alert-danger">
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
@@ -403,7 +403,7 @@ Please enter an end SIM number.
                                             </div>
                                         </div>
 										
-                                        <!--<div id="enable_disable" class="tab-pane">
+                                        <div id="enable_disable" class="tab-pane">
                                             <div class="row" style="margin-top: 20px;">
                                                 <div class="form-group col-xs-12">
                                                     <p>Enter the PIN # you wish to enable/disable below:</p>
@@ -423,7 +423,7 @@ Please enter an end SIM number.
                                                     <button type="button" class="btn btn-primary "  style="height:35px!important;float: right!important;line-height:0px!important;" >GO</button>
                                                 </div>      
                                             </div>
-                                        </div>-->
+                                        </div>
                                     </div>
 
 
