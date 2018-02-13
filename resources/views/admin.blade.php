@@ -677,10 +677,12 @@ $.ajax(setting).fail(function (response) {
 	 
    }}
   function deleteRange(){
-	  if ( document.getElementById("delimeter") != null ){document.getElementById("incorrectrange").style.display="none";}
-	  if ( document.getElementById("delimeter") != null ){document.getElementById("operationsuccess").style.display="none";}
-	  if ( document.getElementById("delimeter") != null ){document.getElementById("startrange").style.display="none";}
-	  if ( document.getElementById("delimeter") != null ){document.getElementById("endrange").style.display="none";}
+	  if ( document.getElementById("incorrectrange") != null ){document.getElementById("incorrectrange").style.display="none";}
+	  if ( document.getElementById("operationsuccess1") != null ){document.getElementById("operationsuccess1").style.display="none";}
+	  if ( document.getElementById("operationsuccessn") != null ){document.getElementById("operationsuccessn").style.display="none";}
+	  if ( document.getElementById("operationfail") != null ){document.getElementById("operationfail").style.display="none";}
+	  if ( document.getElementById("startrange") != null ){document.getElementById("startrange").style.display="none";}
+	  if ( document.getElementById("endrange") != null ){document.getElementById("endrange").style.display="none";}
 	 	  
 	  start=document.getElementById('startsim1').value;
 	  end=document.getElementById('endsim1').value;
