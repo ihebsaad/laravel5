@@ -48,10 +48,14 @@ DB::table('sims')->where('enabled', '=', 0)
 		 public function enabledisable($pin,$endis){
 			 if ($endis=="enable"){ $enabled=1;}
 			 if ($endis=="disable"){ $enabled=0;}
-			 
+			 $count=DB::table('sims')->where('pin', '=', $pin)
+                 ->count();
+				 if ($count>0){
 			DB::table('sims')
             ->where('pin', $pin)
             ->update(['enabled' => $enabled]); 
+				 }
+				 return $count;
 		 }
 		 public function deleterange($start,$end){
 	//	echo('start'.$start);
