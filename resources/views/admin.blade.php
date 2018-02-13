@@ -174,12 +174,12 @@ foreach($obj->plans as $plan){
 	<div style="display:none;" id="operationfail" class="alert alert-danger">
 	
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
-There is no enabled SIM in this range!
+There is no enabled SIM in this range !
   </div>
   <div style="display:none;" id="operationsuccess1" class="alert alert-success">
 	
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
-Operation completed successfully. One SIM was deleted
+Operation completed successfully. One SIM was deleted.
   </div>
   <div style="display:none;" id="operationsuccessn" class="alert alert-success">
 	
