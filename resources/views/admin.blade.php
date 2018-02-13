@@ -364,7 +364,7 @@ Please enter an end SIM number.
                                                     <button id="loockupbtn" ng-click="loockup()" disabled  type="button" class="btn btn-primary "  style="height:35px!important;float: right!important;line-height:0px!important;" >Lookup</button>
                                                 </div>      
                                             </div>
-												<div id="searcharea" style="dispaly:block ">     
+												<div id="searcharea" style="dispaly:none; ">     
 												<table id="searchObjResults" style="width:300px;">
 												<tr><th style="color:black;width:150px">PIN</th><th style="color:black;width:150px">SIM</th></tr>
 												<tr ng-repeat="data in DataPins |  filter : search | limitTo:5">
