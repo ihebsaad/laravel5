@@ -710,7 +710,7 @@ $.ajax(setting).done(function (response) {
 	if (response==0){ $("#operationfail").slideDown();}
 	else if (response==1){$("#operationsuccess1").slideDown();}
 	else{
-		document.getElementById("operationsuccessn").innerHTML=document.getElementById("operationsuccessn").innerHTML+" "+response+" SIMs were deleted.";
+		document.getElementById("operationsuccessn").innerHTML="Operation completed successfully.  "+response+" SIMs were deleted.";
 		$("#operationsuccessn").slideDown();}
 		
 });
