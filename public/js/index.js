@@ -389,6 +389,7 @@ $.ajax(settings0).done(function (response) {
    	var settings1 = { "async": true,"crossDomain": true,"url": 'https://iristelx.auth0.com/api/v2/users?q="'+email+'"',"method": "GET","headers": {"content-type": "application/json","authorization": access_token }, "processData": false, "data": ''}
   $.ajax(settings1).done(function (response) {
 	  	console.log('success q email'+response);
+	  	console.log('connection '+response[0].identities[0].connection);
   //console.log(response[0].identities[0].connection);
   if(response.length==0){$("#emailnotfound").slideDown();}
   else if(response[0].identities[0].connection=="Username-Password-Authentication"){
