@@ -171,6 +171,21 @@ foreach($obj->plans as $plan){
                             </div>
 	
                             <div class="form-bottom" id="admins">  
+							<div style="display:none;" id="pinnotfound" class="alert alert-danger">
+	
+    <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+PIN not found !
+  </div>
+  <div style="display:none;" id="pindisabled" class="alert alert-success">
+	
+    <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+PIN disabled successfully.
+  </div>
+  <div style="display:none;" id="pinenabled" class="alert alert-success">
+	
+    <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+PIN enabled successfully.
+  </div>
 	<div style="display:none;" id="operationfail" class="alert alert-danger">
 	
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
@@ -587,10 +602,10 @@ $.ajax(settings).fail(function (response) {console.log(response);})
 
     }
 	   function assignRange(){
-		  document.getElementById("incorrectrange").style.display="none";
-		  document.getElementById("operationsuccess").style.display="none";
-	 	   	  document.getElementById("startrange").style.display="none";
-			   document.getElementById("endrange").style.display="none";
+		if ( document.getElementById("incorrectrange") != null ){  document.getElementById("incorrectrange").style.display="none";}
+		if ( document.getElementById("operationsuccess") != null ){  document.getElementById("operationsuccess").style.display="none";}
+	 if ( document.getElementById("startrange") != null ){	   	  document.getElementById("startrange").style.display="none";}
+	if ( document.getElementById("endrange") != null ){		   document.getElementById("endrange").style.display="none";}
 	  start=document.getElementById('pstartsim').value;
 	  end=document.getElementById('pendsim').value;
 	  
@@ -677,7 +692,10 @@ $.ajax(setting).fail(function (response) {
 	 
    }}
   function enableDisable(){
-	  
+	  if ( document.getElementById("pinnotfound") != null ){document.getElementById("pinnotfound").style.display="none";}
+if ( document.getElementById("pinenabled") != null ){document.getElementById("pinenabled").style.display="none";}
+if ( document.getElementById("pindisabled") != null ){document.getElementById("pindisabled").style.display="none";}
+
 	  pin=document.getElementById('pinnum').value;
 	  var e = document.getElementById("endis");
 var endis = e.options[e.selectedIndex].value;
@@ -697,8 +715,15 @@ console.log('endis'+endis);
   
    
 $.ajax(setting).done(function (response) {
-	console.log('done'+response);
-		
+	console.log(response);
+	if(response==0){  $("#pinnotfound").slideDown();}
+	else{ if (endis=="enable"){
+		$("#pinenabled").slideDown();
+	}
+	else{
+		$("#pindisabled").slideDown();
+	}
+	}	
 });
 
 $.ajax(setting).fail(function (response) {
