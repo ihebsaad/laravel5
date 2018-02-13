@@ -596,7 +596,7 @@ $.ajax(settings).fail(function (response) {console.log(response);})
 	  
 	  if (start==""){	$("#startrange").slideDown();	}
 	  else if (end==""){	$("#endrange").slideDown();	}
-	   else if (parseInt(end) < parseInt(start)){
+	   else if (parseInt(end) <= parseInt(start)){
 		 
 
 	$("#incorrectrange").slideDown();		  
@@ -688,7 +688,7 @@ $.ajax(setting).fail(function (response) {
 	  end=document.getElementById('endsim1').value;
 	  if (start==""){	$("#startrange").slideDown();	}
 	  else if (end==""){	$("#endrange").slideDown();	}
-	   else if (parseInt(end) < parseInt(start)){
+	   else if (parseInt(end) <= parseInt(start)){
 		$("#incorrectrange").slideDown();		  
 	  }
 	  else{
