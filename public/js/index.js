@@ -394,7 +394,7 @@ else{
 
 
 $.ajax(settings0).done(function (response) {
-	
+	console.log('done token'+response);
   var  token=response.access_token;
 
    var  access_token="Bearer "+token;
@@ -412,6 +412,7 @@ $.ajax(settings0).done(function (response) {
 
   }
   $.ajax(settings1).done(function (response) {
+	  	console.log('enter q email'+response);
   //console.log(response[0].identities[0].connection);
   if(response.length==0){$("#emailnotfound").slideDown();}
   else if(response[0].identities[0].connection=="Username-Password-Authentication"){
@@ -431,14 +432,18 @@ var settings = {
 
 
 $.ajax(settings).done(function (response) {
-  
+  console.log('success q email'+response);
   $(".alert-success").slideDown();
-  
+  }
+  $.ajax(settings).done(function (response) {
+  console.log('fail q email'+response);
+
+  }
 });
 	  
   }
   });
-  $.ajax(settings1).fail(function (response) {console.log(response);});
+  $.ajax(settings1).fail(function (response) {console.log('fail token '+response);});
 });
 	
 		
