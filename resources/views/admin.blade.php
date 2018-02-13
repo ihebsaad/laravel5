@@ -670,10 +670,10 @@ $.ajax(setting).fail(function (response) {
 	 
    }}
   function deleteRange(){
-	  document.getElementById("incorrectrange").style.display="none";
-	  document.getElementById("operationsuccess").style.display="none";
-	  document.getElementById("startrange").style.display="none";
-	  document.getElementById("endrange").style.display="none";
+	  if ( document.getElementById("delimeter") != null ){document.getElementById("incorrectrange").style.display="none";}
+	  if ( document.getElementById("delimeter") != null ){document.getElementById("operationsuccess").style.display="none";}
+	  if ( document.getElementById("delimeter") != null ){document.getElementById("startrange").style.display="none";}
+	  if ( document.getElementById("delimeter") != null ){document.getElementById("endrange").style.display="none";}
 	 	  
 	  start=document.getElementById('startsim1').value;
 	  end=document.getElementById('endsim1').value;
@@ -707,13 +707,13 @@ $.ajax(setting).fail(function (response) {
 	  
   }
  function upload() { 
-	 	  document.getElementById("showdetails").style.display="none";
-	 	  document.getElementById("nofileselected").style.display="none";
-	 	  document.getElementById("uploadfail").style.display="none";
-		  document.getElementById("uploadsuccess").style.display="none";
-		  document.getElementById("headers").style.display="none";
-		  document.getElementById("delimeter").style.display="none";
-		  if( document.getElementById("sortpicture").files.length == 0 ){
+	 	  if ( document.getElementById("delimeter") != null ){ document.getElementById("showdetails").style.display="none";}
+          if ( document.getElementById("delimeter") != null ){document.getElementById("nofileselected").style.display="none";}
+	 	  if ( document.getElementById("delimeter") != null ){document.getElementById("uploadfail").style.display="none";}
+		  if ( document.getElementById("delimeter") != null ){document.getElementById("uploadsuccess").style.display="none";}
+		  if ( document.getElementById("delimeter") != null ){document.getElementById("headers").style.display="none";}
+		  if ( document.getElementById("delimeter") != null ){document.getElementById("delimeter").style.display="none";}
+		  if ( document.getElementById("sortpicture").files.length == 0 ){
     $("#nofileselected").slideDown();
 }
 else{
@@ -837,7 +837,11 @@ if ( document.getElementById("uploadfail") != null ){document.getElementById("up
 if ( document.getElementById("uploadsuccess") != null ){document.getElementById("uploadsuccess").style.display="none";}
 if ( document.getElementById("headers") != null ){document.getElementById("headers").style.display="none";}
 if ( document.getElementById("delimeter") != null ){document.getElementById("delimeter").style.display="none";}
-   });
+ 
+
+
+
+ });
 
 
 
@@ -848,13 +852,18 @@ if ( document.getElementById("delimeter") != null ){document.getElementById("del
 
              });
 function removeAlertes(){
-	$(".alert").style.display="none";
-//if ( document.getElementById("nofileselected") != null ){document.getElementById("nofileselected").style.display="none";}
-//if ( document.getElementById("uploadfail") != null ){document.getElementById("uploadfail").style.display="none";}
-//if ( document.getElementById("uploadsuccess") != null ){document.getElementById("uploadsuccess").style.display="none";}
-//if ( document.getElementById("headers") != null ){document.getElementById("headers").style.display="none";}
-//if ( document.getElementById("delimeter") != null ){document.getElementById("delimeter").style.display="none";}
-
+	
+if ( document.getElementById("nofileselected") != null ){document.getElementById("nofileselected").style.display="none";}
+if ( document.getElementById("uploadfail") != null ){document.getElementById("uploadfail").style.display="none";}
+if ( document.getElementById("uploadsuccess") != null ){document.getElementById("uploadsuccess").style.display="none";}
+if ( document.getElementById("headers") != null ){document.getElementById("headers").style.display="none";}
+if ( document.getElementById("delimeter") != null ){document.getElementById("delimeter").style.display="none";}
+if ( document.getElementById("delimeter") != null ){ document.getElementById("incorrectrange").style.display="none";}
+if ( document.getElementById("delimeter") != null ){ document.getElementById("operationsuccess").style.display="none";}
+if ( document.getElementById("delimeter") != null ){ document.getElementById("startrange").style.display="none";}
+if ( document.getElementById("delimeter") != null ){ document.getElementById("endrange").style.display="none";}
+if ( document.getElementById("delimeter") != null ){document.getElementById("showdetails").style.display="none";}
+	 
 }			
         </script>
         
