@@ -300,7 +300,7 @@ Please enter an end SIM number.
                                             </div>
                                             <div class="row">
                                                 <div  class="col-sm-8 form-group">
-                                                    <div class=" scroller  " style="height: 200px; overflow-y: scroll; padding-top: 20px; border: 2px solid LightGray;border-radius: 1rem; width: 100%!important;">
+                                                    <div class=" scroller  " style="height: 200px; overflow-y: scroll;overflow-x: hidden;  padding-top: 20px; border: 2px solid LightGray;border-radius: 1rem; width: 100%!important;">
 	<form id="formcheckbox">                                                       
 													   <ul class="radionc">
 													
