@@ -402,15 +402,15 @@ Please enter an end SIM number.
                                                 </div>
 												  <div class="row">
 												  <div  ng-if="data.enabled == 0">
-												  <div class="col-sm-4 form-group"  >
+												  <div class="col-sm-3 form-group"  >
 														<span style="color:rgb(165, 168, 171);"> Change Status </span></div>	 
-													<div class="col-sm-4 form-group"><button class="btn btn-primary " style="height:35px!important;float: right!important;line-height:0px!important;"ng-click="enable(data.id);" >Enable </button></div>
+													<div class="col-sm-5 form-group"><button class="btn btn-primary " style="height:35px!important;float: right!important;line-height:0px!important;"ng-click="enable(data.id);" >Enable </button></div>
 
 													</div>
 													 <div  ng-if="data.enabled == 1">
-												  <div class="col-sm-4 form-group" style="rgb(165, 168, 171);">
+												  <div class="col-sm-3 form-group" style="rgb(165, 168, 171);">
 														<span style="color:rgb(165, 168, 171);"> Change Status </span> </div>	 
-													<div class="col-sm-4 form-group"><button class="btn btn-primary " style="height:35px!important;float: right!important;line-height:0px!important;" ng-click="disable(data.id);" >Disable </button></div>
+													<div class="col-sm-5 form-group"><button class="btn btn-primary " style="height:35px!important;float: right!important;line-height:0px!important;" ng-click="disable(data.id);" >Disable </button></div>
 
 													</div>
 												   </div>
