@@ -177,7 +177,7 @@ $.ajax(settings).done(function (response) {
 
  });
 $.ajax(settings).fail(function (response) {
-	$(".alert-danger").slideDown();
+	$("#wrongLogin").slideDown();
 console.log('fail2');
 
 });

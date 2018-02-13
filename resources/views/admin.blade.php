@@ -364,7 +364,7 @@ Please enter an end SIM number.
                                                     <button id="loockupbtn" ng-click="loockup()" disabled  type="button" class="btn btn-primary "  style="height:35px!important;float: right!important;line-height:0px!important;" >Lookup</button>
                                                 </div>      
                                             </div>
-												<div id="searcharea" style="dispaly:block ">     
+												<div id="searcharea" style="dispaly:none; ">     
 												<table id="searchObjResults" style="width:300px;">
 												<tr><th style="color:black;width:150px">PIN</th><th style="color:black;width:150px">SIM</th></tr>
 												<tr ng-repeat="data in DataPins |  filter : search | limitTo:5">
@@ -377,26 +377,26 @@ Please enter an end SIM number.
                                             <div id="pinarea"  class="pininfos" style="display:none;margin-top: 10px;padding:15px;background-color:white;color:rgb(0, 111, 185);background-color:white;font-weight:800;border:2px solid black; border-radius: 25px;min-height:250px">
                                                <div ng-repeat="data in DataPins | filter : search | limitTo:1">
 											   <div class="row" >
-                                                    <div class="col-sm-3 form-group">
+                                                    <div class="col-sm-5 form-group">
                                                         <p style="color:rgb(165, 168, 171);">PIN #</p>
                                                     </div>
-                                                    <div class="col-sm-5 form-group">
+                                                    <div class="col-sm-3 form-group">
                                                         <p ng-bind="data.pin"></p>
                                                     </div>
                                                 </div>
                                                 <div class="row" >
-                                                    <div class="col-sm-3 form-group">
+                                                    <div class="col-sm-5 form-group">
                                                         <p  style="color:rgb(165, 168, 171);">SIM Card #</p>
                                                     </div>
-                                                    <div class="col-sm-5 form-group">
+                                                    <div class="col-sm-3 form-group">
                                                         <p ng-bind="data.sim"></p>
                                                     </div>
                                                 </div>
                                                 <div class="row" >
-                                                    <div class="col-sm-3 form-group">
+                                                    <div class="col-sm-5 form-group">
                                                         <p  style="color:rgb(165, 168, 171);">Status</p>
                                                     </div>
-                                                    <div class="col-sm-5 form-group">
+                                                    <div class="col-sm-3 form-group">
                                                         <p><span  ng-if="data.enabled == 1">Enabled</span> <span   ng-if="data.enabled == 0">Disabled</span></p>
                                                     </div>
                                                 </div>
@@ -404,13 +404,13 @@ Please enter an end SIM number.
 												  <div  ng-if="data.enabled == 0">
 												  <div class="col-sm-4 form-group"  >
 														<span style="color:rgb(165, 168, 171);"> Change Status </span></div>	 
-													<div class="col-sm-4 form-group"><button class="btn btn-primary " style="height:35px!important;float: right!important;line-height:0px!important;"ng-click="enable(data.id);" >Enable </button></div>
+													<div class="col-sm-4 form-group"><button class="btn btn-primary " style="padding-left: 25px;padding-right: 25px;height:35px!important;float: right!important;line-height:0px!important;"ng-click="enable(data.id);" >Enable </button></div>
 
 													</div>
 													 <div  ng-if="data.enabled == 1">
 												  <div class="col-sm-4 form-group" style="rgb(165, 168, 171);">
 														<span style="color:rgb(165, 168, 171);"> Change Status </span> </div>	 
-													<div class="col-sm-4 form-group"><button class="btn btn-primary " style="height:35px!important;float: right!important;line-height:0px!important;" ng-click="disable(data.id);" >Disable </button></div>
+													<div class="col-sm-4 form-group"><button class="btn btn-primary " style="padding-left: 25px;padding-right: 25px;height:35px!important;float: right!important;line-height:0px!important;" ng-click="disable(data.id);" >Disable </button></div>
 
 													</div>
 												   </div>
