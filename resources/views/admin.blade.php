@@ -122,15 +122,7 @@ foreach($obj->plans as $plan){
 
                         </div>
                     </div>
- 				  <div class="row">
-					<div class="col-sm-4 col-sm-offset-4 center_div">
-	
- 					<div style="display:none;" class="alert alert-danger">
-					<button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
-						WRONG USERNAME OR PASSWORD.
-					</div>
-					</div>
-					</div>
+ 				 
  <?php if ( !$loggedin ) { echo'
 					<div class="row" style="max-height:400px!important"  id="logindiv">
                         <div class="col-sm-6 col-sm-offset-3 form-box">
@@ -142,7 +134,12 @@ foreach($obj->plans as $plan){
  
                             </div>
                             <div class="form-bottom">
-
+ 	
+ 					<div style="display:none;" id="wrongLogin" class="alert alert-danger">
+					<button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+						WRONG USERNAME OR PASSWORD.
+					</div>
+					
 							<div class="form-group">
 			                    		<label class="sr-only" for="form-username">Username</label>
 			                        	<input type="text" ng-model="formParams.email" id="useremail" name="form-username" placeholder="username" class="form-username form-control" required ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" >
@@ -858,13 +855,15 @@ if ( document.getElementById("uploadfail") != null ){document.getElementById("up
 if ( document.getElementById("uploadsuccess") != null ){document.getElementById("uploadsuccess").style.display="none";}
 if ( document.getElementById("headers") != null ){document.getElementById("headers").style.display="none";}
 if ( document.getElementById("delimeter") != null ){document.getElementById("delimeter").style.display="none";}
-if ( document.getElementById("delimeter") != null ){ document.getElementById("incorrectrange").style.display="none";}
-if ( document.getElementById("delimeter") != null ){ document.getElementById("operationsuccess").style.display="none";}
-if ( document.getElementById("delimeter") != null ){ document.getElementById("startrange").style.display="none";}
-if ( document.getElementById("delimeter") != null ){ document.getElementById("endrange").style.display="none";}
-if ( document.getElementById("delimeter") != null ){document.getElementById("showdetails").style.display="none";}
+if ( document.getElementById("incorrectrange") != null ){ document.getElementById("incorrectrange").style.display="none";}
+if ( document.getElementById("operationsuccess") != null ){ document.getElementById("operationsuccess").style.display="none";}
+if ( document.getElementById("startrange") != null ){ document.getElementById("startrange").style.display="none";}
+if ( document.getElementById("endrange") != null ){ document.getElementById("endrange").style.display="none";}
+if ( document.getElementById("showdetails") != null ){document.getElementById("showdetails").style.display="none";}
+if ( document.getElementById("wrongLogin") != null ){document.getElementById("wrongLogin").style.display="none";}
 	 
-}			
+}
+		
         </script>
         
         <!--[if lt IE 10]>
