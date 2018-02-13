@@ -53,7 +53,7 @@ DB::table('SIM_PLANS')->where('SIM', '<=',$end)
 		//echo('selectedplans'.$selectedplans);
 
 echo 'Start int : ';
-$start=intval($start);
+//$start=intval($start);
 printf ("%.0f",$start );
 
 $arr1 = explode(',',$selectedplans);
