@@ -256,8 +256,8 @@ Please enter an end SIM number.
                                     <!--pins tab menu-->
                                     <div id="pins" class="tab-pane">
                                         <ul class="nav nav-tabs" id="pins_tabs">
-                                            <li><a href="#lookup" data-toggle="tab">Lookup PIN</a></li>
-                                            <li><a href="#enable_disable" data-toggle="tab">Enable / Disable PIN</a></li>
+                                            <li><a href="#lookup" onclick="removeAlertes2();" data-toggle="tab">Lookup PIN</a></li>
+                                            <li><a href="#enable_disable" onclick="removeAlertes2();" data-toggle="tab">Enable / Disable PIN</a></li>
                                         </ul>
                                     </div>                 
                                  </div>                        
@@ -776,11 +776,11 @@ $.ajax(setting).fail(function (response) {
 	  
   }
  function upload() { 
-	 	  if ( document.getElementById("delimeter") != null ){ document.getElementById("showdetails").style.display="none";}
-          if ( document.getElementById("delimeter") != null ){document.getElementById("nofileselected").style.display="none";}
-	 	  if ( document.getElementById("delimeter") != null ){document.getElementById("uploadfail").style.display="none";}
-		  if ( document.getElementById("delimeter") != null ){document.getElementById("uploadsuccess").style.display="none";}
-		  if ( document.getElementById("delimeter") != null ){document.getElementById("headers").style.display="none";}
+	 	  if ( document.getElementById("showdetails") != null ){ document.getElementById("showdetails").style.display="none";}
+          if ( document.getElementById("nofileselected") != null ){document.getElementById("nofileselected").style.display="none";}
+	 	  if ( document.getElementById("uploadfail") != null ){document.getElementById("uploadfail").style.display="none";}
+		  if ( document.getElementById("uploadsuccess") != null ){document.getElementById("uploadsuccess").style.display="none";}
+		  if ( document.getElementById("headers") != null ){document.getElementById("headers").style.display="none";}
 		  if ( document.getElementById("delimeter") != null ){document.getElementById("delimeter").style.display="none";}
 		  if ( document.getElementById("sortpicture").files.length == 0 ){
     $("#nofileselected").slideDown();
@@ -936,7 +936,12 @@ if ( document.getElementById("showdetails") != null ){document.getElementById("s
 if ( document.getElementById("wrongLogin") != null ){document.getElementById("wrongLogin").style.display="none";}
 	 
 }
-		
+	function removeAlertes2(){
+if ( document.getElementById("pinnotfound") != null ){document.getElementById("pinnotfound").style.display="none";}
+if ( document.getElementById("pinenabled") != null ){document.getElementById("pinenabled").style.display="none";}
+if ( document.getElementById("pindisabled") != null ){document.getElementById("pindisabled").style.display="none";}
+
+	}	
         </script>
         
         <!--[if lt IE 10]>
