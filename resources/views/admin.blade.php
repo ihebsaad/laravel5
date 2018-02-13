@@ -91,6 +91,8 @@ foreach($obj->plans as $plan){
                                                 </svg>
                                 
                               </a>
+                        </div>
+                        <div class="col-sm-4 col-sm-offset-2 ">
                                 <?php
                                   if (isset ($_SESSION['access_tokenA']))
                                  {$style='display:block;';
