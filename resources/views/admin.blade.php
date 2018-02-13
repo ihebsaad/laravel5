@@ -225,9 +225,9 @@ Please enter an end SIM number.
                                     <!--sims tab menu-->
                                     <div id="sims" class="tab-pane">
                                         <ul class="nav nav-tabs" id="sims_tabs">
-                                            <li><a href="#add_edit" data-toggle="tab">Add/Edit SIMs</a></li>
-                                            <li><a href="#delete_sims" data-toggle="tab">Delete SIMs</a></li>
-                                            <li><a href="#assign_plans" data-toggle="tab">Assign Plans</a></li>
+                                            <li><a id="tab1" onclick="removeAlertes();" href="#add_edit" data-toggle="tab">Add/Edit SIMs</a></li>
+                                            <li><a id="tab2" onclick="removeAlertes();" href="#delete_sims" data-toggle="tab">Delete SIMs</a></li>
+                                            <li><a id="tab3" onclick="removeAlertes();" href="#assign_plans" data-toggle="tab">Assign Plans</a></li>
                                         </ul>
                                     </div>
                                     
@@ -707,8 +707,8 @@ $.ajax(setting).fail(function (response) {
 	  
   }
  function upload() { 
-	 	     document.getElementById("showdetails").style.display="none";
-	 	     document.getElementById("nofileselected").style.display="none";
+	 	  document.getElementById("showdetails").style.display="none";
+	 	  document.getElementById("nofileselected").style.display="none";
 	 	  document.getElementById("uploadfail").style.display="none";
 		  document.getElementById("uploadsuccess").style.display="none";
 		  document.getElementById("headers").style.display="none";
@@ -832,12 +832,12 @@ else{
                var file = $(this).val();
                var filename = file.split(/[\\\/]/).pop();
                $(".fileuploader").val(filename);
-			   document.getElementById("nofileselected").style.display="none";
-	 	  document.getElementById("uploadfail").style.display="none";
-		  document.getElementById("uploadsuccess").style.display="none";
-		  document.getElementById("headers").style.display="none";
-		  document.getElementById("delimeter").style.display="none";
-            });
+if ( document.getElementById("nofileselected") != null ){document.getElementById("nofileselected").style.display="none";}
+if ( document.getElementById("uploadfail") != null ){document.getElementById("uploadfail").style.display="none";}
+if ( document.getElementById("uploadsuccess") != null ){document.getElementById("uploadsuccess").style.display="none";}
+if ( document.getElementById("headers") != null ){document.getElementById("headers").style.display="none";}
+if ( document.getElementById("delimeter") != null ){document.getElementById("delimeter").style.display="none";}
+   });
 
 
 
@@ -847,7 +847,15 @@ else{
                   $('a[href="#add_edit"]').trigger('click');
 
              });
-			
+function removeAlertes(){
+	$(".alert").style.display="none";
+//if ( document.getElementById("nofileselected") != null ){document.getElementById("nofileselected").style.display="none";}
+//if ( document.getElementById("uploadfail") != null ){document.getElementById("uploadfail").style.display="none";}
+//if ( document.getElementById("uploadsuccess") != null ){document.getElementById("uploadsuccess").style.display="none";}
+//if ( document.getElementById("headers") != null ){document.getElementById("headers").style.display="none";}
+//if ( document.getElementById("delimeter") != null ){document.getElementById("delimeter").style.display="none";}
+
+}			
         </script>
         
         <!--[if lt IE 10]>
