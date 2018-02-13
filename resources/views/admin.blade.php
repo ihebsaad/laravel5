@@ -292,10 +292,10 @@ Please enter an end SIM number.
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-4 form-group">
-                                                    <input ng-model="formParams.pstartsim" type="number" name="pstartsim"  ng-pattern="" placeholder="Start SIM #" ng-minlength="1" id="pstartsim" class="form-control">
+                                                    <input ng-model="formParams.pstartsim" type="text" name="pstartsim"  ng-pattern="" placeholder="Start SIM #" ng-minlength="1" id="pstartsim" class="form-control">
                                                 </div>  
                                                 <div class="col-sm-4 form-group">
-                                                    <input ng-model="formParams.pendsim" type="number" name="pendsim"  ng-pattern="" placeholder="End SIM #" ng-minlength="1" id="pendsim" class="form-control">
+                                                    <input ng-model="formParams.pendsim" type="text" name="pendsim"  ng-pattern="" placeholder="End SIM #" ng-minlength="1" id="pendsim" class="form-control">
                                                 </div> 
 
                                             </div>
