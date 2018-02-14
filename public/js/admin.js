@@ -59,6 +59,27 @@ controller('formCtrl', ['$scope', '$http', function($scope, $http) {
     }
   }
   
+  	 	$scope.checkPin = function () {
+		$scope.ExistePin=false;
+ 		$scope.pin = document.getElementById('startsim0').value;
+ 
+		for(var i = 0; i < ($scope.DataPins.length); i++) {
+			// pin existe
+				if ($scope.DataPins[i].pin == $scope.pin) {
+				console.log('pin exists');
+				$scope.ExistePin=true;
+				break;
+				 }
+			 
+			
+		} 
+		return $scope.ExistePin;
+}
+	 
+
+  
+  
+  
   $scope.resetpins = function() {
 	  	
 	 $http.get('https://enterpriseesolutions.com/pins.php').success(function (responsepins) {
@@ -73,7 +94,8 @@ controller('formCtrl', ['$scope', '$http', function($scope, $http) {
  
 	  $scope.loockup = function () {
 	 if ($scope.loggedin) {
-	  
+		 
+	 alert($scope.checkPin)  ;
   document.getElementById('pinarea').style.display="block";
     document.getElementById('searcharea').style.display="none";
  }else {alert('Please Login to do this action');}	
