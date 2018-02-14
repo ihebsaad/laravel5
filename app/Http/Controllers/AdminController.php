@@ -75,7 +75,7 @@ $arr1 = explode(',',$selectedplans);
 foreach ($arr1 as $key => $value){
 		
 	   for ($i=$startI; $i <= $endI;$i++) {
-$table1 = App\SIM_PLANS::updateOrCreate( ['planCode' => $value ,'SIM'=>$sim]);
+$table1 = App\SIM_PLANS::updateOrCreate( ['planCode' => $value ,'SIM'=>$i]);
  $table1 ->save();
 }
 	
