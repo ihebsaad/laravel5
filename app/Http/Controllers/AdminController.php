@@ -73,7 +73,7 @@ DB::table('sims')->where('enabled', '=', 0)
   		echo 'startI : '. $startI .'</br> End I : ' .$endI .'</br>';
   		echo 'start I + 10 : '.  $startI->add($b)  .'</br>' ;
 		$i=Decimal::fromString($startI);
-		
+		foreach ($arr1 as $key => $value){
 		while ($i < $endI)
 		{
 			 $i=$i->add($b);
@@ -81,6 +81,7 @@ DB::table('sims')->where('enabled', '=', 0)
 $table1 = App\SIM_PLANS::updateOrCreate( ['planCode' => $value ,'SIM'=>$i]);
  $table1 ->save();
 echo $i;		echo '</br>' ;
+}
 }
 //$arr1 = explode(',',$selectedplans);
 //print_r($arr1);
