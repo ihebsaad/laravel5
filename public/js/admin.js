@@ -73,6 +73,7 @@ controller('formCtrl', ['$scope', '$http', function($scope, $http) {
  
 	  $scope.loockup = function () {
 	 if ($scope.loggedin) {
+	  alert('tesst');
 	  alert( $scope.DataPins.pin);
   document.getElementById('pinarea').style.display="block";
     document.getElementById('searcharea').style.display="none";
