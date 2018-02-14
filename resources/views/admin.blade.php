@@ -117,7 +117,7 @@ foreach($obj->plans as $plan){
                       
                     </div>
                     <div class="row">
-                        <div class="col-sm-8 col-sm-offset-2 ">
+                        <div class="col-sm-8 col-sm-offset-2 " id="divlogo">
                             <a href="#" class="navbar-brand" style=" padding-bottom: 0px; padding-top: 0px; ">
                                 <svg xmlns="http://www.w3.org/2000/svg" id="logo" viewBox="0 0 73.5 21.3" class="logo-small">
                                                     <style>.st-blue{fill:#fff}.st1{fill:#fff}</style>
