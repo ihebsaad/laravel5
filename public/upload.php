@@ -142,7 +142,7 @@ foreach($obj->simCards as $sim){
 							    }
 								else if(  substr_count($response2,'updated0') > 0){
 									$details4=' Line '. $i .' : Already exists.'. $err2 ;array_push($arrayDetails,$details4 );
-						
+						echo($response2);
 								}
 							   else
 							    {
