@@ -141,16 +141,16 @@ foreach($obj->simCards as $sim){
 						
 							    }
 								else if(  substr_count($response2,'updated0') > 0){
-									$details4=' Line '. $i .' : Already exists.'. $err2 ;array_push($arrayDetails,$details4 );
+									$details4=' Line '. $i .' : SIM updated.'. $err2 ;array_push($arrayDetails,$details4 );
 			
 								}
 								else if(  substr_count($response2,'updated1') > 0){
-									$details4=' Line '. $i .' : SIM updated.'. $err2 ;array_push($arrayDetails,$details4 );
+									$details4=' Line '. $i .' : Already exists.'. $err2 ;array_push($arrayDetails,$details4 );
 			
 								}
 							   else
 							    {
-										
+								
 									$details4=' Line '. $i . ' : stored.' ;array_push($arrayDetails,$details4 );
 							    }
 						}
