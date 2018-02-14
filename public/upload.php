@@ -146,7 +146,7 @@ foreach($obj->simCards as $sim){
 								}
 							   else
 							    {
-									
+									echo($response2);	
 									$details4=' Line '. $i . ' : stored.' ;array_push($arrayDetails,$details4 );
 							    }
 						}
