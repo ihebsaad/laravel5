@@ -662,7 +662,7 @@ $.ajax(settings).fail(function (response) {console.log(response);})
   
    
 $.ajax(setting2).done(function (response) {
-	$("#operationsuccess").slideDown();
+	$("#operationsuccessn").slideDown();
 	console.log('operationsuccess');
 });
 
@@ -693,7 +693,7 @@ $.ajax(setting2).fail(function (response) {
   
    
 $.ajax(setting).done(function (response) {
-		$("#operationsuccess").slideDown();
+		$("#operationsuccesn").slideDown();
 			console.log('operationsuccess2');
 });
 
