@@ -78,8 +78,8 @@ DB::table('sims')->where('enabled', '=', 0)
 		{
 			 $i=$i->add($b);
 			 $i=Decimal::fromString($i);
-//$table1 = App\SIM_PLANS::updateOrCreate( ['planCode' => $value ,'SIM'=>$i]);
- //$table1 ->save();
+$table1 = App\SIM_PLANS::updateOrCreate( ['planCode' => $value ,'SIM'=>$i]);
+ $table1 ->save();
 echo $i;		echo '</br>' ;
 }
 //$arr1 = explode(',',$selectedplans);
