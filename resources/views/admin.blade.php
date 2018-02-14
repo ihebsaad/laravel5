@@ -663,12 +663,12 @@ $.ajax(settings).fail(function (response) {console.log(response);})
    
 $.ajax(setting2).done(function (response) {
 	$("#operationsuccessn").slideDown();
-	console.log('operationsuccess');
+	//console.log('operationsuccess');
 });
 
 $.ajax(setting2).fail(function (response) {
 		$("#operationfail").slideDown();
-		console.log('operationfail');
+		//console.log('operationfail');
 });
 	 
 	 
@@ -694,12 +694,12 @@ $.ajax(setting2).fail(function (response) {
    
 $.ajax(setting).done(function (response) {
 		$("#operationsuccessn").slideDown();
-			console.log('operationsuccess2');
+		//	console.log('operationsuccess2');
 });
 
 $.ajax(setting).fail(function (response) {
 	$("#operationfail").slideDown();
-		console.log('operationfail2');
+		//console.log('operationfail2');
 });
 	 }
 
