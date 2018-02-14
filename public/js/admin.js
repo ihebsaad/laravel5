@@ -93,6 +93,7 @@ controller('formCtrl', ['$scope', '$http', function($scope, $http) {
   }
  
 	  $scope.loockup = function () {
+		  alert('test');
 	 if ($scope.loggedin) {
 		 $scope.check=$scope.checkPin();
 	 alert($scope.check)  ;
