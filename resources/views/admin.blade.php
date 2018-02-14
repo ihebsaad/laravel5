@@ -836,7 +836,7 @@ else{
 				       || ((response.indexOf('Non-existent') > -1)) 
 				       || ((response.indexOf('without') > -1))     
 				       || ((response.indexOf('Invalid') > -1))     
-				       || ((response.indexOf('invalid') > -1))     
+				       || ((response.indexOf('Already') > -1))     
 
 					   )
 				   {
