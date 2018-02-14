@@ -129,7 +129,7 @@ foreach($obj->simCards as $sim){
 					$err2 = curl_error($curl2);
 
 					curl_close($curl2);
-	echo('response'.$response2);
+
 					if ($err2) {
 						//echo('error'.$err2);
 						$details4=' Line '. $i .' : Not stored.'. $err2 ;array_push($arrayDetails,$details4 );
@@ -142,11 +142,11 @@ foreach($obj->simCards as $sim){
 							    }
 								else if(  substr_count($response2,'updated0') > 0){
 									$details4=' Line '. $i .' : Already exists.'. $err2 ;array_push($arrayDetails,$details4 );
-						echo('response2'.$response2);
+			
 								}
 							   else
 							    {
-									echo('response3'.$response2);	
+										
 									$details4=' Line '. $i . ' : stored.' ;array_push($arrayDetails,$details4 );
 							    }
 						}
