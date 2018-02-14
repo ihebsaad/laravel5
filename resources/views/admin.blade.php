@@ -663,6 +663,7 @@ $.ajax(settings).fail(function (response) {console.log(response);})
    
 $.ajax(setting2).done(function (response) {
 	$("#operationsuccess").slideDown();
+	console.log('operationsuccess');
 });
 
 $.ajax(setting2).fail(function (response) {
