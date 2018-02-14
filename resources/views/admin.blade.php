@@ -82,11 +82,10 @@ foreach($obj->plans as $plan){
             <div style="padding-top:30px">
                 <div class="container">
                     <div class="row">
-                      <div class="column col-xs-9">
-                         
+                      <div class="column col-xs-6">
                       </div>    
                       <!-- sidebar -->
-                      <div class="column col-xs-3" id="sidebar">
+                      <div class="column col-xs-5" id="sidebar">
                                 <?php
                                   if (isset ($_SESSION['access_tokenA']))
                                  {$style='display:block;';
