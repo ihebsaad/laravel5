@@ -626,6 +626,7 @@ $.ajax(settings).fail(function (response) {console.log(response);})
 	$("#incorrectrange").slideDown();		  
 	  }
    else{
+	   console.log('correct range');
 	  /* var inputs = document.getElementById("formcheckbox").elements;
     var count  = 0;
     for (var i = 0; i < inputs.length; i++) {
