@@ -69,14 +69,18 @@ DB::table('sims')->where('enabled', '=', 0)
   // convert String to long number
   $startI= Decimal::fromString($start);
   $endI= Decimal::fromString($end);
-  $b=Decimal::fromInteger(10);
+  $b=Decimal::fromInteger(1);
   		echo 'startI : '. $startI .'</br> End I : ' .$endI .'</br>';
   		echo 'start I + 10 : '.  $startI->add($b)  .'</br>' ;
-	/*   for ($i=$startI; $i <= $endI;$i++) {
+		$i=Decimal::fromString($startI);
+		while ($i < Decimal::fromString($end))
+		{
+			 $i->add($b);
+			 
 //$table1 = App\SIM_PLANS::updateOrCreate( ['planCode' => $value ,'SIM'=>$i]);
  //$table1 ->save();
-echo $i;
-}*/
+echo $i;		echo '</br>' ;
+}
 //$arr1 = explode(',',$selectedplans);
 //print_r($arr1);
 //foreach ($arr1 as $key => $value){
