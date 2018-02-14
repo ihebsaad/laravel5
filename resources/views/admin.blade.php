@@ -610,6 +610,7 @@ $.ajax(settings).fail(function (response) {console.log(response);})
 
     }
 	   function assignRange(){
+		   console.log('end'+parseInt(end));
 		if ( document.getElementById("incorrectrange") != null ){  document.getElementById("incorrectrange").style.display="none";}
 		if ( document.getElementById("operationsuccess") != null ){  document.getElementById("operationsuccess").style.display="none";}
 	 if ( document.getElementById("startrange") != null ){	   	  document.getElementById("startrange").style.display="none";}
@@ -664,7 +665,7 @@ $.ajax(setting2).done(function (response) {
 });
 
 $.ajax(setting2).fail(function (response) {
-	alert('fail'+ response);
+		$("#operationfail").slideDown();
 });
 	 
 	 
