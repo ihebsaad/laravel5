@@ -69,16 +69,21 @@ DB::table('sims')->where('enabled', '=', 0)
   // convert String to long number
   $startI= Decimal::fromString($start);
   $endI= Decimal::fromString($end);
-  
-$arr1 = explode(',',$selectedplans);
-//print_r($arr1);
-foreach ($arr1 as $key => $value){
-		
+  		
 	   for ($i=$startI; $i <= $endI;$i++) {
 //$table1 = App\SIM_PLANS::updateOrCreate( ['planCode' => $value ,'SIM'=>$i]);
  //$table1 ->save();
 echo $i;
 }
+//$arr1 = explode(',',$selectedplans);
+//print_r($arr1);
+//foreach ($arr1 as $key => $value){
+		
+	 //  for ($i=$startI; $i <= $endI;$i++) {
+//$table1 = App\SIM_PLANS::updateOrCreate( ['planCode' => $value ,'SIM'=>$i]);
+ //$table1 ->save();
+//echo $i;
+//}
 	
 	
 	}
