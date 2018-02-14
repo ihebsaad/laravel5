@@ -74,9 +74,9 @@ DB::table('sims')->where('enabled', '=', 0)
   		echo 'start I + 10 : '.  $startI->add($b)  .'</br>' ;
 		$i=Decimal::fromString($startI);
 		
-		while ($i < Decimal::fromString($endI))
+		while ($i < endI)
 		{
-			 $i->add($b);
+			 $i=$i->add($b);
 			 $i=Decimal::fromString($i);
 //$table1 = App\SIM_PLANS::updateOrCreate( ['planCode' => $value ,'SIM'=>$i]);
  //$table1 ->save();
