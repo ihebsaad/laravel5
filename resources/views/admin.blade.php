@@ -668,6 +668,7 @@ $.ajax(setting2).done(function (response) {
 
 $.ajax(setting2).fail(function (response) {
 		$("#operationfail").slideDown();
+		console.log('operationfail');
 });
 	 
 	 
@@ -693,10 +694,12 @@ $.ajax(setting2).fail(function (response) {
    
 $.ajax(setting).done(function (response) {
 		$("#operationsuccess").slideDown();
+			console.log('operationsuccess2');
 });
 
 $.ajax(setting).fail(function (response) {
-	alert('fail'+ response);
+	$("#operationfail").slideDown();
+		console.log('operationfail2');
 });
 	 }
 
