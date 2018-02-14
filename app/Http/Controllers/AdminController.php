@@ -74,7 +74,7 @@ DB::table('sims')->where('enabled', '=', 0)
   		echo 'start I + 10 : '.  $startI->add($b)  .'</br>' ;
 		$i=Decimal::fromString($startI);
 		
-		while ($i < endI)
+		while ($i < $endI)
 		{
 			 $i=$i->add($b);
 			 $i=Decimal::fromString($i);
