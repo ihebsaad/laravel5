@@ -65,7 +65,7 @@ DB::table('sims')->where('enabled', '=', 0)
 	}
  public function insertOrUpdate($start,$end,$selectedplans){
   echo('start string'.$start).'</br>';
-  
+  $arr1 = explode(',',$selectedplans);
   // convert String to long number
   $startI= Decimal::fromString($start);
   $endI= Decimal::fromString($end);
