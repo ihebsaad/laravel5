@@ -610,14 +610,14 @@ $.ajax(settings).fail(function (response) {console.log(response);})
 
     }
 	   function assignRange(){
-		   console.log('end'+parseInt(end));
+		
 		if ( document.getElementById("incorrectrange") != null ){  document.getElementById("incorrectrange").style.display="none";}
 		if ( document.getElementById("operationsuccess") != null ){  document.getElementById("operationsuccess").style.display="none";}
 	 if ( document.getElementById("startrange") != null ){	   	  document.getElementById("startrange").style.display="none";}
 	if ( document.getElementById("endrange") != null ){		   document.getElementById("endrange").style.display="none";}
 	  start=document.getElementById('pstartsim').value;
 	  end=document.getElementById('pendsim').value;
-	  
+	     console.log('end'+parseInt(end));
 	  if (start==""){	$("#startrange").slideDown();	}
 	  else if (end==""){	$("#endrange").slideDown();	}
 	   else if (parseInt(end) <= parseInt(start)){
