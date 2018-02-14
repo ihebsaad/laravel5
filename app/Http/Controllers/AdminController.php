@@ -28,17 +28,21 @@ class AdminController extends Controller
       
   } 
     public function insert($sim,$pin,$enabled){
-		$count=DB::table('sims')->where('enabled', '!=', $enabled)
+		$count=DB::table('sims')->where('enabled', '=', $enabled)
                  ->where('sim', '=',$sim)
                  ->where('pin', '=', $pin)
                  ->count();
-				 if ($count <0){
+				 $count2=DB::table('sims')->where('enabled', '!=', $enabled)
+                 ->where('sim', '=',$sim)
+                 ->where('pin', '=', $pin)
+                 ->count();
+				 if ($count <0) && ($count2 <0){
 		DB::table('sims')->insert(
     ['sim' => $sim, 'pin' => $pin,'enabled'=>$enabled]
 );
 				 }
 				 
-return 'updated'.$count;
+return 'exist'.$count.'updated'.$count2;
 	}
 	 public function delete($start,$end){
 		//echo('start'.$start);
