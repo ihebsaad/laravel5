@@ -94,8 +94,8 @@ controller('formCtrl', ['$scope', '$http', function($scope, $http) {
  
 	  $scope.loockup = function () {
 	 if ($scope.loggedin) {
-		 
-	 alert($scope.checkPin)  ;
+		 $scope.check=$scope.checkPin();
+	 alert($scope.check)  ;
   document.getElementById('pinarea').style.display="block";
     document.getElementById('searcharea').style.display="none";
  }else {alert('Please Login to do this action');}	
