@@ -149,7 +149,7 @@ foreach($obj->plans as $plan){
 					
 							<div class="form-group">
 			                    		<label class="sr-only" for="form-username">Username</label>
-			                        	<input type="text" ng-model="formParams.email" id="useremail" name="form-username" placeholder="username" class="form-username form-control" required ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" >
+			                        	<input type="text" ng-model="formParams.email" id="useremail" name="form-username" placeholder="username" class="form-username form-control" required  >
 			                        </div>
 			                        <div class="form-group">
 			                        	<label class="sr-only" for="form-password">Password</label>
