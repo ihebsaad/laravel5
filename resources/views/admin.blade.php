@@ -617,10 +617,10 @@ $.ajax(settings).fail(function (response) {console.log(response);})
 	if ( document.getElementById("endrange") != null ){		   document.getElementById("endrange").style.display="none";}
 	  start=document.getElementById('pstartsim').value;
 	  end=document.getElementById('pendsim').value;
-	     console.log('end'+parseInt(end));
+	     //console.log('end'+parseInt(end));
 	  if (start==""){	$("#startrange").slideDown();	}
 	  else if (end==""){	$("#endrange").slideDown();	}
-	   else if (parseInt(end) <= parseInt(start)){
+	   else if (end <= start){
 		 
 
 	$("#incorrectrange").slideDown();		  
