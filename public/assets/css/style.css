@@ -314,4 +314,15 @@ img { max-width: 100%; }
   }
   #divlogo {margin-left: 30px;}
   }
+  /* common inputs style */
+input#pstartsim, input#pendsim, input#startsim1, input#endsim1, input#startsim0, input#pinnum{
+    height: 35px;
+    padding: 8px;
+    background: #f8f8f8;
+    border: 3px solid #ddd;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 50px;
+}
 			
