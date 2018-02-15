@@ -792,7 +792,8 @@ $.ajax(setting).fail(function (response) {
 	  end=document.getElementById('endsim1').value;
 	  if (start==""){	$("#startrange").slideDown();	}
 	  else if (end==""){	$("#endrange").slideDown();	}
-	   else if (parseInt(end) <= parseInt(start)){
+	   //else if (parseInt(end) <= parseInt(start)){
+	   else if (end <= start){
 		$("#incorrectrange").slideDown();		  
 	  }
 	  else{
