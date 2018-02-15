@@ -93,12 +93,16 @@ controller('formCtrl', ['$scope', '$http', function($scope, $http) {
   }
  
 	  $scope.loockup = function () {
-		  alert('test');
-	 if ($scope.loggedin) {
+ 	 if ($scope.loggedin) {
 		 $scope.check=$scope.checkPin();
-	 alert($scope.check)  ;
+	 if ($scope.check==false)
+	 { 
+ $("#pinnotfound").slideDown();
+	}else{
   document.getElementById('pinarea').style.display="block";
+    document.getElementById('pinnotfound').style.display="none";
     document.getElementById('searcharea').style.display="none";
+	 }
  }else {alert('Please Login to do this action');}	
 
   };	
