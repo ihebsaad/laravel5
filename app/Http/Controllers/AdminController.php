@@ -103,12 +103,12 @@ DB::table('sims')->where('enabled', '=', 0)
 		foreach ($arr1 as $key => $value){
 		while ($i < $endI)
 		{
-			 
+echo $i;		echo '</br>' ;			 
 $table1 = App\SIM_PLANS::updateOrCreate( ['planCode' => $value ,'SIM'=>$i]);
  $table1 ->save();
  $i=$i->add($b);
 			 $i=Decimal::fromString($i);
-echo $i;		echo '</br>' ;
+
 }
 }
 	}
