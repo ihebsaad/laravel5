@@ -177,6 +177,18 @@ foreach($obj->plans as $plan){
  
                             </div>
                             <div class="form-bottom">
+							   <div style="display:none;" id="Ssent" class="alert alert-success">
+    <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+  We've just sent you an email to reset your password.
+  </div>
+     <div style="display:none;" id="emailnotfound" class="alert alert-danger">
+    <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+  Email not found.
+  </div>
+  <div style="display:none;" id="Wmailrequired" class="alert alert-warning">
+    <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+  The email is required.
+  </div>
                               <div class="form-group"> 
                                 <label class="sr-only" for="form-emailrp">Email</label> 
                                 <input type="text" id="useremailrp" name="form-emailrp" placeholder="email" class="form-emailrp form-control" required  > 
