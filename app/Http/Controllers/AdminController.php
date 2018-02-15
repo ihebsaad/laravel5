@@ -28,7 +28,23 @@ class AdminController extends Controller
       
   } 
     public function insert($sim,$pin,$enabled){
-		$count=DB::table('sims')->where('enabled', '=', $enabled)
+		$count=DB::table('sims')
+                 ->where('sim', '=',$sim)
+                 ->count();
+				 
+				 if (($count <0) ){
+		DB::table('sims')->insert(
+    ['sim' => $sim, 'pin' => $pin,'enabled'=>$enabled]
+);
+				 }
+				 else{
+					 DB::table('sims')
+            ->where('sim', $sim)
+            ->update(['enabled' => $enabled,'pin'=>$pin]); 
+				 }
+				 
+return 'updated'.$count;
+/*$count=DB::table('sims')->where('enabled', '=', $enabled)
                  ->where('sim', '=',$sim)
                  ->where('pin', '=', $pin)
                  ->count();
@@ -42,7 +58,7 @@ class AdminController extends Controller
 );
 				 }
 				 
-return 'exist'.$count.'updated'.$count2;
+return 'exist'.$count.'updated'.$count2;*/
 	}
 	 public function delete($start,$end){
 		//echo('start'.$start);
@@ -94,46 +110,10 @@ $table1 = App\SIM_PLANS::updateOrCreate( ['planCode' => $value ,'SIM'=>$i]);
 echo $i;		echo '</br>' ;
 }
 }
-//$arr1 = explode(',',$selectedplans);
-//print_r($arr1);
-//foreach ($arr1 as $key => $value){
-		
-	 //  for ($i=$startI; $i <= $endI;$i++) {
-//$table1 = App\SIM_PLANS::updateOrCreate( ['planCode' => $value ,'SIM'=>$i]);
- //$table1 ->save();
-//echo $i;
-//}
-	
-	
 	}
- // echo (' plan: '.$value);
- // $istart=intval($start);
- //$iend=intval($end);
- /// echo ('start'.$istart);
-  //echo ('iend'.$iend);
-// echo ('start : </br>'.number_format($start, 2, '', ''));	   echo '</br>';
-
- //number_format($end, 2, '', '');
- 
-  /* for ($i=$start; $i <= $end;$i++) {*/
-	 //  echo $i;
-	   	  // echo sprintf('%8d', $i);
-	
- //  echo ' SIM= '.str_pad($i, strlen($start), "0", STR_PAD_LEFT);
- //$sim=str_pad($i, strlen($start), "0", STR_PAD_LEFT);
-   
- //$table1 = App\SIM_PLANS::updateOrCreate( ['planCode' => $value ,'SIM'=>$sim]);
- // $table1 =  App\SIM_PLANS::firstOrNew(['planCode' => $value ,'SIM'=>$i]); // your data
-// make your affectation to the $table1
-//$table1 ->save();
-/*}*/
-
-	/**/
-	//}
 	
     public function enable($id)
 	{
-	//	$id= substr($id,2,strlen($id));
 	DB::table('sims')
             ->where('id', $id)
             ->update(['enabled' => 1]);
@@ -145,7 +125,7 @@ echo $i;		echo '</br>' ;
 		
     public function disable($id)
 	{
-	//	$id= substr($id,2,strlen($id));
+	
 	DB::table('sims')
             ->where('id', $id)
             ->update(['enabled' => 0]);

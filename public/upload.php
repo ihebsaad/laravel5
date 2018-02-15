@@ -144,10 +144,10 @@ foreach($obj->simCards as $sim){
 									$details4=' Line '. $i .' : SIM updated.'. $err2 ;array_push($arrayDetails,$details4 );
 			
 								}
-								else if(  substr_count($response2,'exist1') > 0){
+								/*else if(  substr_count($response2,'exist1') > 0){
 									$details4=' Line '. $i .' : Already exists.'. $err2 ;array_push($arrayDetails,$details4 );
 			
-								}
+								}*/
 							   else
 							    {
 								
