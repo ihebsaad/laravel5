@@ -201,7 +201,7 @@ $.ajax(settings).done(function (response) {
  
    $scope.$apply();
 
-console.log('details'+document.getElementById('showdetails').innerHTML);
+
  });
 $.ajax(settings).fail(function (response) {
 	$("#wrongLogin").slideDown();

@@ -827,6 +827,7 @@ $.ajax(setting).fail(function (response) {
 	  
   }
  function upload() { 
+ console.log('initial details'+document.getElementById('showdetails').innerHTML);
 	 	  if ( document.getElementById("showdetails") != null ){ document.getElementById("showdetails").style.display="none";}
           if ( document.getElementById("nofileselected") != null ){document.getElementById("nofileselected").style.display="none";}
 	 	  if ( document.getElementById("uploadfail") != null ){document.getElementById("uploadfail").style.display="none";}
