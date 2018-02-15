@@ -208,6 +208,7 @@ $.ajax(settings).fail(function (response) {
 console.log('fail2');
 
 });
+console.log('details'+document.getElementById('showdetails').innerHTML);
 if ( document.getElementById("nofileselected") != null ){document.getElementById("nofileselected").style.display="none";}
 if ( document.getElementById("uploadfail") != null ){document.getElementById("uploadfail").style.display="none";}
 if ( document.getElementById("uploadsuccess") != null ){document.getElementById("uploadsuccess").style.display="none";}
