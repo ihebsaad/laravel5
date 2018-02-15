@@ -99,8 +99,9 @@ DB::table('sims')->where('enabled', '=', 0)
   $b=Decimal::fromInteger(1);
   		echo 'startI : '. $startI .'</br> End I : ' .$endI .'</br>';
   		echo 'start I + 10 : '.  $startI->add($b)  .'</br>' ;
-		$i=Decimal::fromString($startI);
+		
 		foreach ($arr1 as $key => $value){
+			$i=Decimal::fromString($startI);
 			echo $value;		echo '</br>' ;	
 		while ($i <= $endI)
 		{
