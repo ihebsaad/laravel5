@@ -187,13 +187,7 @@ $.ajax(settings).done(function (response) {
 	$scope.showuserinfo(access_token);
 //$scope.next('stageLouckup');
 //$scope.$apply();
- document.getElementById('logindiv').style.display="none";
- document.getElementById('admindiv').style.display="block";
- 
-   $http.get('https://enterpriseesolutions.com/pins.php').success(function (responsepins) {
-             $scope.DataPins = responsepins ;
-          });
-		  
+
  
 
 
@@ -204,6 +198,13 @@ console.log('fail2');
 
 });
 if(done==true){
+	 document.getElementById('logindiv').style.display="none";
+ document.getElementById('admindiv').style.display="block";
+ 
+   $http.get('https://enterpriseesolutions.com/pins.php').success(function (responsepins) {
+             $scope.DataPins = responsepins ;
+          });
+		  
 	 $("#admindiv").animate({height: "100px"});
    $("#admindiv").animate({height: "100px"});
    $("#admindiv").animate({height: "555px"});
