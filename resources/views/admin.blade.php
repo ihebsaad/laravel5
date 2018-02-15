@@ -179,14 +179,14 @@ foreach($obj->plans as $plan){
                             <div class="form-bottom">
                               <div class="form-group"> 
                                 <label class="sr-only" for="form-emailrp">Email</label> 
-                                <input type="text" ng-model="formParams.emailrp" id="useremailrp" name="form-emailrp" placeholder="email" class="form-emailrp form-control" required  > 
+                                <input type="email" id="useremailrp" name="form-emailrp" placeholder="email" class="form-emailrp form-control" required  > 
                               </div>
                               <div class="row"> 
                                 <div class="col-sm-6 "> 
                                   <a href="#" onclick="blogin();" >Back</a>
                                 </div> 
                                 <div class="col-sm-3 col-sm-offset-3"> 
-                                  <button ng-disabled=" FormActivate.$invalid" type="submit" class="btn" ng-click="resetpassword();">Reset</button> 
+                                  <button type="submit" class="btn" ng-click="resetpassword();">Reset</button> 
                                 </div> 
                               </div>
 
