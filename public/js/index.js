@@ -297,7 +297,7 @@ switch (parseInt(province)) {
 					}
   
  	}	
-	console.log(document.getElementById('showdetails').innerHTML);
+	console.log('details'+document.getElementById('showdetails').innerHTML);
       $http.get('https://gqnchpomjprsrfglg-mock.stoplight-proxy.io/plans').success(function (response2) {
             $scope.myData = response2;
         });
