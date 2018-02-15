@@ -164,7 +164,7 @@ var settings = {
   }
 
 $.ajax(settings).done(function (response) {
-	done=true;
+
     var newURL = window.location.protocol + "//" + window.location.host;
 	if(window.location.host=="127.0.0.1")
 	{newURL="http://127.0.0.1/laravel5/";}
@@ -187,8 +187,21 @@ $.ajax(settings).done(function (response) {
 	$scope.showuserinfo(access_token);
 //$scope.next('stageLouckup');
 //$scope.$apply();
-
+ document.getElementById('logindiv').style.display="none";
+ document.getElementById('admindiv').style.display="block";
  
+   $http.get('https://enterpriseesolutions.com/pins.php').success(function (responsepins) {
+             $scope.DataPins = responsepins ;
+          });
+		  
+  $("#admindiv").animate({height: "100px"});
+   $("#admindiv").animate({height: "100px"});
+   $("#admindiv").animate({height: "555px"});
+   $("#admindiv").animate({height: "532"});
+   
+   $scope.loggedin=true;
+ 
+   $scope.$apply();
 
 
  });
@@ -197,23 +210,7 @@ $.ajax(settings).fail(function (response) {
 console.log('fail2');
 
 });
-if(done==true){
-	 document.getElementById('logindiv').style.display="none";
- document.getElementById('admindiv').style.display="block";
- 
-   $http.get('https://enterpriseesolutions.com/pins.php').success(function (responsepins) {
-             $scope.DataPins = responsepins ;
-          });
-		  
-	 $("#admindiv").animate({height: "100px"});
-   $("#admindiv").animate({height: "100px"});
-   $("#admindiv").animate({height: "555px"});
-   $("#admindiv").animate({height: "532"});
-   
-   $scope.loggedin=true;
- 
-   $scope.$apply();
-}
+
 if ( document.getElementById("nofileselected") != null ){document.getElementById("nofileselected").style.display="none";}
 if ( document.getElementById("uploadfail") != null ){document.getElementById("uploadfail").style.display="none";}
 if ( document.getElementById("uploadsuccess") != null ){document.getElementById("uploadsuccess").style.display="none";}
