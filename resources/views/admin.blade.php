@@ -107,9 +107,8 @@ foreach($obj->plans as $plan){
                                 echo'
                                 <ul class="nav navbar-nav navbar-right" id="logoutbtn" style="'.$style.'">
                                 <li><div class="row">
-                                <div class="col-sm-10" style="margin-top:-18px;"><br><B style="font-size:12px;margin-top:20px;  " ><span id="userinfo0" style="font-weight:bold;font-size:16px;color: #ffffff;">'.$value1.'</span><span style="font-size:16px;font-weight:normal;color: #ffffff;" id="userinfo">'.$value2.'</span></B> </div>
+                                <div class="col-sm-10" style="margin-top:-18px;"><br><B style="font-size:12px;margin-top:20px;  " ><span id="userinfo0" style="font-weight:bold;font-size:16px;color: #ffffff;text-shadow:1px 1px black">'.$value1.'</span><span style="font-size:16px;font-weight:normal;color: #ffffff;text-shadow:1px 1px black" id="userinfo">'.$value2.'</span></B> </div>
                                 <div class="logout col-sm-2" ><a id="logoutb" href="#" class="btn btn-link-2 " onclick="logout();" style="padding:10px!important;height:40px!important;font-weight:bold!important;"> <span   class="glyphicon glyphicon-log-out"></span> Log out</a></div></div></li>
-
                                 </ul>';
                                 ?>
 
