@@ -167,7 +167,33 @@ foreach($obj->plans as $plan){
 									</div>
                         </div>
 					</div> ' 	;} ?>
+<!-- password reset div -->
+<div class="row" style="max-height:400px!important;display:none;"  id="resetpwdiv">
+                        <div class="col-sm-6 col-sm-offset-3 form-box">
+                          <div class="form-top">
+                            <div class="form-top-left">
+                              <h3>Forgot <strong>Password</strong></h3>
+                            </div>
+ 
+                            </div>
+                            <div class="form-bottom">
+                              <div class="form-group"> 
+                                <label class="sr-only" for="form-emailrp">Email</label> 
+                                <input type="text" ng-model="formParams.emailrp" id="useremailrp" name="form-emailrp" placeholder="email" class="form-emailrp form-control" required  > 
+                              </div>
+                              <div class="row"> 
+                                <div class="col-sm-6 "> 
+                                  <a href="#" onclick="blogin();" >Back</a>
+                                </div> 
+                                <div class="col-sm-3 col-sm-offset-3"> 
+                                  <button ng-disabled=" FormActivate.$invalid" type="submit" class="btn" ng-click="resetpassword();">Reset</button> 
+                                </div> 
+                              </div>
 
+                  </div>
+                        </div>
+          </div>
+<!-- end password reset -->
                  <div id="admindiv" class="row" style='<?php echo $style; ?>'>
                         <div class="col-sm-6 col-sm-offset-3 form-box">
                         	<div class="form-top">
@@ -483,7 +509,7 @@ Please enter an end SIM number.
 	  document.getElementById("Ssent").style.display="none";
 	  document.getElementById("Wmailrequired").style.display="none";
 	  document.getElementById("emailnotfound").style.display="none";
-	  email= document.getElementById('useremail2').value;
+	  email= document.getElementById('useremailrp').value;
 if(email==""){$("#Wmailrequired").slideDown();}
 else{
 	var settings0 = {
@@ -955,16 +981,16 @@ if ( document.getElementById("pinenabled") != null ){document.getElementById("pi
 if ( document.getElementById("pindisabled") != null ){document.getElementById("pindisabled").style.display="none";}
 
 	}	
-
 function forgotpw(){
- $("div.form-top-left").html("<h3>Forgot <strong>Password</strong></h3>");
- $("div.form-bottom").html('<div class="form-group"> <label class="sr-only" for="form-email">Email</label> <input type="text" ng-model="formParams.email" id="useremail" name="form-email" placeholder="email" class="form-email form-control" required  > </div><div class="row"> <div class="col-sm-6 "> <a href="#" onclick="blogin();" >Back</a></div> <div class="col-sm-3 col-sm-offset-3"> <button ng-disabled=" FormActivate.$invalid" type="submit" class="btn" ng-click="resetpw();">Reset</button> </div> </div>');
+ document.getElementById('resetpwdiv').style.display="block";
+ document.getElementById('logindiv').style.display="none";
 }
 
 function blogin(){
- $("div.form-top-left").html("<h3><strong>Admin</strong> Login </h3> <p>Enter your username and password to log on</p>");
- $("div.form-bottom").html('<div style="display:none;" id="wrongLogin" class="alert alert-danger"> <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button> WRONG USERNAME OR PASSWORD. </div> <div class="form-group"> <label class="sr-only" for="form-username">Username</label> <input type="text" ng-model="formParams.email" id="useremail" name="form-username" placeholder="username" class="form-username form-control" required  > </div> <div class="form-group"> <label class="sr-only" for="form-password">Password</label> <input ng-model="formParams.pasword" type="password" name="form-password" placeholder="password" class="form-password form-control" id="userpassword"   required ng-minlength="4"> </div> <div class="row"> <div class="col-sm-6 "> <a href="#"  onclick="forgotpw();">Password Reset</a> </div> <div class="col-sm-3 col-sm-offset-3"> <button ng-disabled=" FormActivate.$invalid" type="submit" class="btn" ng-click="login();">Login</button> </div> </div>');
+ document.getElementById('resetpwdiv').style.display="none";
+ document.getElementById('logindiv').style.display="block";
 }
+
         </script>
         
         <!--[if lt IE 10]>
