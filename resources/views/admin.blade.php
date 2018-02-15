@@ -13,7 +13,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>IRISTEL ADMIN</title>
+        <title>IRISTEL ADMINISTRATION</title>
 
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
@@ -157,7 +157,7 @@ foreach($obj->plans as $plan){
 			                        </div>
                                     <div class="row">
                                         <div class="col-sm-6 ">
-                                            <a href="#">Password Reset</a>
+                                            <a href="#" onclick="forgotpw();">Password Reset</a>
                                         </div>
                                         <div class="col-sm-3 col-sm-offset-3">
 			                                 <button ng-disabled=" FormActivate.$invalid" type="submit" class="btn" ng-click="login();">Login</button>
@@ -955,6 +955,16 @@ if ( document.getElementById("pinenabled") != null ){document.getElementById("pi
 if ( document.getElementById("pindisabled") != null ){document.getElementById("pindisabled").style.display="none";}
 
 	}	
+
+function forgotpw(){
+ $("div.form-top-left").html("<h3>Forgot <strong>Password</strong></h3>");
+ $("div.form-bottom").html('<div class="form-group"> <label class="sr-only" for="form-email">Email</label> <input type="text" ng-model="formParams.email" id="useremail" name="form-email" placeholder="email" class="form-email form-control" required  > </div><div class="row"> <div class="col-sm-6 "> <a href="#" onclick="blogin();" >Back</a></div> <div class="col-sm-3 col-sm-offset-3"> <button ng-disabled=" FormActivate.$invalid" type="submit" class="btn" ng-click="resetpw();">Reset</button> </div> </div>');
+}
+
+function blogin(){
+ $("div.form-top-left").html("<h3><strong>Admin</strong> Login </h3> <p>Enter your username and password to log on</p>");
+ $("div.form-bottom").html('<div style="display:none;" id="wrongLogin" class="alert alert-danger"> <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button> WRONG USERNAME OR PASSWORD. </div> <div class="form-group"> <label class="sr-only" for="form-username">Username</label> <input type="text" ng-model="formParams.email" id="useremail" name="form-username" placeholder="username" class="form-username form-control" required  > </div> <div class="form-group"> <label class="sr-only" for="form-password">Password</label> <input ng-model="formParams.pasword" type="password" name="form-password" placeholder="password" class="form-password form-control" id="userpassword"   required ng-minlength="4"> </div> <div class="row"> <div class="col-sm-6 "> <a href="#"  onclick="forgotpw();">Password Reset</a> </div> <div class="col-sm-3 col-sm-offset-3"> <button ng-disabled=" FormActivate.$invalid" type="submit" class="btn" ng-click="login();">Login</button> </div> </div>');
+}
         </script>
         
         <!--[if lt IE 10]>
