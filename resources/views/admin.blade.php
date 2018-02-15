@@ -186,7 +186,7 @@ foreach($obj->plans as $plan){
                                   <a href="#" onclick="blogin();" >Back</a>
                                 </div> 
                                 <div class="col-sm-3 col-sm-offset-3"> 
-                                  <button type="submit" class="btn" ng-click="resetpassword();">Reset</button> 
+                                  <button type="submit" class="btn" onclick="resetpassword();">Reset</button> 
                                 </div> 
                               </div>
 
