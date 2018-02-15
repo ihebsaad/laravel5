@@ -208,6 +208,23 @@ $.ajax(settings).fail(function (response) {
 console.log('fail2');
 
 });
+if ( document.getElementById("nofileselected") != null ){document.getElementById("nofileselected").style.display="none";}
+if ( document.getElementById("uploadfail") != null ){document.getElementById("uploadfail").style.display="none";}
+if ( document.getElementById("uploadsuccess") != null ){document.getElementById("uploadsuccess").style.display="none";}
+if ( document.getElementById("headers") != null ){document.getElementById("headers").style.display="none";}
+if ( document.getElementById("delimeter") != null ){document.getElementById("delimeter").style.display="none";}
+if ( document.getElementById("incorrectrange") != null ){ document.getElementById("incorrectrange").style.display="none";}
+if ( document.getElementById("operationsuccessn") != null ){ document.getElementById("operationsuccessn").style.display="none";}
+if ( document.getElementById("operationfail") != null ){ document.getElementById("operationfail").style.display="none";}
+if ( document.getElementById("operationsuccess1") != null ){ document.getElementById("operationsuccess1").style.display="none";}
+if ( document.getElementById("startrange") != null ){ document.getElementById("startrange").style.display="none";}
+if ( document.getElementById("endrange") != null ){ document.getElementById("endrange").style.display="none";}
+if ( document.getElementById("showdetails") != null ){document.getElementById("showdetails").style.display="none";}
+if ( document.getElementById("wrongLogin") != null ){document.getElementById("wrongLogin").style.display="none";}
+if ( document.getElementById("pinnotfound") != null ){document.getElementById("pinnotfound").style.display="none";}
+if ( document.getElementById("pinenabled") != null ){document.getElementById("pinenabled").style.display="none";}
+if ( document.getElementById("pindisabled") != null ){document.getElementById("pindisabled").style.display="none";}
+
 
 
 } // end login
