@@ -315,7 +315,7 @@ img { max-width: 100%; }
   #divlogo {margin-left: 30px;}
   }
   /* common inputs style */
-input#pstartsim, input#pendsim, input#startsim1, input#endsim1, input#startsim0, input#pinnum{
+input#pstartsim, input#pendsim, input#startsim1, input#endsim1, input#startsim0, input#pinnum, #endis{
     height: 35px;
     padding: 8px;
     background: #f8f8f8;
@@ -324,5 +324,10 @@ input#pstartsim, input#pendsim, input#startsim1, input#endsim1, input#startsim0,
     font-size: 16px;
     font-weight: 300;
     line-height: 50px;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }
 			
