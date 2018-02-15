@@ -107,9 +107,8 @@ foreach($obj->plans as $plan){
                                 echo'
                                 <ul class="nav navbar-nav navbar-right" id="logoutbtn" style="'.$style.'">
                                 <li><div class="row">
-                                <div class="col-sm-10" style="margin-top:-18px;"><br><B style="font-size:12px;margin-top:20px;  " ><span id="userinfo0" style="font-weight:bold;font-size:16px;color: #ffffff;">'.$value1.'</span><span style="font-size:16px;font-weight:normal;color: #ffffff;" id="userinfo">'.$value2.'</span></B> </div>
+                                <div class="col-sm-10" style="margin-top:-18px;"><br><B style="font-size:12px;margin-top:20px;  " ><span id="userinfo0" style="font-weight:bold;font-size:16px;color: #ffffff;text-shadow:1px 1px black">'.$value1.'</span><span style="font-size:16px;font-weight:normal;color: #ffffff;text-shadow:1px 1px black" id="userinfo">'.$value2.'</span></B> </div>
                                 <div class="logout col-sm-2" ><a id="logoutb" href="#" class="btn btn-link-2 " onclick="logout();" style="padding:10px!important;height:40px!important;font-weight:bold!important;"> <span   class="glyphicon glyphicon-log-out"></span> Log out</a></div></div></li>
-
                                 </ul>';
                                 ?>
 
@@ -177,6 +176,18 @@ foreach($obj->plans as $plan){
  
                             </div>
                             <div class="form-bottom">
+							   <div style="display:none;" id="Ssent" class="alert alert-success">
+    <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+  We've just sent you an email to reset your password.
+  </div>
+     <div style="display:none;" id="emailnotfound" class="alert alert-danger">
+    <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+  Email not found.
+  </div>
+  <div style="display:none;" id="Wmailrequired" class="alert alert-warning">
+    <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+  The email is required.
+  </div>
                               <div class="form-group"> 
                                 <label class="sr-only" for="form-emailrp">Email</label> 
                                 <input type="text" id="useremailrp" name="form-emailrp" placeholder="email" class="form-emailrp form-control" required  > 
@@ -186,7 +197,7 @@ foreach($obj->plans as $plan){
                                   <a href="#" onclick="blogin();" >Back</a>
                                 </div> 
                                 <div class="col-sm-3 col-sm-offset-3"> 
-                                  <button type="submit" class="btn" ng-click="resetpassword();">Reset</button> 
+                                  <button type="submit" class="btn" onclick="resetpassword();">Reset</button> 
                                 </div> 
                               </div>
 
@@ -399,7 +410,7 @@ Please enter an end SIM number.
                                             </div>
 												<div id="searcharea" style="dispaly:none; ">     
 												<table id="searchObjResults" style="width:300px;">
-												<tr><th style="color:black;width:150px">PIN</th><th style="color:black;width:150px">SIM</th></tr>
+												<tr><th style="color:black;min-width:150px">PIN</th><th style="color:black;min-width:150px">SIM</th></tr>
 												<tr ng-repeat="data in DataPins |  filter : search | limitTo:5">
 													<td style="font-weight:800" ng-bind="data.pin"> </td>
 													<td style=";font-weight:800" ng-bind="data.sim"></td>
@@ -781,7 +792,8 @@ $.ajax(setting).fail(function (response) {
 	  end=document.getElementById('endsim1').value;
 	  if (start==""){	$("#startrange").slideDown();	}
 	  else if (end==""){	$("#endrange").slideDown();	}
-	   else if (parseInt(end) <= parseInt(start)){
+	   //else if (parseInt(end) <= parseInt(start)){
+	   else if (end <= start){
 		$("#incorrectrange").slideDown();		  
 	  }
 	  else{
