@@ -100,7 +100,6 @@ controller('formCtrl', ['$scope', '$http', function($scope, $http) {
  $("#pinnotfound").slideDown();
 	}else{
   document.getElementById('pinarea').style.display="block";
-    document.getElementById('pinnotfound').style.display="none";
     document.getElementById('searcharea').style.display="none";
 	 }
  }else {alert('Please Login to do this action');}	
@@ -108,6 +107,7 @@ controller('formCtrl', ['$scope', '$http', function($scope, $http) {
   };	
 	  $scope.init = function () {
 		  
+    document.getElementById('pinnotfound').style.display="none";
 
   document.getElementById('searcharea').style.display="block";
   document.getElementById('pinarea').style.display="none";
