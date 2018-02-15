@@ -179,7 +179,7 @@ foreach($obj->plans as $plan){
                             <div class="form-bottom">
                               <div class="form-group"> 
                                 <label class="sr-only" for="form-emailrp">Email</label> 
-                                <input type="email" id="useremailrp" name="form-emailrp" placeholder="email" class="form-emailrp form-control" required  > 
+                                <input type="text" id="useremailrp" name="form-emailrp" placeholder="email" class="form-emailrp form-control" required  > 
                               </div>
                               <div class="row"> 
                                 <div class="col-sm-6 "> 
