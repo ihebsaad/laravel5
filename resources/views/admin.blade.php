@@ -230,6 +230,11 @@ PIN disabled successfully.
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
 PIN enabled successfully.
   </div>
+  <div style="display:none;" id="operationfail2" class="alert alert-danger">
+	
+    <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+There is no SIM to assign in this range !
+  </div>
 	<div style="display:none;" id="operationfail" class="alert alert-danger">
 	
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
@@ -700,7 +705,13 @@ $.ajax(settings).fail(function (response) {console.log(response);})
   
    
 $.ajax(setting2).done(function (response) {
-	$("#operationsuccessn").slideDown();
+	if (response.indexOf('noSIMs') > -1){
+		$("#operationfail2").slideDown();
+	}
+	else{
+	$("#operationsuccessn").slideDown();	
+	}
+	
 	//console.log('operationsuccess');
 });
 

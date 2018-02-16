@@ -91,7 +91,13 @@ DB::table('sims')->where('enabled', '=', 0)
                  ->delete();
 	}
  public function insertOrUpdate($start,$end,$selectedplans){
-  echo('start string'.$start).'</br>';
+	 
+	 DB::table('sims')
+                 ->where('sim', '<=',$end)
+                 ->where('sim', '>=', $start)
+                 ->delete();
+				 if($count > 0){ 
+				 echo('start string'.$start).'</br>';
   $arr1 = explode(',',$selectedplans);
   // convert String to long number
   $startI= Decimal::fromString($start);
@@ -113,6 +119,13 @@ $table1 = App\SIM_PLANS::updateOrCreate( ['planCode' => $value ,'SIM'=>$i]);
 
 }
 }
+
+}
+				 else{return 'noSIMs';}
+				 
+				 
+				 
+
 	}
 	
     public function enable($id)
