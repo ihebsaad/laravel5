@@ -601,10 +601,10 @@ $(document).on({
      ajaxStop: function() { console.log('ajaxStop');$body.removeClass("loading"); var d = new Date();
     var n = d.getTime();
     console.log(n);}    ,
-	 complete : function() {console.log('complete');var d = new Date();
+	 complete : function() {console.log('complete1');var d = new Date();
     var n = d.getTime();
     console.log(n); },
-     ajaxComplete: function() { console.log('ajaxComplete');var d = new Date();
+     ajaxComplete: function() { console.log('ajaxComplete2');var d = new Date();
     var n = d.getTime();
     console.log(n); }
 }); 
