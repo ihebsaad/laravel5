@@ -4,8 +4,9 @@
 <style type="text/css">
 .notfounddiv {
   position: absolute;
-  left: 50%;
-  top: 50%;
+  left: 30%;
+  top: 30%;
+  padding: 20px;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   border-radius: 0.4rem!important;
 }
