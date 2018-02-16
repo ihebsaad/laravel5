@@ -427,8 +427,8 @@ $.ajax(settings0).fail(function (response) {console.log('fail token '+response);
  var $body = $("body");
 
 $(document).on({
-    ajaxStart: function() { console.log('start');$body.addClass("loading");    },
-     ajaxStop: function() { $body.removeClass("loading"); }    
+    ajaxStart: function() { $body.addClass("loading");    },
+    ajaxComplete: function() { $body.removeClass("loading"); }    
 }); 
 
 /***************** ServiceAdditionEmail  ******************/
