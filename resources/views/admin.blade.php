@@ -705,23 +705,19 @@ $.ajax(settings).fail(function (response) {console.log(response);})
   
    
 $.ajax(setting2).done(function (response) {
+	console.log(response);
 	if (response.indexOf('noSIMs') > -1){
 		$("#operationfail2").slideDown();
 	}
 	else{
 	$("#operationsuccessn").slideDown();	
 	}
-	
-	//console.log('operationsuccess');
 });
 
 $.ajax(setting2).fail(function (response) {
 		$("#operationfail").slideDown();
 		//console.log('operationfail');
-});
-	 
-	 
-	 
+});	 
 	 }
 	 else{
 		 

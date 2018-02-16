@@ -116,10 +116,8 @@ $table1 = App\SIM_PLANS::updateOrCreate( ['planCode' => $value ,'SIM'=>$i]);
  $table1 ->save();
  $i=$i->add($b);
 			 $i=Decimal::fromString($i);
-
 }
 }
-
 }
 				 else{return 'noSIMs';}
 				 
