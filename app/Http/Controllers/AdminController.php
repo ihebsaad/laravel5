@@ -120,9 +120,7 @@ $table1 = App\SIM_PLANS::updateOrCreate( ['planCode' => $value ,'SIM'=>$i]);
 	DB::table('sims')
             ->where('id', $id)
             ->update(['enabled' => 1]);
-		
-        return redirect()->back();
-		
+				
 	}
 	
 		
@@ -132,9 +130,6 @@ $table1 = App\SIM_PLANS::updateOrCreate( ['planCode' => $value ,'SIM'=>$i]);
 	DB::table('sims')
             ->where('id', $id)
             ->update(['enabled' => 0]);
-		
-        return redirect()->back();
-		
 	} 
 
 	

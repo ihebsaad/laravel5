@@ -751,8 +751,7 @@ if ( document.getElementById("pindisabled") != null ){document.getElementById("p
 	  pin=document.getElementById('pinnum').value;
 	  var e = document.getElementById("endis");
 var endis = e.options[e.selectedIndex].value;
-console.log('pin'+pin);
-console.log('endis'+endis);
+
 		   	 	 var setting = {
   "async": true,
   "crossDomain": true,
@@ -770,12 +769,9 @@ $.ajax(setting).done(function (response) {
 	//console.log(response);
 	if(response==0){  $("#pinnotfound").slideDown();}
 	else{ if (endis=="enable"){
-		document.getElementById("pinenabled").style.display="block";
 		$("#pinenabled").slideDown();
 	}
 	else{
-		//console.log('pin disabled');
-		document.getElementById("pindisabled").style.display="none";
 		$("#pindisabled").slideDown();
 	}
 	}	

@@ -273,7 +273,7 @@ $scope.enable = function (id){
   
    
 $.ajax(setting).done(function (response) {
-	console.log('done enable  ' + response);
+$("#pinenabled").slideDown();
 		//refresh pins list 
 	  $http.get('https://enterpriseesolutions.com/pins.php').success(function (responsepins) {
              $scope.DataPins = responsepins ;
@@ -304,7 +304,7 @@ $.ajax(setting).fail(function (response) {
   
    
 $.ajax(setting).done(function (response) {
-
+	$("#pindisabled").slideDown();
 	//refresh pins list 
 	 $http.get('https://enterpriseesolutions.com/pins.php').success(function (responsepins) {
              $scope.DataPins = responsepins ;
