@@ -999,6 +999,9 @@ if ( document.getElementById("startrange") != null ){ document.getElementById("s
 if ( document.getElementById("endrange") != null ){ document.getElementById("endrange").style.display="none";}
 if ( document.getElementById("showdetails") != null ){document.getElementById("showdetails").style.display="none";}
 if ( document.getElementById("wrongLogin") != null ){document.getElementById("wrongLogin").style.display="none";}
+if ( document.getElementById("pinnotfound") != null ){document.getElementById("pinnotfound").style.display="none";}
+if ( document.getElementById("pinenabled") != null ){document.getElementById("pinenabled").style.display="none";}
+if ( document.getElementById("pindisabled") != null ){document.getElementById("pindisabled").style.display="none";}
 	 
 }
 	function removeAlertes2(){
