@@ -788,11 +788,11 @@ $.ajax(settings).fail(function (response) {
 var mail=$scope.formParams.email;
 var reciever= $scope.formParams.first+' '+$scope.formParams.last;
 var reciever= $scope.formParams.first+' '+$scope.formParams.last;
-if ($scope.formParams.unit.length==0){
+if ($scope.formParams.unit==undefined){
 	var address1= $scope.formParams.streetnum+' '+$scope.formParams.streetname;
 }else{
 var address1= $scope.formParams.streetnum+' '+$scope.formParams.streetname+' '+$scope.formParams.unit;}
-if($scope.formParams.box.length==0){
+if($scope.formParams.box==undefined){
 var address2= $scope.formParams.postal+' '+$scope.formParams.city+' '+$scope.formParams.province;
 	
 }
