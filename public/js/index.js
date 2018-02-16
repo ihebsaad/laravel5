@@ -788,9 +788,18 @@ $.ajax(settings).fail(function (response) {
 var mail=$scope.formParams.email;
 var reciever= $scope.formParams.first+' '+$scope.formParams.last;
 var reciever= $scope.formParams.first+' '+$scope.formParams.last;
-
-var address1= $scope.formParams.streetnum+' '+$scope.formParams.streetname+' '+$scope.formParams.unit;
+if ($scope.formParams.unit==""){
+	var address1= $scope.formParams.streetnum+' '+$scope.formParams.streetname;
+}else{
+var address1= $scope.formParams.streetnum+' '+$scope.formParams.streetname+' '+$scope.formParams.unit;}
+if($scope.formParams.box==""){
+var address2= $scope.formParams.postal+' '+$scope.formParams.city+' '+$scope.formParams.province;
+	
+}
+else{
 var address2= $scope.formParams.box+' '+$scope.formParams.postal+' '+$scope.formParams.city+' '+$scope.formParams.province;
+	
+}
   console.log ("url= "+'http://test.enterpriseesolutions.com/mail?mail='+mail+'&reciever='+reciever+'&accountId='+accountId+'&address1='+address1+'&address2='+address2);
 	 	  $.ajax({
   url: 'http://test.enterpriseesolutions.com/mail?mail='+mail+'&reciever='+reciever+'&accountId='+accountId+'&address1='+address1+'&address2='+address2,
