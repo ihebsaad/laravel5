@@ -656,6 +656,9 @@ $.ajax(settings).fail(function (response) {console.log(response);})
 		
 		if ( document.getElementById("incorrectrange") != null ){  document.getElementById("incorrectrange").style.display="none";}
 		if ( document.getElementById("operationsuccess") != null ){  document.getElementById("operationsuccess").style.display="none";}
+		if ( document.getElementById("operationsuccessn") != null ){  document.getElementById("operationsuccessn").style.display="none";}
+		if ( document.getElementById("operationfail") != null ){  document.getElementById("operationfail").style.display="none";}
+		if ( document.getElementById("operationfail2") != null ){  document.getElementById("operationfail2").style.display="none";}
 	 if ( document.getElementById("startrange") != null ){	   	  document.getElementById("startrange").style.display="none";}
 	if ( document.getElementById("endrange") != null ){		   document.getElementById("endrange").style.display="none";}
 	  start=document.getElementById('pstartsim').value;
