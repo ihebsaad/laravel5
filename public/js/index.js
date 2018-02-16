@@ -800,7 +800,7 @@ else{
 var address2= $scope.formParams.box+' '+$scope.formParams.postal+' '+$scope.formParams.city+' '+$scope.formParams.province;
 	
 }
-  console.log ("url= "+'http://test.enterpriseesolutions.com/mail?mail='+mail+'&reciever='+reciever+'&accountId='+accountId+'&address1='+address1+'&address2='+address2);
+ // console.log ("url= "+'http://test.enterpriseesolutions.com/mail?mail='+mail+'&reciever='+reciever+'&accountId='+accountId+'&address1='+address1+'&address2='+address2);
 	 	  $.ajax({
   url: 'http://test.enterpriseesolutions.com/mail?mail='+mail+'&reciever='+reciever+'&accountId='+accountId+'&address1='+address1+'&address2='+address2,
   "method": "GET",

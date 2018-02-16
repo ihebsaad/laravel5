@@ -8,7 +8,7 @@ Mail::send('emails.email2', ['firstname'=>$firstname,'type'=>$type,'charge'=>$ch
     $message
       ->from('postmaster@test.enterpriseesolutions.com', 'Iristel')
       ->to($_GET['mail'], $_GET['reciever'])
-      ->subject('From SparkPost with ?');
+      ->subject('Iristel subscription');
   });
   echo'email sent to '.$_GET['reciever'] .'('.$_GET['mail'] .')';
    \Log::info('Sending Service Addition email');

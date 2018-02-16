@@ -9,7 +9,7 @@ Mail::send('emails.email1', ['username'=>$username,'email'=>$email,'accountid'=>
     $message
       ->from('postmaster@test.enterpriseesolutions.com', 'Iristel')
       ->to($_GET['mail'], $_GET['reciever'])
-      ->subject('From SparkPost with ?');
+      ->subject('Welcome to Iristel');
   });
   echo'email sent to '.$_GET['reciever'] .'('.$_GET['mail'] .')';
    \Log::info('Sending Welcome email');
