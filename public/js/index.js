@@ -428,7 +428,7 @@ $.ajax(settings0).fail(function (response) {console.log('fail token '+response);
 
 $(document).on({
     ajaxStart: function() { $body.addClass("loading");    },
-    ajaxComplete: function() { $body.removeClass("loading"); }    
+    ajaxStop: function() { $body.removeClass("loading"); }    
 }); 
 
 /***************** ServiceAdditionEmail  ******************/
@@ -438,7 +438,7 @@ var type=$scope.formParams.plantypes;
 var charge=$scope.formParams.plancharge;
 var phone=$scope.formParams.phonenumber;
 
-	 	 console.log("Function send service addition mail");
+	 	// console.log("Function send service addition mail");
  var mail=$scope.formParams.email;
  var reciever='';
  if ($scope.formParams.customer=="existing"){var firstname=reciever;var reciever=document.getElementById('uinfo').value;
@@ -447,14 +447,14 @@ var phone=$scope.formParams.phonenumber;
   "method": "GET",
   // "data": { "mail": mail }, 
   success: function(data) {
-   console.log('success send'+data);
+  // console.log('success send'+data);
    //alert('Your account is activated successfully');
   /*var accountId= document.getElementById('accountId').value;
   $scope.loginsignup(accountId);*/
    $scope.next('stageSuccess');
    $scope.$apply();
   },error: function(data) {
-   console.log('Fail send'+data);
+   //console.log('Fail send'+data);
   }
   
 });
@@ -466,14 +466,14 @@ var phone=$scope.formParams.phonenumber;
   "method": "GET",
   // "data": { "mail": mail }, 
   success: function(data) {
-   console.log('success send'+data);
+  // console.log('success send'+data);
    //alert('Your account is activated successfully');
    //$scope.loginsignup( document.getElementById('accountId').value );
    $scope.next('stageSuccess');
    $scope.$apply();
 
   },error: function(data) {
-   console.log('Fail send'+data);
+   //console.log('Fail send'+data);
   }
   
 });}
@@ -493,8 +493,8 @@ var phone=$scope.formParams.phonenumber;
 }
 
 $.ajax(settings2).done(function (response) {
-  console.log(response);
-  console.log('email= '+response.email);
+  //console.log(response);
+  //console.log('email= '+response.email);
 var mail=response.email;
 var reciever=document.getElementById('userinfo').innerHTML;
 var firstname=reciever;
@@ -503,13 +503,13 @@ var firstname=reciever;
   "method": "GET",
   // "data": { "mail": mail }, 
   success: function(data) {
-   console.log('success send'+data);
+   //console.log('success send'+data);
    //alert('Your account is activated successfully');
    /*$scope.loginsignup( document.getElementById('accountId').value );*/
    $scope.next('stageSuccess');
    $scope.$apply();
   },error: function(data) {
-   console.log('Fail send'+data);
+  // console.log('Fail send'+data);
   }
   
 });
@@ -549,12 +549,13 @@ window.location.href = "https://www.icewireless.com/login";
 	var cardholder=$scope.formParams.cardholder;
 	var creditCard=$scope.formParams.creditCard;
 	var emonth=$scope.formParams.emonth;
-	if (emonth < 10){console.log('smaller');emonth='0'+emonth;}
+	if (emonth < 10){//console.log('smaller');
+	emonth='0'+emonth;}
 	var eyear=$scope.formParams.eyear;
 	var cvv=$scope.formParams.cvv;
 	var amount=parseFloat($scope.formParams.totalcharge);
 	var datatosend='{\"enabled\":true,\"paymentSource\":\"CREDITCARD\",\"onDeclineSuspend\":false,\"onDaysAvailable\":{\"enabled\":true,\"trigger\":1,\"amount\":'+amount+'},\"creditCard\":{\"cardType\":\"VISA\",\"number\":\"'+creditCard+'\",\"holder\":\"'+cardholder+'\",\"expMonth\":\"'+emonth+'\",\"expYear\":\"'+eyear+'\",\"CVV\":\"'+cvv+'\"}}';
- console.log('datatosend for automatic payment'+datatosend);
+ //console.log('datatosend for automatic payment'+datatosend);
 
 	 var settings = {
   "async": true,
@@ -568,13 +569,13 @@ window.location.href = "https://www.icewireless.com/login";
   }
 
 $.ajax(settings).done(function (response) {
-  console.log('done AutomaticPayment '+response);
+  //console.log('done AutomaticPayment '+response);
   $scope.ServiceAdditionEmail();
 });
 $.ajax(settings).fail(function (response) {
-  console.log('fail AutomaticPayment '+response);
+ // console.log('fail AutomaticPayment '+response);
   var parsedData = JSON.parse(response.responseText);
-		console.log('parsedData2'+parsedData.description);
+	//	console.log('parsedData2'+parsedData.description);
 
 });
  }
@@ -582,7 +583,7 @@ $.ajax(settings).fail(function (response) {
 /***************** Add Payment  ******************/
  $scope.AddPayment = function(serviceId) {
 	 var ref=document.getElementById('transactionid').value.replace(/(\r\n|\n|\r)/gm,"");
-	 console.log('new ref'+ref);
+	// console.log('new ref'+ref);
 	var amount=parseFloat($scope.formParams.totalcharge);
 	 var datatosend='{\"amount\":'+amount+',\"currency\":\"CAD\",\"paymentMethod\":\"CREDITCARD\",\"reference\":\"'+ref+'\"}';
  //console.log('datatosend for payment'+datatosend);
@@ -603,15 +604,15 @@ $.ajax(settings).fail(function (response) {
 }
 
 $.ajax(settings).done(function (response) {
-  console.log('done AddPayment '+response);
+  //console.log('done AddPayment '+response);
   if($scope.formParams.autopay == true){$scope.AutomaticPayment(serviceId);}
   else {$scope.ServiceAdditionEmail();}
    //$scope.ServiceAdditionEmail(); //remove this if automatic payment is fixed
 });
 $.ajax(settings).fail(function (response) {
-  console.log('fail AddPayment'+response);
+  //console.log('fail AddPayment'+response);
   var parsedData = JSON.parse(response.responseText);
-		console.log('parsedData2'+parsedData.description);
+		//console.log('parsedData2'+parsedData.description);
 
 });
  }
@@ -633,13 +634,13 @@ $.ajax(settings).fail(function (response) {
 }
 
 $.ajax(settings).done(function (response) {
-  console.log('done add SIM '+response);
+ // console.log('done add SIM '+response);
   $scope.AddPayment(serviceId);
 });
 $.ajax(settings).fail(function (response) {
-  console.log('fail add SIM'+response);
+  //console.log('fail add SIM'+response);
   var parsedData = JSON.parse(response.responseText);
-		console.log('parsedData2'+parsedData.description);
+		//console.log('parsedData2'+parsedData.description);
 $("#failactivation").slideDown();
 });
 	 
@@ -661,13 +662,13 @@ var settings = {
 }
 
 $.ajax(settings).done(function (response) {
-  console.log('done AddTelephoneNumber'+response);
+  //console.log('done AddTelephoneNumber'+response);
     $scope.AddSIM(accountId,serviceId);
 });
 $.ajax(settings).fail(function (response) {
-  console.log('fail AddTelephoneNumber'+response);
+ // console.log('fail AddTelephoneNumber'+response);
   var parsedData = JSON.parse(response.responseText);
-		console.log('parsedData2'+parsedData.description);
+		//console.log('parsedData2'+parsedData.description);
 		$("#failactivation").slideDown();
 });
 
@@ -708,15 +709,15 @@ $.ajax(settings).fail(function (response) {
 }
 
 $.ajax(settings).done(function (response) {
-  console.log('done create service'+response);
-  console.log(' service ID '+response.serviceId);
+ // console.log('done create service'+response);
+  //console.log(' service ID '+response.serviceId);
   var serviceId=response.serviceId;
    $scope.AddTelephoneNumber(accountId,serviceId);
 });
 $.ajax(settings).fail(function (response) {
-  console.log('fail create service'+response);
+ // console.log('fail create service'+response);
   var parsedData = JSON.parse(response.responseText);
-		console.log('parsedData2'+parsedData.description);
+	//	console.log('parsedData2'+parsedData.description);
 $("#failactivation").slideDown();
 });
  
@@ -746,7 +747,7 @@ if($scope.formParams.unit != null){
 	//var  datatosend= '{\"contact\":{\"fname\":\"'+fname+'\",\"lname\":\"'+lname+'\",\"address1\":\"'+address1+'\",\"address2\":\"'+address2+'\",\"address3\":\"'+address3+'\",\"city\":\"'+city+'\",\"province\":\"'+province+'\",\"country\":\"'+country+'\",\"postalCode\":\"'+postalCode+'\",\"emailAddress\":\"'+emailAddress+'\"}}';
 var  datatosend='{\"contact\":{\"fname\":\"'+fname+'\",\"lname\":\"'+lname+'\",\"address1\":\"'+address1+'\",\"address2\":\"'+address2+'\",\"address3\":\"\",\"city\":\"'+city+'\",\"province\":\"'+province+'\",\"country\":\"'+country+'\",\"postalCode\":\"'+postalCode+'\",\"emailAddress\":\"'+emailAddress+'\"}}';
 
-	console.log('datatosend'+datatosend);
+	//console.log('datatosend'+datatosend);
 	var settings = {
   "async": true,
   "crossDomain": true,
@@ -761,17 +762,17 @@ var  datatosend='{\"contact\":{\"fname\":\"'+fname+'\",\"lname\":\"'+lname+'\",\
 
 
 $.ajax(settings).done(function (response) {
-  console.log('done'+response);
-  console.log('id'+response.accountId);
+  //console.log('done'+response);
+  //console.log('id'+response.accountId);
   var accountId=response.accountId;
   document.getElementById('accountId').value=accountId;
   $scope.signup(accountId);
  // $scope.CreateService(accountId);
 }); 
 $.ajax(settings).fail(function (response) {
-  console.log('fail'+response);
+  //console.log('fail'+response);
   var parsedData = JSON.parse(response.responseText);
-		console.log('parsedData2'+parsedData.description);
+		//console.log('parsedData2'+parsedData.description);
 
 }); 
 	 
@@ -781,7 +782,7 @@ $.ajax(settings).fail(function (response) {
 /***************** sendWelcomeemail ******************/
  $scope.sendWelcomeemail = function(accountId) {
 	 //
-	 console.log("Function send welcome mail");
+	 //console.log("Function send welcome mail");
  
 	  console.log('enter');
 var mail=$scope.formParams.email;
