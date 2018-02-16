@@ -54,7 +54,7 @@ controller('formCtrl', ['$scope', '$http', function($scope, $http) {
         }
       }, function errorCallback(response) {
         $scope.stage = "error";
-        console.log(response);
+        //console.log(response);
       });
     }
   }
@@ -66,7 +66,7 @@ controller('formCtrl', ['$scope', '$http', function($scope, $http) {
 		for(var i = 0; i < ($scope.DataPins.length); i++) {
 			// pin existe
 				if ($scope.DataPins[i].pin == $scope.pin) {
-				console.log('pin exists');
+				//console.log('pin exists');
 				$scope.ExistePin=true;
 				break;
 				 }
@@ -130,14 +130,14 @@ $scope.showusermetadata = function(access_token,user_id) {
 $.ajax(settings2).done(function (response) {
 	   var newURL = window.location.protocol + "//" + window.location.host ;
 if(newURL=="http://ype"){newURL=newURL+"/laravel5";}
-	console.log('response show metaddata1'+response.nickname);     
+	//console.log('response show metaddata1'+response.nickname);     
    document.getElementById('logoutbtn').style.display="block";
    document.getElementById('userinfo0').innerHTML="Logged in as ";
  
   document.getElementById('userinfo').innerHTML=response.nickname+'</B>';
   document.getElementById('uinfo').value=response.nickname;
-console.log('uinfo'+document.getElementById('uinfo').value);
-console.log(''+newURL+'/public/session_writea2.php?usernameA='+response.nickname);
+//console.log('uinfo'+document.getElementById('uinfo').value);
+//console.log(''+newURL+'/public/session_writea2.php?usernameA='+response.nickname);
 	jQuery('#div_session_write2').load(''+newURL+'/public/session_writea2.php?usernameA='+response.nickname);
 });
 }
@@ -171,19 +171,19 @@ $.ajax(settings).done(function (response) {
   var  token=response.access_token;
 
    var  access_token="Bearer "+token;
-   console.log(''+newURL+'/public/session_writea.php?access_tokenA='+token);
+   //console.log(''+newURL+'/public/session_writea.php?access_tokenA='+token);
   	 jQuery('#div_session_write').load(''+newURL+'/public/session_writea.php?access_tokenA='+token);
- console.log('after load');	
+ //console.log('after load');	
 	document.getElementById('tokeninput').value = token;
 	//show user info
-	 console.log('after save');
+	 //console.log('after save');
 	if (document.getElementById('tokeninput').value == null){
 	token= document.getElementById('div_session_write').innerHTML.substr(26);
 	
 	}
 	else {token= document.getElementById('tokeninput').value;}
 	 access_token="Bearer "+token;
-		console.log(access_token);
+		//console.log(access_token);
 	$scope.showuserinfo(access_token);
 //$scope.next('stageLouckup');
 //$scope.$apply();
@@ -207,7 +207,7 @@ $.ajax(settings).done(function (response) {
  });
 $.ajax(settings).fail(function (response) {
 	$("#wrongLogin").slideDown();
-console.log('fail2');
+//console.log('fail2');
 
 });
 
@@ -248,8 +248,8 @@ if ( document.getElementById("pindisabled") != null ){document.getElementById("p
 }
 
 $.ajax(settings2).done(function (response) {
-  console.log(response);
-  console.log('id= '+response.sub);
+  //console.log(response);
+  //console.log('id= '+response.sub);
   $scope.showusermetadata(access_token,response.sub);
 
 });
@@ -281,7 +281,7 @@ $("#pinenabled").slideDown();
 });
 
 $.ajax(setting).fail(function (response) {
-	console.log('fail enable  '+ response);
+	//console.log('fail enable  '+ response);
 });
 	
  }else {alert('Please Login to do this action');}	
@@ -312,7 +312,7 @@ $.ajax(setting).done(function (response) {
 });
 
 $.ajax(setting).fail(function (response) {
-	console.log('fail disable '+ response);
+	//console.log('fail disable '+ response);
 });
 	  }else {alert('Please Login to do this action');}	
 
@@ -340,7 +340,7 @@ $scope.assignRange = function (){
 	   if (document.getElementById('radio2').checked){plans.push(document.getElementById('radio2').value);}
 	   if (document.getElementById('radio3').checked){plans.push(document.getElementById('radio3').value);}
 	
-	 if (plans.length==0){console.log('delete');
+	 if (plans.length==0){  //console.log('delete');
 	 	   	 	 var setting2 = {
   "async": true,
   "crossDomain": true,
@@ -367,7 +367,7 @@ $.ajax(setting2).fail(function (response) {
 	 }
 	 else{
 		 selectedplans=plans.toString();
-		 console.log('insert or update');
+		 //console.log('insert or update');
 		 	 	 var setting = {
   "async": true,
   "crossDomain": true,

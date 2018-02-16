@@ -584,14 +584,14 @@ $.ajax(settings).done(function (response) {
   
 });
 	$.ajax(settings).fail(function (response) {
-  console.log(response);
+ // console.log(response);
  });  
   }
   else{$("#emailnotfound").slideDown();}
   });
-  $.ajax(settings1).fail(function (response) {console.log(response);});
+  $.ajax(settings1).fail(function (response) {/*console.log(response);*/});
 });
-  $.ajax(settings0).fail(function (response) {console.log(response);});
+  $.ajax(settings0).fail(function (response) {/*console.log(response);*/});
 
 }	  
   }
@@ -600,9 +600,7 @@ $.ajax(settings).done(function (response) {
  var $body = $("body");
 
 $(document).on({
-     ajaxStart: function() { console.log('ajaxStart');$body.addClass("loading");  var d = new Date();
-    var n = d.getTime();
-    console.log(n);  },
+     ajaxStart: function() { $body.addClass("loading"); },
      ajaxComplete: function() { $body.removeClass("loading"); }    
 }); 
 
@@ -616,7 +614,7 @@ var URL = window.location.protocol + "//" + window.location.host + window.locati
  if(newURL=="http://127.0.0.1"){newURL=newURL+"/laravel5";}
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open('GET',''+newURL+'/public/session_destroyA.php', true);
-   console.log(''+newURL+'/public/session_destroyA.php');
+   //console.log(''+newURL+'/public/session_destroyA.php');
     xmlhttp.onreadystatechange=function(){
        if (xmlhttp.readyState == 4){
           if(xmlhttp.status == 200){
@@ -646,9 +644,9 @@ var URL = window.location.protocol + "//" + window.location.host + window.locati
   "processData": false }
 
 
-$.ajax(settings).done(function (response) {console.log(response);
+$.ajax(settings).done(function (response) { //console.log(response);
   window.location ="http://test.enterpriseesolutions.com/downloadtemplate";})
-$.ajax(settings).fail(function (response) {console.log(response);})
+$.ajax(settings).fail(function (response) {/*console.log(response);*/})
 ;  
 
     }
@@ -672,7 +670,7 @@ $.ajax(settings).fail(function (response) {console.log(response);})
 	$("#incorrectrange").slideDown();		  
 	  }
    else{
-	   console.log('correct range');
+	 //  console.log('correct range');
 	  /* var inputs = document.getElementById("formcheckbox").elements;
     var count  = 0;
     for (var i = 0; i < inputs.length; i++) {
@@ -693,7 +691,7 @@ $.ajax(settings).fail(function (response) {console.log(response);})
 	   for(i=0;i< count; i++){
 	   if (document.getElementById('radio'+i).checked){plans.push(document.getElementById('radio'+i).value);}
 	    }
-	 if (plans.length==0){console.log('delete');
+	 if (plans.length==0){ //console.log('delete');
 	 	   	 	 var setting2 = {
   "async": true,
   "crossDomain": true,
@@ -824,7 +822,7 @@ $.ajax(setting).fail(function (response) {
   
    
 $.ajax(setting).done(function (response) {
-	console.log(response);
+	//console.log(response);
 	if (response==0){ $("#operationfail").slideDown();}
 	else if (response==1){$("#operationsuccess1").slideDown();}
 	else{
@@ -873,7 +871,7 @@ else{
                 type: 'post',
                 success: function(response){
                    // alert('uploaded'); // display response from the PHP script, if any
-					console.log(response);
+					//console.log(response);
 					var res = response.split(".");
 					for (var i in res) {
 
