@@ -603,7 +603,7 @@ $(document).on({
     console.log(n);}    ,
 	 complete : function() {console.log('complete');var d = new Date();
     var n = d.getTime();
-    console.log(n); }
+    console.log(n); },
      ajaxComplete: function() { console.log('ajaxComplete');var d = new Date();
     var n = d.getTime();
     console.log(n); }
