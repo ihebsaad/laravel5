@@ -274,7 +274,7 @@ $scope.enable = function (id){
    
 $.ajax(setting).done(function (response) {
 $("#pinenabled").slideDown();
-		//refresh pins list 
+		//refresh PINs list 
 	  $http.get('https://enterpriseesolutions.com/pins.php').success(function (responsepins) {
              $scope.DataPins = responsepins ;
           });	
