@@ -92,10 +92,10 @@ DB::table('sims')->where('enabled', '=', 0)
 	}
  public function insertOrUpdate($start,$end,$selectedplans){
 	 
-	 DB::table('sims')
+	 $count=DB::table('sims')
                  ->where('sim', '<=',$end)
                  ->where('sim', '>=', $start)
-                 ->delete();
+                 ->count();
 				 if($count > 0){ 
 				 echo('start string'.$start).'</br>';
   $arr1 = explode(',',$selectedplans);
