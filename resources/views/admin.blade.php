@@ -595,8 +595,18 @@ $.ajax(settings).done(function (response) {
  var $body = $("body");
 
 $(document).on({
-    ajaxStart: function() { console.log('start');$body.addClass("loading");    },
-     ajaxStop: function() { $body.removeClass("loading"); }    
+     ajaxStart: function() { console.log('ajaxStart');$body.addClass("loading");  var d = new Date();
+    var n = d.getTime();
+    console.log(n);  },
+     ajaxStop: function() { console.log('ajaxStop');$body.removeClass("loading"); var d = new Date();
+    var n = d.getTime();
+    console.log(n);}    ,
+	 complete : function() {console.log('complete');var d = new Date();
+    var n = d.getTime();
+    console.log(n); }
+     ajaxComplete: function() { console.log('ajaxComplete');var d = new Date();
+    var n = d.getTime();
+    console.log(n); }
 }); 
 
 /******** logout ********/
