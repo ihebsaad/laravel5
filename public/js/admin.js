@@ -6,7 +6,7 @@ angular.module('formApp', [
 controller('formCtrl', ['$scope', '$http', function($scope, $http) {
 	
 	
-	 $http.get('https://enterpriseesolutions.com/pins.php').success(function (responsepins) {
+	 $http.get('https://enterpriseesolutions.com/sims.php').success(function (responsepins) {
              $scope.DataPins = responsepins ;
           });
 	
@@ -82,7 +82,7 @@ controller('formCtrl', ['$scope', '$http', function($scope, $http) {
   
   $scope.resetpins = function() {
 	  	
-	 $http.get('https://enterpriseesolutions.com/pins.php').success(function (responsepins) {
+	 $http.get('https://enterpriseesolutions.com/sims.php').success(function (responsepins) {
              $scope.DataPins = responsepins ;
           });
   }
@@ -190,7 +190,7 @@ $.ajax(settings).done(function (response) {
  document.getElementById('logindiv').style.display="none";
  document.getElementById('admindiv').style.display="block";
  
-   $http.get('https://enterpriseesolutions.com/pins.php').success(function (responsepins) {
+   $http.get('https://enterpriseesolutions.com/sims.php').success(function (responsepins) {
              $scope.DataPins = responsepins ;
           });
 		  
@@ -275,7 +275,7 @@ $scope.enable = function (id){
 $.ajax(setting).done(function (response) {
 $("#pinenabled").slideDown();
 		//refresh PINs list 
-	  $http.get('https://enterpriseesolutions.com/pins.php').success(function (responsepins) {
+	  $http.get('https://enterpriseesolutions.com/sims.php').success(function (responsepins) {
              $scope.DataPins = responsepins ;
           });	
 });
@@ -306,7 +306,7 @@ $.ajax(setting).fail(function (response) {
 $.ajax(setting).done(function (response) {
 	$("#pindisabled").slideDown();
 	//refresh pins list 
-	 $http.get('https://enterpriseesolutions.com/pins.php').success(function (responsepins) {
+	 $http.get('https://enterpriseesolutions.com/sims.php').success(function (responsepins) {
              $scope.DataPins = responsepins ;
           });	
 });
