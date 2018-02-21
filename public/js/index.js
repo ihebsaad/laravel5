@@ -370,7 +370,7 @@ var parsedData = JSON.parse(response.responseText);
  
  /******** Reset password ********/
   $scope.resetpassword = function() {
-	  console.log('entred to reset password');
+	  console.log('** reset password **');
 if ( document.getElementById("Ssent") != null ){document.getElementById("Ssent").style.display="none";}
 if ( document.getElementById("Wmailrequired") != null ){document.getElementById("Wmailrequired").style.display="none";}
 if ( document.getElementById("emailnotfound") != null ){document.getElementById("emailnotfound").style.display="none";}
@@ -389,9 +389,9 @@ $.ajax(settings0).done(function (response) {
   var  token=response.access_token;   var  access_token="Bearer "+token;
    	var settings1 = { "async": true,"crossDomain": true,"url": 'https://iristelx.auth0.com/api/v2/users?q="'+email+'"',"method": "GET","headers": {"content-type": "application/json","authorization": access_token }, "processData": false, "data": ''}
   $.ajax(settings1).done(function (response) {
-	  	console.log('success q email'+response);
+	 
 	  //	console.log('connection '+response[0].identities[0].connection);
-  if(response.length==0){$("#emailnotfound").slideDown();}
+  if(response.length==0){$("#emailnotfound").slideDown();  console.log('Email not found');}
   else if(response[0].identities[0].connection=="Username-Password-Authentication"){
 	  	var datatosend='{\"client_id\": \"PBbe88ULTLh0kycpE0Db7g4AWjO21hYG\",\"email\": \"'+email+'\",\"connection\": \"Username-Password-Authentication\"}';
 
