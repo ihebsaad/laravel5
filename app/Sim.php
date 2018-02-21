@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class sim extends Model
 {
     //
-    protected $table = 'sims';
+    protected $table = 'SIMs';
 
     protected $fillable = [
         'sim', 'pin','enabled'

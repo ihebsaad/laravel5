@@ -28,32 +28,32 @@ class AdminController extends Controller
       
   } 
     public function insert($sim,$pin,$enabled){
-		$count=DB::table('sims')
+		$count=DB::table('SIMs')
                  ->where('sim', '=',$sim)
                  ->count();
 				 
 				 if (($count <0) ){
-		DB::table('sims')->insert(
+		DB::table('SIMs')->insert(
     ['sim' => $sim, 'pin' => $pin,'enabled'=>$enabled]
 );
 				 }
 				 else{
-					 DB::table('sims')
+					 DB::table('SIMs')
             ->where('sim', $sim)
             ->update(['enabled' => $enabled,'pin'=>$pin]); 
 				 }
 				 
 return 'updated'.$count;
-/*$count=DB::table('sims')->where('enabled', '=', $enabled)
+/*$count=DB::table('SIMs')->where('enabled', '=', $enabled)
                  ->where('sim', '=',$sim)
                  ->where('pin', '=', $pin)
                  ->count();
-				 $count2=DB::table('sims')->where('enabled', '!=', $enabled)
+				 $count2=DB::table('SIMs')->where('enabled', '!=', $enabled)
                  ->where('sim', '=',$sim)
                  ->where('pin', '=', $pin)
                  ->count();
 				 if (($count <0) && ($count2 <0)){
-		DB::table('sims')->insert(
+		DB::table('SIMs')->insert(
     ['sim' => $sim, 'pin' => $pin,'enabled'=>$enabled]
 );
 				 }
@@ -63,11 +63,11 @@ return 'exist'.$count.'updated'.$count2;*/
 	 public function delete($start,$end){
 		//echo('start'.$start);
 		//echo('end'.$end); 
-		$count=DB::table('sims')->where('enabled', '=', 0)
+		$count=DB::table('SIMs')->where('enabled', '=', 0)
                  ->where('sim', '<=',$end)
                  ->where('sim', '>=', $start)->count();
 
-DB::table('sims')->where('enabled', '=', 0)
+DB::table('SIMs')->where('enabled', '=', 0)
                  ->where('sim', '<=',$end)
                  ->where('sim', '>=', $start)
                  ->delete();
@@ -76,10 +76,10 @@ DB::table('sims')->where('enabled', '=', 0)
 		 public function enabledisable($pin,$endis){
 			 if ($endis=="enable"){ $enabled=1;}
 			 if ($endis=="disable"){ $enabled=0;}
-			 $count=DB::table('sims')->where('pin', '=', $pin)
+			 $count=DB::table('SIMs')->where('pin', '=', $pin)
                  ->count();
 				 if ($count>0){
-			DB::table('sims')
+			DB::table('SIMs')
             ->where('pin', $pin)
             ->update(['enabled' => $enabled]); 
 				 }
@@ -92,7 +92,7 @@ DB::table('sims')->where('enabled', '=', 0)
 	}
  public function insertOrUpdate($start,$end,$selectedplans){
 	 
-	 $count=DB::table('sims')
+	 $count=DB::table('SIMs')
                  ->where('sim', '<=',$end)
                  ->where('sim', '>=', $start)
                  ->count();
@@ -128,7 +128,7 @@ $table1 = App\SIM_PLANS::updateOrCreate( ['planCode' => $value ,'SIM'=>$i]);
 	
     public function enable($id)
 	{
-	DB::table('sims')
+	DB::table('SIMs')
             ->where('id', $id)
             ->update(['enabled' => 1]);
 				
@@ -138,7 +138,7 @@ $table1 = App\SIM_PLANS::updateOrCreate( ['planCode' => $value ,'SIM'=>$i]);
     public function disable($id)
 	{
 	
-	DB::table('sims')
+	DB::table('SIMs')
             ->where('id', $id)
             ->update(['enabled' => 0]);
 	} 
