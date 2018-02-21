@@ -135,7 +135,7 @@ $.ajax(settings2).done(function (response) {
 });
 }
 $scope.DataPins ={} ;
-    $http.get('https://enterpriseesolutions.com/pins.php').success(function (responsepins) {
+    $http.get('https://enterpriseesolutions.com/sims.php').success(function (responsepins) {
              $scope.DataPins = responsepins ;
           });
 
