@@ -390,7 +390,7 @@ $.ajax(settings0).done(function (response) {
   $.ajax(settings1).done(function (response) {
 	  	console.log('success q email'+response);
 	  //	console.log('connection '+response[0].identities[0].connection);
-  if(response[0].identities[0].connection== null){$("#emailnotfound").slideDown();}
+  if(response.length==0){$("#emailnotfound").slideDown();}
   else if(response[0].identities[0].connection=="Username-Password-Authentication"){
 	  	var datatosend='{\"client_id\": \"PBbe88ULTLh0kycpE0Db7g4AWjO21hYG\",\"email\": \"'+email+'\",\"connection\": \"Username-Password-Authentication\"}';
 
