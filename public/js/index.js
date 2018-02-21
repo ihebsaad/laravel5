@@ -370,6 +370,7 @@ var parsedData = JSON.parse(response.responseText);
  
  /******** Reset password ********/
   $scope.resetpassword = function() {
+	  console.log('entred to reset password');
 if ( document.getElementById("Ssent") != null ){document.getElementById("Ssent").style.display="none";}
 if ( document.getElementById("Wmailrequired") != null ){document.getElementById("Wmailrequired").style.display="none";}
 if ( document.getElementById("emailnotfound") != null ){document.getElementById("emailnotfound").style.display="none";}
