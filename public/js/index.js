@@ -4,6 +4,14 @@ angular.module('formApp', [
   'ngAnimate'
 ]).
 controller('formCtrl', ['$scope', '$http', function($scope, $http) {
+	console.log('window.location.host'+window.location.host);
+	var newURL ='';
+	if ( (window.location.host.indexOf("127.0.0.1") > -1 )|| ((window.location.host).indexOf("localhost")>-1)){
+	var newURL ="http://127.0.0.1/simactivation/";  
+	console.log('here1');
+  }
+else {	console.log('here2'); var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;}
+
   $scope.formParams = {};
   $scope.stage = "";
    $scope.formValidation = false;
@@ -84,8 +92,7 @@ controller('formCtrl', ['$scope', '$http', function($scope, $http) {
 }
 
 $.ajax(settings2).done(function (response) {
-	   var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
-
+	  
 	console.log('response show metaddata1'+response.nickname);   
 	console.log('response show metaddata2'+response.user_metadata['firstName']);   
    document.getElementById('logoutbtn').style.display="block";
@@ -97,7 +104,7 @@ $.ajax(settings2).done(function (response) {
 console.log('uinfo'+document.getElementById('uinfo').value);
 //response.user_metadata['firstName']=response.user_metadata['firstName'].replace(" ", "%20");
 //response.user_metadata['lastName']=response.user_metadata['lastName'].replace(" ", "%20");
-
+console.log('****new url****'+newURL);
 var url=''+newURL+'public/session_write2.php?username='+response.user_metadata['firstName']+'/'+response.user_metadata['lastName'];
 
 while ( url.indexOf(" ") > -1) {
@@ -111,7 +118,7 @@ url=url.replace(" ", "//");
   }
   else{console.log('here');}
 });
-console.log('juste after load');
+console.log('juste after load*****');
 });
 }
       $scope.showuserinfo = function(access_token) {
@@ -135,7 +142,7 @@ $.ajax(settings2).done(function (response) {
 });
 }
 $scope.DataPins ={} ;
-    $http.get('https://enterpriseesolutions.com/sims.php').success(function (responsepins) {
+    $http.get('https://enterpriseesolutions.com/pins.php').success(function (responsepins) {
              $scope.DataPins = responsepins ;
           });
 
@@ -329,7 +336,6 @@ var settings = {
 
 
 $.ajax(settings).done(function (response) {
-    var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
   var  token=response.access_token;
 
    var  access_token="Bearer "+token;
@@ -370,7 +376,6 @@ var parsedData = JSON.parse(response.responseText);
  
  /******** Reset password ********/
   $scope.resetpassword = function() {
-	  console.log('** reset password **');
 if ( document.getElementById("Ssent") != null ){document.getElementById("Ssent").style.display="none";}
 if ( document.getElementById("Wmailrequired") != null ){document.getElementById("Wmailrequired").style.display="none";}
 if ( document.getElementById("emailnotfound") != null ){document.getElementById("emailnotfound").style.display="none";}
@@ -389,9 +394,9 @@ $.ajax(settings0).done(function (response) {
   var  token=response.access_token;   var  access_token="Bearer "+token;
    	var settings1 = { "async": true,"crossDomain": true,"url": 'https://iristelx.auth0.com/api/v2/users?q="'+email+'"',"method": "GET","headers": {"content-type": "application/json","authorization": access_token }, "processData": false, "data": ''}
   $.ajax(settings1).done(function (response) {
-	 
+	  	console.log('success q email'+response);
 	  //	console.log('connection '+response[0].identities[0].connection);
-  if(response.length==0){$("#emailnotfound").slideDown();  console.log('Email not found');}
+  if(response[0].identities[0].connection== null){$("#emailnotfound").slideDown();}
   else if(response[0].identities[0].connection=="Username-Password-Authentication"){
 	  	var datatosend='{\"client_id\": \"PBbe88ULTLh0kycpE0Db7g4AWjO21hYG\",\"email\": \"'+email+'\",\"connection\": \"Username-Password-Authentication\"}';
 
@@ -889,11 +894,12 @@ var settings = {
 
 $.ajax(settings).done(function (response) {
   //console.log('response login after signup'+response.user_id);
-  var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
+   // else {var newURL="<?php echo $url; ?>"}
+//  var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
   var  token=response.access_token;
 
    var  access_token="Bearer "+token;
-   //console.log('before load');
+   console.log('before load'+newURL+'****');
   	 jQuery('#div_session_write').load(''+newURL+'public/session_write.php?access_token='+token);
 
 	document.getElementById('tokeninput').value = token;
@@ -975,7 +981,6 @@ $.ajax(settings).fail(function (response) {
 /********** PaymentProcess **********/
 
  $scope.PaymentProcess = function ( ) {
-   var newURL = window.location.protocol + "//" + window.location.host;
 var datacvv=$scope.formParams.cvv;
 var datacreditCard = $scope.formParams.creditCard;
 var datacardholder = $scope.formParams.cardholder;
@@ -986,7 +991,7 @@ var checkboxautomatic = $scope.formParams.autopay;
 
   console.log('data to send '+datacreditCard+' // '+datacvv+' // '+datacardholder+' // '+datayr+' // '+datamth);
   console.log('call url: '+newURL);
-  if(newURL=="http://127.0.0.1"){newURL=newURL+"/laravel5";}
+
 var settings = {
   "url": newURL+"/public/paymoneris.php", 
   "method": "POST",
