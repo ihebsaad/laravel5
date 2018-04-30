@@ -135,7 +135,7 @@ $scope.showusermetadata = function(access_token,user_id) {
 
 $.ajax(settings2).done(function (response) {
 	//   var newURL = window.location.protocol + "//" + window.location.host ;
-if(newURL=="http://ype"){newURL=newURL+"/simactivation";}
+//if(newURL=="http://ype"){newURL=newURL+"/simactivation";}
 	//console.log('response show metaddata1'+response.nickname);     
    document.getElementById('logoutbtn').style.display="block";
    document.getElementById('userinfo0').innerHTML="Logged in as ";
