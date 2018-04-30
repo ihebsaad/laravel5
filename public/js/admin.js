@@ -4,9 +4,15 @@ angular.module('formApp', [
   'ngAnimate'
 ]).
 controller('formCtrl', ['$scope', '$http', function($scope, $http) {
+var newURL ='';
+	if ( (window.location.host.indexOf("127.0.0.1") > -1 )|| ((window.location.host).indexOf("localhost")>-1)){
+	var newURL ="http://127.0.0.1/simactivation/";  
+	console.log('here1');
+  }
+else {	console.log('here2'); var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;}
 	
 	
-	 $http.get('https://enterpriseesolutions.com/sims.php').success(function (responsepins) {
+	 $http.get('https://enterpriseesolutions.com/pins.php').success(function (responsepins) {
              $scope.DataPins = responsepins ;
           });
 	
@@ -82,7 +88,7 @@ controller('formCtrl', ['$scope', '$http', function($scope, $http) {
   
   $scope.resetpins = function() {
 	  	
-	 $http.get('https://enterpriseesolutions.com/sims.php').success(function (responsepins) {
+	 $http.get('https://enterpriseesolutions.com/pins.php').success(function (responsepins) {
              $scope.DataPins = responsepins ;
           });
   }
@@ -128,8 +134,8 @@ $scope.showusermetadata = function(access_token,user_id) {
 }
 
 $.ajax(settings2).done(function (response) {
-	   var newURL = window.location.protocol + "//" + window.location.host ;
-if(newURL=="http://ype"){newURL=newURL+"/laravel5";}
+	//   var newURL = window.location.protocol + "//" + window.location.host ;
+if(newURL=="http://ype"){newURL=newURL+"/simactivation";}
 	//console.log('response show metaddata1'+response.nickname);     
    document.getElementById('logoutbtn').style.display="block";
    document.getElementById('userinfo0').innerHTML="Logged in as ";
@@ -165,9 +171,9 @@ var settings = {
 
 $.ajax(settings).done(function (response) {
 
-    var newURL = window.location.protocol + "//" + window.location.host;
+  /*  var newURL = window.location.protocol + "//" + window.location.host;
 	if(window.location.host=="127.0.0.1")
-	{newURL="http://127.0.0.1/laravel5/";}
+	{newURL="http://127.0.0.1/simactivation/";}*/
   var  token=response.access_token;
 
    var  access_token="Bearer "+token;
@@ -190,7 +196,7 @@ $.ajax(settings).done(function (response) {
  document.getElementById('logindiv').style.display="none";
  document.getElementById('admindiv').style.display="block";
  
-   $http.get('https://enterpriseesolutions.com/sims.php').success(function (responsepins) {
+   $http.get('https://enterpriseesolutions.com/pins.php').success(function (responsepins) {
              $scope.DataPins = responsepins ;
           });
 		  
@@ -275,7 +281,7 @@ $scope.enable = function (id){
 $.ajax(setting).done(function (response) {
 $("#pinenabled").slideDown();
 		//refresh PINs list 
-	  $http.get('https://enterpriseesolutions.com/sims.php').success(function (responsepins) {
+	  $http.get('https://enterpriseesolutions.com/pins.php').success(function (responsepins) {
              $scope.DataPins = responsepins ;
           });	
 });
@@ -306,7 +312,7 @@ $.ajax(setting).fail(function (response) {
 $.ajax(setting).done(function (response) {
 	$("#pindisabled").slideDown();
 	//refresh pins list 
-	 $http.get('https://enterpriseesolutions.com/sims.php').success(function (responsepins) {
+	 $http.get('https://enterpriseesolutions.com/pins.php').success(function (responsepins) {
              $scope.DataPins = responsepins ;
           });	
 });
