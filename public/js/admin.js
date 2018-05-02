@@ -6,7 +6,7 @@ angular.module('formApp', [
 controller('formCtrl', ['$scope', '$http', function($scope, $http) {
 var newURL ='';
 console.log("host="+window.location.host);
-	if ( (window.location.host.indexOf("127.0.0.1") > -1 ){
+	if (window.location.host.indexOf("127.0.0.1") > -1 ){
 	var newURL ="http://127.0.0.1/simactivation/";  
 	console.log('here1');
   }
