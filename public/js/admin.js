@@ -12,14 +12,17 @@ var newURL ='';
 else {	console.log('here2'); var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;}
 	
 	
-	 $http.get('https://enterpriseesolutions.com/pins.php').success(function (responsepins) {
-             $scope.DataPins = responsepins ;
-          });
-	
-	if (document.getElementById('tokeninput').value == "")
+		if (document.getElementById('tokeninput').value == "")
 	{ $scope.loggedin = false;}else {
 		$scope.loggedin=true; 
 }
+	 
+	 if ($scope.loggedin)
+	 {	 $http.get('https://enterpriseesolutions.com/pins.php').success(function (responsepins) {
+             $scope.DataPins = responsepins ;
+          });
+	
+		}
 //$scope.DataPins ={} ;
   	
 	
