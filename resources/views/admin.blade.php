@@ -1,4 +1,16 @@
 <?php session_start(); ?>
+
+<?php
+$url=env('serverurl');
+ $url2='';
+$servername =  $_SERVER['SERVER_NAME'];
+if (strpos($servername, "127.0.0.1") > -1)
+{ $url2= "127.0.0.1/simactivation/";}
+elseif (strpos($servername, "localhost") > -1)
+{ $url2= "localhost/simactivation/";}
+else {$url2 = $url;}
+echo 'URL: '.$url2;
+?>
  <?php
  \Log::info('Visit Iristel Administration Portal');
   if (isset ($_SESSION['access_tokenA']))
@@ -17,10 +29,10 @@
 
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
-        <link rel="stylesheet" href="public/assets/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="public/assets/font-awesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="public/assets/css/form-elements.css">
-        <link rel="stylesheet" href="public/assets/css/style.css">
+        <link rel="stylesheet" href="<?php echo $url; ?>public/assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="<?php echo $url; ?>public/assets/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="<?php echo $url; ?>public/assets/css/form-elements.css">
+        <link rel="stylesheet" href="<?php echo $url; ?>public/assets/css/style.css">
         <!--<link rel="stylesheet" href="public/css/style.css">-->
 		<script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js'></script>
 		<script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-animate.min.js'></script>
@@ -53,13 +65,13 @@ $responsep = curl_exec($curlp);
 $errp = curl_error($curlp);
 
 curl_close($curlp);
-
+  $arrayPlans = array();
 if ($errp) {
   echo "cURL Error #:" . $errp;
 } else {
  // echo $response;
   $obj = json_decode($responsep);
-  $arrayPlans = array();
+
   $arrayPlansDetails = array();
 
 foreach($obj->plans as $plan){
@@ -507,13 +519,13 @@ Please enter an end SIM number.
             
       <!--  </div>-->
 		
-    <script  src="public/js/admin.js"></script>
+    <script  src="http://test.enterpriseesolutions.com/public/js/admin.js"></script>
 
         <!-- Javascript -->
-        <script src="public/assets/js/jquery-1.11.1.min.js"></script>
-        <script src="public/assets/bootstrap/js/bootstrap.min.js"></script>
-        <script src="public/assets/js/jquery.backstretch.min.js"></script>
-        <script src="public/assets/js/scripts.js"></script>
+        <script src="<?php echo $url; ?>public/assets/js/jquery-1.11.1.min.js"></script>
+        <script src="<?php echo $url; ?>public/assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="<?php echo $url; ?>public/assets/js/jquery.backstretch.min.js"></script>
+        <script src="<?php echo $url; ?>public/assets/js/scripts.js"></script>
         <script type="text/javascript">
  function checkpin()
  {
@@ -611,14 +623,14 @@ $(document).on({
 var URL = window.location.protocol + "//" + window.location.host + window.location.pathname;
  
   var newURL = window.location.protocol + "//" + window.location.host;
- if(newURL=="http://127.0.0.1"){newURL=newURL+"/laravel5";}
+ if(newURL=="http://127.0.0.1"){newURL=newURL+"/simactivation";}
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open('GET',''+newURL+'/public/session_destroyA.php', true);
    //console.log(''+newURL+'/public/session_destroyA.php');
     xmlhttp.onreadystatechange=function(){
        if (xmlhttp.readyState == 4){
           if(xmlhttp.status == 200){
-			  if (newURL=='http://127.0.0.1/laravel5/activate/admin'){
+			  if (newURL=='http://127.0.0.1/simactivation/activate/admin'){
 				   window.location.replace(newURL);
 			  }
 			  else{
@@ -635,11 +647,11 @@ var URL = window.location.protocol + "//" + window.location.host + window.locati
  /******** end logout ********/
  function downloadtemplate() {
 
-
+ var newurld ="http://"+ "<?php echo $url2; ?>downloadtemplate";
 	var settings = {
   "async": true,
   "crossDomain": true,
-  "url": "http://test.enterpriseesolutions.com/downloadtemplate",
+  "url":newurld ,
   "method": "POST",
   "processData": false }
 
@@ -688,14 +700,16 @@ $.ajax(settings).fail(function (response) {/*console.log(response);*/})
 	});
   //  alert(count);
 	   var plans = [];
-	   for(i=0;i< count; i++){
+	   var newurld ="http://"+ "<?php echo $url2; ?>admin/deleterange/"+ start + "/" + end;
+
+       for(i=0;i< count; i++){
 	   if (document.getElementById('radio'+i).checked){plans.push(document.getElementById('radio'+i).value);}
 	    }
 	 if (plans.length==0){ //console.log('delete');
 	 	   	 	 var setting2 = {
   "async": true,
   "crossDomain": true,
-  "url": "http://test.enterpriseesolutions.com/admin/deleterange/"+start+'/'+end,
+  "url": newurld,
   "method": "GET",
   "headers": {
      'Access-Control-Allow-Origin': '*'
@@ -717,14 +731,17 @@ $.ajax(setting2).fail(function (response) {
 });	 
 	 }
 	 else{
-		 
+		
+		
 		 selectedplans=plans.toString();
+		  var newurld ="http://"+ "<?php echo $url2; ?>admin/insertOrUpdate/"+start+'/'+end+'/'+selectedplans;
+
 		// console.log('insert or update');
 		// console.log(selectedplans);
 		 	 	 var setting = {
   "async": true,
   "crossDomain": true,
-  "url": "http://test.enterpriseesolutions.com/admin/insertOrUpdate/"+start+'/'+end+'/'+selectedplans,
+  "url":newurld,
   "method": "GET",
   "headers": {
      'Access-Control-Allow-Origin': '*'
@@ -761,11 +778,12 @@ if ( document.getElementById("pindisabled") != null ){document.getElementById("p
 	  pin=document.getElementById('pinnum').value;
 	  var e = document.getElementById("endis");
 var endis = e.options[e.selectedIndex].value;
+var newurld ="http://"+ "<?php echo $url2; ?>admin/enabledisable/"+pin+'/'+endis;
 
 		   	 	 var setting = {
   "async": true,
   "crossDomain": true,
-  "url": "http://test.enterpriseesolutions.com/admin/enabledisable/"+pin+'/'+endis,
+  "url": newurld,
   "method": "GET",
   "headers": {
      'Access-Control-Allow-Origin': '*'
@@ -801,6 +819,9 @@ $.ajax(setting).fail(function (response) {
 	 	  
 	  start=document.getElementById('startsim1').value;
 	  end=document.getElementById('endsim1').value;
+    newurld ="http://"+ "<?php echo $url2; ?>admin/delete/"+start+'/'+end;
+
+   
 	  if (start==""){	$("#startrange").slideDown();	}
 	  else if (end==""){	$("#endrange").slideDown();	}
 	   //else if (parseInt(end) <= parseInt(start)){
@@ -811,7 +832,7 @@ $.ajax(setting).fail(function (response) {
 		   	 	 var setting = {
   "async": true,
   "crossDomain": true,
-  "url": "http://test.enterpriseesolutions.com/admin/delete/"+start+'/'+end,
+  "url": newurld,
   "method": "GET",
   "headers": {
      'Access-Control-Allow-Origin': '*'
@@ -854,7 +875,7 @@ else{
     form_data.append('file', file_data);
 	var newURL = window.location.protocol + "//" + window.location.host;
     if(newURL=="http://127.0.0.1"){
-		url="http://127.0.0.1/laravel5/public/upload.php";		
+		url="http://127.0.0.1/simactivation/public/upload.php";		
 	}
 	else{
 		url="http://test.enterpriseesolutions.com/public/upload.php";
