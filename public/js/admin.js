@@ -90,10 +90,12 @@ else {	console.log('here2'); var newURL = "http://test.enterpriseesolutions.com/
   
   
   $scope.resetpins = function() {
-	  	
+	  	if ($scope.loggedin)
+	 {
 	 $http.get('https://enterpriseesolutions.com/pins.php').success(function (responsepins) {
              $scope.DataPins = responsepins ;
           });
+	 }
   }
   $scope.reset = function() {
     // Clean up scope before destorying
