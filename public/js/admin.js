@@ -9,7 +9,7 @@ var newURL ='';
 	var newURL ="http://127.0.0.1/simactivation/";  
 	console.log('here1');
   }
-else {	console.log('here2'); var newURL = "http://enterpriseesolutions.com/";}
+else {	console.log('here2'); var newURL = "http://test.enterpriseesolutions.com/";}
 	
 	
 		if (document.getElementById('tokeninput').value == "")
