@@ -5,12 +5,10 @@ angular.module('formApp', [
 ]).
 controller('formCtrl', ['$scope', '$http', function($scope, $http) {
 var newURL ='';
-console.log("host="+window.location.host);
-	if (window.location.host.indexOf("127.0.0.1") > -1 ){
+	if ( (window.location.host.indexOf("127.0.0.1") > -1 )|| ((window.location.host).indexOf("localhost")>-1)){
 	var newURL ="http://127.0.0.1/simactivation/";  
 	console.log('here1');
   }
-  else if((window.location.host).indexOf("localhost")>-1){var newURL ="http://localhost/simactivation/";  }
 else {	console.log('here2'); var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;}
 	
 	
@@ -137,7 +135,7 @@ $scope.showusermetadata = function(access_token,user_id) {
 
 $.ajax(settings2).done(function (response) {
 	//   var newURL = window.location.protocol + "//" + window.location.host ;
-//if(newURL=="http://ype"){newURL=newURL+"/simactivation";}
+if(newURL=="http://ype"){newURL=newURL+"/simactivation";}
 	//console.log('response show metaddata1'+response.nickname);     
    document.getElementById('logoutbtn').style.display="block";
    document.getElementById('userinfo0').innerHTML="Logged in as ";
@@ -270,7 +268,7 @@ $scope.enable = function (id){
 	 var setting = {
   "async": true,
   "crossDomain": true,
-  "url": "http://test.enterpriseesolutions.com/admin/enable/"+id,
+  "url": newURL+"admin/enable/"+id,
   "method": "GET",
   "headers": {
      'Access-Control-Allow-Origin': '*'
@@ -301,7 +299,7 @@ $.ajax(setting).fail(function (response) {
 	 var setting = {
   "async": true,
   "crossDomain": true,
-  "url": "http://test.enterpriseesolutions.com/admin/disable/"+id,
+  "url": newURL+ "admin/disable/"+id,
   "method": "GET",
   "headers": {
      'Access-Control-Allow-Origin': '*'
