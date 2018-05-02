@@ -9,7 +9,7 @@ if (strpos($servername, "127.0.0.1") > -1)
 elseif (strpos($servername, "localhost") > -1)
 { $url2= "localhost/simactivation/";}
 
-echo 'URL: '.$url2;
+echo 'new URL: '.$url2;
 ?>
  <?php
  \Log::info('Visit Iristel Administration Portal');
