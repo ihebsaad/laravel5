@@ -5,9 +5,9 @@ $url=env('serverurl');
  $url2=$url;
 $servername =  $_SERVER['SERVER_NAME'];
 if (strpos($servername, "127.0.0.1") > -1)
-{ $url2= "127.0.0.1/simactivation/";}
+{ $url2= "http://127.0.0.1/simactivation/";}
 elseif (strpos($servername, "localhost") > -1)
-{ $url2= "localhost/simactivation/";}
+{ $url2= "http://localhost/simactivation/";}
 
 echo 'new URL: '.$url2;
 ?>
@@ -647,7 +647,7 @@ var URL = window.location.protocol + "//" + window.location.host + window.locati
  /******** end logout ********/
  function downloadtemplate() {
 
- var newurld ="http://"+ "<?php echo $url2; ?>downloadtemplate";
+ var newurld ="<?php echo $url2; ?>downloadtemplate";
 	var settings = {
   "async": true,
   "crossDomain": true,
@@ -700,7 +700,7 @@ $.ajax(settings).fail(function (response) {/*console.log(response);*/})
 	});
   //  alert(count);
 	   var plans = [];
-	   var newurld ="http://"+ "<?php echo $url2; ?>admin/deleterange/"+ start + "/" + end;
+	   var newurld = "<?php echo $url2; ?>admin/deleterange/"+ start + "/" + end;
 
        for(i=0;i< count; i++){
 	   if (document.getElementById('radio'+i).checked){plans.push(document.getElementById('radio'+i).value);}
@@ -734,7 +734,7 @@ $.ajax(setting2).fail(function (response) {
 		
 		
 		 selectedplans=plans.toString();
-		  var newurld ="http://"+ "<?php echo $url2; ?>admin/insertOrUpdate/"+start+'/'+end+'/'+selectedplans;
+		  var newurld = "<?php echo $url2; ?>admin/insertOrUpdate/"+start+'/'+end+'/'+selectedplans;
 
 		// console.log('insert or update');
 		// console.log(selectedplans);
@@ -778,7 +778,7 @@ if ( document.getElementById("pindisabled") != null ){document.getElementById("p
 	  pin=document.getElementById('pinnum').value;
 	  var e = document.getElementById("endis");
 var endis = e.options[e.selectedIndex].value;
-var newurld ="http://"+ "<?php echo $url2; ?>admin/enabledisable/"+pin+'/'+endis;
+var newurld ="<?php echo $url2; ?>admin/enabledisable/"+pin+'/'+endis;
 
 		   	 	 var setting = {
   "async": true,
@@ -819,7 +819,7 @@ $.ajax(setting).fail(function (response) {
 	 	  
 	  start=document.getElementById('startsim1').value;
 	  end=document.getElementById('endsim1').value;
-    newurld ="http://"+ "<?php echo $url2; ?>admin/delete/"+start+'/'+end;
+    newurld = "<?php echo $url2; ?>admin/delete/"+start+'/'+end;
 
    
 	  if (start==""){	$("#startrange").slideDown();	}
