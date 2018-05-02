@@ -2,13 +2,13 @@
 
 <?php
 $url=env('serverurl');
- $url2='';
+ $url2=$url;
 $servername =  $_SERVER['SERVER_NAME'];
 if (strpos($servername, "127.0.0.1") > -1)
 { $url2= "127.0.0.1/simactivation/";}
 elseif (strpos($servername, "localhost") > -1)
 { $url2= "localhost/simactivation/";}
-else {$url2 = $url;}
+
 echo 'URL: '.$url2;
 ?>
  <?php
