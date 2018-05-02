@@ -1,11 +1,22 @@
 <?php
-
+ 
     if ( 0 < $_FILES['file']['error'] ) {
         echo 'Error: ' . $_FILES['file']['error'] . '<br>';
     }
     else {
         move_uploaded_file($_FILES['file']['tmp_name'], 'uploads/' . $_FILES['file']['name']);
-    $csvfile='http://test.enterpriseesolutions.com/public/uploads/'. $_FILES['file']['name'];
+   
+
+		$url2='';
+$servername =  $_SERVER['SERVER_NAME'];
+if (strpos($servername, "127.0.0.1") > -1)
+{  $csvfile= "http://127.0.0.1/simactivation/public/uploads/". $_FILES['file']['name'];}
+elseif (strpos($servername, "localhost") > -1)
+{  $csvfile= "http://localhost/simactivation/public/uploads/". $_FILES['file']['name'];}
+else { $csvfile='http://test.enterpriseesolutions.com/public/uploads/'. $_FILES['file']['name'];}
+      
+
+   //$csvfile=$url2. $_FILES['file']['name'];
     //detect delimiter
 	 $delimiter = false;
     $line = '';
