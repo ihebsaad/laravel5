@@ -5,10 +5,12 @@ angular.module('formApp', [
 ]).
 controller('formCtrl', ['$scope', '$http', function($scope, $http) {
 var newURL ='';
-	if ( (window.location.host.indexOf("127.0.0.1") > -1 )|| ((window.location.host).indexOf("localhost")>-1)){
+console.log(window.location.host.indexOf("127.0.0.1"));
+	if ( (window.location.host.indexOf("127.0.0.1") > -1 ){
 	var newURL ="http://127.0.0.1/simactivation/";  
 	console.log('here1');
   }
+  else if((window.location.host).indexOf("localhost")>-1){var newURL ="http://localhost/simactivation/";  }
 else {	console.log('here2'); var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;}
 	
 	
