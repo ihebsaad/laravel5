@@ -427,7 +427,7 @@ Please enter an end SIM number.
 												<div id="searcharea" style="dispaly:none; ">     
 												<table id="searchObjResults" style="width:300px;">
 												<tr><th style="color:black;min-width:150px">PIN</th><th style="color:black;min-width:150px">SIM</th></tr>
-												<tr ng-repeat="data in DataPins |  filter : search | limitTo:5">
+												<tr ng-repeat="data in DataPins |  filter : search.pin | limitTo:5">
 													<td style="font-weight:800" ng-bind="data.pin"> </td>
 													<td style=";font-weight:800" ng-bind="data.sim"></td>
 												</tr>
@@ -435,7 +435,7 @@ Please enter an end SIM number.
 												</div> 
 			
                                             <div id="pinarea"  class="pininfos" style="display:none;margin-top: 10px;padding:15px;background-color:white;color:rgb(0, 111, 185);background-color:white;font-weight:800;border:2px solid black; border-radius: 25px;min-height:250px">
-                                               <div ng-repeat="data in DataPins | filter : search | limitTo:1">
+                                               <div ng-repeat="data in DataPins | filter : search.pin | limitTo:1">
 											   <div class="row" >
                                                     <div class="col-sm-5 form-group">
                                                         <p style="color:rgb(165, 168, 171);">PIN #</p>
