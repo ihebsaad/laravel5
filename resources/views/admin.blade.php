@@ -313,13 +313,13 @@ Please enter an end SIM number.
                                         </ul>
                                     </div>
                                     
-                                    <!--pins tab menu-->
+                                    <!--pins tab menu-
                                     <div id="pins" class="tab-pane">
                                         <ul class="nav nav-tabs" id="pins_tabs">
                                             <li><a href="#lookup" onclick="removeAlertes2();" data-toggle="tab">Lookup PIN</a></li>
                                             <li><a href="#enable_disable" onclick="removeAlertes2();" data-toggle="tab">Enable / Disable PIN</a></li>
                                         </ul>
-                                    </div>                 
+                                    </div>         -->        
                                  </div>                        
                                     <!--music tab content-->
                                     <div class="tab-content">
