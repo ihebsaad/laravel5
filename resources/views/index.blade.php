@@ -628,6 +628,7 @@ var URL = window.location.protocol + "//" + window.location.host ;
         isValid = validityRegexp.test(input);
 		hasDiff=DiffCharacterRegexp.test(input);
 
+			 strong = hasSpecialCharacter && hasDiff ;
 
 	 
       if (isEmpty) {
@@ -635,14 +636,11 @@ var URL = window.location.protocol + "//" + window.location.host ;
       }
 
       if (isValid) {
-		  	 if (input.length > 8) {
-			var strong =false;
-			 strong = hasSpecialCharacter && hasDiff ;
-			 alert(strong);
-           return createReturnValue("very strong", 4, true, strong);
+		  	 if (input.length > 8) && (strong){
+            return createReturnValue("very strong", 4, true, strong);
 	 }
 		  
-        if (input.length > 12) {
+       else if (input.length > 12) && !(strong) {
           return createReturnValue("very strong", 4, true, hasSpecialCharacter && DiffCharacterRegexp);
         } else if (input.length > 9) {
           return createReturnValue("strong", 3, true, hasSpecialCharacter);
