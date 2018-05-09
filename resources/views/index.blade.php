@@ -382,7 +382,8 @@ img.onclick = function(){
                                 <input ng-model="formParams.city" type="text" name="city"  required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="2" ng-maxlength="25" placeholder="City *" class="form-control">
                             </div>      
                             <div class="col-sm-6 form-group">
-    <select  placeholder="Province *"  ng-model="formParams.province" class="form-control" >
+    <select  required placeholder="Province *"  ng-model="formParams.province" class="form-control" >
+    <option value="" disabled="" selected="">Province *</option>
     <option value="0">Alberta</option><option value="1">British Columbia</option>
     <option value="2">Manitoba</option><option value="3">New Brunswick</option>
     <option value="4">Nova Scotia</option><option value="5">Newfoundland</option>
@@ -519,6 +520,8 @@ img.onclick = function(){
           <td style="margin-right:20px"> <small  ng-show="FormActivate.province.$error.required && (FormActivate.province.$dirty || FormActivate.province.$touched ||FormActivate.email2.$touched ||FormActivate.password2.$touched ||FormActivate.confirm.$touched)">
             Province is required !  
             </small></td>
+			<td style="margin-right:20px"> <small  ng-show="FormActivate.province.$error.required">Select a Province</small></td>
+
           </tr>
 
           <tr ng-show="FormActivate.first.$valid && FormActivate.last.$valid && FormActivate.streetnum.$valid && FormActivate.streetname.$valid && FormActivate.unit.$valid && FormActivate.box.$valid && FormActivate.postal.$valid && FormActivate.city.$valid && FormActivate.province.$valid " >
