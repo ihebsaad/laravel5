@@ -40,14 +40,14 @@
       if (isEmpty) {
         return createReturnValue("", 0, false, false);
       }
-
-      if (isValid) {
-		//if (input.length > 8) {
+	 if (input.length > 8) {
 			var strong =false;
 			 strong = hasSpecialCharacter && hasDiff ;
 			 alert(strong);
         //  return createReturnValue("very strong", 4, true, strong);
-        //}
+	 }
+      if (isValid) {
+	
         if (input.length > 12) {
           return createReturnValue("very strong", 4, true, hasSpecialCharacter);
         } else if (input.length > 9) {
