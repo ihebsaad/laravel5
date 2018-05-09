@@ -32,7 +32,7 @@ class AdminController extends Controller
                  ->where('sim', '=',$sim)
                  ->count();
 				 
-				 if (($count <0) ){
+				 if (($count <= 0) ){
 		DB::table('SIMs')->insert(
     ['sim' => $sim, 'pin' => $pin,'enabled'=>$enabled]
 );
