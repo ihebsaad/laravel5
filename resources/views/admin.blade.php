@@ -478,7 +478,7 @@ Please enter an end SIM number.
                                             </div>
                                         </div>
 										
-                                        <div id="enable_disable" class="tab-pane">
+                                       <!-- <div id="enable_disable" class="tab-pane">
                                             <div class="row" style="margin-top: 20px;">
                                                 <div class="form-group col-xs-12">
                                                     <p>Enter the PIN # you wish to enable/disable below:</p>
@@ -498,7 +498,7 @@ Please enter an end SIM number.
                                                     <button onclick="enableDisable();"type="button" class="btn btn-primary "  style="height:35px!important;float: right!important;line-height:0px!important;" >GO</button>
                                                 </div>      
                                             </div>
-                                        </div>
+                                        </div>-->
                                     </div>
 
 
