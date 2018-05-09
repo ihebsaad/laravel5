@@ -619,13 +619,13 @@ var URL = window.location.protocol + "//" + window.location.host ;
     }
 
     this.validate = function(input) {
-      var validityRegexp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
+      //var validityRegexp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
 	  specialCharacterRegexp = (/^(?=.*\d)(?=.*[A-Z])/);
         DiffCharacterRegexp = /^[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
 
       var isEmpty = !input || input.length === 0,
         hasSpecialCharacter = specialCharacterRegexp.test(input),
-        isValid = validityRegexp.test(input);
+       // isValid = validityRegexp.test(input);
 		hasDiff=DiffCharacterRegexp.test(input);
 
 		var	 strong =false; strong= hasSpecialCharacter && hasDiff ;
@@ -634,9 +634,9 @@ var URL = window.location.protocol + "//" + window.location.host ;
         return createReturnValue("", 0, false, false);
       }
 
-      if (isValid) {
-		  	 alert(strong);
+      if (input.length > 8) {
 
+	  
 		  	 if ( (input.length > 8) && (strong)){
             return createReturnValue("very strong", 4, true, strong);
 	 }
