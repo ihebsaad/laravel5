@@ -43,7 +43,9 @@
 
       if (isValid) {
 		if (input.length > 8) {
-          return createReturnValue("very strong", 4, true, hasSpecialCharacter && hasDiff);
+			var strong =false;
+			 strong = hasSpecialCharacter && hasDiff ;
+          return createReturnValue("very strong", 4, true, strong);
         }
         if (input.length > 12) {
           return createReturnValue("very strong", 4, true, hasSpecialCharacter);
