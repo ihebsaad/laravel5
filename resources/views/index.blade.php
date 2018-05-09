@@ -1120,7 +1120,7 @@ $('#password, #confirm_password').on('keyup', function () {
       ]
     },
     {
-      name: "On",
+      name: "Ontario",
       cities: [{
         name: "Toronto",
         acodes: [
