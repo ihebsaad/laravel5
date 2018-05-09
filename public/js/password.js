@@ -30,16 +30,21 @@
       var validityRegexp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
         //specialCharacterRegexp = /(\d|[A-Z])/;
         specialCharacterRegexp = (/^(?=.*\d)(?=.*[A-Z])/);
+        DiffCharacterRegexp = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
 
       var isEmpty = !input || input.length === 0,
         hasSpecialCharacter = specialCharacterRegexp.test(input),
         isValid = validityRegexp.test(input);
+		hasDiff=DiffCharacterRegexp.test(input);
 
       if (isEmpty) {
         return createReturnValue("", 0, false, false);
       }
 
       if (isValid) {
+		if (input.length > 8) {
+          return createReturnValue("very strong", 4, true, hasSpecialCharacter && hasDiff);
+        }
         if (input.length > 12) {
           return createReturnValue("very strong", 4, true, hasSpecialCharacter);
         } else if (input.length > 9) {
