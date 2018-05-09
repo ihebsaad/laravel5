@@ -1599,7 +1599,7 @@ $(function () {
                             <div class="col-sm-3 form-group">
  								<select ng-model="formParams.emonth" class="form-control" required  ng-model="month" name="emonth"><option value="">Month</option><option value="01">01</option><option value="02">02</option><option value="03">03</option><option value="04">04</option><option value="05">05</option><option value="06">06</option><option value="07">07</option><option value="08">08</option><option value="09">09</option><option value="10">10</option><option value="11">11</option><option value="12">12</option></select>
                             </div>  
-                            <div class="col-sm-3 form-group²
+                            <div class="col-sm-3 form-group">
                              <select ng-model="formParams.eyear" class="form-control" required  ng-model="YEAR" name="eyear"><option value="">Year</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2023">2023</option><option value="2024">2024</option></select> 
 							 </div>  
                             <div class="col-sm-3 form-group">
