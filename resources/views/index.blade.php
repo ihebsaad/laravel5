@@ -382,8 +382,16 @@ img.onclick = function(){
                                 <input ng-model="formParams.city" type="text" name="city"  required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="2" ng-maxlength="25" placeholder="City *" class="form-control">
                             </div>      
                             <div class="col-sm-6 form-group">
-                                <input ng-model="formParams.province" type="text" name="province"  required ng-pattern="/^[a-zA-Z ]*$/" ng-minlength="2" ng-maxlength="2" placeholder="Province *" class="form-control">
-                            </div>  
+    <select  placeholder="Province *"  ng-model="formParams.province" class="form-control" >
+    <option value="" disabled="" selected="">Province</option>
+    <option value="0">Alberta</option><option value="1">British Columbia</option>
+    <option value="2">Manitoba</option><option value="3">New Brunswick</option>
+    <option value="4">Nova Scotia</option><option value="5">Newfoundland</option>
+    <option value="6">Northwest Territories</option><option value="7">Nunavut</option>
+    <option value="8">Ontario</option><option value="9">Prince Edward Island</option>
+    <option value="10">Quebec</option><option value="11">Saskatchewan</option><option value="12">Yukon</option>
+    </select>
+						   </div>  
                         </div>
                             
                     <div class="form-group">
@@ -509,16 +517,7 @@ img.onclick = function(){
           </tr>
 
           <tr ng-show="FormActivate.first.$valid && FormActivate.last.$valid && FormActivate.streetnum.$valid && FormActivate.streetname.$valid && FormActivate.unit.$valid && FormActivate.box.$valid && FormActivate.postal.$valid && FormActivate.city.$valid " >
-          <td style="margin-right:20px"><small    ng-show="FormActivate.province.$error.pattern">
-            Province should be letters only !  
-            </small></td>
-            <td style="margin-right:20px"><small   ng-show="FormActivate.province.$error.minlength && FormActivate.email2.$touched">
-            Province is too short !  
-            </small></td>
-            <td><small  ng-show="FormActivate.province.$error.maxlength">
-            Province is too long !  
-            </small></td>
-            <td  ><small  ng-show="FormActivate.province.$error.required && (FormActivate.province.$dirty || FormActivate.province.$touched ||FormActivate.email2.$touched ||FormActivate.password2.$touched ||FormActivate.confirm.$touched)">
+          <td style="margin-right:20px"> <small  ng-show="FormActivate.province.$error.required && (FormActivate.province.$dirty || FormActivate.province.$touched ||FormActivate.email2.$touched ||FormActivate.password2.$touched ||FormActivate.confirm.$touched)">
             Province is required !  
             </small></td>
           </tr>
