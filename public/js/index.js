@@ -1243,7 +1243,7 @@ $('#failsignup').css('display', 'none');
 	document.getElementById('sel3').options[document.getElementById('sel3').selectedIndex].value=-1; $scope.search.areaCode="";
 
 	}
-	if(Text=='Ontario'){Text='On';}
+	if(Text=='Ontario'){Text='ON';}
    $scope.search.province=Text;
    // $('#divnumbers').css('display', 'none');
 	  document.getElementById('divnumbers').style.display="none";
