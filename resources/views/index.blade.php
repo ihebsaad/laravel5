@@ -383,7 +383,6 @@ img.onclick = function(){
                             </div>      
                             <div class="col-sm-6 form-group">
     <select  placeholder="Province *"  ng-model="formParams.province" class="form-control" >
-    <option value="" disabled="" selected="">Province</option>
     <option value="0">Alberta</option><option value="1">British Columbia</option>
     <option value="2">Manitoba</option><option value="3">New Brunswick</option>
     <option value="4">Nova Scotia</option><option value="5">Newfoundland</option>
