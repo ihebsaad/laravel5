@@ -620,20 +620,30 @@ var URL = window.location.protocol + "//" + window.location.host ;
 
     this.validate = function(input) {
       var validityRegexp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
-        //specialCharacterRegexp = /(\d|[A-Z])/;
-        specialCharacterRegexp = (/^(?=.*\d)(?=.*[A-Z])/);
+	  specialCharacterRegexp = (/^(?=.*\d)(?=.*[A-Z])/);
+        DiffCharacterRegexp = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
 
       var isEmpty = !input || input.length === 0,
         hasSpecialCharacter = specialCharacterRegexp.test(input),
         isValid = validityRegexp.test(input);
+		hasDiff=DiffCharacterRegexp.test(input);
 
+
+	 
       if (isEmpty) {
         return createReturnValue("", 0, false, false);
       }
 
       if (isValid) {
+		  	 if (input.length > 8) {
+			var strong =false;
+			 strong = hasSpecialCharacter && hasDiff ;
+			 alert(strong);
+           return createReturnValue("very strong", 4, true, strong);
+	 }
+		  
         if (input.length > 12) {
-          return createReturnValue("very strong", 4, true, hasSpecialCharacter);
+          return createReturnValue("very strong", 4, true, hasSpecialCharacter && DiffCharacterRegexp);
         } else if (input.length > 9) {
           return createReturnValue("strong", 3, true, hasSpecialCharacter);
         } else {
