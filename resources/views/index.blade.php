@@ -628,9 +628,7 @@ var URL = window.location.protocol + "//" + window.location.host ;
         hasSpecialCharacter = specialCharacterRegexp.test(input),
         isValid = hasSpecialCharacter ;
 		hasDiff=DiffCharacterRegexp.test(input);
-
-		var	 strong =false; strong= hasSpecialCharacter && hasDiff ;
-
+		
       if (isEmpty) {
         return createReturnValue("", 0, false, false);
       }
