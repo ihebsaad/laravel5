@@ -837,7 +837,7 @@ $('#password, #confirm_password').on('keyup', function () {
     <option value="2">Manitoba</option><option value="3">New Brunswick</option>
     <option value="4">Nova Scotia</option><option value="5">Newfoundland</option>
     <option value="6">Northwest Territories</option><option value="7">Nunavut</option>
-    <option value="8">On</option><option value="9">Prince Edward Island</option><!--ontario-->
+    <option value="On">Ontario</option><option value="9">Prince Edward Island</option><!--ontario-->
     <option value="10">Quebec</option><option value="11">Saskatchewan</option><option value="12">Yukon</option>
          </select>
         </div>
