@@ -433,7 +433,7 @@ Please enter an end SIM number.
 												</tr>
 												</table> 
 												</div> 
-												<script>public function SetVal(val){alert(val);}</script>
+												<script> function SetVal(val){alert(val);}</script>
                                             <div id="pinarea"  class="pininfos" style="display:none;margin-top: 10px;padding:15px;background-color:white;color:rgb(0, 111, 185);background-color:white;font-weight:800;border:2px solid black; border-radius: 25px;min-height:250px">
                                                <div ng-repeat="data in DataPins | filter : search.pin | limitTo:1">
 											   <div class="row" >
