@@ -636,7 +636,7 @@ var URL = window.location.protocol + "//" + window.location.host ;
       if (isValid) {
 		          if (input.length > 7) {
 					  
-		 if ((input.length > 11) ) {
+		 if ((input.length > 12) ) {
           return createReturnValue("very strong", 4, true, hasSpecialCharacter );
         } 
 		 if ((input.length > 8) && (hasDiff)) {
