@@ -621,7 +621,8 @@ var URL = window.location.protocol + "//" + window.location.host ;
     this.validate = function(input) {
       //var validityRegexp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
 	  specialCharacterRegexp = (/^(?=.*\d)(?=.*[A-Z])/);
-        DiffCharacterRegexp = /^[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+      //  DiffCharacterRegexp = /^[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+        DiffCharacterRegexp = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
 
       var isEmpty = !input || input.length === 0,
         hasSpecialCharacter = specialCharacterRegexp.test(input),
