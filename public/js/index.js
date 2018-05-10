@@ -1237,7 +1237,8 @@ $('#failsignup').css('display', 'none');
     if (elt.selectedIndex == -1)
 	{Text="";}
 	else {
-    Text=  elt.options[elt.selectedIndex].value;
+    Text=  elt.options[elt.selectedIndex].text;
+	if (Text=='Ontario'){Text='On';}
 	document.getElementById('provinceText').value=Text;
 	document.getElementById('sel2').options[document.getElementById('sel2').selectedIndex].value=-1;$scope.search.city="";
 	document.getElementById('sel3').options[document.getElementById('sel3').selectedIndex].value=-1; $scope.search.areaCode="";
