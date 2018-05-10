@@ -1214,7 +1214,7 @@ $('#failsignup').css('display', 'none');
   document.getElementById('next4').disabled=false;
   		 $scope.formParams.phonenumber=num;
 
-  
+		 
   
   }
   
@@ -1238,7 +1238,7 @@ $('#failsignup').css('display', 'none');
 	{Text="";}
 	else {
     Text=  elt.options[elt.selectedIndex].text;
-		if(Text=='Ontario'){document.getElementById('provinceText').value='ON';$scope.search.province="ON";}else{document.getElementById('provinceText').value=Text;}
+		if(Text=='Ontario'){document.getElementById('provinceText').value='On';$scope.search.province="ON";}else{document.getElementById('provinceText').value=Text;}
 
 	//;
 	document.getElementById('sel2').options[document.getElementById('sel2').selectedIndex].value=-1;$scope.search.city="";

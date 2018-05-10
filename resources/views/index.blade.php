@@ -830,7 +830,7 @@ $('#password, #confirm_password').on('keyup', function () {
     <div class="form-group">
         <div class="col-sm-12">
         <div class="row">
-        <div class="col-sm-4 form-group"><input ng-model="search.province" id="provinceText" type="text"></input>
+        <div class="col-sm-4 form-group"><input ng-model="search.province" id="provinceText" type="hidden"></input>
         <select    ng-model="formParams.province2" class="form-control" id="sel1" ng-click="province();"  ng-change="province();">
     <option value="" disabled="" selected="">Province</option>
         <option value="0">Alberta</option><option value="1">British Columbia</option>
