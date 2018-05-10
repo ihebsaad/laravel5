@@ -625,7 +625,7 @@ var URL = window.location.protocol + "//" + window.location.host ;
 
       var isEmpty = !input || input.length === 0,
         hasSpecialCharacter = specialCharacterRegexp.test(input),
-        isValid = hasSpecialCharacter && (input.length>7)
+        isValid = hasSpecialCharacter ;
 		hasDiff=DiffCharacterRegexp.test(input);
 
 		var	 strong =false; strong= hasSpecialCharacter && hasDiff ;
@@ -635,6 +635,8 @@ var URL = window.location.protocol + "//" + window.location.host ;
       }
 
       if (isValid) {
+		          if (input.length > 7) {
+
 	alert('strong : '+strong);
 		  if ((input.length > 8) && (strong)) {
           return createReturnValue("very strong", 4, true, strong );
@@ -645,6 +647,7 @@ var URL = window.location.protocol + "//" + window.location.host ;
         } else {
           return createReturnValue("ok", 2, true, hasSpecialCharacter);
         }
+				  }
       } else {
         if (input.length < 8) {
           return createReturnValue("too short", 1, false, hasSpecialCharacter);
