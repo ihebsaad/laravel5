@@ -428,8 +428,8 @@ Please enter an end SIM number.
 												<table id="searchObjResults" style="width:300px;">
 												<tr><th style="color:black;min-width:150px">PIN</th><th style="color:black;min-width:150px">SIM</th></tr>
 												<tr ng-repeat="data in DataPins |  filter : search.pin | limitTo:5">
-													<td id="@{data.pin}" style="font-weight:800" ng-bind="data.pin" onclick="SetVal(this)"> </td>
-													<td id="@{data.sim}" style=";font-weight:800" ng-bind="data.sim" onclick="SetVal(this)"></td>
+													<td id="data.pin" style="font-weight:800" ng-bind="data.pin" onclick="SetVal(this)"> </td>
+													<td id="data.sim" style=";font-weight:800" ng-bind="data.sim" onclick="SetVal(this)"></td>
 												</tr>
 												</table> 
 												</div> 
