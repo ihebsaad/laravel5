@@ -1232,15 +1232,13 @@ $('#failsignup').css('display', 'none');
    $scope.province = function () 
 {
 	var Text="";
-	  var elt = document.getElementById('sel1');
+	var elt = document.getElementById('sel1');
 
     if (elt.selectedIndex == -1)
 	{Text="";}
 	else {
     Text=  elt.options[elt.selectedIndex].text;
-		if(Text=='Ontario'){document.getElementById('provinceText').value='On';$scope.search.province="On";}else{document.getElementById('provinceText').value=Text;}
-
-	//;
+	document.getElementById('provinceText').value=Text;
 	document.getElementById('sel2').options[document.getElementById('sel2').selectedIndex].value=-1;$scope.search.city="";
 	document.getElementById('sel3').options[document.getElementById('sel3').selectedIndex].value=-1; $scope.search.areaCode="";
 
@@ -1261,7 +1259,7 @@ $scope.formParams.phonenumber="";
 
     if (elt.selectedIndex == -1)
 	{Text="";}
-	else {
+	else { 
     Text=  elt.options[elt.selectedIndex].text;
 	document.getElementById('cityText').value=Text;
 	document.getElementById('sel3').options[document.getElementById('sel3').selectedIndex].value=-1;$scope.search.areaCode="";
