@@ -637,9 +637,11 @@ var URL = window.location.protocol + "//" + window.location.host ;
 
       if (isValid) {
 		          if (input.length > 7) {
-
-	alert('strong : '+hasDiff);
-		  if ((input.length > 8) && (hasDiff)) {
+					  
+		 if ((input.length > 11) ) {
+          return createReturnValue("very strong", 4, true, hasSpecialCharacter );
+        } 
+		 if ((input.length > 8) && (hasDiff)) {
           return createReturnValue("very strong", 4, true, hasDiff );
         } 
 		  
