@@ -418,7 +418,7 @@ Please enter an end SIM number.
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-6 form-group">
-                                                    <input ng-change="init()" onchange="checkpin();" onmouseout="checkpin();"  ng-model="search.pin" type="number" name="startsim"  ng-pattern="/^[0-9]*$/" placeholder="PIN #" ng-minlength="3" id="startsim0" class="form-control">
+                                                    <input ng-change="init()" onchange="checkpin();" onmouseout="checkpin();"  ng-model="search.pin" type="number" name="startsim"  ng-pattern="/^[0-9]*$/" placeholder="PIN #" id="startsim0" class="form-control">
                                                 </div>   
                                                 <div class="col-sm-4 form-group righ">
                                                     <button id="loockupbtn" ng-click="loockup()" disabled  type="button" class="btn btn-primary "  style="height:35px!important;float: right!important;line-height:0px!important;" >Lookup</button>
