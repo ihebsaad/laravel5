@@ -640,7 +640,7 @@ var URL = window.location.protocol + "//" + window.location.host ;
           return createReturnValue("very strong", 4, true, hasSpecialCharacter );
         } 
 		 if ((input.length > 8) && (hasDiff)) {
-          return createReturnValue("very strong", 4, true, hasDiff );
+          return createReturnValue("very strong", 4, true, hasSpecialCharacter );
         } 
 		  
 		else if (input.length > 10) {

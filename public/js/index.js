@@ -1238,7 +1238,7 @@ $('#failsignup').css('display', 'none');
 	{Text="";}
 	else {
     Text=  elt.options[elt.selectedIndex].text;
-		if(Text=='Ontario'){document.getElementById('provinceText').value='On';$scope.search.province="ON";}else{document.getElementById('provinceText').value=Text;}
+		if(Text=='Ontario'){document.getElementById('provinceText').value='On';$scope.search.province="On";}else{document.getElementById('provinceText').value=Text;}
 
 	//;
 	document.getElementById('sel2').options[document.getElementById('sel2').selectedIndex].value=-1;$scope.search.city="";
