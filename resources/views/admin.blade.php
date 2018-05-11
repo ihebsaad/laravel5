@@ -95,7 +95,7 @@ foreach($obj->plans as $plan){
                     <div class="row">
                       <div class="column col-xs-6">
                       </div>    
-                      <!-- sidebar -->
+                      <!-- sidebar --><style>#logoutb:hover{background-color:white;}</style>
                       <div class="column col-xs-5" id="sidebar">
                                 <?php
                                   if (isset ($_SESSION['access_tokenA']))
