@@ -1302,7 +1302,7 @@ $scope.formParams.phonenumber="";
   //enable 
   
 $scope.enable = function (id){
- if ($scope.loggedin) {
+
 	 var setting = {
   "async": true,
   "crossDomain": true,
@@ -1328,7 +1328,7 @@ $.ajax(setting).fail(function (response) {
 	//console.log('fail enable  '+ response);
 });
 	
- }else {alert('Please Login to do this action');}	
+	
  }
 
 
