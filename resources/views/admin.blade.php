@@ -425,7 +425,7 @@ Please enter an end SIM number.
                                                     <input ng-change="init()"  ng-model="search.pin" type="number" name="startsim"  ng-pattern="/^[0-9]*$/" placeholder="PIN #" id="startsim0" class="form-control">
                                                 </div>   
                                                 <div class="col-sm-4 form-group righ">
-                                                    <button id="loockupbtn" ng-click="loockup()" disabled  type="button" class="btn btn-primary "  style="height:35px!important;float: right!important;line-height:0px!important;" >Lookup</button>
+                                                    <button id="loockupbtn" ng-click="loockup()"   type="button" class="btn btn-primary "  style="height:35px!important;float: right!important;line-height:0px!important;" >Lookup</button>
                                                 </div>      
                                             </div>
 												<div id="searcharea" style="dispaly:none; ">     
