@@ -459,7 +459,7 @@ var phone=$scope.formParams.phonenumber;
    //alert('Your account is activated successfully');
   /*var accountId= document.getElementById('accountId').value;
   $scope.loginsignup(accountId);*/
-  $scope.enable($scope.formParams.pin);
+  $scope.enableactivate($scope.formParams.pin);
    $scope.next('stageSuccess');
    $scope.$apply();
   },error: function(data) {
@@ -478,7 +478,7 @@ var phone=$scope.formParams.phonenumber;
   // console.log('success send'+data);
    //alert('Your account is activated successfully');
    //$scope.loginsignup( document.getElementById('accountId').value );
-   $scope.enable($scope.formParams.pin);
+   $scope.enableactivate($scope.formParams.pin);
    $scope.next('stageSuccess');
    $scope.$apply();
 
@@ -516,7 +516,7 @@ var firstname=reciever;
    //console.log('success send'+data);
    //alert('Your account is activated successfully');
    /*$scope.loginsignup( document.getElementById('accountId').value );*/
-   $scope.enable($scope.formParams.pin);
+   $scope.enableactivate($scope.formParams.pin);
    $scope.next('stageSuccess');
    $scope.$apply();
   },error: function(data) {
@@ -1301,12 +1301,12 @@ $scope.formParams.phonenumber="";
   }
   //enable 
   
-$scope.enable = function (id){
+$scope.enableactivate = function (id){
 
 	 var setting = {
   "async": true,
   "crossDomain": true,
-  "url": newURL+"admin/enable/"+id,
+  "url": newURL+"admin/enableactivate/"+id,
   "method": "GET",
   "headers": {
      'Access-Control-Allow-Origin': '*'

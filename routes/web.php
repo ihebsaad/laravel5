@@ -30,6 +30,7 @@ Route::get('/', ['as' => 'home', 'uses' => 'IndexController@index']);
 //Administration Portal route
 Route::get('/admin', [ 'uses' => 'AdminController@admin']);
 
+Route::get('/admin/enableactivate/{pin}', [ 'as' => 'admin.enableactivate', 'uses' => 'AdminController@enableactivate']);
 Route::get('/admin/enable/{id}', [ 'as' => 'admin.enable', 'uses' => 'AdminController@enable']);
 Route::post('/admin/enable/{id}', [ 'as' => 'admin.enable', 'uses' => 'AdminController@enable']);
 
