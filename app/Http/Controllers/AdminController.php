@@ -133,7 +133,13 @@ $table1 = App\SIM_PLANS::updateOrCreate( ['planCode' => $value ,'SIM'=>$i]);
             ->update(['enabled' => 1]);
 				
 	}
-	
+	  public function enableactivate($pin)
+	{
+	DB::table('sims')
+            ->where('pin', $pin)
+            ->update(['enabled' => 1]);
+				
+	}
 		
     public function disable($id)
 	{
