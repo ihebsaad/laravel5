@@ -276,6 +276,10 @@ Completed with errors. <a href="" style="font-size: 14px;" onclick="document.get
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
 Incorrect headers !
   </div>
+   <div style="display:none;" id="enclosure" class="alert alert-danger">
+    <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+Incorrect enclosure !
+  </div>
   <div style="display:none;" id="delimeter" class="alert alert-danger">
     <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
 Incorrect delimiter !
@@ -868,6 +872,7 @@ document.getElementById('showdetails').innerHTML="";
 	 	  if ( document.getElementById("uploadfail") != null ){document.getElementById("uploadfail").style.display="none";}
 		  if ( document.getElementById("uploadsuccess") != null ){document.getElementById("uploadsuccess").style.display="none";}
 		  if ( document.getElementById("headers") != null ){document.getElementById("headers").style.display="none";}
+		  if ( document.getElementById("enclosure") != null ){document.getElementById("enclosure").style.display="none";}
 		  if ( document.getElementById("delimeter") != null ){document.getElementById("delimeter").style.display="none";}
 		  if ( document.getElementById("sortpicture").files.length == 0 ){
     $("#nofileselected").slideDown();
@@ -905,6 +910,7 @@ else{
 }
 					if (response.indexOf('Incorrect delimiter!') > -1){$("#delimeter").slideDown();}
 					else if (response.indexOf('Incorrect headers!') > -1){$("#headers").slideDown();}
+					else if (response.indexOf('Incorrect enclosure!') > -1){$("#enclosure").slideDown();}
 				   else if ( ((response.indexOf('Incorrect delimiter!') > -1)) 
 					   || ((response.indexOf('Not stored') > -1))
 				       || ((response.indexOf('Non-existent') > -1)) 
@@ -991,6 +997,7 @@ if ( document.getElementById("nofileselected") != null ){document.getElementById
 if ( document.getElementById("uploadfail") != null ){document.getElementById("uploadfail").style.display="none";}
 if ( document.getElementById("uploadsuccess") != null ){document.getElementById("uploadsuccess").style.display="none";}
 if ( document.getElementById("headers") != null ){document.getElementById("headers").style.display="none";}
+if ( document.getElementById("enclosure") != null ){document.getElementById("enclosure").style.display="none";}
 if ( document.getElementById("delimeter") != null ){document.getElementById("delimeter").style.display="none";}
  
 
@@ -1012,6 +1019,7 @@ if ( document.getElementById("nofileselected") != null ){document.getElementById
 if ( document.getElementById("uploadfail") != null ){document.getElementById("uploadfail").style.display="none";}
 if ( document.getElementById("uploadsuccess") != null ){document.getElementById("uploadsuccess").style.display="none";}
 if ( document.getElementById("headers") != null ){document.getElementById("headers").style.display="none";}
+if ( document.getElementById("enclosure") != null ){document.getElementById("enclosure").style.display="none";}
 if ( document.getElementById("delimeter") != null ){document.getElementById("delimeter").style.display="none";}
 if ( document.getElementById("incorrectrange") != null ){ document.getElementById("incorrectrange").style.display="none";}
 if ( document.getElementById("operationsuccessn") != null ){ document.getElementById("operationsuccessn").style.display="none";}
