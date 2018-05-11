@@ -1005,6 +1005,7 @@ var settings = {
 var res = $.ajax(settings).done(function (response) {
 
  console.log('response done payement :*' + response.replace(/(\r\n|\n|\r)/gm,"")+'*');
+ console.log('response done payement :*' + response.replace(/\s/g,'')+'*');
 
     document.getElementById('transactionid').value=response.replace(/(\r\n|\n|\r)/gm,"");
     console.log('length : ' + document.getElementById('transactionid').value.length);
