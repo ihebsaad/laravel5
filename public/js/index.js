@@ -1321,11 +1321,12 @@ $("#pinenabled").slideDown();
 		//refresh PINs list 
 	  $http.get(newURL+'pins').success(function (responsepins) {
              $scope.DataPins = responsepins ;
+			 console.log('success enable');
           });	
 });
 
 $.ajax(setting).fail(function (response) {
-	//console.log('fail enable  '+ response);
+	console.log('fail enable  '+ response);
 });
 	
 	
