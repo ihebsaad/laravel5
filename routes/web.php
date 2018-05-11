@@ -92,6 +92,13 @@ Route::get('/downloadtemplate', function () {
 Route::post('/downloadtemplate', function () {
     return view('downloadtemplate');
 });
+
+Route::get('/pins', function () {
+    return view('/pins');
+});
+
+Route::get('/upload', function () {
+    return view('/upload');
 Route::get('/mail', function () {
     return view('mail');
 });
