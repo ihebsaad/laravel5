@@ -99,6 +99,7 @@ Route::get('/pins', function () {
 
 Route::get('/upload', function () {
     return view('/upload');
+	});
 Route::get('/mail', function () {
     return view('mail');
 });
